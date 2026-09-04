@@ -16,14 +16,12 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
 }) => {
   const { t, isRtl } = useLanguage();
 
-  const [selectedColor, setSelectedColor] = useState<string>('');
   const [selectedImage, setSelectedImage] = useState<string>('');
   const [isAdded, setIsAdded] = useState(false);
 
   // Sync state whenever the active product opens
   useEffect(() => {
     if (product) {
-      setSelectedColor(product.colorOptions[0]?.name || '');
       setSelectedImage(product.image);
       setIsAdded(false);
     }
@@ -32,7 +30,7 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
   if (!product) return null;
 
   const handleAdd = () => {
-    onAddToCart(product, selectedColor);
+    onAddToCart(product, product.colorOptions[0]?.name || 'Pure Matte White');
     setIsAdded(true);
     setTimeout(() => {
       setIsAdded(false);
@@ -109,37 +107,15 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
               {product.price.toLocaleString()} {isRtl ? 'افغانی' : 'AFN'}
             </div>
 
-            {/* Minimal Circular Color Swatches */}
-            <div className="pt-3 space-y-2">
-              <div className="text-xs font-sans-body text-[#1F2421]/70 dark:text-[#F7F5F0]/70">
+            {/* Material Specification */}
+            {product.material && (
+              <div className="text-xs text-[#1F2421]/60 dark:text-[#F7F5F0]/60 font-sans-body pt-1">
                 <span className="font-medium text-[#1F2421] dark:text-[#F7F5F0]">
-                  {isRtl ? 'رنگ:' : 'Color:'}
+                  {isRtl ? 'متریال:' : 'Material:'}
                 </span>{' '}
-                <span className="text-[#C5A059] font-semibold">{selectedColor}</span>
+                {product.material}
               </div>
-              <div className="flex items-center gap-2.5">
-                {product.colorOptions.map((color) => {
-                  const isSelected = selectedColor === color.name;
-                  return (
-                    <button
-                      key={color.name}
-                      onClick={() => setSelectedColor(color.name)}
-                      title={color.name}
-                      className={`w-7 h-7 rounded-full transition-all cursor-pointer flex items-center justify-center ${
-                        isSelected
-                          ? 'ring-2 ring-[#C5A059] ring-offset-2 ring-offset-[#FFFFFF] dark:ring-offset-[#0F1B3D] scale-110'
-                          : 'border border-neutral-300 dark:border-neutral-600 hover:scale-105'
-                      }`}
-                      style={{ backgroundColor: color.hex }}
-                    >
-                      {isSelected && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-white shadow-xs" />
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
+            )}
           </div>
 
           {/* Streamlined Add to Bag Button */}

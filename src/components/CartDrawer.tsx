@@ -52,7 +52,6 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       msg += `📦 اقلام سفارش:\n`;
       cart.forEach((item, index) => {
         msg += `${index + 1}. ${item.product.name}\n`;
-        msg += `   • رنگ/فینیش: ${item.selectedColor}\n`;
         msg += `   • تعداد: ${item.quantity} عدد\n`;
         msg += `   • قیمت واحد: ${item.product.price.toLocaleString()} افغانی\n`;
         msg += `   • مجموع: ${(item.product.price * item.quantity).toLocaleString()} افغانی\n\n`;
@@ -68,7 +67,6 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       msg += `📦 Order Items:\n`;
       cart.forEach((item, index) => {
         msg += `${index + 1}. ${item.product.name}\n`;
-        msg += `   • Color: ${item.selectedColor}\n`;
         msg += `   • Quantity: ${item.quantity}\n`;
         msg += `   • Unit Price: ${item.product.price.toLocaleString()} AFN\n`;
         msg += `   • Total: ${(item.product.price * item.quantity).toLocaleString()} AFN\n\n`;
@@ -193,10 +191,6 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
                         </div>
-
-                        <p className="text-xs text-[#C5A059] font-medium mt-0.5">
-                          {item.selectedColor}
-                        </p>
 
                         <div className="flex items-center justify-between mt-3">
                           <div className="flex items-center border border-[#E5E1D8] dark:border-[#1D2B52] rounded-full bg-[#F7F5F0] dark:bg-[#0B132B]">

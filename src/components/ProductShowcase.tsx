@@ -16,7 +16,6 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 }) => {
   const { t, isRtl } = useLanguage();
   const [activeCategoryKey, setActiveCategoryKey] = useState<string>('all');
-  const [selectedColors, setSelectedColors] = useState<{ [productId: string]: string }>({});
   const [addedProductId, setAddedProductId] = useState<string | null>(null);
   const [wishlist, setWishlist] = useState<string[]>([]);
 
@@ -36,15 +35,9 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
         return true;
       });
 
-  const handleColorSelect = (productId: string, colorName: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    setSelectedColors(prev => ({ ...prev, [productId]: colorName }));
-  };
-
   const handleAdd = (product: Product, e: React.MouseEvent) => {
     e.stopPropagation();
-    const currentColor = selectedColors[product.id] || product.colorOptions[0].name;
-    onAddToCart(product, currentColor);
+    onAddToCart(product, product.colorOptions[0]?.name || 'Pure Matte White');
     setAddedProductId(product.id);
     setTimeout(() => {
       setAddedProductId(null);
@@ -97,7 +90,6 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {filteredProducts.map((product, index) => {
             const isFeatured = index === 0 || index === 4;
-            const currentColor = selectedColors[product.id] || product.colorOptions[0].name;
             const isAdded = addedProductId === product.id;
             const isFavorited = wishlist.includes(product.id);
 
@@ -176,19 +168,12 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                 </div>
 
                 {/* Card Content & Clean Typography */}
-                <div className="space-y-2">
+                <div className="space-y-2 pt-1">
                   
-                  {/* Category & Rating */}
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-[#C5A059]">
-                      {product.collection}
-                    </span>
-                    <div className="flex items-center gap-1 text-[#1F2421] dark:text-[#F7F5F0]">
-                      <Star className="w-3 h-3 fill-[#C5A059] text-[#C5A059]" />
-                      <span className="font-semibold text-xs">{product.rating}</span>
-                      <span className="text-neutral-400 text-[11px]">({product.reviewCount})</span>
-                    </div>
-                  </div>
+                  {/* Category / Collection Tag */}
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#C5A059] block">
+                    {product.collection}
+                  </span>
 
                   {/* Product Title */}
                   <h3 className="font-serif-heading text-lg sm:text-xl font-medium text-[#1F2421] dark:text-[#F7F5F0] group-hover:text-[#C5A059] transition-colors leading-snug">
@@ -199,37 +184,14 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     {product.subtitle}
                   </p>
 
-                  {/* Color Swatch Selector */}
-                  <div className="flex items-center justify-between pt-1.5">
-                    <div className="flex items-center space-x-1.5">
-                      {product.colorOptions.map((color) => (
-                        <button
-                          key={color.name}
-                          onClick={(e) => handleColorSelect(product.id, color.name, e)}
-                          title={color.name}
-                          className={`w-4.5 h-4.5 rounded-full border transition-all ${
-                            currentColor === color.name
-                              ? 'ring-2 ring-[#C5A059] ring-offset-2 ring-offset-[#FFFFFF] dark:ring-offset-[#0F1B3D] scale-110'
-                              : 'border-neutral-300 hover:scale-105'
-                          }`}
-                          style={{ backgroundColor: color.hex }}
-                        />
-                      ))}
-                    </div>
-
-                    {/* Price with optional original price strike */}
-                    <div className="text-right rtl:text-left">
-                      <div className="flex items-baseline gap-1.5">
-                        {product.originalPrice && (
-                          <span className="text-xs line-through text-neutral-400 font-sans-body">
-                            {product.originalPrice.toLocaleString()} {isRtl ? 'افغانی' : 'AFN'}
-                          </span>
-                        )}
-                        <span className="font-serif-heading text-base sm:text-lg font-semibold text-[#1F2421] dark:text-[#F7F5F0]">
-                          {product.price.toLocaleString()} {isRtl ? 'افغانی' : 'AFN'}
-                        </span>
-                      </div>
-                    </div>
+                  {/* Clean Price Row */}
+                  <div className="pt-2 border-t border-[#E5E1D8]/60 dark:border-[#1D2B52]/60 flex items-center justify-between">
+                    <span className="font-serif-heading text-base sm:text-lg font-semibold text-[#1F2421] dark:text-[#F7F5F0]">
+                      {product.price.toLocaleString()} {isRtl ? 'افغانی' : 'AFN'}
+                    </span>
+                    <span className="text-xs text-[#C5A059] font-medium flex items-center gap-1 group-hover:underline">
+                      {t.showcase.quickSpecs}
+                    </span>
                   </div>
 
                 </div>
