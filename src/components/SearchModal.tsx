@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Search, X, Star, ArrowRight, Eye } from 'lucide-react';
+import { Search, X, ArrowRight } from 'lucide-react';
 import { Product } from '../types';
+import { useLanguage } from '../context/LanguageContext';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -15,9 +16,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   products,
   onSelectProduct
 }) => {
-  if (!isOpen) return null;
-
+  const { isRtl } = useLanguage();
   const [query, setQuery] = useState('');
+
+  if (!isOpen) return null;
 
   const filtered = query.trim() === ''
     ? products
@@ -34,49 +36,44 @@ export const SearchModal: React.FC<SearchModalProps> = ({
       {/* Backdrop close */}
       <div className="fixed inset-0" onClick={onClose} />
 
-      <div className="relative bg-[#FFFFFF] dark:bg-[#0F1B3D] w-full max-w-2xl rounded-[28px] overflow-hidden shadow-2xl border border-[#E5E1D8] dark:border-[#1D2B52] z-10 p-6 sm:p-8 space-y-6 transition-colors">
-        
+      <div 
+        dir={isRtl ? 'rtl' : 'ltr'}
+        className="relative bg-[#FFFFFF] dark:bg-[#0F1B3D] w-full max-w-2xl rounded-[28px] overflow-hidden shadow-2xl border border-[#E5E1D8] dark:border-[#1D2B52] z-10 p-6 sm:p-8 space-y-6 transition-colors text-left rtl:text-right"
+      >
         {/* Search input header */}
         <div className="flex items-center justify-between pb-4 border-b border-[#E5E1D8] dark:border-[#1D2B52]">
           <div className="flex items-center gap-3 flex-1">
-            <Search className="w-5 h-5 text-[#C5A059]" />
+            <Search className="w-5 h-5 text-[#C5A059] shrink-0" />
             <input
               type="text"
-              autoFocus
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search by switch, socket, finish, or collection..."
-              className="w-full bg-transparent text-[#1F2421] dark:text-[#F7F5F0] font-serif-heading text-xl placeholder-neutral-400 focus:outline-none"
+              placeholder={isRtl ? "جستجوی کلید، پریز یا متریال..." : "Search switches, sockets, materials..."}
+              autoFocus
+              className="w-full bg-transparent text-sm sm:text-base text-[#1F2421] dark:text-[#F7F5F0] placeholder-neutral-400 focus:outline-none"
             />
           </div>
+          {query && (
+            <button
+              onClick={() => setQuery('')}
+              className="text-neutral-400 hover:text-black dark:hover:text-white mr-3 rtl:mr-0 rtl:ml-3 transition-colors cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
           <button
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-[#F7F5F0] dark:hover:bg-[#13224A] text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
-            aria-label="Close search"
+            className="p-1.5 rounded-full hover:bg-[#F7F5F0] dark:hover:bg-[#13224A] text-neutral-400 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Quick Filter Tags */}
-        <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="text-neutral-400 font-sans-body">Popular:</span>
-          {['Switches', 'Sockets', 'Trio Suite', 'Modular', 'Dual-Gang', 'Fluted'].map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setQuery(tag)}
-              className="px-3.5 py-1 rounded-full bg-[#F7F5F0] dark:bg-[#0B132B] hover:bg-[#C5A059]/15 text-[#1F2421] dark:text-[#F7F5F0] border border-[#E5E1D8] dark:border-[#1D2B52] transition-colors cursor-pointer"
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
-
         {/* Results List */}
-        <div className="max-h-96 overflow-y-auto space-y-3 pr-1">
+        <div className="space-y-3 max-h-[60vh] overflow-y-auto pr-1 rtl:pr-0 rtl:pl-1">
           {filtered.length === 0 ? (
-            <div className="py-12 text-center text-neutral-500 text-sm font-sans-body">
-              No pieces match "{query}". Try searching for switch, socket, modular, or suite.
+            <div className="text-center py-12 text-neutral-400 font-sans-body">
+              <p className="text-sm">{isRtl ? "هیچ محصولی با این عبارت یافت نشد." : "No architectural hardware matches your search."}</p>
             </div>
           ) : (
             filtered.map((item) => (
@@ -86,7 +83,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   onSelectProduct(item);
                   onClose();
                 }}
-                className="group cursor-pointer p-3.5 rounded-2xl bg-[#FFFFFF] dark:bg-[#0F1B3D] hover:bg-[#F7F5F0] dark:hover:bg-[#13224A] border border-[#E5E1D8] dark:border-[#1D2B52] hover:border-[#C5A059] dark:hover:border-[#C5A059] flex items-center justify-between transition-all duration-200 shadow-xs"
+                className="group flex items-center justify-between p-3.5 rounded-2xl hover:bg-[#F7F5F0] dark:hover:bg-[#0B132B] transition-all cursor-pointer border border-transparent hover:border-[#C5A059]/40"
               >
                 <div className="flex items-center gap-4">
                   <img
@@ -105,12 +102,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   </div>
                 </div>
 
-                <div className="text-right flex items-center gap-3">
+                <div className="text-right rtl:text-left flex items-center gap-3">
                   <span className="font-serif-heading text-base font-semibold text-[#1F2421] dark:text-[#F7F5F0]">
-                    ${item.price.toLocaleString()}
+                    {item.price.toLocaleString()} {isRtl ? 'افغانی' : 'AFN'}
                   </span>
                   <div className="w-8 h-8 rounded-full bg-[#F7F5F0] dark:bg-[#0B132B] group-hover:bg-[#0B132B] dark:group-hover:bg-[#C5A059] group-hover:text-[#C5A059] dark:group-hover:text-[#0B132B] text-[#1F2421] dark:text-[#F7F5F0] flex items-center justify-center transition-colors border border-[#E5E1D8] dark:border-[#1D2B52]">
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className={`w-3.5 h-3.5 ${isRtl ? 'rotate-180' : ''}`} />
                   </div>
                 </div>
               </div>

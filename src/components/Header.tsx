@@ -1,35 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Search, Menu, X, ArrowRight, Sparkles, User, LogOut, Play, Sun, Moon } from 'lucide-react';
+import { ShoppingBag, Search, Menu, X, ArrowRight, Sparkles, Play, Sun, Moon, Globe } from 'lucide-react';
 import { CartItem } from '../types';
 import { RoshnaLogo } from './RoshnaLogo';
 import { RoshnaEmblem } from './RoshnaEmblem';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HeaderProps {
   cart: CartItem[];
   onOpenCart: () => void;
   onOpenSearch: () => void;
-  onOpenAuth: () => void;
   onReplaySplash?: () => void;
-  currentUser: { name: string; role: string; email: string } | null;
-  onLogout?: () => void;
   onNavigate: (sectionId: string) => void;
 }
+
+const WhatsAppIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    aria-hidden="true"
+  >
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.884 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.05 24l6.348-1.665a11.838 11.838 0 005.65 1.439h.005c6.554 0 11.89-5.336 11.893-11.893a11.82 11.82 0 00-3.483-8.413z" />
+  </svg>
+);
 
 export const Header: React.FC<HeaderProps> = ({
   cart,
   onOpenCart,
   onOpenSearch,
-  onOpenAuth,
   onReplaySplash,
-  currentUser,
-  onLogout,
   onNavigate
 }) => {
   const { isDark, toggleTheme } = useTheme();
+  const { language, toggleLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showAnnouncement, setShowAnnouncement] = useState(true);
   const [activeSection, setActiveSection] = useState('hero');
 
   const totalCartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -43,12 +49,12 @@ export const Header: React.FC<HeaderProps> = ({
   }, []);
 
   const navLinks = [
-    { label: 'Home', target: 'hero' },
-    { label: 'Collection', target: 'collection' },
-    { label: 'Craft & Design', target: 'craft' },
-    { label: 'Materials', target: 'materials' },
-    { label: 'Reviews', target: 'reviews' },
-    { label: 'FAQ', target: 'faq' }
+    { label: t.nav.home, target: 'hero' },
+    { label: t.nav.collection, target: 'collection' },
+    { label: t.nav.craft, target: 'craft' },
+    { label: t.nav.materials, target: 'materials' },
+    { label: t.nav.reviews, target: 'reviews' },
+    { label: t.nav.faq, target: 'faq' }
   ];
 
   const handleLinkClick = (target: string) => {
@@ -59,44 +65,6 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-40 w-full transition-all duration-300 select-none">
-      {/* Top Luxury Announcement Bar (Deep Navy #0B132B with Warm Metallic Gold #C5A059) */}
-      {showAnnouncement && (
-        <div className="bg-[#0B132B] text-[#F7F5F0] py-2 px-4 text-xs font-sans-body border-b border-[#C5A059]/25 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <div className="flex-1 flex items-center justify-center gap-3 tracking-wider text-[11px] sm:text-xs">
-              <span className="inline-flex items-center gap-1.5 text-[#C5A059] font-semibold whitespace-nowrap">
-                <Sparkles className="w-3.5 h-3.5 animate-pulse text-[#D4AF37]" />
-                <span>ROSHNA VOLT • Switch To Quality</span>
-              </span>
-              <span className="hidden md:inline text-[#C5A059]/40">|</span>
-              <span className="text-neutral-300 hidden sm:inline whitespace-nowrap">
-                Complimentary Architectural Consultation & Insured Delivery
-              </span>
-              {onReplaySplash && (
-                <>
-                  <span className="hidden lg:inline text-[#C5A059]/40">|</span>
-                  <button
-                    onClick={onReplaySplash}
-                    className="hidden lg:inline-flex items-center gap-1 text-[#C5A059] hover:text-[#D4AF37] transition-colors cursor-pointer text-[11px] font-medium"
-                    title="Replay brand intro splash"
-                  >
-                    <Play className="w-2.5 h-2.5 fill-current" />
-                    <span>Replay Intro</span>
-                  </button>
-                </>
-              )}
-            </div>
-            <button
-              onClick={() => setShowAnnouncement(false)}
-              className="text-neutral-400 hover:text-white text-xs p-1 ml-2 transition-colors flex-shrink-0"
-              aria-label="Dismiss announcement"
-            >
-              <X className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* Main Navigation Bar (Supports Light Mode & Signature Brand Dark Mode #0B132B) */}
       <nav
         className={`w-full transition-all duration-300 ${
@@ -180,7 +148,24 @@ export const Header: React.FC<HeaderProps> = ({
                 )}
               </span>
               <span className="text-[11px] font-semibold tracking-wider uppercase hidden sm:inline">
-                {isDark ? 'Navy Dark' : 'Light'}
+                {isDark ? t.nav.darkMode : t.nav.lightMode}
+              </span>
+            </button>
+
+            {/* DUAL LANGUAGE TOGGLE (EN / FA) */}
+            <button
+              onClick={toggleLanguage}
+              className={`relative inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full border transition-all duration-300 flex-shrink-0 cursor-pointer select-none group ${
+                isDark
+                  ? 'bg-[#0F1B3D] border-[#C5A059]/40 text-[#C5A059] hover:bg-[#13224A] shadow-xs'
+                  : 'bg-[#FFFFFF] border-[#E5E1D8] text-[#1F2421] hover:border-[#C5A059] hover:text-[#C5A059] shadow-xs'
+              }`}
+              aria-label={language === 'en' ? 'تغییر به زبان فارسی' : 'Switch to English'}
+              title={language === 'en' ? 'تغییر زبان به فارسی' : 'Switch to English'}
+            >
+              <Globe className="w-3.5 h-3.5 text-[#C5A059] group-hover:rotate-45 transition-transform duration-300" />
+              <span className="text-[11px] font-bold tracking-wider uppercase">
+                {language === 'en' ? 'FA' : 'EN'}
               </span>
             </button>
 
@@ -198,50 +183,6 @@ export const Header: React.FC<HeaderProps> = ({
               <Search className="w-4.5 h-4.5" />
             </button>
 
-            {/* Authentication / User Profile */}
-            {currentUser ? (
-              <div
-                className={`flex items-center gap-1.5 border rounded-full pl-2.5 pr-2 py-1 flex-shrink-0 ${
-                  isDark
-                    ? 'bg-[#0F1B3D] border-[#C5A059]/30 text-[#F7F5F0]'
-                    : 'bg-[#F7F5F0] border-[#C5A059]/30 text-[#1F2421]'
-                }`}
-              >
-                <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse" />
-                <span className="text-xs font-semibold hidden sm:inline max-w-[110px] truncate whitespace-nowrap">
-                  {currentUser.name}
-                </span>
-                <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-gradient-to-r from-[#C5A059] to-[#9E7B36] text-[#0B132B] font-bold tracking-wider">
-                  VIP
-                </span>
-                {onLogout && (
-                  <button
-                    onClick={onLogout}
-                    className="p-1 rounded-full text-neutral-400 hover:text-red-600 hover:bg-white/10 transition-colors ml-1 flex-shrink-0"
-                    title="Sign Out"
-                    aria-label="Sign out"
-                  >
-                    <LogOut className="w-3.5 h-3.5" />
-                  </button>
-                )}
-              </div>
-            ) : (
-              <button
-                onClick={onOpenAuth}
-                className={`p-2 sm:px-3 sm:py-2 rounded-full transition-colors flex items-center gap-1.5 flex-shrink-0 cursor-pointer ${
-                  isDark
-                    ? 'text-[#F7F5F0] hover:bg-[#0F1B3D] hover:text-[#C5A059]'
-                    : 'text-[#1F2421] hover:bg-[#F7F5F0] hover:text-[#C5A059]'
-                }`}
-                aria-label="Sign in to Trade Portal"
-                title="Trade Portal Sign In"
-              >
-                <User className="w-4.5 h-4.5 flex-shrink-0" />
-                <span className="text-xs font-semibold tracking-wide hidden sm:inline whitespace-nowrap">
-                  Sign In
-                </span>
-              </button>
-            )}
 
             {/* Shopping Bag Trigger */}
             <button
@@ -262,14 +203,18 @@ export const Header: React.FC<HeaderProps> = ({
               )}
             </button>
 
-            {/* Anchored Prestige Concierge Button (Warm Gold Accent) */}
-            <button
-              onClick={() => handleLinkClick('faq')}
-              className="hidden lg:inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase px-4 py-2 rounded-full border border-[#C5A059] text-[#C5A059] bg-[#C5A059]/5 hover:bg-gradient-to-r hover:from-[#C5A059] hover:to-[#9E7B36] hover:text-[#0B132B] hover:border-transparent transition-all shadow-xs hover:shadow-md hover:shadow-[#C5A059]/20 whitespace-nowrap flex-shrink-0 cursor-pointer"
+            {/* WhatsApp Direct Client Button */}
+            <a
+              href="https://wa.me/?text=Hello%20Roshna%20Volt%2C%20I%20would%20like%20to%20inquire%20about%20your%20architectural%20collection."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold tracking-wider uppercase px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-[#25D366]/50 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366] hover:text-[#0B132B] hover:border-transparent transition-all shadow-xs hover:shadow-md hover:shadow-[#25D366]/25 whitespace-nowrap flex-shrink-0 cursor-pointer group"
+              title="Chat with Roshna on WhatsApp"
+              aria-label="Chat on WhatsApp"
             >
-              <span>Concierge</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+              <WhatsAppIcon className="w-4 h-4 fill-current group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline">WhatsApp</span>
+            </a>
 
             {/* Hamburger Menu Toggle (Mobile & Tablet) */}
             <button
@@ -315,7 +260,21 @@ export const Header: React.FC<HeaderProps> = ({
                   }`}
                 >
                   {isDark ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
-                  <span className="text-[10px] font-semibold">{isDark ? 'Light' : 'Dark'}</span>
+                  <span className="text-[10px] font-semibold">{isDark ? t.nav.lightMode : t.nav.darkMode}</span>
+                </button>
+
+                {/* Mobile Language Toggle */}
+                <button
+                  onClick={toggleLanguage}
+                  className={`p-1.5 rounded-full border text-xs flex items-center gap-1.5 px-2.5 ${
+                    isDark
+                      ? 'bg-[#0F1B3D] border-[#C5A059]/40 text-[#C5A059]'
+                      : 'bg-[#FFFFFF] border-[#E5E1D8] text-[#1F2421]'
+                  }`}
+                  title={language === 'en' ? 'تغییر به فارسی' : 'Switch to English'}
+                >
+                  <Globe className="w-3.5 h-3.5 text-[#C5A059]" />
+                  <span className="text-[10px] font-bold uppercase">{language === 'en' ? 'FA' : 'EN'}</span>
                 </button>
 
                 {onReplaySplash && (
@@ -346,51 +305,23 @@ export const Header: React.FC<HeaderProps> = ({
               </button>
             ))}
 
-            {/* Auth in mobile drawer */}
-            <div className="pt-2">
-              {currentUser ? (
-                <div
-                  className={`p-4 rounded-2xl border flex items-center justify-between shadow-xs ${
-                    isDark
-                      ? 'bg-[#0F1B3D] border-[#C5A059]/30'
-                      : 'bg-[#FFFFFF] border-[#C5A059]/30'
-                  }`}
-                >
-                  <div>
-                    <p className={`text-sm font-semibold ${isDark ? 'text-[#F7F5F0]' : 'text-[#0B132B]'}`}>
-                      {currentUser.name}
-                    </p>
-                    <p className="text-xs text-[#C5A059] font-medium">{currentUser.role}</p>
-                  </div>
-                  {onLogout && (
-                    <button
-                      onClick={onLogout}
-                      className="px-3 py-1.5 rounded-lg text-xs bg-[#F7F5F0] text-[#1F2421] font-medium border border-[#E5E1D8]"
-                    >
-                      Sign Out
-                    </button>
-                  )}
-                </div>
-              ) : (
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenAuth();
-                  }}
-                  className="w-full py-3 px-4 rounded-xl btn-gold-gradient text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2"
-                >
-                  <User className="w-4 h-4 text-[#0B132B]" />
-                  <span>Trade Portal Sign In</span>
-                </button>
-              )}
-            </div>
+
           </div>
 
-          <div className="border-t border-[#E5E1D8]/40 pt-6 space-y-4">
+          <div className="border-t border-[#E5E1D8]/40 pt-6 space-y-3">
             <div className="text-xs text-[#94A3B8] font-sans-body">
               <p className="font-semibold text-[#C5A059]">Roshna Volt Flagship Engineering</p>
               <p>Certified to CE, CB, RoHS & IEC-60884 Standards</p>
             </div>
+            <a
+              href="https://wa.me/?text=Hello%20Roshna%20Volt%2C%20I%20would%20like%20to%20inquire%20about%20your%20architectural%20collection."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3.5 px-4 rounded-full border border-[#25D366]/50 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366] hover:text-[#0B132B] font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors shadow-xs"
+            >
+              <WhatsAppIcon className="w-4 h-4 fill-current" />
+              <span>Chat on WhatsApp</span>
+            </a>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

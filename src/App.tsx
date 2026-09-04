@@ -12,23 +12,15 @@ import { CartDrawer } from './components/CartDrawer';
 import { ProductQuickViewModal } from './components/ProductQuickViewModal';
 import { SearchModal } from './components/SearchModal';
 import { SplashScreen } from './components/SplashScreen';
-import { AuthModal } from './components/AuthModal';
 import { PRODUCTS } from './data/furnitureData';
 import { Product, CartItem } from './types';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
+import { LanguageProvider } from './context/LanguageContext';
 import { Check } from 'lucide-react';
-
-interface AuthUser {
-  name: string;
-  role: string;
-  email: string;
-}
 
 function MainAppContent() {
   const { isDark } = useTheme();
   const [showSplash, setShowSplash] = useState(true);
-  const [isAuthOpen, setIsAuthOpen] = useState(false);
-  const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
 
   const [cart, setCart] = useState<CartItem[]>([
     {
@@ -88,7 +80,7 @@ function MainAppContent() {
   };
 
   const handleCheckout = () => {
-    showToast('Your architectural order reservation has been submitted. Our concierge will contact you shortly.');
+    showToast('Your order details have been prepared and opened in WhatsApp.');
     setCart([]);
   };
 
@@ -127,13 +119,7 @@ function MainAppContent() {
         cart={cart}
         onOpenCart={() => setIsCartOpen(true)}
         onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenAuth={() => setIsAuthOpen(true)}
         onReplaySplash={() => setShowSplash(true)}
-        currentUser={currentUser}
-        onLogout={() => {
-          setCurrentUser(null);
-          showToast('Signed out of Roshna Atelier.');
-        }}
         onNavigate={handleNavigate}
       />
 
@@ -172,15 +158,6 @@ function MainAppContent() {
       {/* 8. Footer & Newsletter */}
       <NewsletterAndFooter />
 
-      {/* Authentication Modal */}
-      <AuthModal
-        isOpen={isAuthOpen}
-        onClose={() => setIsAuthOpen(false)}
-        onLoginSuccess={(user) => {
-          setCurrentUser(user);
-          showToast(`Welcome back, ${user.name} (${user.role})`);
-        }}
-      />
 
       {/* Cart Drawer */}
       <CartDrawer
@@ -214,7 +191,9 @@ function MainAppContent() {
 export default function App() {
   return (
     <ThemeProvider>
-      <MainAppContent />
+      <LanguageProvider>
+        <MainAppContent />
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

@@ -1,41 +1,9 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle, Mail, Clock, ArrowRight, Sparkles } from 'lucide-react';
-
-interface FAQItem {
-  question: string;
-  answer: string;
-  category: string;
-}
-
-const FAQS: FAQItem[] = [
-  {
-    question: 'How does Roshna’s 3-part modular engineering architecture work?',
-    answer: 'Roshna separates the heavy-gauge steel subframe from the finished cosmetic faceplate. Electricians first wire and clamp the rigid steel plate onto standard standard 86mm or European wall backboxes. Once painting and plastering are finished, the pristine polycarbonate or brass faceplate simply snaps on tool-free with zero risk of scuffs or paint spatters.',
-    category: 'Installation & Mechanism'
-  },
-  {
-    question: 'Are Roshna switches and sockets compatible with standard existing backboxes?',
-    answer: 'Yes. Every unit is engineered for full backward-compatibility with standard British BS 4662, European CEE 7, and universal 86mm architectural flush-mount wall backboxes with a minimum depth of 35mm.',
-    category: 'Compatibility'
-  },
-  {
-    question: 'What electrical safety certifications and current ratings do Roshna units carry?',
-    answer: 'All Roshna wall controls and socket outlets are certified to CE, CB, RoHS, and IEC-60884 international standards. Our wall sockets are rated for 250V / 16A with integrated child-safety shutters, while switches feature silver-nickel contacts rated for 100,000+ continuous actuations under inductive LED loads.',
-    category: 'Safety & Ratings'
-  },
-  {
-    question: 'What is covered under the Roshna Lifetime Structural Guarantee?',
-    answer: 'We provide an unconditional lifetime replacement guarantee on the internal mechanical rocker springs, silver-nickel contact terminals, and steel structural mounting frames. Cosmetic faceplates carry a 10-year UV and anti-fingerprint warranty.',
-    category: 'Guarantee & Warranty'
-  },
-  {
-    question: 'Do you offer custom engraved faceplates and bespoke architectural finishes for trade firms?',
-    answer: 'Yes. Through our Milan and Copenhagen atelier trade concierge, registered architects and interior studios can commission bespoke laser-engraved labels, custom RAL powder-coated finishes, and solid brass patinas for high-end residential and hospitality projects.',
-    category: 'Trade & Bespoke'
-  }
-];
+import { ChevronDown, HelpCircle, Mail, Clock, Sparkles, MessageSquare } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const FAQSection: React.FC = () => {
+  const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
@@ -52,15 +20,15 @@ export const FAQSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-8">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFFFFF] dark:bg-[#0F1B3D] border border-[#C5A059]/40 text-[#C5A059] text-[11px] uppercase tracking-[0.2em] font-semibold mb-3 shadow-xs">
-                <HelpCircle className="w-3.5 h-3.5" />
-                <span>Atelier Inquiries</span>
+                <HelpCircle className="w-3.5 h-3.5 text-[#C5A059]" />
+                <span>{t.faq.badge}</span>
               </div>
               <h2 className="font-serif-heading text-3xl sm:text-4xl md:text-5xl font-normal text-[#1F2421] dark:text-[#F7F5F0] tracking-tight">
-                Frequently Asked <br />
-                <span className="italic font-serif-heading text-[#C5A059]">Questions</span>
+                {t.faq.titlePart1} <br />
+                <span className="italic font-serif-heading text-[#C5A059]">{t.faq.titlePart2}</span>
               </h2>
               <p className="mt-4 font-sans-body text-sm text-[#1F2421]/75 dark:text-[#F7F5F0]/75 font-light leading-relaxed">
-                Clear answers regarding our 3-part modular engineering, backbox compatibility, lifetime guarantee, and trade architect specification programs.
+                {t.faq.subtitle}
               </p>
             </div>
 
@@ -69,11 +37,11 @@ export const FAQSection: React.FC = () => {
               <div className="flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-[#C5A059]" />
                 <h3 className="font-serif-heading text-2xl text-[#F7F5F0]">
-                  Dedicated Client Concierge
+                  {t.faq.contactTitle}
                 </h3>
               </div>
               <p className="text-xs text-neutral-300 font-sans-body leading-relaxed">
-                Need guidance on circuit loads, multi-gang layout configurations, or trade volume discounts? Our Milan engineering advisory team is available for direct consultation.
+                {t.faq.contactDesc}
               </p>
 
               <div className="space-y-3 pt-2 text-xs">
@@ -81,27 +49,38 @@ export const FAQSection: React.FC = () => {
                   href="mailto:concierge@roshna-volt.com"
                   className="flex items-center gap-3 text-neutral-200 hover:text-[#C5A059] font-medium transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-[#C5A059]" />
+                  <Mail className="w-4 h-4 text-[#C5A059] shrink-0" />
                   <span>concierge@roshna-volt.com</span>
                 </a>
                 <div className="flex items-center gap-3 text-neutral-400">
-                  <Clock className="w-4 h-4 text-[#C5A059]" />
+                  <Clock className="w-4 h-4 text-[#C5A059] shrink-0" />
                   <span>Mon–Sat: 9:00 AM – 7:00 PM CET</span>
                 </div>
               </div>
 
-              <a
-                href="mailto:concierge@roshna-volt.com?subject=Roshna%20Architectural%20Hardware%20Consultation"
-                className="block w-full text-center py-3.5 px-4 btn-gold-gradient rounded-full text-xs uppercase font-bold tracking-wider cursor-pointer"
-              >
-                Schedule Trade Consultation
-              </a>
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <a
+                  href="https://wa.me/989123456789"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex-1 text-center py-3 px-4 btn-gold-gradient rounded-full text-xs uppercase font-bold tracking-wider cursor-pointer flex items-center justify-center gap-2"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>{t.faq.contactWhatsapp}</span>
+                </a>
+                <a
+                  href="mailto:concierge@roshna-volt.com?subject=Roshna%20Architectural%20Hardware%20Consultation"
+                  className="flex-1 text-center py-3 px-4 bg-[#060B18] hover:bg-[#101B38] text-[#C5A059] border border-[#C5A059]/40 rounded-full text-xs uppercase font-bold tracking-wider cursor-pointer transition-colors"
+                >
+                  {t.faq.contactEmail}
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Right Column: FAQ Accordion */}
           <div className="lg:col-span-7 space-y-4">
-            {FAQS.map((faq, index) => {
+            {t.faq.items.map((faq, index) => {
               const isOpen = openIndex === index;
 
               return (
@@ -115,7 +94,7 @@ export const FAQSection: React.FC = () => {
                 >
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full text-left p-6 sm:p-7 flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
+                    className="w-full text-left rtl:text-right p-6 sm:p-7 flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                   >
                     <span className="font-serif-heading text-lg sm:text-xl font-medium text-[#1F2421] dark:text-[#F7F5F0]">
                       {faq.question}

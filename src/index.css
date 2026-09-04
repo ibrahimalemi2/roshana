@@ -64,6 +64,17 @@
   font-family: var(--font-sans);
 }
 
+/* RTL Persian / Farsi typography overrides */
+html[dir="rtl"],
+html[dir="rtl"] body {
+  font-family: "Vazirmatn", "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+html[dir="rtl"] .font-serif-heading,
+html[dir="rtl"] .font-serif {
+  font-family: "Vazirmatn", "Cormorant Garamond", Georgia, serif;
+}
+
 /* Custom subtle scrollbar with Roshna Gold & Charcoal */
 ::-webkit-scrollbar {
   width: 7px;
@@ -134,4 +145,30 @@ html.dark .ambient-glow {
 
 .ambient-gold-dark {
   background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.15) 0%, rgba(11, 19, 43, 0) 70%);
+}
+
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float-subtle {
+  animation: float-subtle 6s ease-in-out infinite;
+}
+
+@keyframes cyan-pulse {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(45, 212, 191, 0.35), 0 0 50px rgba(45, 212, 191, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(45, 212, 191, 0.65), 0 0 80px rgba(45, 212, 191, 0.3);
+  }
+}
+
+.cyan-glow-pulse {
+  animation: cyan-pulse 4s ease-in-out infinite;
 }
