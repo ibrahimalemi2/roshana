@@ -1,0 +1,6 @@
+{
+  "name": "Roshna Volt",
+  "description": "Luxury architectural electrical systems, switches, sockets, and precision minimalist hardware by Roshna Volt. Switch To Quality.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 650" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="lockupBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A73E8" />
+      <stop offset="50%" stop-color="#165BB5" />
+      <stop offset="100%" stop-color="#0E3875" />
+    </linearGradient>
+    <linearGradient id="lockupVolt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFC000" />
+      <stop offset="50%" stop-color="#FF7A00" />
+      <stop offset="100%" stop-color="#E55300" />
+    </linearGradient>
+  </defs>
+
+  <!-- Centered Emblem (scale 0.7) -->
+  <g transform="translate(125, 20) scale(0.7)">
+    <!-- Blue 'R' Upper Arch -->
+    <path d="M 180 110 L 320 110 C 365 110, 395 135, 395 170 C 395 205, 360 230, 320 230 L 280 230 L 255 270 L 205 270 L 235 220 L 165 220 L 200 160 L 285 160 C 305 160, 320 165, 320 170 C 320 175, 305 180, 285 180 L 230 180 L 210 210 L 170 210 Z" fill="url(#lockupBlue)" />
+    <!-- Blue 'R' Left Wing -->
+    <path d="M 165 220 L 245 220 L 190 320 L 230 320 L 155 410 L 185 305 L 140 305 Z" fill="#0A2249" />
+    <!-- Electric Lightning Bolt -->
+    <path d="M 285 190 L 235 275 L 290 275 L 240 410 L 310 300 L 265 300 L 325 190 Z" fill="url(#lockupVolt)" />
+    <!-- High Lightning Flare Needle -->
+    <path d="M 270 295 L 305 295 L 420 85 L 330 255 L 300 255 Z" fill="#FFA500" />
+  </g>
+
+  <!-- Arabic Typography: روشنا ولت -->
+  <g fill="#0E3875">
+    <!-- Stylized Arabic Calligraphy representation -->
+    <text x="300" y="380" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-weight="800" font-size="52" text-anchor="middle" letter-spacing="4">
+      روشنا ولت
+    </text>
+  </g>
+
+  <!-- English Typography: ROSHNA VOLT -->
+  <g transform="translate(300, 440)">
+    <text text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="42" letter-spacing="6">
+      <tspan fill="#0E3875">ROSHNA </tspan>
+      <tspan fill="#FF7A00">VOLT</tspan>
+    </text>
+  </g>
+
+  <!-- Slogan Bar: —— Switch To Quality —— -->
+  <g transform="translate(300, 490)">
+    <line x1="-160" y1="-7" x2="-80" y2="-7" stroke="#1E293B" stroke-width="1.5" />
+    <text x="0" y="0" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="20" fill="#1E293B" letter-spacing="1.5">
+      Switch To Quality
+    </text>
+    <line x1="80" y1="-7" x2="160" y2="-7" stroke="#1E293B" stroke-width="1.5" />
+  </g>
+</svg>

@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Brand Gradients -->
+    <linearGradient id="roshnaNavyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E4582" />
+      <stop offset="100%" stop-color="#122E58" />
+    </linearGradient>
+
+    <linearGradient id="roshnaSunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="60%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <radialGradient id="sunCenterGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FEF3C7" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#FBBF24" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0" />
+    </radialGradient>
+
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- LETTER 'R' with signature flourish wave -->
+  <g id="letter-R">
+    <!-- Main stem & upper bowl -->
+    <path d="M 42 42 
+             L 102 42 
+             C 124 42, 138 52, 138 72 
+             C 138 91, 123 101, 102 101 
+             L 76 101 
+             L 76 138 
+             L 42 138 
+             Z 
+             M 76 68 
+             L 98 68 
+             C 107 68, 112 71, 112 72 
+             C 112 73, 107 77, 98 77 
+             L 76 77 
+             Z" 
+          fill="url(#roshnaNavyGrad)" />
+    
+    <!-- Sweeping wave leg of R -->
+    <path d="M 94 96 
+             C 108 96, 126 108, 138 124 
+             C 144 132, 153 138, 166 138 
+             L 142 138 
+             C 128 138, 118 128, 108 114 
+             C 101 104, 94 100, 86 98 
+             Z" 
+          fill="url(#roshnaNavyGrad)" />
+    
+    <!-- Signature curved lower baseline tail -->
+    <path d="M 36 132 
+             C 48 132, 60 135, 74 142 
+             C 86 148, 104 150, 126 147 
+             C 100 148, 82 144, 70 138 
+             C 58 133, 48 131, 36 132 
+             Z" 
+          fill="url(#roshnaNavyGrad)" opacity="0.9" />
+  </g>
+
+  <!-- LETTER 'O' : RADIANT SOLAR BURST -->
+  <g id="letter-O-solar" transform="translate(230, 92)">
+    <!-- Ambient glow circle -->
+    <circle cx="0" cy="0" r="48" fill="url(#sunCenterGlow)" />
+
+    <!-- Central solid ring -->
+    <circle cx="0" cy="0" r="18" fill="none" stroke="url(#roshnaSunGrad)" stroke-width="6.5" />
+
+    <!-- Inner circle of 8 rays/dots (radius = 29) -->
+    <g fill="#FBBF24">
+      <circle cx="0" cy="-29" r="2.8" />
+      <circle cx="20.5" cy="-20.5" r="2.8" />
+      <circle cx="29" cy="0" r="2.8" />
+      <circle cx="20.5" cy="20.5" r="2.8" />
+      <circle cx="0" cy="29" r="2.8" />
+      <circle cx="-20.5" cy="20.5" r="2.8" />
+      <circle cx="-29" cy="0" r="2.8" />
+      <circle cx="-20.5" cy="-20.5" r="2.8" />
+    </g>
+
+    <!-- Middle circle of 12 rays/dots (radius = 38) -->
+    <g fill="#F59E0B">
+      <circle cx="0" cy="-38" r="3.2" />
+      <circle cx="19" cy="-32.9" r="3.2" />
+      <circle cx="32.9" cy="-19" r="3.2" />
+      <circle cx="38" cy="0" r="3.2" />
+      <circle cx="32.9" cy="19" r="3.2" />
+      <circle cx="19" cy="32.9" r="3.2" />
+      <circle cx="0" cy="38" r="3.2" />
+      <circle cx="-19" cy="32.9" r="3.2" />
+      <circle cx="-32.9" cy="19" r="3.2" />
+      <circle cx="-38" cy="0" r="3.2" />
+      <circle cx="-32.9" cy="-19" r="3.2" />
+      <circle cx="-19" cy="-32.9" r="3.2" />
+    </g>
+
+    <!-- Outer ring of 16 radiating solar dots (radius = 48) -->
+    <g fill="#D97706">
+      <circle cx="0" cy="-48" r="2.6" />
+      <circle cx="18.4" cy="-44.3" r="2.6" />
+      <circle cx="33.9" cy="-33.9" r="2.6" />
+      <circle cx="44.3" cy="-18.4" r="2.6" />
+      <circle cx="48" cy="0" r="2.6" />
+      <circle cx="44.3" cy="18.4" r="2.6" />
+      <circle cx="33.9" cy="33.9" r="2.6" />
+      <circle cx="18.4" cy="44.3" r="2.6" />
+      <circle cx="0" cy="48" r="2.6" />
+      <circle cx="-18.4" cy="44.3" r="2.6" />
+      <circle cx="-33.9" cy="33.9" r="2.6" />
+      <circle cx="-44.3" cy="18.4" r="2.6" />
+      <circle cx="-48" cy="0" r="2.6" />
+      <circle cx="-44.3" cy="-18.4" r="2.6" />
+      <circle cx="-33.9" cy="-33.9" r="2.6" />
+      <circle cx="-18.4" cy="-44.3" r="2.6" />
+    </g>
+  </g>
+
+  <!-- LETTER 'S' -->
+  <g id="letter-S">
+    <path d="M 378 64 
+             C 370 48, 355 42, 336 42 
+             C 313 42, 298 55, 298 72 
+             C 298 88, 310 97, 334 103 
+             C 358 109, 368 116, 368 128 
+             C 368 141, 354 148, 335 148 
+             C 314 148, 298 138, 291 120 
+             L 267 130 
+             C 278 156, 303 169, 335 169 
+             C 372 169, 396 151, 396 127 
+             C 396 108, 381 97, 357 91 
+             C 334 85, 325 79, 325 68 
+             C 325 58, 336 52, 351 52 
+             C 364 52, 375 58, 380 67 
+             Z" 
+          fill="url(#roshnaNavyGrad)" />
+  </g>
+
+  <!-- LETTER 'H' -->
+  <g id="letter-H">
+    <path d="M 425 44 
+             L 452 44 
+             L 452 87 
+             L 497 87 
+             L 497 44 
+             L 524 44 
+             L 524 146 
+             L 497 146 
+             L 497 109 
+             L 452 109 
+             L 452 146 
+             L 425 146 
+             Z" 
+          fill="url(#roshnaNavyGrad)" />
+  </g>
+
+  <!-- LETTER 'N' -->
+  <g id="letter-N">
+    <path d="M 552 44 
+             L 579 44 
+             L 622 112 
+             L 622 44 
+             L 648 44 
+             L 648 146 
+             L 621 146 
+             L 578 78 
+             L 578 146 
+             L 552 146 
+             Z" 
+          fill="url(#roshnaNavyGrad)" />
+  </g>
+
+  <!-- LETTER 'A' with curved swoop crossbar -->
+  <g id="letter-A">
+    <!-- Outer legs and apex -->
+    <path d="M 708 42 
+             L 670 146 
+             L 698 146 
+             L 709 116 
+             L 736 116 
+             L 747 146 
+             L 775 146 
+             L 736 42 
+             Z 
+             M 722 75 
+             L 731 100 
+             L 713 100 
+             Z" 
+          fill="url(#roshnaNavyGrad)" />
+    
+    <!-- Signature wave curve connecting through A -->
+    <path d="M 686 114 
+             C 700 122, 722 124, 744 116 
+             C 756 112, 768 116, 776 122 
+             C 762 126, 742 127, 726 123 
+             C 712 120, 698 118, 686 114 
+             Z" 
+          fill="url(#roshnaNavyGrad)" />
+  </g>
+</svg>

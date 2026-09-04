@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-roshna-navy: #0B132B;
+  --color-roshna-navy-dark: #060B18;
+  --color-roshna-navy-surface: #0F1B3D;
+  --color-roshna-navy-elevated: #13224A;
+  --color-roshna-navy-light: #16244B;
+
+  --color-roshna-gold: #C5A059;
+  --color-roshna-gold-bright: #D4AF37;
+  --color-roshna-gold-dark: #9E7B36;
+  --color-roshna-gold-subtle: #F7F1E5;
+
+  --color-roshna-cream: #F7F5F0;
+  --color-roshna-surface: #FFFFFF;
+  --color-roshna-charcoal: #1F2421;
+  --color-roshna-border: #E5E1D8;
+  --color-roshna-border-gold: rgba(197, 160, 89, 0.4);
+}
+
+@layer base {
+  :root {
+    /* Luxury Light Palette */
+    --brand-navy: #0B132B;
+    --brand-navy-dark: #060B18;
+    --brand-navy-light: #16244B;
+
+    --brand-gold: #C5A059;
+    --brand-gold-bright: #D4AF37;
+    --brand-gold-dark: #9E7B36;
+    --brand-gold-subtle: #F7F1E5;
+
+    --brand-canvas: #F7F5F0;
+    --brand-surface: #FFFFFF;
+    --brand-charcoal: #1F2421;
+    --brand-muted: #626A65;
+    --brand-border: #E5E1D8;
+    --brand-border-gold: rgba(197, 160, 89, 0.35);
+
+    --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  /* Brand Dark Mode (NOT pitch black - signature Deep Navy #0B132B & Midnight Surface #0F1B3D) */
+  html.dark, :root.dark {
+    --brand-canvas: #0B132B;
+    --brand-surface: #0F1B3D;
+    --brand-surface-subtle: #13224A;
+    --brand-charcoal: #F7F5F0;
+    --brand-muted: #9BA4B5;
+    --brand-border: #1D2B52;
+    --brand-border-gold: rgba(197, 160, 89, 0.45);
+  }
+}
+
+.font-serif-heading {
+  font-family: var(--font-serif);
+}
+
+.font-sans-body {
+  font-family: var(--font-sans);
+}
+
+/* Custom subtle scrollbar with Roshna Gold & Charcoal */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F5F0;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #0B132B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8D2C4;
+  border-radius: 9999px;
+  border: 2px solid #F7F5F0;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1D2B52;
+  border: 2px solid #0B132B;
+}
+::-webkit-scrollbar-thumb:hover,
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #C5A059;
+}
+
+/* Signature Metallic Gold Gradient Buttons & Utilities */
+.btn-gold-gradient {
+  background: linear-gradient(135deg, #C5A059 0%, #D4AF37 40%, #9E7B36 100%);
+  color: #0B132B;
+  font-weight: 600;
+  box-shadow: 0 4px 18px rgba(197, 160, 89, 0.28);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-gold-gradient:hover {
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 60%, #8A6828 100%);
+  box-shadow: 0 6px 24px rgba(197, 160, 89, 0.42);
+  transform: translateY(-1px);
+}
+
+.btn-navy {
+  background-color: #0B132B;
+  color: #F7F5F0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-navy:hover {
+  background-color: #16244B;
+  box-shadow: 0 4px 18px rgba(11, 19, 43, 0.3);
+}
+
+.gold-border {
+  border-color: rgba(197, 160, 89, 0.38);
+}
+.gold-border-solid {
+  border-color: #C5A059;
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(197, 160, 89, 0.25);
+}
+
+.ambient-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.08) 0%, rgba(247, 245, 240, 0) 70%);
+}
+html.dark .ambient-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.12) 0%, rgba(11, 19, 43, 0) 70%);
+}
+
+.ambient-gold-dark {
+  background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.15) 0%, rgba(11, 19, 43, 0) 70%);
+}

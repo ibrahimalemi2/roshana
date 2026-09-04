@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="favBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A73E8" />
+      <stop offset="100%" stop-color="#0E3875" />
+    </linearGradient>
+    <linearGradient id="favVolt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFC000" />
+      <stop offset="100%" stop-color="#FF7A00" />
+    </linearGradient>
+    <radialGradient id="favSun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background rounded pill -->
+  <rect width="64" height="64" rx="16" fill="#0A1E3C" />
+  
+  <!-- Outer Solar Radiance dots -->
+  <g fill="#FBBF24" opacity="0.6">
+    <circle cx="32" cy="8" r="1.5" />
+    <circle cx="48.97" cy="15.03" r="1.5" />
+    <circle cx="56" cy="32" r="1.5" />
+    <circle cx="48.97" cy="48.97" r="1.5" />
+    <circle cx="32" cy="56" r="1.5" />
+    <circle cx="15.03" cy="48.97" r="1.5" />
+    <circle cx="8" cy="32" r="1.5" />
+    <circle cx="15.03" cy="15.03" r="1.5" />
+  </g>
+
+  <!-- Emblem 'R' in Blue -->
+  <path d="M 20 18 L 38 18 C 44 18, 48 21, 48 26 C 48 30, 44 33, 38 33 L 33 33 L 30 38 L 24 38 L 28 32 L 20 32 L 24 24 L 35 24 C 37 24, 38 24.5, 38 26 C 38 27.5, 37 28, 35 28 L 28 28 L 25 32 L 20 32 Z" fill="url(#favBlue)" />
+  
+  <!-- Left Wing Fin -->
+  <path d="M 18 32 L 29 32 L 22 45 L 27 45 L 17 55 L 21 42 L 15 42 Z" fill="#0D2C59" />
+
+  <!-- Lightning Bolt in Volt Orange -->
+  <path d="M 34 28 L 28 39 L 35 39 L 29 53 L 38 42 L 32 42 L 39 28 Z" fill="url(#favVolt)" />
+
+  <!-- Needle Flare -->
+  <path d="M 33 41 L 37 41 L 52 14 L 40 36 L 36 36 Z" fill="#FFD000" />
+</svg>
