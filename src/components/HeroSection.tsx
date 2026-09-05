@@ -1,7 +1,8 @@
-import React from 'react';
-import { ArrowRight, Shield, Flame, Link2, Wrench, Sparkles, CheckCircle2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Shield, Flame, Link2, Wrench, Sparkles, CheckCircle2, SlidersHorizontal } from 'lucide-react';
 import { Product } from '../types';
 import { useLanguage } from '../context/LanguageContext';
+import { IMAGES } from '../data/imageAssets';
 
 interface HeroSectionProps {
   products: Product[];
@@ -15,7 +16,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onQuickView
 }) => {
   const { isRtl, t } = useLanguage();
+  const [selectedAsset, setSelectedAsset] = useState<'dual' | 'single'>('dual');
   const matchingProduct = products.find(p => p.name.toLowerCase().includes('switch')) || products[0];
+
+  const heroAsset = selectedAsset === 'dual' 
+    ? {
+        image: IMAGES.DUAL_SWITCH_DARK_MARBLE,
+        title: isRtl ? 'کلید دو پل مدرن — سنگ مرمر تیره' : 'Dual-Gang Minimalist Switch',
+        subtitle: isRtl ? 'روکش پلی‌کربنات مات مخملی با رگه‌های طلایی' : 'Dark Marble Texture with Warm Gold Accents',
+        tag: isRtl ? 'پروفیل باریک ۶.۵ میلی‌متر' : 'Ultra-Thin 6.5mm Profile'
+      }
+    : {
+        image: IMAGES.SINGLE_SWITCH_WARM_CREAM,
+        title: isRtl ? 'کلید تک پل مدرن — سفید کرم' : 'Single-Gang Architectural Switch',
+        subtitle: isRtl ? 'سطح مات ضد حساسیت و ضد لک' : 'Velvet Matte Anti-Allergic Surface',
+        tag: isRtl ? 'پروفیل باریک ۶.۵ میلی‌متر' : 'Ultra-Thin 6.5mm Profile'
+      };
 
   return (
     <section 
@@ -76,34 +92,90 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* RIGHT COLUMN: 3D Pedestal Switch Plate Showcase with Electric Lightning Glow */}
+          {/* RIGHT COLUMN: Architectural Switch Showcase with Ambient Gold Glow */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-end justify-center relative">
             
             <div 
-              className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[520px] cursor-pointer group"
+              className="relative w-full max-w-[440px] sm:max-w-[490px] lg:max-w-[530px] cursor-pointer group"
               onClick={() => onQuickView(matchingProduct)}
               title="Click for Technical Specifications"
             >
-              {/* Electric Cyan & Blue Aura Behind Switch */}
-              <div className="absolute inset-0 rounded-full bg-blue-500/25 blur-3xl transform group-hover:scale-110 transition-transform duration-700 pointer-events-none" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-cyan-400/20 blur-2xl pointer-events-none animate-pulse" />
+              {/* Electric Cyan & Warm Gold Aura Behind Switch */}
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#D4AF37]/25 via-blue-600/20 to-[#D4AF37]/15 blur-2xl transform group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-cyan-400/15 blur-3xl pointer-events-none animate-pulse" />
 
-              {/* Floating Product Plate Composition */}
-              <div className="relative animate-float-subtle transition-transform duration-500 group-hover:scale-[1.02]">
+              {/* Architectural Frame with Chamfered Precision Border */}
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D4AF37]/40 shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-[#070D1E]">
                 <img
-                  src="/images/smart_switch_feathered.png"
-                  alt="Roshna Precision Engineered Switch with Neon Green LED Indicator"
-                  className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.85)] select-none"
+                  src={heroAsset.image}
+                  alt={heroAsset.title}
+                  className="w-full h-[360px] sm:h-[420px] lg:h-[460px] object-cover transform transition-transform duration-700 ease-out group-hover:scale-105 select-none"
+                  loading="eager"
                 />
 
-                {/* Subtle Interactive Badge on Hover */}
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-3 py-1 rounded-full bg-[#0A1428]/90 border border-[#D4AF37]/50 text-[10px] text-[#D4AF37] tracking-wider uppercase font-bold backdrop-blur-md shadow-md">
+                {/* Floating Architectural Spec Badges */}
+                <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10 flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase bg-[#0A1428]/90 backdrop-blur-md text-[#D4AF37] border border-[#D4AF37]/40 shadow-sm">
+                    <Sparkles className="w-3 h-3 text-[#D4AF37]" />
+                    <span>{heroAsset.tag}</span>
+                  </span>
+                </div>
+
+                <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-3 py-1 rounded-full bg-[#0A1428]/90 border border-[#D4AF37]/60 text-[10px] text-[#D4AF37] tracking-wider uppercase font-bold backdrop-blur-md shadow-md">
                   {t.hero.quickViewHint}
+                </div>
+
+                {/* Bottom Architectural Caption Overlay */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0A1428] via-[#0A1428]/80 to-transparent pt-12 pb-4 px-4 sm:px-5 flex items-end justify-between text-white">
+                  <div>
+                    <p className="text-[10px] font-mono uppercase tracking-widest text-[#D4AF37] font-semibold">
+                      ARCHITECTURAL HARDWARE
+                    </p>
+                    <p className="text-xs sm:text-sm font-bold text-white tracking-wide">
+                      {heroAsset.title}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-1 text-[11px] font-mono text-emerald-400 bg-emerald-950/70 border border-emerald-500/40 px-2.5 py-1 rounded-full backdrop-blur-sm shadow-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>LED Active</span>
+                  </div>
                 </div>
               </div>
 
               {/* Pedestal Base Shadow */}
-              <div className="w-3/4 h-5 bg-black/60 blur-xl mx-auto rounded-full mt-2 pointer-events-none" />
+              <div className="w-3/4 h-5 bg-black/80 blur-xl mx-auto rounded-full mt-2 pointer-events-none" />
+            </div>
+
+            {/* Quick Architectural Asset Switcher Pill */}
+            <div className="mt-3.5 inline-flex items-center bg-[#0D1832] p-1 rounded-full border border-[#D4AF37]/30 shadow-md">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedAsset('dual');
+                }}
+                className={`px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer ${
+                  selectedAsset === 'dual'
+                    ? 'bg-[#D4AF37] text-[#0A1428] font-bold shadow-xs'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Dual Gang · Dark Marble
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedAsset('single');
+                }}
+                className={`px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer ${
+                  selectedAsset === 'single'
+                    ? 'bg-[#D4AF37] text-[#0A1428] font-bold shadow-xs'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Single Gang · Warm Cream
+              </button>
             </div>
 
           </div>
