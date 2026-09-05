@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Eye, Heart, Check, Star, Sparkles } from 'lucide-react';
+import { ShoppingBag, Eye, Heart, Check, Sparkles } from 'lucide-react';
 import { Product } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -22,8 +22,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   const categoryOptions = [
     { key: 'all', label: t.showcase.categories.all },
     { key: 'switches', label: t.showcase.categories.switches },
-    { key: 'sockets', label: t.showcase.categories.sockets },
-    { key: 'modular', label: t.showcase.categories.modular }
+    { key: 'sockets', label: t.showcase.categories.sockets }
   ];
 
   const filteredProducts = activeCategoryKey === 'all'
@@ -31,7 +30,6 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
     : products.filter(p => {
         if (activeCategoryKey === 'switches') return p.category.toLowerCase().includes('switch');
         if (activeCategoryKey === 'sockets') return p.category.toLowerCase().includes('socket');
-        if (activeCategoryKey === 'modular') return p.category.toLowerCase().includes('modular') || p.category.toLowerCase().includes('suite');
         return true;
       });
 
@@ -86,32 +84,32 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
           </div>
         </div>
 
-        {/* Asymmetrical Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        {/* 3 Core Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {filteredProducts.map((product, index) => {
-            const isFeatured = index === 0 || index === 4;
             const isAdded = addedProductId === product.id;
             const isFavorited = wishlist.includes(product.id);
+            const localizedProduct = t.showcase.products?.find((p) => p.id === product.id);
+            const productName = localizedProduct?.name || product.name;
+            const productSubtitle = localizedProduct?.subtitle || product.subtitle;
 
             return (
               <div
                 key={product.id}
                 onClick={() => onQuickView(product)}
-                className={`group cursor-pointer flex flex-col justify-between bg-[#FFFFFF] dark:bg-[#0F1B3D] rounded-[22px] p-3.5 sm:p-4.5 border border-[#E5E1D8] dark:border-[#1D2B52] shadow-xs hover:shadow-xl hover:border-[#C5A059] dark:hover:border-[#C5A059] transition-all duration-500 relative overflow-hidden ${
-                  isFeatured ? 'md:col-span-2 lg:col-span-1 ring-1 ring-[#C5A059]/20' : ''
-                }`}
+                className="group cursor-pointer flex flex-col justify-between bg-[#FFFFFF] dark:bg-[#0F1B3D] rounded-[22px] p-3.5 sm:p-4.5 border border-[#E5E1D8] dark:border-[#1D2B52] shadow-xs hover:shadow-xl hover:border-[#C5A059] dark:hover:border-[#C5A059] transition-all duration-500 relative overflow-hidden"
               >
                 {/* Top Image Container */}
-                <div className="relative aspect-[4/4.2] w-full rounded-[16px] overflow-hidden bg-[#F7F5F0] dark:bg-[#060B18] mb-3.5 border border-[#E5E1D8]/60 dark:border-[#1D2B52]">
+                <div className="relative aspect-square w-full rounded-[16px] overflow-hidden bg-[#F7F5F0] dark:bg-[#060B18] mb-3.5 border border-[#E5E1D8]/60 dark:border-[#1D2B52]">
                   <img
                     src={product.image}
-                    alt={product.name}
+                    alt={productName}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
 
                   {/* Badge */}
                   {product.badge && (
-                    <div className="absolute top-3 left-3 z-10">
+                    <div className="absolute top-3 left-3 rtl:left-auto rtl:right-3 z-10">
                       <span className="px-2.5 py-0.5 rounded-full bg-[#0B132B]/90 backdrop-blur-md text-[#C5A059] text-[10px] uppercase font-sans-body font-bold tracking-wider shadow-xs border border-[#C5A059]/30">
                         {product.badge}
                       </span>
@@ -121,7 +119,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                   {/* Wishlist Button */}
                   <button
                     onClick={(e) => toggleWishlist(product.id, e)}
-                    className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-[#FFFFFF]/90 dark:bg-[#0B132B]/90 hover:bg-[#FFFFFF] dark:hover:bg-[#0B132B] text-[#1F2421] dark:text-[#F7F5F0] flex items-center justify-center backdrop-blur-xs transition-colors shadow-xs border border-[#E5E1D8] dark:border-[#1D2B52]"
+                    className="absolute top-3 right-3 rtl:right-auto rtl:left-3 z-10 w-8 h-8 rounded-full bg-[#FFFFFF]/90 dark:bg-[#0B132B]/90 hover:bg-[#FFFFFF] dark:hover:bg-[#0B132B] text-[#1F2421] dark:text-[#F7F5F0] flex items-center justify-center backdrop-blur-xs transition-colors shadow-xs border border-[#E5E1D8] dark:border-[#1D2B52]"
                     aria-label="Wishlist"
                   >
                     <Heart
@@ -135,7 +133,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                   <div className="absolute inset-x-2.5 bottom-2.5 flex items-center gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 z-10">
                     <button
                       onClick={(e) => handleAdd(product, e)}
-                      className={`flex-1 py-2.5 px-3.5 rounded-xl text-xs font-sans-body font-semibold flex items-center justify-center gap-2 shadow-lg transition-all ${
+                      className={`flex-1 py-2.5 px-3.5 rounded-xl text-xs font-sans-body font-semibold flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer ${
                         isAdded
                           ? 'bg-[#0B132B] text-[#C5A059] border border-[#C5A059]'
                           : 'btn-gold-gradient'
@@ -159,7 +157,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                         e.stopPropagation();
                         onQuickView(product);
                       }}
-                      className="p-2.5 rounded-xl bg-[#FFFFFF] dark:bg-[#0B132B] text-[#1F2421] dark:text-[#F7F5F0] hover:text-[#C5A059] dark:hover:text-[#C5A059] shadow-lg transition-colors border border-[#E5E1D8] dark:border-[#1D2B52]"
+                      className="p-2.5 rounded-xl bg-[#FFFFFF] dark:bg-[#0B132B] text-[#1F2421] dark:text-[#F7F5F0] hover:text-[#C5A059] dark:hover:text-[#C5A059] shadow-lg transition-colors border border-[#E5E1D8] dark:border-[#1D2B52] cursor-pointer"
                       title={t.showcase.quickSpecs}
                     >
                       <Eye className="w-4 h-4" />
@@ -168,20 +166,23 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                 </div>
 
                 {/* Card Content & Clean Typography */}
-                <div className="space-y-2 pt-1">
+                <div className="space-y-2 pt-1 text-left rtl:text-right">
                   
                   {/* Category / Collection Tag */}
                   <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#C5A059] block">
-                    {product.collection}
+                    {product.category.toLowerCase().includes('switch')
+                      ? (isRtl ? 'سویچ' : 'Switch')
+                      : (isRtl ? 'ساکت برق' : 'Power Socket')}
                   </span>
 
                   {/* Product Title */}
                   <h3 className="font-serif-heading text-lg sm:text-xl font-medium text-[#1F2421] dark:text-[#F7F5F0] group-hover:text-[#C5A059] transition-colors leading-snug">
-                    {product.name}
+                    {productName}
                   </h3>
 
+                  {/* Subtitle */}
                   <p className="text-xs text-[#1F2421]/65 dark:text-[#F7F5F0]/65 font-sans-body line-clamp-1">
-                    {product.subtitle}
+                    {productSubtitle}
                   </p>
 
                   {/* Clean Price Row */}
@@ -201,8 +202,8 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
           })}
         </div>
 
-        {/* Bottom Bespoke Commission Banner (Deep Navy #0B132B with Warm Gold Border & CTA) */}
-        <div className="mt-6 sm:mt-8 p-5 sm:p-6 lg:p-7 rounded-[22px] bg-[#0B132B] text-white border border-[#C5A059]/30 shadow-xl flex flex-col md:flex-row items-center justify-between gap-5">
+        {/* Bottom Consultation & Project Inquiries Banner */}
+        <div className="mt-6 sm:mt-8 p-5 sm:p-6 lg:p-7 rounded-[22px] bg-[#0B132B] text-white border border-[#C5A059]/30 shadow-xl flex flex-col md:flex-row items-center justify-between gap-5 text-left rtl:text-right">
           <div className="flex items-center gap-3.5">
             <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#060B18] border border-[#C5A059]/40 flex items-center justify-center text-[#C5A059] shadow-xs shrink-0">
               <Sparkles className="w-5 h-5 text-[#C5A059]" />
@@ -216,15 +217,14 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               </p>
             </div>
           </div>
-          <button
-            onClick={() => {
-              const faqSection = document.getElementById('faq');
-              faqSection?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="px-5 py-3 rounded-full btn-gold-gradient text-xs uppercase font-bold tracking-wider shrink-0 cursor-pointer whitespace-nowrap"
+          <a
+            href="https://wa.me/?text=Hello%20Roshna%20Volt%2C%20I%20would%20like%20to%20inquire%20about%20bulk%20orders%20and%20project%20pricing."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3.5 rounded-full btn-gold-gradient text-xs uppercase font-bold tracking-wider shrink-0 cursor-pointer whitespace-nowrap shadow-md text-[#0B132B] flex items-center justify-center"
           >
             {t.showcase.consultationButton}
-          </button>
+          </a>
         </div>
 
       </div>

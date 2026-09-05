@@ -13,6 +13,13 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
   const { t } = useLanguage();
 
   const activeItem = QUADRANT_ITEMS.find((q) => q.id === activeQuadId) || QUADRANT_ITEMS[0];
+  const activeLocalized = t.anatomy.quadrants?.find((q) => q.id === activeItem.id);
+  const activeTitle = activeLocalized?.title || activeItem.title;
+  const activeSubtitle = activeLocalized?.subtitle || activeItem.subtitle;
+  const activeCategory = activeLocalized?.category || activeItem.category;
+  const activeTag = activeLocalized?.tag || activeItem.tag;
+  const activeMaterial = activeLocalized?.material || activeItem.material;
+  const activeDescription = activeLocalized?.description || activeItem.description;
 
   return (
     <section id="craft" className="py-6 sm:py-8 lg:py-10 bg-[#F7F5F0] dark:bg-[#0B132B] relative overflow-hidden border-b border-[#E5E1D8] dark:border-[#1D2B52] transition-colors duration-300 select-none">
@@ -50,6 +57,11 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
               <div className="w-full h-full rounded-full overflow-hidden grid grid-cols-2 grid-rows-2 gap-2 p-1 bg-[#F7F5F0] dark:bg-[#060B18]">
                 {QUADRANT_ITEMS.map((item, index) => {
                   const isActive = activeQuadId === item.id;
+                  const localized = t.anatomy.quadrants?.find((q) => q.id === item.id);
+                  const qTitle = localized?.title || item.title;
+                  const qSubtitle = localized?.subtitle || item.subtitle;
+                  const qTag = localized?.tag || item.tag;
+
                   // Rounded corners based on quadrant position
                   const cornerRadius = 
                     index === 0 ? 'rounded-tl-full' :
@@ -67,7 +79,7 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
                     >
                       <img
                         src={item.image}
-                        alt={item.title}
+                        alt={qTitle}
                         className={`w-full h-full object-cover transition-transform duration-700 ease-out ${
                           isActive ? 'scale-110' : 'group-hover:scale-105'
                         }`}
@@ -83,17 +95,17 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
                             ? 'bg-[#0B132B] text-[#C5A059] border border-[#C5A059]/40' 
                             : 'bg-white/90 backdrop-blur-xs text-[#1F2421]'
                         }`}>
-                          {item.tag}
+                          {qTag}
                         </span>
                       </div>
 
                       {/* Quadrant Bottom Label */}
                       <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 text-white z-10">
                         <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-[#C5A059] font-bold">
-                          {item.subtitle}
+                          {qSubtitle}
                         </p>
                         <p className="font-serif-heading text-xs sm:text-sm lg:text-base font-medium truncate text-[#F7F5F0]">
-                          {item.title}
+                          {qTitle}
                         </p>
                       </div>
 
@@ -133,23 +145,23 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
               {/* Subtle top accent */}
               <div className="flex items-center justify-between pb-3.5 border-b border-[#E5E1D8] dark:border-[#1D2B52]">
                 <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#C5A059]">
-                  {activeItem.tag}
+                  {activeTag}
                 </span>
                 <span className="px-2.5 py-0.5 rounded-full bg-[#F7F5F0] dark:bg-[#0B132B] border border-[#E5E1D8] dark:border-[#1D2B52] text-[#1F2421] dark:text-[#F7F5F0] text-xs font-semibold">
-                  {activeItem.category}
+                  {activeCategory}
                 </span>
               </div>
 
               {/* Title & Description */}
               <div className="py-4 space-y-2.5">
                 <h3 className="font-serif-heading text-xl sm:text-2xl font-medium text-[#1F2421] dark:text-[#F7F5F0]">
-                  {activeItem.title}
+                  {activeTitle}
                 </h3>
                 <p className="text-xs text-[#C5A059] uppercase tracking-wider font-bold">
-                  {t.anatomy.materialLabel} {activeItem.material}
+                  {t.anatomy.materialLabel} {activeMaterial}
                 </p>
                 <p className="font-sans-body text-xs sm:text-sm text-[#1F2421]/75 dark:text-[#F7F5F0]/75 leading-relaxed">
-                  {activeItem.description}
+                  {activeDescription}
                 </p>
               </div>
 
@@ -159,20 +171,26 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
                   {t.anatomy.perspectivesTitle}
                 </p>
                 <div className="grid grid-cols-2 gap-2">
-                  {QUADRANT_ITEMS.map((q) => (
-                    <button
-                      key={q.id}
-                      onClick={() => setActiveQuadId(q.id)}
-                      className={`px-3 py-2 text-left rtl:text-right rounded-xl text-xs font-sans-body transition-all flex items-center justify-between cursor-pointer ${
-                        activeQuadId === q.id
-                          ? 'bg-[#0B132B] text-[#C5A059] font-bold shadow-xs border border-[#C5A059]/40'
-                          : 'bg-[#F7F5F0] dark:bg-[#0B132B] hover:bg-[#E5E1D8] dark:hover:bg-[#13224A] text-[#1F2421] dark:text-[#F7F5F0]'
-                      }`}
-                    >
-                      <span className="truncate">{q.title.split(' ')[1] || q.title}</span>
-                      <span className="text-[10px] opacity-60 ml-1 rtl:mr-1">{q.tag.split('·')[0]}</span>
-                    </button>
-                  ))}
+                  {QUADRANT_ITEMS.map((q) => {
+                    const localized = t.anatomy.quadrants?.find((item) => item.id === q.id);
+                    const qTitle = localized?.title || q.title;
+                    const qTag = localized?.tag || q.tag;
+
+                    return (
+                      <button
+                        key={q.id}
+                        onClick={() => setActiveQuadId(q.id)}
+                        className={`px-3 py-2 text-left rtl:text-right rounded-xl text-xs font-sans-body transition-all flex items-center justify-between cursor-pointer ${
+                          activeQuadId === q.id
+                            ? 'bg-[#0B132B] text-[#C5A059] font-bold shadow-xs border border-[#C5A059]/40'
+                            : 'bg-[#F7F5F0] dark:bg-[#0B132B] hover:bg-[#E5E1D8] dark:hover:bg-[#13224A] text-[#1F2421] dark:text-[#F7F5F0]'
+                        }`}
+                      >
+                        <span className="truncate">{qTitle}</span>
+                        <span className="text-[10px] opacity-60 ml-1 rtl:mr-1">{qTag.split('·')[0]}</span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 

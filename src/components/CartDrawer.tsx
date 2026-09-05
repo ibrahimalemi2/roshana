@@ -51,7 +51,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       let msg = `سلام و احترام، من می‌خواهم این سفارش را از وب‌سایت روشنا ولت ثبت کنم:\n\n`;
       msg += `📦 اقلام سفارش:\n`;
       cart.forEach((item, index) => {
-        msg += `${index + 1}. ${item.product.name}\n`;
+        const localizedName = t.showcase.products?.find((p) => p.id === item.product.id)?.name || item.product.name;
+        msg += `${index + 1}. ${localizedName}\n`;
         msg += `   • تعداد: ${item.quantity} عدد\n`;
         msg += `   • قیمت واحد: ${item.product.price.toLocaleString()} افغانی\n`;
         msg += `   • مجموع: ${(item.product.price * item.quantity).toLocaleString()} افغانی\n\n`;
@@ -66,7 +67,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       let msg = `Hello Roshna Volt, I would like to place an order from your website:\n\n`;
       msg += `📦 Order Items:\n`;
       cart.forEach((item, index) => {
-        msg += `${index + 1}. ${item.product.name}\n`;
+        const localizedName = t.showcase.products?.find((p) => p.id === item.product.id)?.name || item.product.name;
+        msg += `${index + 1}. ${localizedName}\n`;
         msg += `   • Quantity: ${item.quantity}\n`;
         msg += `   • Unit Price: ${item.product.price.toLocaleString()} AFN\n`;
         msg += `   • Total: ${(item.product.price * item.quantity).toLocaleString()} AFN\n\n`;
@@ -181,7 +183,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-1">
                           <h4 className="font-serif-heading text-base font-medium text-[#1F2421] dark:text-[#F7F5F0] truncate">
-                            {item.product.name}
+                            {t.showcase.products?.find((p) => p.id === item.product.id)?.name || item.product.name}
                           </h4>
                           <button
                             onClick={() => onRemoveItem(item.product.id, item.selectedColor)}

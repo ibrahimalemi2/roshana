@@ -24,36 +24,36 @@ export const NewsletterAndFooter: React.FC = () => {
       title: t.footer.links.collectionTitle,
       links: isRtl
         ? [
-            { label: 'کلیدهای تک‌پل و دوپل لمسی', href: '#collection' },
-            { label: 'پریزهای مدرن توکار', href: '#collection' },
-            { label: 'پنل‌های کنترل چندخانه', href: '#collection' },
-            { label: 'واحدهای مهندسی ماژولار ۳ لایه', href: '#collection' },
-            { label: 'مجموعه‌های کامل اقامتگاهی', href: '#collection' }
+            { label: 'سویچ یکپل مدرن', href: '#collection' },
+            { label: 'سویچ دوپل مدرن', href: '#collection' },
+            { label: 'ساکت برق با محافظ کودک', href: '#collection' },
+            { label: 'سازگار با قوطی‌های ۸۶ میلی‌متری', href: '#materials' },
+            { label: 'پروژه‌های مسکونی و تجاری', href: '#collection' }
           ]
         : [
-            { label: 'Tactile Rocker Switches', href: '#collection' },
-            { label: 'Architectural Flush Sockets', href: '#collection' },
-            { label: 'Multi-Gang Wall Controls', href: '#collection' },
-            { label: 'Engineering 3-Tier Units', href: '#collection' },
-            { label: 'Residence Trio Suites', href: '#collection' }
+            { label: 'Single Switch (1-Gang)', href: '#collection' },
+            { label: 'Double Switch (2-Gang)', href: '#collection' },
+            { label: 'Child-Safe Power Socket', href: '#collection' },
+            { label: 'Standard 86mm Wall Box Fit', href: '#materials' },
+            { label: 'Residential & Commercial', href: '#collection' }
           ]
     },
     {
       title: t.footer.links.specificationTitle,
       links: isRtl
         ? [
-            { label: 'برنامه اختصاصی معماران و طراحان', href: '#faq' },
-            { label: 'راهنمای نصب ماژولار ۳ تکه', href: '#craft' },
-            { label: 'آرشیو نمونه متریال فیزیکی', href: '#materials' },
-            { label: 'آرشیو فایل‌های BIM و CAD', href: '#faq' },
-            { label: 'مشاوره مستقیم آتلیه', href: '#faq' }
+            { label: 'سفارش‌های عمده و همکاری', href: '#faq' },
+            { label: 'راهنمای نصب و اتصالات', href: '#craft' },
+            { label: 'مشخصات فنی قطعات', href: '#materials' },
+            { label: 'کیفیت و دوام متریال', href: '#materials' },
+            { label: 'مشاوره سفارش در واتس‌اپ', href: '#faq' }
           ]
         : [
-            { label: 'Architect Specification Program', href: '#faq' },
-            { label: '3-Part Modular Installation Guide', href: '#craft' },
-            { label: 'Trade Physical Swatch Kit', href: '#materials' },
-            { label: 'BIM & CAD File Archive', href: '#faq' },
-            { label: 'Concierge Advisory', href: '#faq' }
+            { label: 'Wholesale & Bulk Orders', href: '#faq' },
+            { label: 'Installation & Wiring Guide', href: '#craft' },
+            { label: 'Technical Specifications', href: '#materials' },
+            { label: 'Material Science & Safety', href: '#materials' },
+            { label: 'WhatsApp Project Advisory', href: '#faq' }
           ]
     },
     {
@@ -61,33 +61,33 @@ export const NewsletterAndFooter: React.FC = () => {
       links: isRtl
         ? [
             { label: 'درباره برند روشنا ولت', href: '#hero' },
-            { label: 'مهندسی دقیق مکانیزم', href: '#craft' },
-            { label: 'اصالت پلیمر Bayer و آلیاژها', href: '#materials' },
-            { label: 'دیدگاه معماران و نشریات', href: '#reviews' },
-            { label: 'گواهینامه‌های بین‌المللی (CE/IEC)', href: '#faq' }
+            { label: 'مکانیزم دقیق و تست شده', href: '#craft' },
+            { label: 'پلیمر نسوز و سطح بهداشتی', href: '#materials' },
+            { label: 'دیدگاه مشتریان و برق‌کاران', href: '#reviews' },
+            { label: 'استانداردهای ایمنی الکتریکی', href: '#faq' }
           ]
         : [
             { label: 'About Roshna Volt', href: '#hero' },
-            { label: 'Precision Switch Engineering', href: '#craft' },
-            { label: 'Bayer Polymer & Alloy Provenance', href: '#materials' },
-            { label: 'Press & Architectural Monographs', href: '#reviews' },
-            { label: 'International Certifications (CE/IEC)', href: '#faq' }
+            { label: 'Tested Switch Mechanics', href: '#craft' },
+            { label: 'Flame-Retardant Polymer', href: '#materials' },
+            { label: 'Customer & Electrician Reviews', href: '#reviews' },
+            { label: 'Electrical Safety Standards', href: '#faq' }
           ]
     },
     {
       title: t.footer.links.conciergeTitle,
       links: isRtl
         ? [
-            { label: 'پشتیبانی اختصاصی کارفرمایان', href: '#faq' },
-            { label: 'پیگیری سفارش و حمل ایمن', href: '#faq' },
-            { label: 'ضمانت مادام‌العمر ساختار', href: '#faq' },
-            { label: 'درخواست جلسه مشاوره تخصصی', href: '#faq' }
+            { label: 'پشتیبانی مشتریان روشنا', href: '#faq' },
+            { label: 'ارسال با پیک در افغانستان', href: '#faq' },
+            { label: '۱۰ سال ضمانت کیفیت', href: '#faq' },
+            { label: 'استعلام قیمت و موجودی', href: '#faq' }
           ]
         : [
-            { label: 'Client Assistance', href: '#faq' },
-            { label: 'Order Tracking & Freight', href: '#faq' },
-            { label: 'Lifetime Structural Guarantee', href: '#faq' },
-            { label: 'Schedule Trade Consultation', href: '#faq' }
+            { label: 'Customer Assistance', href: '#faq' },
+            { label: 'Courier Delivery (Afghanistan)', href: '#faq' },
+            { label: '10-Year Quality Guarantee', href: '#faq' },
+            { label: 'Inquire on WhatsApp', href: '#faq' }
           ]
     }
   ];
@@ -101,7 +101,7 @@ export const NewsletterAndFooter: React.FC = () => {
           
           <div className="lg:col-span-6 space-y-3">
             <span className="text-[11px] uppercase tracking-[0.25em] text-[#C5A059] font-semibold">
-              The Roshna Volt Gazette
+              {isRtl ? 'اطلاع‌رسانی روشنا ولت' : 'Roshna Volt Updates'}
             </span>
             <h3 className="font-serif-heading text-3xl sm:text-4xl text-white font-normal">
               {t.footer.newsletterTitle} <br />
@@ -212,7 +212,7 @@ export const NewsletterAndFooter: React.FC = () => {
       {/* Bottom Copyright & Legal Links */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8 border-t border-[#C5A059]/20 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-neutral-400 font-sans-body">
         <div>
-          © {new Date().getFullYear()} Roshna Volt Systems S.r.l. {t.footer.copyright}
+          © {new Date().getFullYear()} Roshna Volt. {t.footer.copyright}
         </div>
 
         {/* Currency & Region Selector */}

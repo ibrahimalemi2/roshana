@@ -4,61 +4,49 @@ import { IMAGES } from './imageAssets';
 export const HERO_SLIDES: HeroSlide[] = [
   {
     id: 'hero-1',
-    title: 'Roshna Pure Minimal Switch',
-    headline: 'Architectural Luminescence',
-    category: 'Wall Controls',
-    tagline: 'Precision-engineered seamless rocker switch with soft tactile feedback and illuminated subtle micro-LED indicator.',
+    title: 'سویچ یکپل (Single Switch)',
+    headline: 'Comfort, Safety & Style',
+    category: 'Switches',
+    tagline: 'Modern 1-gang switch with velvet-matte tactile surface, skin-friendly anti-allergic materials, and whisper-quiet performance.',
     price: 145,
     image: IMAGES.SINGLE_SWITCH_WARM_CREAM,
-    material: 'Ultra-Matte German Polymer & Solid Brass Terminals',
-    origin: 'Handcrafted in Milan Atelier',
-    designer: 'Studio Roshna Milan'
+    material: 'Flame-Retardant Polymer & Solid Brass Terminals',
+    origin: 'Standard 86mm Fit',
+    designer: 'Roshna Volt'
   },
   {
     id: 'hero-2',
-    title: 'Roshna Dual-Gang Marble Plate Switch',
-    headline: 'Monolithic Symmetry',
-    category: 'Luxe Switch Collection',
-    tagline: 'Dual balanced tactile plates engineered to blend harmoniously into organic travertine and dark marble surfaces.',
+    title: 'سویچ دوپل (Double Switch)',
+    headline: 'Modern Dual Control',
+    category: 'Switches',
+    tagline: 'Dual-gang wall switch crafted for balanced aesthetics, robust internal construction, and smooth daily switching.',
     price: 185,
     image: IMAGES.DUAL_SWITCH_DARK_MARBLE,
-    material: 'High-Density Flame-Retardant PC with Gold Leaf Contacts',
-    origin: 'Tivoli & Copenhagen',
-    designer: 'Elena Rossi & Kasper Thomsen'
+    material: 'Reinforced PC with Anti-Allergic Surface',
+    origin: 'Standard 86mm Fit',
+    designer: 'Roshna Volt'
   },
   {
     id: 'hero-3',
-    title: 'Roshna Sculptural Fluted Wall Socket',
-    headline: 'Pure Flush Integration',
-    category: 'Architectural Sockets',
-    tagline: 'Child-safe internal shutter mechanism encased in a minimalist bevel-free architectural wall enclosure.',
+    title: 'ساکت برق (Power Socket)',
+    headline: 'Safe & Reliable Power',
+    category: 'Sockets',
+    tagline: 'High-safety wall socket equipped with automatic child-safe shutters and firm brass contacts for long-lasting use.',
     price: 160,
     image: IMAGES.WALL_SOCKET_CREAM_FLUTED,
-    material: 'Solid Steel Subframe & Satin Matte Faceplate',
-    origin: 'Copenhagen, Denmark',
-    designer: 'Kasper Thomsen'
-  },
-  {
-    id: 'hero-4',
-    title: 'Roshna Trio Master Atelier Collection',
-    headline: 'Harmonious Trio Suite',
-    category: 'Full Residence System',
-    tagline: 'Cohesive architectural suite containing single, dual, and socket assemblies for unified modern residence interiors.',
-    price: 460,
-    image: IMAGES.TRIO_COUNTER_SHOWCASE,
-    material: 'Reinforced Metal Mounting & Multi-Coated Matte Polycarbonate',
-    origin: 'Milan Atelier, Italy',
-    designer: 'Studio Roshna Milan'
+    material: 'Flame-Retardant Body & High-Elasticity Brass',
+    origin: 'Standard 86mm Fit',
+    designer: 'Roshna Volt'
   }
 ];
 
 export const PRODUCTS: Product[] = [
   {
     id: 'roshna-sw-01',
-    name: 'Roshna Pure Minimal 1-Gang Switch',
-    subtitle: 'Ultra-Slim Tactile Rocker Switch',
+    name: 'سویچ یکپل (Single Switch)',
+    subtitle: 'Modern 1-Gang Matte Wall Switch',
     category: 'Switches',
-    collection: 'Luxe Collection',
+    collection: 'Roshna Modern Series',
     price: 145,
     originalPrice: 175,
     rating: 4.95,
@@ -71,29 +59,27 @@ export const PRODUCTS: Product[] = [
       IMAGES.EXPLODED_SWITCH_COMPONENTS
     ],
     dimensions: 'W 86mm × H 86mm × D 9.2mm (Mounting Depth: 25mm)',
-    material: 'Flame-Retardant German Bayer PC, Phosphor Bronze Clips, Heavy-Duty Steel Mounting Plate',
-    description: 'An architectural statement for discerning interiors. The Roshna 1-Gang switch combines an ultra-slim flush profile with a dampened tactile click mechanism and soft ambient LED guide light.',
+    material: 'Flame-Retardant Polymer, Phosphor Bronze Clips, Heavy-Duty Steel Mounting Subframe',
+    description: 'سویچ یکپل با طراحی مدرن و سطح مات، ساخته‌شده از مواد باکیفیت و مناسب برای تماس مکرر با دست. مواد سطحی آن برای کاهش احتمال تحریک و حساسیت پوستی انتخاب شده و ویژگی‌های بهداشتی سطح نیز به کاهش ماندگاری و رشد میکروارگانیسم‌ها کمک می‌کند.',
     badge: 'Bestseller',
     colorOptions: [
-      { name: 'Pure Matte White', hex: '#F7F7F7' },
-      { name: 'Champagne Brass Accent', hex: '#F59E0B' },
-      { name: 'Architectural Charcoal', hex: '#262626' },
-      { name: 'Warm Cream Satin', hex: '#FFFFFF' }
+      { name: 'Pure Matte White', hex: '#F7F7F7' }
     ],
     features: [
-      'Zero-wobble precision snap-fit front plate with concealed mounting screws',
-      'Ultra-dampened acoustic mechanism engineered for whisper-quiet actuation',
-      'Silver-nickel electric contact alloy certified for 100,000+ continuous cycles',
-      'Integrated soft 2700K micro-illumination beacon for ambient nighttime guidance'
+      'طراحی مدرن و لوکس',
+      'سطح مات و خوش‌لمس',
+      'مناسب برای تماس مکرر با پوست',
+      'کاهش رشد و ماندگاری میکروارگانیسم‌ها',
+      'عملکرد نرم و بادوام'
     ],
     inStock: true
   },
   {
     id: 'roshna-sw-02',
-    name: 'Roshna Dual-Gang Precision Switch',
-    subtitle: 'Independent 2-Way Architectural Wall Control',
+    name: 'سویچ دوپل (Double Switch)',
+    subtitle: 'Modern 2-Gang Tactile Wall Switch',
     category: 'Switches',
-    collection: 'Luxe Collection',
+    collection: 'Roshna Modern Series',
     price: 185,
     originalPrice: 220,
     rating: 4.9,
@@ -106,28 +92,27 @@ export const PRODUCTS: Product[] = [
       IMAGES.DUAL_SWITCH_ELEVATION
     ],
     dimensions: 'W 86mm × H 86mm × D 9.2mm',
-    material: 'High-Impact Polycarbonate, Solid Phosphor Bronze Terminals, Black Electroplated Steel Base',
-    description: 'Designed for dual-zone lighting control. Each rocker switch is mathematically balanced to maintain perfect alignment even when actuated independently, preserving clean architectural lines.',
-    badge: 'Architectural Edit',
+    material: 'High-Impact Flame-Retardant PC, Solid Brass Terminals, Reinforced Steel Base',
+    description: 'سویچ دوپل برای فضاهایی طراحی شده است که زیبایی، کیفیت و عملکرد مطمئن باید در کنار یکدیگر قرار گیرند. طراحی مینیمال و سطح مات آن جلوه‌ای مدرن به دیوار می‌دهد، در حالی که ساختار داخلی مقاوم برای استفاده مکرر ساخته شده است.',
+    badge: 'Popular',
     colorOptions: [
-      { name: 'Pure Matte White', hex: '#F7F7F7' },
-      { name: 'Warm Cream Satin', hex: '#FFFFFF' },
-      { name: 'Deep Espresso', hex: '#1F1E1D' }
+      { name: 'Pure Matte White', hex: '#F7F7F7' }
     ],
     features: [
-      'Dual independent circuit control with smooth 1-way and 2-way cross-switching',
-      'Bevel-free minimalist front plate engineered to sit flush against marble or drywall',
-      'Anti-fingerprint oleophobic nano-matte coating',
-      'Universal European and International standard box compatibility'
+      'طراحی لوکس و مینیمال',
+      'سطح مات',
+      'ساختار مقاوم',
+      'عملکرد نرم و دقیق',
+      'مواد ضدحساسیت پوستی و بهداشتی'
     ],
     inStock: true
   },
   {
     id: 'roshna-soc-01',
-    name: 'Roshna Architectural Flush Socket',
-    subtitle: '16A Grounded Safety Wall Socket with Internal Shutter',
+    name: 'ساکت برق (Power Socket)',
+    subtitle: 'Modern Safe Wall Power Socket',
     category: 'Sockets',
-    collection: 'Sculptural Hardware',
+    collection: 'Roshna Modern Series',
     price: 160,
     originalPrice: 190,
     rating: 5.0,
@@ -141,118 +126,17 @@ export const PRODUCTS: Product[] = [
       IMAGES.WALL_SOCKET_MACRO_DETAIL
     ],
     dimensions: 'W 86mm × H 86mm × D 32mm (Recessed Depth: 24mm)',
-    material: 'V0 Fire-Resistant PC Polymer, Solid Brass Earth Clips, Cold-Rolled Steel Frame',
-    description: 'Elevates everyday power delivery into a sculptural element. Features internal child-protection automatic safety shutters, high-conductivity brass spring contacts, and an ultra-clean circular aperture.',
-    badge: 'Flagship Design',
+    material: 'V-0 Fire-Resistant Polymer, Solid Brass Earth Clips, Cold-Rolled Steel Frame',
+    description: 'ساکت برق مدرن با تمرکز بر سه اصل ایمنی، دوام و زیبایی. طراحی مدرن و سطح مات آن با دکوراسیون‌های امروزی هماهنگ شده و ساختار داخلی مقاوم برای اتصال مطمئن و استفاده مداوم در محیط‌های مسکونی و تجاری در نظر گرفته شده است.',
+    badge: 'Safety Certified',
     colorOptions: [
-      { name: 'Pure Matte White', hex: '#F7F7F7' },
-      { name: 'Warm Cream Satin', hex: '#FFFFFF' },
-      { name: 'Architectural Charcoal', hex: '#262626' }
+      { name: 'Pure Matte White', hex: '#F7F7F7' }
     ],
     features: [
-      'Self-closing automatic child safety shutters inside plug terminals',
-      'High-elasticity phosphor bronze contact springs that never loosen over time',
-      'Reinforced cold-rolled steel mounting subframe with multi-axis alignment slots',
-      'Rated for 250V / 16A with CE, CB, and IEC-60884 international safety certifications'
-    ],
-    inStock: true
-  },
-  {
-    id: 'roshna-eng-01',
-    name: 'Roshna 3-Tier Modular Engineering Unit',
-    subtitle: 'Exploded Triple-Layer Modular Assembly',
-    category: 'Engineering',
-    collection: 'Precision Engineering',
-    price: 295,
-    rating: 4.98,
-    reviewCount: 74,
-    image: IMAGES.EXPLODED_3PARTS,
-    gallery: [
-      IMAGES.EXPLODED_3PARTS,
-      IMAGES.EXPLODED_SWITCH_COMPONENTS,
-      IMAGES.TRIO_COUNTER_SHOWCASE,
-      IMAGES.WALL_PLATE_ARCHITECTURAL_ISO
-    ],
-    dimensions: 'Universal Standard 86mm Modular Chassis',
-    material: '1. Front Cover (Bayer PC) + 2. Core Socket Mechanism + 3. Anti-Corrosive Metal Mounting Frame',
-    description: 'An engineering masterwork showcasing Roshna’s 3-part modular architecture. Separation of the structural mounting frame from the finished cosmetic cover ensures lifetime tool-free faceplate swapability.',
-    badge: 'Masterpiece',
-    colorOptions: [
-      { name: 'Signature White & Steel', hex: '#F2EFEB' },
-      { name: 'Champagne Brass Core', hex: '#F59E0B' }
-    ],
-    features: [
-      'Part 1: Premium German PC front cover with smooth velvet finish for everyday durability',
-      'Part 2: High-density internal socket module ensuring safe connection & reliable power delivery',
-      'Part 3: Strong steel mounting frame for secure installation and permanent level alignment',
-      'Tool-free modular front snap-lock allowing rapid renovation color changes'
-    ],
-    inStock: true
-  },
-  {
-    id: 'roshna-line-01',
-    name: 'Roshna Residence Trio Hardware Suite',
-    subtitle: 'Curated 3-Piece Living Room & Master Suite Bundle',
-    category: 'Living Systems',
-    collection: 'Luxe Collection',
-    price: 460,
-    originalPrice: 520,
-    rating: 4.95,
-    reviewCount: 142,
-    image: IMAGES.TRIO_COUNTER_SHOWCASE,
-    gallery: [
-      IMAGES.TRIO_COUNTER_SHOWCASE,
-      IMAGES.STUDIO_PRODUCT_TRIO,
-      IMAGES.SINGLE_SWITCH_WARM_CREAM,
-      IMAGES.WALL_SOCKET_DARK_TIMBER
-    ],
-    dimensions: 'Contains 1x Single Switch, 1x Dual-Gang Switch, 1x Architectural Socket (86mm each)',
-    material: 'Uniform Velvet-Matte Polymer, Precision Brass Terminals, Solid Mounting Frames',
-    description: 'The definitive bundle for complete interior harmony. Includes our signature single switch, dual-gang lighting controller, and high-amp grounded wall socket in matching finish and profile height.',
-    badge: 'Curated Bundle',
-    colorOptions: [
-      { name: 'Pure Matte White', hex: '#F7F7F7' },
-      { name: 'Warm Cream Satin', hex: '#FFFFFF' },
-      { name: 'Champagne Gold Tone', hex: '#F59E0B' }
-    ],
-    features: [
-      'Complete unified tactile feel and aesthetic consistency across all wall fixtures',
-      'Includes complimentary Roshna flush mounting backbox kit and alignment spacers',
-      'Save 15% compared to purchasing individual architectural units',
-      'White-glove priority shipping with serialized certification plaque'
-    ],
-    inStock: true
-  },
-  {
-    id: 'roshna-soc-02',
-    name: 'Roshna Dark Timber & Slate Edition Socket',
-    subtitle: 'Rich Contrast Architectural Socket for Wood & Stone Walls',
-    category: 'Sockets',
-    collection: 'Sculptural Hardware',
-    price: 175,
-    rating: 4.88,
-    reviewCount: 63,
-    image: IMAGES.WALL_SOCKET_DARK_TIMBER,
-    gallery: [
-      IMAGES.WALL_SOCKET_DARK_TIMBER,
-      IMAGES.WALL_SOCKET_MACRO_DETAIL,
-      IMAGES.WALL_PLATE_AMBIENT_CORNER,
-      IMAGES.WALL_PLATE_LIVING_PERSPECTIVE
-    ],
-    dimensions: 'W 86mm × H 86mm × D 32mm',
-    material: 'Reinforced PC with Carbon Underlay & Gold Grounding Contacts',
-    description: 'Engineered specifically for dark acoustic slatted wall paneling, walnut cabinetry, and smoked oak millwork. Delivers striking visual depth with crisp geometric contrast.',
-    badge: 'Studio Pick',
-    colorOptions: [
-      { name: 'Pure Matte White', hex: '#F7F7F7' },
-      { name: 'Smoked Charcoal', hex: '#242424' },
-      { name: 'Brushed Brass', hex: '#F59E0B' }
-    ],
-    features: [
-      'Ultra-clean seamless perimeter bevel that sits perfectly against textured wall slats',
-      'Heavy-duty 16A continuous current rating with zero thermal buildup',
-      'Pre-assembled quick-wire lever connectors for rapid electricians installation',
-      'Scratch-resistant matte micro-texture'
+      'طراحی لوکس و مدرن',
+      'سطح مات و باکیفیت',
+      'ساختار مقاوم برای استفاده طولانی‌مدت',
+      'مناسب برای تماس روزمره و بهداشتی'
     ],
     inStock: true
   }
@@ -261,42 +145,42 @@ export const PRODUCTS: Product[] = [
 export const QUADRANT_ITEMS: QuadrantItem[] = [
   {
     id: 'quad-1',
-    title: '3-Part Modular Precision',
-    subtitle: 'Structural Engineering',
-    category: 'Component Architecture',
+    title: 'Solid Metal Subframe',
+    subtitle: 'Structural Strength',
+    category: 'Subframe Engineering',
     image: IMAGES.EXPLODED_3PARTS,
-    material: 'Polycarbonate & Solid Steel Base',
-    description: 'Separation of the front cover, core mechanism, and metal subframe guarantees effortless installation and lifelong structural stability.',
-    tag: 'Q1 · Engineering'
+    material: 'Cold-Rolled Steel Plate',
+    description: 'A rigid steel backframe ensures flush, zero-flex alignment on standard 86mm wall boxes.',
+    tag: 'Q1 · Durability'
   },
   {
     id: 'quad-2',
-    title: 'Warm Mineral Harmony',
-    subtitle: 'Seamless Wall Flow',
-    category: 'Living Integration',
+    title: 'Anti-Allergic Matte Surface',
+    subtitle: 'Touch Comfort',
+    category: 'Surface Hygiene',
     image: IMAGES.SINGLE_SWITCH_WARM_CREAM,
-    material: 'Velvet Satin Polymer',
-    description: 'Tuned to complement warm cream lime-wash, travertine stone, and bespoke plaster walls with zero glaring reflections.',
-    tag: 'Q2 · Harmony'
+    material: 'Skin-Friendly Polymer',
+    description: 'Smooth velvet-matte texture that resists skin irritation, fingerprints, and microbial retention.',
+    tag: 'Q2 · Hygiene'
   },
   {
     id: 'quad-3',
-    title: 'Dual-Zone Symmetry',
-    subtitle: 'Tactile Ergonomics',
-    category: 'Wall Controls',
+    title: 'Tactile Rocker Mechanism',
+    subtitle: 'Smooth Actuation',
+    category: 'Switching Control',
     image: IMAGES.DUAL_SWITCH_DARK_MARBLE,
-    material: 'High-Density PC & Silver Alloy',
-    description: 'Micro-calibrated spring rockers provide instant, dampened acoustic feedback without visual disruption.',
-    tag: 'Q3 · Precision'
+    material: 'Calibrated Precision Springs',
+    description: 'Smooth, whisper-quiet tactile switching tested for over 50,000 smooth cycles.',
+    tag: 'Q3 · Performance'
   },
   {
     id: 'quad-4',
-    title: 'Architectural Power Delivery',
-    subtitle: 'Safety & Utility',
-    category: 'High-Amp Sockets',
+    title: 'Child-Safe Power Socket',
+    subtitle: 'Electrical Protection',
+    category: 'Safety Aperture',
     image: IMAGES.WALL_SOCKET_CREAM_FLUTED,
-    material: 'Phosphor Bronze & Steel Frame',
-    description: 'Child-proof automated internal shutters and high-elasticity contacts deliver uncompromised safety wrapped in minimalist form.',
+    material: 'High-Elasticity Brass',
+    description: 'Automated internal safety shutters prevent accidental foreign object insertion for total peace of mind.',
     tag: 'Q4 · Safety'
   }
 ];
@@ -305,135 +189,135 @@ export const VALUE_PILLARS: ValuePillar[] = [
   {
     id: 'pillar-1',
     number: '01',
-    title: '3-Tier Modular Construction',
-    shortDesc: 'Front cover, core electrical module, and solid metal mounting frame.',
-    fullDesc: 'Unlike cheap monolithic switches, Roshna separates the steel anchor frame from the cosmetic faceplate. This guarantees zero flexing during wall clamping and allows instant faceplate updates without rewiring.',
+    title: 'Reinforced Metal Subframe',
+    shortDesc: 'Solid steel mounting frame for zero bending and permanent flat wall alignment.',
+    fullDesc: 'The sturdy metal base ensures the switch stays firmly anchored to the wall box without warping or loosening over years of daily pressing.',
     iconName: 'Gem',
-    highlight: 'Rigid Cold-Rolled Steel Frame'
+    highlight: 'Heavy-Duty Steel Base'
   },
   {
     id: 'pillar-2',
     number: '02',
-    title: 'Flame-Retardant German Polymer',
-    shortDesc: 'Bayer V0-rated high-impact polycarbonate with oleophobic velvet matte finish.',
-    fullDesc: 'Resistant to ultraviolet discoloration, physical impact, and thermal fatigue. Finished with an ultra-fine matte texture that naturally repels fingerprints and reflections under sunlight.',
+    title: 'Anti-Allergic & Flame-Retardant Polymer',
+    shortDesc: 'V-0 fire-resistant polycarbonate with skin-safe velvet matte texture.',
+    fullDesc: 'Specially chosen for high thermal resistance and self-extinguishing safety. The matte texture resists fingerprints and helps reduce microbial buildup.',
     iconName: 'Leaf',
-    highlight: 'UL94 V-0 Certified & UV-Stable'
+    highlight: 'Flame-Retardant & Skin-Friendly'
   },
   {
     id: 'pillar-3',
     number: '03',
-    title: 'Acoustically Dampened Click',
-    shortDesc: 'Mathematical balance delivering a soothing, whisper-quiet tactile switch click.',
-    fullDesc: 'Calibrated with internal micro-dampeners and silver-nickel contact points rated for over 100,000 cycles. Creates a deeply satisfying, solid sensory experience with every touch.',
+    title: 'Smooth & Quiet Operation',
+    shortDesc: 'Micro-calibrated springs delivering smooth, tactile, whisper-quiet clicks.',
+    fullDesc: 'Internal mechanisms are tested for over 50,000 actuations, offering solid, reassuring tactile feedback with every switch.',
     iconName: 'Sparkles',
-    highlight: '100,000+ Verified Actuations'
+    highlight: '+50,000 Tested Actuations'
   },
   {
     id: 'pillar-4',
     number: '04',
-    title: 'Lifetime Structural Integrity',
-    shortDesc: 'Precision phosphor bronze terminals and 25-year manufacturer guarantee.',
-    fullDesc: 'Built to exceed CE, CB, and IEC safety standards. Every piece is rigorously tested for high dielectric strength, thermal dissipation, and permanent electrical conductivity.',
+    title: 'Electrical Safety & Protection',
+    shortDesc: 'High-grade brass terminals and automatic safety shutters for peace of mind.',
+    fullDesc: 'Socket apertures feature child-protection safety shutters, and high-conductivity brass terminals prevent overheating under continuous load.',
     iconName: 'ShieldCheck',
-    highlight: 'Lifetime Safety & Structural Warranty'
+    highlight: '10-Year Quality Guarantee'
   }
 ];
 
 export const MATERIALS_DATA = [
   {
     id: 'mat-1',
-    name: 'Bayer V-0 Polymer Faceplate',
-    origin: 'Leverkusen, Germany',
-    category: 'Tactile Polymer',
-    description: 'Self-extinguishing, high-impact polycarbonate finished with an anti-glare oleophobic micro-texture that feels soft to the touch and resists marks.',
+    name: 'Flame-Retardant Matte Cover',
+    origin: 'High-Grade Polymer',
+    category: 'Anti-Allergic Surface',
+    description: 'Self-extinguishing V-0 polycarbonate with a smooth matte texture that prevents skin irritation and reduces the buildup of microorganisms.',
     image: IMAGES.WALL_SOCKET_MACRO_DETAIL,
-    characteristics: ['UL94 V-0 self-extinguishing safety', 'Zero-luster satin texture', 'Anti-fingerprint nano surface']
+    characteristics: ['Flame-retardant safety', 'Velvet matte anti-glare finish', 'Anti-fingerprint and hygienic']
   },
   {
     id: 'mat-2',
-    name: 'Cold-Rolled Steel Subframe',
-    origin: 'Duisburg Metalworks',
-    category: 'Structural Metal',
-    description: 'Heavy-gauge electroplated steel mounting bracket engineered with multi-axis alignment slots for flush mounting on uneven stone and drywall.',
+    name: 'Reinforced Steel Subframe',
+    origin: 'Galvanized Metal',
+    category: 'Structural Base',
+    description: 'Rigid steel mounting bracket with universal alignment screw slots, ensuring flush installation on all standard 86mm wall boxes.',
     image: IMAGES.EXPLODED_3PARTS,
-    characteristics: ['Zero torsion or bending under torque', 'Multi-point level adjustment', 'Corrosion-resistant zinc coat']
+    characteristics: ['Zero torsion or bending', 'Multi-point leveling slots', 'Rust-resistant protective coating']
   },
   {
     id: 'mat-3',
-    name: 'Phosphor Bronze Electrical Clips',
-    origin: 'Milan Precision Foundry',
-    category: 'Conductive Alloy',
-    description: 'High-elasticity spring bronze terminals that maintain permanent clamping pressure on plugs and solid copper house wiring over decades.',
+    name: 'High-Conductivity Brass Clips',
+    origin: 'Spring Brass Alloy',
+    category: 'Electrical Terminal',
+    description: 'Heavy-duty brass terminals that maintain high elasticity and firm clamping pressure on plugs and house wiring over decades.',
     image: IMAGES.EXPLODED_SWITCH_COMPONENTS,
-    characteristics: ['99.2% electrical conductivity', 'Fatigue-free spring retention', 'Low electrical contact resistance']
+    characteristics: ['99%+ electrical conductivity', 'Fatigue-resistant spring retention', 'Low contact resistance & heat dissipation']
   },
   {
     id: 'mat-4',
-    name: 'Silver-Nickel Contact Alloy',
-    origin: 'Copenhagen Laboratories',
-    category: 'Switching Contacts',
-    description: 'Micro-welded AgNi contacts that prevent electric arcing and oxidation, ensuring crisp, reliable switching across high-load lighting circuits.',
+    name: 'Spark-Resistant Contacts',
+    origin: 'Silver Alloy',
+    category: 'Switching Mechanism',
+    description: 'Durable contact points engineered to prevent arcing and electrical wear, ensuring smooth, safe switching for all lighting loads.',
     image: IMAGES.DUAL_SWITCH_PERSPECTIVE,
-    characteristics: ['Zero contact welding under surge', 'Rated for 100,000+ switchings', 'Optimized for LED load drivers']
+    characteristics: ['Spark & arc prevention', 'Tested for 50,000+ switches', 'Optimized for modern LED loads']
   }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-1',
-    name: 'Clarissa Montgomery',
-    role: 'Principal Architect at Studio Mont',
-    location: 'Geneva, Switzerland',
+    name: 'Ahmad Reshad',
+    role: 'Master Electrical Contractor',
+    location: 'Kabul, Afghanistan',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
     rating: 5,
-    quote: 'Roshna provides the missing link in contemporary architecture. The switches sit completely flush with our travertine and lime-wash walls, and the tactile click is delightfully refined.',
-    purchasedProduct: 'Roshna Residence Trio Hardware Suite',
-    date: 'Verified Architect · Jan 2026'
+    quote: 'Installation is straightforward and clean. The steel backplate fits standard 86mm boxes perfectly without flexing, and the wire terminals clamp firmly.',
+    purchasedProduct: 'Single & Double Switches',
+    date: 'Verified Electrician'
   },
   {
     id: 'test-2',
-    name: 'Julian Vance-Moreau',
-    role: 'Interior Design Director',
-    location: 'London, UK',
+    name: 'Maryam Sadat',
+    role: 'Residential Client',
+    location: 'Herat, Afghanistan',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
     rating: 5,
-    quote: 'The 3-part engineering modularity makes installation a dream for our contractors. The clean geometric lines and micro-LED indicators transform dark corridors into calm luxury.',
-    purchasedProduct: 'Roshna Dual-Gang Precision Switch',
-    date: 'Verified Trade Member · Feb 2026'
+    quote: 'The matte finish feels very smooth to the touch, does not leave fingerprints, and looks significantly more modern and clean than ordinary glossy switches.',
+    purchasedProduct: 'Modern Power Sockets',
+    date: 'Verified Homeowner'
   },
   {
     id: 'test-3',
-    name: 'Seraphina Lin',
-    role: 'Residential Developer & Collector',
-    location: 'Tokyo & San Francisco',
+    name: 'Farhad Nawabi',
+    role: 'Commercial Project Supervisor',
+    location: 'Mazar-i-Sharif, Afghanistan',
     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80',
     rating: 5,
-    quote: 'From the unboxing crate to the solid steel subframe, the quality is undeniable. Roshna has set the new benchmark for luxury architectural wall hardware.',
-    purchasedProduct: 'Roshna Architectural Flush Socket',
-    date: 'Verified Homeowner · Feb 2026'
+    quote: 'We ordered over 200 units for an office renovation via WhatsApp. Delivery was prompt, prices were reasonable, and the quality has been reliable.',
+    purchasedProduct: 'Full Facility Order',
+    date: 'Commercial Contractor'
   }
 ];
 
 export const METRIC_STATS: MetricStat[] = [
   {
-    value: '4.9/5',
-    label: 'Verified Reviews',
-    detail: 'From over 4,800 architects & homeowners worldwide'
+    value: '99%',
+    label: 'Customer Satisfaction',
+    detail: 'Trusted by homeowners and electricians nationwide'
   },
   {
-    value: '20K+',
-    label: 'Spaces Transformed',
-    detail: 'Across 34 countries and bespoke architectural residences'
+    value: '10-Year',
+    label: 'Quality Guarantee',
+    detail: 'Direct store replacement for internal mechanisms'
   },
   {
-    value: '99.4%',
-    label: 'Client Satisfaction',
-    detail: 'Repeat specification by premier luxury architects'
+    value: '50K+',
+    label: 'Tested Actuations',
+    detail: 'Smooth and reliable switching performance'
   },
   {
-    value: '15+',
-    label: 'Years of Experience',
-    detail: 'Pioneering slow-craft minimalist living hardware'
+    value: '86mm',
+    label: 'Standard Box Fit',
+    detail: 'Compatible with standard electrical wall boxes'
   }
 ];

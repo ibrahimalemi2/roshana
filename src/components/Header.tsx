@@ -33,7 +33,7 @@ export const Header: React.FC<HeaderProps> = ({
   onNavigate
 }) => {
   const { isDark, toggleTheme } = useTheme();
-  const { language, toggleLanguage, t } = useLanguage();
+  const { language, toggleLanguage, t, isRtl } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -138,7 +138,7 @@ export const Header: React.FC<HeaderProps> = ({
                   : 'bg-[#FFFFFF] border-[#E5E1D8] text-[#1F2421] hover:border-[#C5A059] hover:text-[#C5A059] shadow-xs'
               }`}
               aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Brand Deep Navy Mode'}
-              title={isDark ? 'Theme: Brand Deep Navy (#0B132B) • Click for Light Mode' : 'Theme: Atelier Light • Click for Brand Deep Navy Dark (#0B132B)'}
+              title={isDark ? 'Theme: Brand Deep Navy (#0B132B) • Click for Light Mode' : 'Theme: Light Mode • Click for Brand Deep Navy Dark (#0B132B)'}
             >
               <span className="relative w-4 h-4 flex items-center justify-center">
                 {isDark ? (
@@ -205,7 +205,9 @@ export const Header: React.FC<HeaderProps> = ({
 
             {/* WhatsApp Direct Client Button */}
             <a
-              href="https://wa.me/?text=Hello%20Roshna%20Volt%2C%20I%20would%20like%20to%20inquire%20about%20your%20architectural%20collection."
+              href={isRtl
+                ? "https://wa.me/?text=سلام%20روشنا%20ولت،%20مایل%20به%20دریافت%20مشاوره%20در%20مورد%20سویچ‌ها%20و%20ساکت‌ها%20هستم."
+                : "https://wa.me/?text=Hello%20Roshna%20Volt,%20I%20would%20like%20to%20inquire%20about%20your%20switches%20and%20sockets%20collection."}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold tracking-wider uppercase px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-[#25D366]/50 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366] hover:text-[#0B132B] hover:border-transparent transition-all shadow-xs hover:shadow-md hover:shadow-[#25D366]/25 whitespace-nowrap flex-shrink-0 cursor-pointer group"
@@ -246,7 +248,7 @@ export const Header: React.FC<HeaderProps> = ({
               <div className="flex items-center gap-2">
                 <RoshnaEmblem className="w-6 h-6" />
                 <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-[#C5A059]">
-                  Roshna Volt Atelier
+                  {isRtl ? 'روشنا ولت • سویچ و ساکت مدرن' : 'Roshna Volt Hardware'}
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -310,11 +312,13 @@ export const Header: React.FC<HeaderProps> = ({
 
           <div className="border-t border-[#E5E1D8]/40 pt-6 space-y-3">
             <div className="text-xs text-[#94A3B8] font-sans-body">
-              <p className="font-semibold text-[#C5A059]">Roshna Volt Flagship Engineering</p>
-              <p>Certified to CE, CB, RoHS & IEC-60884 Standards</p>
+              <p className="font-semibold text-[#C5A059]">{isRtl ? 'روشنا ولت • کلید و پریزهای ساختمانی' : 'Roshna Volt Hardware'}</p>
+              <p>{isRtl ? 'سازگار با قوطی‌های استاندارد ۸۶ میلی‌متری • کیفیت و ایمنی مطمئن' : 'Compatible with standard 86mm wall boxes • Safe and durable'}</p>
             </div>
             <a
-              href="https://wa.me/?text=Hello%20Roshna%20Volt%2C%20I%20would%20like%20to%20inquire%20about%20your%20architectural%20collection."
+              href={isRtl
+                ? "https://wa.me/?text=سلام%20روشنا%20ولت،%20مایل%20به%20دریافت%20مشاوره%20در%20مورد%20سویچ‌ها%20و%20ساکت‌ها%20هستم."
+                : "https://wa.me/?text=Hello%20Roshna%20Volt,%20I%20would%20like%20to%20inquire%20about%20your%20switches%20and%20sockets%20collection."}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-3.5 px-4 rounded-full border border-[#25D366]/50 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366] hover:text-[#0B132B] font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors shadow-xs"

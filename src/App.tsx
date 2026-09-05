@@ -15,11 +15,12 @@ import { SplashScreen } from './components/SplashScreen';
 import { PRODUCTS } from './data/furnitureData';
 import { Product, CartItem } from './types';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
-import { LanguageProvider } from './context/LanguageContext';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { Check } from 'lucide-react';
 
 function MainAppContent() {
   const { isDark } = useTheme();
+  const { isRtl, t } = useLanguage();
   const [showSplash, setShowSplash] = useState(true);
 
   const [cart, setCart] = useState<CartItem[]>([
@@ -42,6 +43,7 @@ function MainAppContent() {
   };
 
   const handleAddToCart = (product: Product, selectedColor: string) => {
+    const localizedName = t.showcase.products?.find((p) => p.id === product.id)?.name || product.name;
     setCart((prevCart) => {
       const existingIndex = prevCart.findIndex(
         (item) => item.product.id === product.id && item.selectedColor === selectedColor
@@ -54,7 +56,7 @@ function MainAppContent() {
         return [...prevCart, { product, quantity: 1, selectedColor }];
       }
     });
-    showToast(`Added ${product.name} (${selectedColor}) to specification bag.`);
+    showToast(isRtl ? `${localizedName} به سبد خرید افزوده شد.` : `Added ${localizedName} to shopping bag.`);
   };
 
   const handleUpdateQuantity = (productId: string, selectedColor: string, newQty: number) => {
@@ -80,7 +82,7 @@ function MainAppContent() {
   };
 
   const handleCheckout = () => {
-    showToast('Your order details have been prepared and opened in WhatsApp.');
+    showToast(isRtl ? 'جزئیات سفارش شما آماده شد و در واتس‌اپ باز گردید.' : 'Your order details have been prepared and opened in WhatsApp.');
     setCart([]);
   };
 

@@ -58,7 +58,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete, isReplay
       <div className="w-full max-w-7xl px-8 py-6 flex items-center justify-between z-10">
         <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-[#C5A059] font-semibold">
           <Sparkles className="w-3.5 h-3.5 animate-spin text-[#D4AF37]" style={{ animationDuration: '6s' }} />
-          <span>Architectural Living & Hardware</span>
+          <span>Modern Switches & Sockets</span>
         </div>
 
         <button
@@ -96,7 +96,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete, isReplay
         </div>
 
         <p className="mt-4 text-xs text-neutral-300 font-serif-heading italic max-w-sm tracking-wide">
-          Bespoke architectural switches, flush wall plates, and Swiss-grade electrical mechanisms.
+          Modern switches and sockets crafted for comfort, safety, and style.
         </p>
       </div>
 
@@ -110,7 +110,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete, isReplay
         </div>
 
         <div className="w-full flex items-center justify-between text-[10px] uppercase tracking-widest text-neutral-400 mt-3 font-mono">
-          <span>INITIALIZING ATELIER</span>
+          <span>LOADING COLLECTION</span>
           <span className="text-[#C5A059] font-bold">{progress}%</span>
         </div>
       </div>

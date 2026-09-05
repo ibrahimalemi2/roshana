@@ -42,6 +42,15 @@ export interface TranslationDictionary {
     materialLabel: string;
     perspectivesTitle: string;
     guaranteeText: string;
+    quadrants: Array<{
+      id: string;
+      title: string;
+      subtitle: string;
+      category: string;
+      material: string;
+      description: string;
+      tag: string;
+    }>;
   };
   showcase: {
     badge: string;
@@ -59,6 +68,13 @@ export interface TranslationDictionary {
     consultationTitle: string;
     consultationDesc: string;
     consultationButton: string;
+    products: Array<{
+      id: string;
+      name: string;
+      subtitle: string;
+      description: string;
+      features: string[];
+    }>;
   };
   principles: {
     badge: string;
@@ -184,12 +200,12 @@ export const translations: { en: TranslationDictionary; fa: TranslationDictionar
   en: {
     nav: {
       home: 'Home',
-      collection: 'Collection',
-      craft: 'Craft & Design',
+      collection: 'Products',
+      craft: 'Quality & Craft',
       materials: 'Materials',
       reviews: 'Reviews',
       faq: 'FAQ',
-      search: 'Search electrical catalog',
+      search: 'Search switches and sockets',
       bag: 'Shopping bag',
       whatsapp: 'WhatsApp',
       switchLang: 'فارسی',
@@ -198,254 +214,332 @@ export const translations: { en: TranslationDictionary; fa: TranslationDictionar
       intro: 'Intro'
     },
     hero: {
-      eyebrow: 'PRECISION',
-      title1: 'ENGINEERED',
-      title2Prefix: 'FOR ',
-      title2Highlight: 'LIFE',
-      subtitle: 'Swiss-grade core, integrated smart sensors, and zero-tool assembly. Redefining your space with dynamic intelligence.',
-      cta: 'Explore the Collection',
+      eyebrow: 'PREMIUM ELECTRICAL HARDWARE',
+      title1: 'Modern Switches & Sockets —',
+      title2Prefix: 'Crafted for ',
+      title2Highlight: 'Comfort, Safety & Style',
+      subtitle: 'Experience luxury design, matte anti-allergic surfaces, and smooth, reliable performance for residential and commercial spaces.',
+      cta: 'Explore Products',
       quickViewHint: 'Quick View',
       stats: {
-        iecValue: 'IEC',
-        iecLabel: 'Certified',
-        ip65Value: 'IP65',
-        ip65Label: 'Rating',
+        iecValue: 'Standard',
+        iecLabel: '86mm Box Fit',
+        ip65Value: 'Safety',
+        ip65Label: 'Flame Retardant',
         warrantyValue: '10-Year',
-        warrantyLabel: 'Warranty',
-        toolValue: '0-Tool',
-        toolLabel: 'Assembly'
+        warrantyLabel: 'Quality Guarantee',
+        toolValue: 'Smooth',
+        toolLabel: 'Anti-Allergic Touch'
       }
     },
     anatomy: {
-      badge: 'The Anatomy of Form',
-      titlePart1: 'Sculptural Symmetry &',
-      titlePart2: '360° Material Precision',
-      subtitle: 'Explore our four foundational design pillars through a quadrant study of texture, volume, and timeless mineral geometry.',
-      ratingText: 'Verified Craft',
+      badge: 'Core Design Elements',
+      titlePart1: 'Balanced Form &',
+      titlePart2: 'Safe Engineering',
+      subtitle: 'Explore the key pillars of our switch and socket design: tactile comfort, robust internal contacts, fire-retardant safety, and clean aesthetics.',
+      ratingText: 'Verified Quality',
       materialLabel: 'Material:',
-      perspectivesTitle: 'Inspect Quadrant Perspectives:',
-      guaranteeText: 'Every quadrant is precision-balanced to maintain architectural serenity from all viewing angles.'
+      perspectivesTitle: 'Inspect Key Features:',
+      guaranteeText: 'Built with flame-retardant polymers and reinforced contacts for long-term safety.',
+      quadrants: [
+        {
+          id: 'quad-1',
+          title: 'Solid Metal Subframe',
+          subtitle: 'Structural Strength',
+          category: 'Subframe Engineering',
+          material: 'Cold-Rolled Steel Plate',
+          description: 'A rigid steel backframe ensures flush, zero-flex alignment on standard 86mm wall boxes.',
+          tag: 'Q1 · Durability'
+        },
+        {
+          id: 'quad-2',
+          title: 'Anti-Allergic Matte Surface',
+          subtitle: 'Touch Comfort',
+          category: 'Surface Hygiene',
+          material: 'Skin-Friendly Polymer',
+          description: 'Smooth velvet-matte texture that resists skin irritation, fingerprints, and microbial retention.',
+          tag: 'Q2 · Hygiene'
+        },
+        {
+          id: 'quad-3',
+          title: 'Tactile Rocker Mechanism',
+          subtitle: 'Smooth Actuation',
+          category: 'Switching Control',
+          material: 'Calibrated Precision Springs',
+          description: 'Smooth, whisper-quiet tactile switching tested for over 50,000 smooth cycles.',
+          tag: 'Q3 · Performance'
+        },
+        {
+          id: 'quad-4',
+          title: 'Child-Safe Power Socket',
+          subtitle: 'Electrical Protection',
+          category: 'Safety Aperture',
+          material: 'High-Elasticity Brass',
+          description: 'Automated internal safety shutters prevent accidental foreign object insertion for total peace of mind.',
+          tag: 'Q4 · Safety'
+        }
+      ]
     },
     showcase: {
-      badge: 'Curated Selection',
-      titlePart1: 'Product Showcase',
-      titlePart2: 'The Luxe Collection',
+      badge: 'Our Products',
+      titlePart1: 'Core Collection',
+      titlePart2: 'Modern Switches & Sockets',
       categories: {
-        all: 'All',
-        switches: 'Tactile Switches',
-        sockets: 'Architectural Sockets',
-        modular: 'Modular Units'
+        all: 'All Products',
+        switches: 'Switches',
+        sockets: 'Power Sockets',
+        modular: 'Accessories'
       },
       addToBag: 'Add to Bag',
       addedToBag: 'Added to Bag',
-      quickSpecs: 'Quick Specs',
-      consultationTitle: 'Need Architectural Multi-Gang Assemblies or Trade Specification?',
-      consultationDesc: 'Our Milan and Copenhagen studios provide BIM models, custom finishes, and trade sample archive kits.',
-      consultationButton: 'Request Atelier Consultation'
+      quickSpecs: 'View Details',
+      consultationTitle: 'Need Bulk Orders or Project Consultation?',
+      consultationDesc: 'Our team provides direct consultation, project volume pricing, and reliable switch & socket supply for homes and commercial buildings.',
+      consultationButton: 'Inquire on WhatsApp',
+      products: [
+        {
+          id: 'roshna-sw-01',
+          name: 'Single Switch',
+          subtitle: 'Modern 1-Gang Matte Wall Switch',
+          description: 'Single switch with a modern design and matte surface, crafted from high-quality materials suited for frequent touch. Surface materials are specifically selected to reduce skin irritation, while hygienic surface properties help minimize the retention and growth of microorganisms.',
+          features: [
+            'Modern luxury design',
+            'Tactile velvet-matte finish',
+            'Suitable for frequent skin touch',
+            'Minimizes microbial retention',
+            'Smooth and durable performance'
+          ]
+        },
+        {
+          id: 'roshna-sw-02',
+          name: 'Double Switch',
+          subtitle: 'Modern 2-Gang Tactile Wall Switch',
+          description: 'Double switch designed for spaces where aesthetics, quality, and dependable performance unite. Its minimal profile and matte surface bring contemporary elegance to walls, paired with a reinforced internal structure built for intensive daily use.',
+          features: [
+            'Luxury minimal design',
+            'Velvet-matte surface',
+            'Durable reinforced structure',
+            'Smooth and precise operation',
+            'Hygienic anti-allergic materials'
+          ]
+        },
+        {
+          id: 'roshna-soc-01',
+          name: 'Power Socket',
+          subtitle: 'Modern Safe Wall Power Socket',
+          description: 'Modern power socket centered on safety, longevity, and aesthetics. Its contemporary matte profile matches modern decor, while the heavy-duty internal architecture ensures reliable connection and continuous use in residential and commercial environments.',
+          features: [
+            'Modern luxury design',
+            'High-grade matte finish',
+            'Heavy-duty durable structure',
+            'Hygienic and safe for daily touch'
+          ]
+        }
+      ]
     },
     principles: {
-      badge: 'Our Principles',
-      titlePart1: 'Crafted with Intent,',
-      titlePart2: 'Built for Generations',
-      subtitle: 'We reject the disposable cycle of fast trends. Every Roshna creation is an architectural heirloom engineered with pure sustainable integrity.',
-      detailedCommitment: 'Detailed Commitment',
-      pillarLabel: 'Pillar',
-      labCertified: 'Independent Lab Certified',
-      directProvenance: 'Direct Atelier Provenance',
+      badge: 'Our Standards',
+      titlePart1: 'Built for Safety,',
+      titlePart2: 'Engineered to Last',
+      subtitle: 'We focus on what truly matters in daily life: fire safety, smooth tactile feel, skin-safe surfaces, and effortless installation.',
+      detailedCommitment: 'Quality Commitment',
+      pillarLabel: 'Principle',
+      labCertified: 'Safety Certified Standards',
+      directProvenance: 'Direct Store Warranty',
       pillars: [
         {
           id: 'pillar-1',
           number: '01',
-          title: '3-Tier Modular Construction',
-          shortDesc: 'Front cover, core electrical module, and solid metal mounting frame.',
-          fullDesc: 'Unlike cheap monolithic switches, Roshna separates the steel anchor frame from the cosmetic faceplate. This guarantees zero flexing during wall clamping and allows instant faceplate updates without rewiring.',
+          title: 'Reinforced Metal Subframe',
+          shortDesc: 'Solid steel mounting frame for zero bending and permanent flat wall alignment.',
+          fullDesc: 'The sturdy metal base ensures the switch stays firmly anchored to the wall box without warping or loosening over years of daily pressing.',
           iconName: 'Gem',
-          highlight: 'Rigid Cold-Rolled Steel Frame'
+          highlight: 'Heavy-Duty Steel Base'
         },
         {
           id: 'pillar-2',
           number: '02',
-          title: 'Flame-Retardant German Polymer',
-          shortDesc: 'Bayer V0-rated high-impact polycarbonate with oleophobic velvet matte finish.',
-          fullDesc: 'Resistant to ultraviolet discoloration, physical impact, and thermal fatigue. Finished with an ultra-fine matte texture that naturally repels fingerprints and reflections under sunlight.',
+          title: 'Anti-Allergic & Flame-Retardant Polymer',
+          shortDesc: 'V-0 fire-resistant polycarbonate with skin-safe velvet matte texture.',
+          fullDesc: 'Specially chosen for high thermal resistance and self-extinguishing safety. The matte texture resists fingerprints and helps reduce microbial buildup.',
           iconName: 'Leaf',
-          highlight: 'UL94 V-0 Certified & UV-Stable'
+          highlight: 'Flame-Retardant & Skin-Friendly'
         },
         {
           id: 'pillar-3',
           number: '03',
-          title: 'Acoustically Dampened Click',
-          shortDesc: 'Mathematical balance delivering a soothing, whisper-quiet tactile switch click.',
-          fullDesc: 'Calibrated with internal micro-dampeners and silver-nickel contact points rated for over 100,000 cycles. Creates a deeply satisfying, solid sensory experience with every touch.',
+          title: 'Smooth & Quiet Operation',
+          shortDesc: 'Micro-calibrated springs delivering smooth, tactile, whisper-quiet clicks.',
+          fullDesc: 'Internal mechanisms are tested for over 50,000 actuations, offering solid, reassuring tactile feedback with every switch.',
           iconName: 'Sparkles',
-          highlight: '100,000+ Verified Actuations'
+          highlight: '+50,000 Tested Actuations'
         },
         {
           id: 'pillar-4',
           number: '04',
-          title: 'Lifetime Structural Integrity',
-          shortDesc: 'Precision phosphor bronze terminals and 25-year manufacturer guarantee.',
-          fullDesc: 'Built to exceed CE, CB, and IEC safety standards. Every piece is rigorously tested for high dielectric strength, thermal dissipation, and permanent electrical conductivity.',
+          title: 'Electrical Safety & Protection',
+          shortDesc: 'High-grade brass terminals and automatic safety shutters for peace of mind.',
+          fullDesc: 'Socket apertures feature child-protection safety shutters, and high-conductivity brass terminals prevent overheating under continuous load.',
           iconName: 'ShieldCheck',
-          highlight: 'Lifetime Safety & Structural Warranty'
+          highlight: '10-Year Quality Guarantee'
         }
       ]
     },
     materials: {
-      badge: 'Material Provenance',
-      titlePart1: 'Raw Minerals &',
-      titlePart2: 'Honest Textures',
-      subtitle: 'Every material in the Roshna hardware catalog is chosen for structural resilience, pure flame-retardant safety, and anti-fingerprint velvet tactile refinement.',
-      inspectTexture: 'Inspect Texture',
-      selectedStudy: 'Selected Material Study',
+      badge: 'Material Quality',
+      titlePart1: 'Durable Materials &',
+      titlePart2: 'Hygienic Surfaces',
+      subtitle: 'Every component is selected for fire safety, comfortable skin contact, and long-lasting mechanical durability.',
+      inspectTexture: 'Inspect Feature',
+      selectedStudy: 'Component Highlight',
       items: [
         {
           id: 'mat-1',
-          name: 'Bayer V-0 Polymer Faceplate',
-          origin: 'Leverkusen, Germany',
-          category: 'Tactile Polymer',
-          description: 'Self-extinguishing, high-impact polycarbonate finished with an anti-glare oleophobic micro-texture that feels soft to the touch and resists marks.',
-          characteristics: ['UL94 V-0 self-extinguishing safety', 'Zero-luster satin texture', 'Anti-fingerprint nano surface']
+          name: 'Flame-Retardant Matte Cover',
+          origin: 'High-Grade Polymer',
+          category: 'Anti-Allergic Surface',
+          description: 'Self-extinguishing V-0 polycarbonate with a smooth matte texture that prevents skin irritation and reduces the buildup of microorganisms.',
+          characteristics: ['Flame-retardant safety', 'Velvet matte anti-glare finish', 'Anti-fingerprint and hygienic']
         },
         {
           id: 'mat-2',
-          name: 'Cold-Rolled Steel Subframe',
-          origin: 'Duisburg Metalworks',
-          category: 'Structural Metal',
-          description: 'Heavy-gauge electroplated steel mounting bracket engineered with multi-axis alignment slots for flush mounting on uneven stone and drywall.',
-          characteristics: ['Zero torsion or bending under torque', 'Multi-point level adjustment', 'Corrosion-resistant zinc coat']
+          name: 'Reinforced Steel Subframe',
+          origin: 'Galvanized Metal',
+          category: 'Structural Base',
+          description: 'Rigid steel mounting bracket with universal alignment screw slots, ensuring flush installation on all standard 86mm wall boxes.',
+          characteristics: ['Zero torsion or bending', 'Multi-point leveling slots', 'Rust-resistant protective coating']
         },
         {
           id: 'mat-3',
-          name: 'Phosphor Bronze Electrical Clips',
-          origin: 'Milan Precision Foundry',
-          category: 'Conductive Alloy',
-          description: 'High-elasticity spring bronze terminals that maintain permanent clamping pressure on plugs and solid copper house wiring over decades.',
-          characteristics: ['99.2% electrical conductivity', 'Fatigue-free spring retention', 'Low electrical contact resistance']
+          name: 'High-Conductivity Brass Clips',
+          origin: 'Spring Brass Alloy',
+          category: 'Electrical Terminal',
+          description: 'Heavy-duty brass terminals that maintain high elasticity and firm clamping pressure on plugs and house wiring over decades.',
+          characteristics: ['99%+ electrical conductivity', 'Fatigue-resistant spring retention', 'Low contact resistance & heat dissipation']
         },
         {
           id: 'mat-4',
-          name: 'Silver-Nickel Contact Alloy',
-          origin: 'Copenhagen Laboratories',
-          category: 'Switching Contacts',
-          description: 'Micro-welded AgNi contacts that prevent electric arcing and oxidation, ensuring crisp, reliable switching across high-load lighting circuits.',
-          characteristics: ['Zero contact welding under surge', 'Rated for 100,000+ switchings', 'Optimized for LED load drivers']
+          name: 'Spark-Resistant Contacts',
+          origin: 'Silver Alloy',
+          category: 'Switching Mechanism',
+          description: 'Durable contact points engineered to prevent arcing and electrical wear, ensuring smooth, safe switching for all lighting loads.',
+          characteristics: ['Spark & arc prevention', 'Tested for 50,000+ switches', 'Optimized for modern LED loads']
         }
       ]
     },
     reviews: {
-      badge: 'Collector & Architect Perspectives',
-      titlePart1: 'Loved by Architects &',
-      titlePart2: 'Discerning Specifiers',
-      subtitle: 'Read authentic words from interior designers, master electricians, and private collectors who have transformed their spaces with Roshna Volt.',
+      badge: 'Customer & Electrician Feedback',
+      titlePart1: 'Trusted by Electricians &',
+      titlePart2: 'Homeowners',
+      subtitle: 'Read genuine feedback from master electricians, interior contractors, and homeowners who rely on Roshna Volt hardware.',
       testimonials: [
         {
           id: 'test-1',
-          name: 'Clarissa Montgomery',
-          role: 'Principal Architect at Studio Mont',
-          location: 'Geneva, Switzerland',
-          quote: 'Roshna provides the missing link in contemporary architecture. The switches sit completely flush with our travertine and lime-wash walls, and the tactile click is delightfully refined.',
-          purchasedProduct: 'Roshna Residence Trio Hardware Suite',
-          date: 'Verified Architect · Jan 2026'
+          name: 'Ahmad Reshad',
+          role: 'Master Electrical Contractor',
+          location: 'Kabul, Afghanistan',
+          quote: 'Installation is straightforward and clean. The steel backplate fits standard 86mm boxes perfectly without flexing, and the wire terminals clamp firmly.',
+          purchasedProduct: 'Single & Double Switches',
+          date: 'Verified Electrician'
         },
         {
           id: 'test-2',
-          name: 'Julian Vance-Moreau',
-          role: 'Interior Design Director',
-          location: 'London, UK',
-          quote: 'The 3-part engineering modularity makes installation a dream for our contractors. The clean geometric lines and micro-LED indicators transform dark corridors into calm luxury.',
-          purchasedProduct: 'Roshna Dual-Gang Precision Switch',
-          date: 'Verified Trade Member · Feb 2026'
+          name: 'Maryam Sadat',
+          role: 'Residential Client',
+          location: 'Herat, Afghanistan',
+          quote: 'The matte finish feels very smooth to the touch, does not leave fingerprints, and looks significantly more modern and clean than ordinary glossy switches.',
+          purchasedProduct: 'Modern Power Sockets',
+          date: 'Verified Homeowner'
         },
         {
           id: 'test-3',
-          name: 'Seraphina Lin',
-          role: 'Residential Developer & Collector',
-          location: 'Tokyo & San Francisco',
-          quote: 'From the unboxing crate to the solid steel subframe, the quality is undeniable. Roshna has set the new benchmark for luxury architectural wall hardware.',
-          purchasedProduct: 'Roshna Architectural Flush Socket',
-          date: 'Verified Homeowner · Feb 2026'
+          name: 'Farhad Nawabi',
+          role: 'Commercial Project Supervisor',
+          location: 'Mazar-i-Sharif, Afghanistan',
+          quote: 'We ordered over 200 units for an office renovation via WhatsApp. Delivery was prompt, prices were reasonable, and the quality has been reliable.',
+          purchasedProduct: 'Full Facility Order',
+          date: 'Commercial Contractor'
         }
       ],
       metrics: {
-        projectsTitle: '1,420+',
-        projectsLabel: 'Luxury Residences Specified',
-        projectsDetail: 'Across 34 countries and bespoke architectural residences',
-        warrantyTitle: '25-Year',
-        warrantyLabel: 'Structural Frame Warranty',
-        warrantyDetail: 'Rigid cold-rolled steel subframe & internal springs',
-        ratingTitle: '99.4%',
-        ratingLabel: 'Architect Satisfaction Index',
-        ratingDetail: 'Repeat specification by premier luxury architects',
-        craftTitle: '100%',
-        craftLabel: 'Laser-Calibrated In-House',
-        craftDetail: 'Zero tolerance precision engineering on every unit'
+        projectsTitle: '99%',
+        projectsLabel: 'Customer Satisfaction',
+        projectsDetail: 'Trusted by homeowners and electricians nationwide',
+        warrantyTitle: '10-Year',
+        warrantyLabel: 'Quality Guarantee',
+        warrantyDetail: 'Direct store replacement for internal mechanisms',
+        ratingTitle: '50K+',
+        ratingLabel: 'Tested Actuations',
+        ratingDetail: 'Smooth and reliable switching performance',
+        craftTitle: '86mm',
+        craftLabel: 'Standard Box Fit',
+        craftDetail: 'Compatible with standard electrical wall boxes'
       }
     },
     faq: {
-      badge: 'Atelier Concierge',
-      titlePart1: 'Technical &',
-      titlePart2: 'Architectural Inquiries',
-      subtitle: 'Everything you need to know about standard backbox installation, CE/IEC testing compliance, and commercial project support.',
-      contactBadge: 'Direct Atelier Support',
-      contactTitle: 'Direct Architecture & Trade Inquiries',
-      contactDesc: 'Need bespoke multi-gang modular configuration or custom surface PVD finishes? Our master specifiers are available.',
+      badge: 'Frequently Asked Questions',
+      titlePart1: 'Questions &',
+      titlePart2: 'Customer Support',
+      subtitle: 'Common questions about wall box compatibility, installation, bulk orders, and WhatsApp delivery in Afghanistan.',
+      contactBadge: 'Direct Customer Service',
+      contactTitle: 'Direct Inquiries & Wholesale Orders',
+      contactDesc: 'Need assistance with box sizing, quantities, or wholesale project pricing? Contact us directly on WhatsApp.',
       contactWhatsapp: 'Chat on WhatsApp',
-      contactEmail: 'Email Concierge',
+      contactEmail: 'Email Us',
       items: [
         {
-          question: 'How does Roshna’s 3-part modular engineering architecture work?',
-          answer: 'Roshna separates the heavy-gauge steel subframe from the finished cosmetic faceplate. Electricians first wire and clamp the rigid steel plate onto standard 86mm or European wall backboxes. Once painting and plastering are finished, the pristine polycarbonate or brass faceplate simply snaps on tool-free with zero risk of scuffs or paint spatters.',
-          category: 'Installation & Mechanism'
+          question: 'Are these switches and sockets compatible with standard existing wall boxes?',
+          answer: 'Yes. All Roshna switches and sockets are engineered to fit standard 86mm flush-mount wall boxes commonly used in homes and commercial buildings. They can be installed quickly by any qualified electrician.',
+          category: 'Installation & Sizing'
         },
         {
-          question: 'Are Roshna switches and sockets compatible with standard existing backboxes?',
-          answer: 'Yes. Every unit is engineered for full backward-compatibility with standard British BS 4662, European CEE 7, and universal 86mm architectural flush-mount wall backboxes with a minimum depth of 35mm.',
-          category: 'Compatibility'
+          question: 'How do I place an order and how does payment work in Afghanistan?',
+          answer: 'You can order directly through our website by clicking "Order via WhatsApp". We will confirm your items, total in AFN, and coordinate convenient payment (Cash on Delivery or Sarafi/Hawala) and courier delivery.',
+          category: 'Ordering & Payment'
         },
         {
-          question: 'What electrical safety certifications and current ratings do Roshna units carry?',
-          answer: 'All Roshna wall controls and socket outlets are certified to CE, CB, RoHS, and IEC-60884 international standards. Our wall sockets are rated for 250V / 16A with integrated child-safety shutters, while switches feature silver-nickel contacts rated for 100,000+ continuous actuations under inductive LED loads.',
-          category: 'Safety & Ratings'
+          question: 'Do you offer wholesale pricing for construction projects and contractors?',
+          answer: 'Yes. We provide special wholesale pricing and dedicated assistance for building contractors, electricians, and interior developers. Contact our team on WhatsApp for project quotes.',
+          category: 'Bulk & Wholesale'
         },
         {
-          question: 'What is covered under the Roshna Lifetime Structural Guarantee?',
-          answer: 'We provide an unconditional lifetime replacement guarantee on the internal mechanical rocker springs, silver-nickel contact terminals, and steel structural mounting frames. Cosmetic faceplates carry a 10-year UV and anti-fingerprint warranty.',
-          category: 'Guarantee & Warranty'
+          question: 'What are the benefits of the anti-allergic matte surface?',
+          answer: 'The faceplates are crafted from high-grade matte polymer that feels soft to the touch, does not absorb fingerprints, and uses skin-safe materials that minimize microbial retention from frequent daily contact.',
+          category: 'Material & Hygiene'
         },
         {
-          question: 'Do you offer custom engraved faceplates and bespoke architectural finishes for trade firms?',
-          answer: 'Yes. Through our Milan and Copenhagen atelier trade concierge, registered architects and interior studios can commission bespoke laser-engraved labels, custom RAL powder-coated finishes, and solid brass patinas for high-end residential and hospitality projects.',
-          category: 'Trade & Bespoke'
+          question: 'What warranty is included with the switches and sockets?',
+          answer: 'We provide a 10-year quality guarantee on internal mechanical switch contacts and solid metal subframes, ensuring worry-free performance for years to come.',
+          category: 'Warranty & Support'
         }
       ]
     },
     footer: {
-      tagline: 'Switch To Quality • روشنا ولت',
-      newsletterTitle: 'Private Releases &',
-      newsletterMonograph: 'Architectural Monographs',
-      newsletterDesc: 'Receive invitations to private capsule debuts, technical specification papers, and limited edition architectural hardware suites.',
-      newsletterPlaceholder: 'Enter your architecture or design studio email...',
-      newsletterButton: 'Subscribe',
-      subscriptionConfirmed: 'Subscription confirmed. Welcome to the private architectural registry.',
-      brandDesc: 'An international design atelier devoted to minimalist wall hardware, flush architectural switches, monolithic sockets, and tactile living controls. Switch To Quality.',
-      copyright: 'All rights reserved. Designed for discerning spaces worldwide.',
-      standards: 'Certified to CE, CB, RoHS & IEC-60884 International Standards',
+      tagline: 'Roshna Volt • Modern Switches & Sockets',
+      newsletterTitle: 'Catalog Updates &',
+      newsletterMonograph: 'Direct Customer Care',
+      newsletterDesc: 'Stay updated on product availability, new electrical hardware arrivals, and wholesale project offers.',
+      newsletterPlaceholder: 'Enter your email or phone number...',
+      newsletterButton: 'Submit',
+      subscriptionConfirmed: 'Thank you! Our customer care team will keep you informed.',
+      brandDesc: 'Roshna Volt supplies modern, safe, and durable switches & sockets with luxury design and matte anti-allergic touch for homes and businesses.',
+      copyright: 'All rights reserved. Reliable switches & sockets for modern spaces.',
+      standards: 'Compatible with Standard 86mm Wall Boxes',
       links: {
-        collectionTitle: 'Collection',
-        specificationTitle: 'Specification',
-        atelierTitle: 'Atelier',
-        conciergeTitle: 'Concierge',
+        collectionTitle: 'Products',
+        specificationTitle: 'Services',
+        atelierTitle: 'About Roshna',
+        conciergeTitle: 'Support',
         privacy: 'Privacy Policy',
-        terms: 'Terms of Atelier',
-        certs: 'Certifications'
+        terms: 'Terms of Sale',
+        certs: 'Warranty Details'
       }
     },
     cart: {
       title: 'Your Shopping Bag',
       emptyTitle: 'Your bag is currently empty',
-      emptySubtitle: 'Explore our curated switches, monolithic sockets, and complete architectural suites.',
-      exploreBtn: 'Explore Collection',
+      emptySubtitle: 'Explore our modern switches and power sockets designed for safety and style.',
+      exploreBtn: 'Explore Products',
       freeShippingNotice: 'Complimentary delivery unlocked',
       addMoreNoticePrefix: 'Add ',
       addMoreNoticeSuffix: ' AFN more for complimentary shipping',
@@ -462,13 +556,13 @@ export const translations: { en: TranslationDictionary; fa: TranslationDictionar
   fa: {
     nav: {
       home: 'خانه',
-      collection: 'کلکسیون',
-      craft: 'طراحی و ساخت',
+      collection: 'محصولات',
+      craft: 'کیفیت و ساختار',
       materials: 'متریال‌ها',
       reviews: 'دیدگاه‌ها',
       faq: 'سوالات متداول',
-      search: 'جستجو در کاتالوگ الکتریکال',
-      bag: 'سبد مشخصات',
+      search: 'جستجوی کلید و پریز',
+      bag: 'سبد خرید',
       whatsapp: 'واتس‌اپ',
       switchLang: 'English',
       lightMode: 'روشن',
@@ -476,253 +570,331 @@ export const translations: { en: TranslationDictionary; fa: TranslationDictionar
       intro: 'معرفی'
     },
     hero: {
-      eyebrow: 'دقت مهندسی',
-      title1: 'مهندسی شده',
-      title2Prefix: 'برای ',
-      title2Highlight: 'یک عمر',
-      subtitle: 'هسته با استاندارد سوئیسی، سنسورهای هوشمند یکپارچه و مونتاژ بدون ابزار. تعریف مجدد فضای شما با هوشمندی و ظرافت پویا.',
-      cta: 'مشاهده کلکسیون',
+      eyebrow: 'کلید و پریزهای ساختمانی باکیفیت',
+      title1: 'سویچ‌ها و ساکت‌های مدرن —',
+      title2Prefix: 'ساخته شده برای ',
+      title2Highlight: 'راحتی، ایمنی و زیبایی',
+      subtitle: 'تجربه طراحی لوکس، سطوح مات ضدحساسیت و عملکردی نرم و مطمئن برای فضاهای مسکونی و تجاری.',
+      cta: 'مشاهده محصولات',
       quickViewHint: 'مشخصات سریع',
       stats: {
-        iecValue: 'IEC',
-        iecLabel: 'دارای گواهینامه',
-        ip65Value: 'IP65',
-        ip65Label: 'درجه مقاومت',
+        iecValue: '۸۶ میلی‌متر',
+        iecLabel: 'قوطی استاندارد',
+        ip65Value: 'ایمنی بالا',
+        ip65Label: 'پلیمر نسوز',
         warrantyValue: '۱۰ سال',
-        warrantyLabel: 'ضمانت ساختار',
-        toolValue: 'بدون ابزار',
-        toolLabel: 'نصب سریع'
+        warrantyLabel: 'ضمانت کیفیت',
+        toolValue: 'ضدحساسیت',
+        toolLabel: 'سطح مات و بهداشتی'
       }
     },
     anatomy: {
-      badge: 'آناتومی فرم',
-      titlePart1: 'تقارن تندیس‌وار و',
-      titlePart2: 'دقت ۳۶۰ درجه متریال',
-      subtitle: 'چهار رکن بنیادین طراحی ما را در مطالعه بافت، حجم و هندسه پایدار و مینیمال کاوش کنید.',
-      ratingText: 'کیفیت تایید شده',
+      badge: 'اصول طراحی و ساختار',
+      titlePart1: 'تقارن مدرن و',
+      titlePart2: 'مهندسی ایمن و مقاوم',
+      subtitle: 'ویژگی‌های کلیدی محصولات روشنا: لمس نرم و راحت، اتصالات برنجی محکم، ایمنی در برابر حرارت و زیبایی هماهنگ با دکوراسیون.',
+      ratingText: 'کیفیت تضمین شده',
       materialLabel: 'متریال:',
-      perspectivesTitle: 'بررسی زوایای چهارگانه:',
-      guaranteeText: 'هر بخش با بالاترین دقت مهندسی متوازن شده تا آرامش معماری فضا از تمام زوایا حفظ شود.'
+      perspectivesTitle: 'بررسی ویژگی‌های کلیدی:',
+      guaranteeText: 'ساخته شده از مواد ضدحریق و اتصالات فلزی مستحکم برای ایمنی و ماندگاری طولانی‌مدت.',
+      quadrants: [
+        {
+          id: 'quad-1',
+          title: 'شاسی فولادی مستحکم',
+          subtitle: 'استحکام ساختاری',
+          category: 'مهندسی فریم',
+          material: 'ورق فولادی نورد سرد',
+          description: 'فریم فلزی مقاوم تراز شدن کامل و بدون لرزش را بر روی قوطی‌های استاندارد ۸۶ میلی‌متری تضمین می‌کند.',
+          tag: 'بخش ۱ · دوام بالا'
+        },
+        {
+          id: 'quad-2',
+          title: 'سطح مات ضدحساسیت',
+          subtitle: 'راحتی لمس',
+          category: 'بهداشت سطح',
+          material: 'پلیمر سازگار با پوست',
+          description: 'بافت مخملی مات که مانع تحریک پوست، لک انگشتان و تجمع باکتری و میکروارگانیسم‌ها می‌شود.',
+          tag: 'بخش ۲ · بهداشت'
+        },
+        {
+          id: 'quad-3',
+          title: 'مکانیزم نرم و بی‌صدا',
+          subtitle: 'عملکرد دقیق',
+          category: 'کنترل کلیدزنی',
+          material: 'فنرهای دقیق کالیبره شده',
+          description: 'عملکرد نرم، آرام و مطمئن که برای بیش از ۵۰,۰۰۰ بار کلیدزنی مداوم تست شده است.',
+          tag: 'بخش ۳ · عملکرد'
+        },
+        {
+          id: 'quad-4',
+          title: 'ساکت برق با محافظ کودک',
+          subtitle: 'حفاظت الکتریکی',
+          category: 'ایمنی پریز',
+          material: 'برنج فنری مرغوب',
+          description: 'درپوش‌های خودکار داخلی مانع از ورود اجسام خارجی به پریز شده و ایمنی کامل خانواده را فراهم می‌کنند.',
+          tag: 'بخش ۴ · ایمنی'
+        }
+      ]
     },
     showcase: {
-      badge: 'مجموعه برگزیده',
-      titlePart1: 'نمایشگاه محصولات',
-      titlePart2: 'کلکسیون لوکس روشنا',
+      badge: 'محصولات ما',
+      titlePart1: 'مجموعه اصلی',
+      titlePart2: 'سویچ‌ها و ساکت‌های مدرن',
       categories: {
         all: 'همه محصولات',
-        switches: 'کلیدهای لمسی و مکانیکی',
-        sockets: 'پریزهای مدرن توکار',
-        modular: 'واحدهای ماژولار'
+        switches: 'سویچ‌ها',
+        sockets: 'ساکت‌های برق',
+        modular: 'لوازم جانبی'
       },
       addToBag: 'افزودن به سبد',
       addedToBag: 'به سبد افزوده شد',
-      quickSpecs: 'مشخصات فنی',
-      consultationTitle: 'نیاز به پنل‌های ترکیبی چندخانه یا مشخصات پروژه دارید؟',
-      consultationDesc: 'آتلیه روشنا فایل‌های مدلسازی BIM، فینیش‌های سفارشی و نمونه‌های آرشیو پروژه‌ها را در اختیار معماران قرار می‌دهد.',
-      consultationButton: 'درخواست مشاوره تخصصی'
+      quickSpecs: 'مشاهده جزئیات',
+      consultationTitle: 'نیاز به سفارش عمده یا مشاوره پروژه دارید؟',
+      consultationDesc: 'تیم روشنا آماده ارائه مشاوره مستقیم، بررسی تعداد و بهترین قیمت برای پروژه‌های مسکونی و تجاری شماست.',
+      consultationButton: 'مشاوره در واتس‌اپ',
+      products: [
+        {
+          id: 'roshna-sw-01',
+          name: 'سویچ یکپل',
+          subtitle: 'کلید تک‌پل مدرن با سطح مات',
+          description: 'سویچ یکپل با طراحی مدرن و سطح مات، ساخته‌شده از مواد باکیفیت و مناسب برای تماس مکرر با دست. مواد سطحی آن برای کاهش احتمال تحریک و حساسیت پوستی انتخاب شده و ویژگی‌های بهداشتی سطح نیز به کاهش ماندگاری و رشد میکروارگانیسم‌ها کمک می‌کند.',
+          features: [
+            'طراحی مدرن و لوکس',
+            'سطح مات و خوش‌لمس',
+            'مناسب برای تماس مکرر با پوست',
+            'کاهش رشد و ماندگاری میکروارگانیسم‌ها',
+            'عملکرد نرم و بادوام'
+          ]
+        },
+        {
+          id: 'roshna-sw-02',
+          name: 'سویچ دوپل',
+          subtitle: 'کلید دوپل مدرن و بادوام',
+          description: 'سویچ دوپل برای فضاهایی طراحی شده است که زیبایی، کیفیت و عملکرد مطمئن باید در کنار یکدیگر قرار گیرند. طراحی مینیمال و سطح مات آن جلوه‌ای مدرن به دیوار می‌دهد، در حالی که ساختار داخلی مقاوم برای استفاده مکرر ساخته شده است.',
+          features: [
+            'طراحی لوکس و مینیمال',
+            'سطح مات',
+            'ساختار مقاوم',
+            'عملکرد نرم و دقیق',
+            'مواد ضدحساسیت پوستی و بهداشتی'
+          ]
+        },
+        {
+          id: 'roshna-soc-01',
+          name: 'ساکت برق',
+          subtitle: 'پریز برق مدرن و ایمن',
+          description: 'ساکت برق مدرن با تمرکز بر سه اصل ایمنی، دوام و زیبایی. طراحی مدرن و سطح مات آن با دکوراسیون‌های امروزی هماهنگ شده و ساختار داخلی مقاوم برای اتصال مطمئن و استفاده مداوم در محیط‌های مسکونی و تجاری در نظر گرفته شده است.',
+          features: [
+            'طراحی لوکس و مدرن',
+            'سطح مات و باکیفیت',
+            'ساختار مقاوم برای استفاده طولانی‌مدت',
+            'مناسب برای تماس روزمره و بهداشتی'
+          ]
+        }
+      ]
     },
     principles: {
-      badge: 'اصول بنیادین ما',
-      titlePart1: 'ساخته شده با هدف،',
-      titlePart2: 'ماندگار برای نسل‌ها',
-      subtitle: 'ما چرخه دورریز ترندهای ناپایدار را رد می‌کنیم. هر محصول روشنا یک اثر هنری ماندگار در معماری است.',
-      detailedCommitment: 'تعهد تفصیلی به کیفیت',
+      badge: 'اصول و استانداردهای ما',
+      titlePart1: 'ساخته شده برای ایمنی،',
+      titlePart2: 'ماندگار برای استفاده مداوم',
+      subtitle: 'تمرکز ما بر نیازهای واقعی زندگی روزمره است: ایمنی در برابر آتش، عملکرد نرم و بی‌صدا، سطوح ضدحساسیت و نصب آسان.',
+      detailedCommitment: 'تعهد به کیفیت',
       pillarLabel: 'اصل شماره',
-      labCertified: 'تایید شده در آزمایشگاه‌های مستقل',
-      directProvenance: 'اصالت مستقیم از آتلیه روشنا',
+      labCertified: 'استاندارد ایمنی تایید شده',
+      directProvenance: 'ضمانت مستقیم فروشگاه',
       pillars: [
         {
           id: 'pillar-1',
           number: '۰۱',
-          title: 'ساختار ماژولار ۳ لایه',
-          shortDesc: 'رویه بیرونی، مکانیزم الکتریکی مرکزی، و فریم فولادی مستحکم.',
-          fullDesc: 'برخلاف کلیدهای یکپارچه معمولی، روشنا فریم مهارکننده فولادی را از قاب دکوراتیو جدا می‌سازد. این کار مانع هرگونه انحنا هنگام پیچ کردن به دیوار شده و امکان تعویض سریع رویه را بدون نیاز به سیم‌کشی مجدد فراهم می‌کند.',
+          title: 'شاسی فلزی مستحکم',
+          shortDesc: 'فریم فولادی مقاوم برای اتصال محکم و بدون انحنا روی دیوار.',
+          fullDesc: 'پایه فلزی مستحکم تضمین می‌کند که کلید با فشار مداوم دست در طول سال‌ها استفاده شل نشده و همیشه کاملاً صاف روی دیوار باقی می‌ماند.',
           iconName: 'Gem',
-          highlight: 'شاسی فولادی نورد سرد بسیار مقاوم'
+          highlight: 'شاسی فولادی مقاوم'
         },
         {
           id: 'pillar-2',
           number: '۰۲',
-          title: 'پلیمر نسوز استاندارد آلمان',
-          shortDesc: 'پلی‌کربنات Bayer ضدحریق گرید V0 با روکش نانو مات مخملین.',
-          fullDesc: 'مقاوم در برابر تغییر رنگ ناشی از اشعه خورشید (UV)، ضربات فیزیکی و استهلاک حرارتی. دارای پرداخت نانو مات فوق‌العاده ظریف که رد اثر انگشت و بازتاب خیره‌کننده نور را به صفر می‌رساند.',
+          title: 'پلیمر مات ضدحریق و ضدحساسیت',
+          shortDesc: 'پلی‌کربنات نسوز V-0 با بافت مات نرم و ضدحساسیت پوستی.',
+          fullDesc: 'مقاوم در برابر حرارت و خودخاموش‌شونده. بافت مات آن اثر انگشت را جذب نکرده و به دلیل بهداشتی بودن، مانع رشد باکتری و آلودگی می‌شود.',
           iconName: 'Leaf',
-          highlight: 'گواهی ایمنی ضدحریق UL94 V-0'
+          highlight: 'ایمن، ضدحریق و ضدحساسیت'
         },
         {
           id: 'pillar-3',
           number: '۰۳',
-          title: 'کلیک نرم و مهندسی‌شده',
-          shortDesc: 'تعادل دقیق هندسی که کلیکی آرام، دلنشین و بی‌صدا را رقم می‌زند.',
-          fullDesc: 'کالیبره شده با دمپرهای ضربه‌گیر داخلی و پلاتین‌های آلیاژ نقره-نیکل برای بیش از ۱۰۰,۰۰۰ بار استفاده پیوسته. ایجاد یک حس لمسی استوار و سرشار از رضایت با هر تماس.',
+          title: 'عملکرد نرم و بی‌صدا',
+          shortDesc: 'فنرها و مکانیزم دقیق که کلیکی آرام، دلنشین و روان ایجاد می‌کنند.',
+          fullDesc: 'مکانیزم داخلی برای بیش از ۵۰,۰۰۰ بار استفاده تست شده تا با هر بار فشردن، حس اطمینان و نرمی را منتقل کند.',
           iconName: 'Sparkles',
-          highlight: '+۱۰۰,۰۰۰ بار کلیدزنی تایید شده'
+          highlight: '+۵۰,۰۰۰ بار استفاده تست شده'
         },
         {
           id: 'pillar-4',
           number: '۰۴',
-          title: 'ضمانت مادام‌العمر ساختار',
-          shortDesc: 'ترمینال‌های دقیق برنز فسفر با فنریت ماندگار و ۲۵ سال ضمانت.',
-          fullDesc: 'فراتر از استانداردهای ایمنی سخت‌گیرانه CE، CB و IEC. هر قطعه از نظر مقاومت دی‌الکتریک بالا، دفع حرارت عالی و هدایت الکتریکی پایدار به طور جامع تست شده است.',
+          title: 'ایمنی الکتریکی و ضمانت',
+          shortDesc: 'ترمینال‌های برنجی با محافظ خودکار برای آرامش خاطر کامل.',
+          fullDesc: 'پریزها مجهز به محافظ خودکار کودک هستند و اتصالات برنجی با رسانایی بالا از داغ شدن سیم‌ها در زیر بار مداوم جلوگیری می‌کنند.',
           iconName: 'ShieldCheck',
-          highlight: 'ضمانت مادام‌العمر ساختار و ایمنی'
+          highlight: '۱۰ سال ضمانت کیفیت'
         }
       ]
     },
     materials: {
-      badge: 'اصالت متریال',
-      titlePart1: 'مواد معدنی خالص و',
-      titlePart2: 'بافت‌های اصیل',
-      subtitle: 'تمام مواد در سخت‌افزارهای روشنا برای استحکام سازه، ایمنی ضدحریق V-0 و لطافت مخملین ضدلک انتخاب شده‌اند.',
-      inspectTexture: 'بررسی بافت متریال',
-      selectedStudy: 'مطالعه متریال منتخب',
+      badge: 'اصالت و کیفیت متریال',
+      titlePart1: 'مواد اولیه باکیفیت و',
+      titlePart2: 'سطوح بهداشتی',
+      subtitle: 'تمام اجزای این محصولات برای ایمنی در برابر آتش، لمس راحت پوست و طول عمر مکانیکی بالا انتخاب شده‌اند.',
+      inspectTexture: 'بررسی ویژگی',
+      selectedStudy: 'معرفی بخش منتخب',
       items: [
         {
           id: 'mat-1',
-          name: 'رویه پلیمر ضدحریق Bayer',
-          origin: 'لورکوزن، آلمان',
-          category: 'پلیمر مخملین',
-          description: 'پلی‌کربنات خودخاموش‌شونده و ضدضربه با بافت مات نانو که در لمس بسیار نرم بوده و اثر انگشت روی آن باقی نمی‌ماند.',
-          characteristics: ['ایمنی خودخاموش‌شونده UL94 V-0', 'بافت ساتین بدون درخشش آزاردهنده', 'پوشش نانو ضد اثر انگشت']
+          name: 'رویه مات ضدحریق و ضدحساسیت',
+          origin: 'پلیمر مرغوب',
+          category: 'سطح بهداشتی',
+          description: 'پلی‌کربنات نسوز خودخاموش‌شونده با بافت مات مخملین که تحریک پوستی ایجاد نکرده و مانع ماندگاری آلودگی و اثر انگشت می‌شود.',
+          characteristics: ['ایمنی ضدحریق V-0', 'بافت مات بدون بازتاب نور', 'ضد حساسیت و بهداشتی']
         },
         {
           id: 'mat-2',
-          name: 'شاسی زیرین فولاد نورد سرد',
-          origin: 'صنایع فلزی دویسبورگ',
-          category: 'فلز ساختاری',
-          description: 'براکت فولادی با شیارهای تنظیم چندمحوره جهت نصب کاملاً تراز و تخت روی انواع سطوح سنگ طبیعی، بتن و گچ.',
-          characteristics: ['عدم پیچیدگی یا خمش در اثر محکم کردن پیچ‌ها', 'امکان رگلاژ دقیق چندنقطه‌ای', 'پوشش گالوانیزه ضد زنگ‌زدگی']
+          name: 'شاسی فولادی مقاوم',
+          origin: 'فلز گالوانیزه',
+          category: 'پایه ساختاری',
+          description: 'فریم فلزی مستحکم با شیارهای استاندارد پیچ، جهت نصب کاملاً صاف و مطمئن روی قوطی‌های توکار ۸۶ میلی‌متری.',
+          characteristics: ['عدم خمیدگی زیر فشار پیچ', 'امکان تراز دقیق', 'پوشش مقاوم در برابر زنگ‌زدگی']
         },
         {
           id: 'mat-3',
-          name: 'ترمینال‌های برنز فسفر ارتجاعی',
-          origin: 'کارگاه ریخته‌گری دقیق میلان',
-          category: 'آلیاژ رسانا',
-          description: 'گیره‌های فنری با ارتجاع بسیار بالا که فشار محکم اتصال را به دوشاخه‌ها و سیم‌کشی ساختمان در طول ده‌ها سال ثابت نگه می‌دارند.',
-          characteristics: ['هدایت الکتریکی ۹۹.۲ درصد', 'حفظ فنریت دائمی بدون فرسودگی', 'مقاومت تماسی فوق‌العاده پایین']
+          name: 'گیره‌های برنجی با رسانایی بالا',
+          origin: 'آلیاژ برنج فنری',
+          category: 'اتصال الکتریکی',
+          description: 'ترمینال‌های برنجی ارتجاعی که فشار محکم اتصال به دوشاخه و سیم‌های برق ساختمان را در طول سال‌ها حفظ می‌کنند.',
+          characteristics: ['رسانایی الکتریکی بالای ۹۹٪', 'حفظ خاصیت فنری', 'عدم داغ شدن تحت بار مداوم']
         },
         {
           id: 'mat-4',
-          name: 'پلاتین‌های آلیاژ نقره-نیکل',
-          origin: 'آزمایشگاه‌های کپنهاگ',
-          category: 'کنتاکت‌های کلید',
-          description: 'پلاتین‌های جوش‌خورده با فناوری لیزر که از ایجاد جرقه و اکسیداسیون جلوگیری کرده و در بارهای سنگین LED قطع و وصل پایدار را تضمین می‌کنند.',
-          characteristics: ['عدم اتصال‌کوتاه و چسبندگی پلاتین', 'تایید شده برای ۱۰۰,۰۰۰ بار قطع و وصل', 'بهینه‌شده برای درایورهای LED مدرن']
+          name: 'پلاتین‌های ضدجرقه و بادوام',
+          origin: 'آلیاژ نقره',
+          category: 'مکانیزم کلید',
+          description: 'کنتاکت‌های الکتریکی مقاوم که از ایجاد جرقه و فرسودگی جلوگیری کرده و قطع و وصل ایمن لامپ‌های LED را تضمین می‌کنند.',
+          characteristics: ['جلوگیری از جرقه و فرسودگی', 'تست شده برای ۵۰ هزار بار کلیدزنی', 'بهینه‌شده برای انواع بار الکتریکی']
         }
       ]
     },
     reviews: {
-      badge: 'دیدگاه معماران و طراحان',
-      titlePart1: 'محبوب طراحان برجسته و',
-      titlePart2: 'کارشناسان سخت‌پسند',
-      subtitle: 'نظرات طراحان داخلی، مهندسان ارشد برق و کارفرمایانی که پروژه‌های خود را با روشنا ولت متمایز کرده‌اند.',
+      badge: 'دیدگاه مشتریان و برق‌کاران',
+      titlePart1: 'مورد اعتماد برق‌کاران و',
+      titlePart2: 'مشتریان خانگی',
+      subtitle: 'نظرات واقعی برق‌کاران، پیمانکاران ساختمانی و خانواده‌هایی که از کلید و پریزهای روشنا ولت استفاده می‌کنند.',
       testimonials: [
         {
           id: 'test-1',
-          name: 'کلاریسا مونتگومری',
-          role: 'معمار ارشد در استودیو مونت',
-          location: 'ژنو، سوئیس',
-          quote: 'روشنا قطعه گمشده معماری معاصر است. کلیدها کاملاً با دیوارهای تراورتن و گچی ما همسطح می‌شوند و حس لمس و صدای کلیک فوق‌العاده ظریف و متمایز است.',
-          purchasedProduct: 'مجموعه ۳ عددی تجهیزات اقامتگاه روشنا',
-          date: 'معمار تایید شده · ژانویه ۲۰۲۶'
+          name: 'احمد رشاد',
+          role: 'استادکار تاسیسات برق',
+          location: 'کابل، افغانستان',
+          quote: 'نصب این کلیدها واقعاً راحت و تمیز است. فریم فلزی پشت آن روی قوطی‌های استاندارد ۸۶ میلی‌متری بدون هیچ خمیدگی محکم می‌شود و ترمینال‌های سیم به خوبی سفت می‌شوند.',
+          purchasedProduct: 'سویچ‌های یکپل و دوپل',
+          date: 'برق‌کار مجرب'
         },
         {
           id: 'test-2',
-          name: 'جولیان ونس مورو',
-          role: 'مدیر طراحی داخلی',
-          location: 'لندن، انگلستان',
-          quote: 'ساختار ماژولار ۳ تکه، فرآیند نصب را برای پیمانکاران ما به اوج راحتی رسانده است. خطوط هندسی خالص و نشانگرهای میکرو-LED فضاهای تاریک را به اوج شکوه می‌رسانند.',
-          purchasedProduct: 'کلید دوپل دقیق روشنا',
-          date: 'عضو صنفی تایید شده · فوریه ۲۰۲۶'
+          name: 'مریم سادات',
+          role: 'مشتری مسکونی',
+          location: 'هرات، افغانستان',
+          quote: 'رویه مات این کلیدها در لمس بسیار لطیف است، جای انگشت روی آن نمی‌ماند و ظاهر خانه را نسبت به کلیدهای براق معمولی خیلی شیک‌تر و تمیزتر کرده است.',
+          purchasedProduct: 'ساکت‌های برق مدرن',
+          date: 'مشتری خانگی'
         },
         {
           id: 'test-3',
-          name: 'سرافینا لین',
-          role: 'توسعه‌دهنده مسکونی و طراح',
-          location: 'توکیو و سانفرانسیسکو',
-          quote: 'از بسته‌بندی نفیس تا فریم فولادی مستحکم، کیفیت غیرقابل انکار است. روشنا استاندارد جدیدی برای کلید و پریزهای معماری لوکس خلق کرده است.',
-          purchasedProduct: 'پریز توکار مدرن روشنا',
-          date: 'کارفرمای مسکونی · فوریه ۲۰۲۶'
+          name: 'فرهاد نوابی',
+          role: 'مسئول پروژه ساختمانی',
+          location: 'مزارشریف، افغانستان',
+          quote: 'برای یک ساختمان اداری بیش از ۲۰۰ عدد از طریق واتس‌اپ سفارش دادیم. ارسال سریع بود، قیمت‌ها مناسب بود و کیفیت ساخت بسیار رضایت‌بخش است.',
+          purchasedProduct: 'سفارش کلی پروژه',
+          date: 'پیمانکار ساختمانی'
         }
       ],
       metrics: {
-        projectsTitle: '+۱,۴۲۰',
-        projectsLabel: 'پروژه لوکس اجرا شده',
-        projectsDetail: 'در ۳۴ کشور جهان در برج‌ها و ویلاهای شاخص معماری',
-        warrantyTitle: '۲۵ سال',
-        warrantyLabel: 'ضمانت بدنه و شاسی',
-        warrantyDetail: 'شاسی فولاد نورد سرد و مکانیزم فنری داخلی',
-        ratingTitle: '۹۹.۴٪',
-        ratingLabel: 'رضایت معماران و کارفرمایان',
-        ratingDetail: 'انتخاب مجدد در پروژه‌های بعدی توسط دفاتر برجسته معماری',
-        craftTitle: '۱۰۰٪',
-        craftLabel: 'کالیبراسیون دقیق لیزری',
-        craftDetail: 'تلرانس صفر درصد در مهندسی و مونتاژ تمامی واحدها'
+        projectsTitle: '۹۹٪',
+        projectsLabel: 'رضایت خریداران',
+        projectsDetail: 'مورد تایید استادکاران و مشتریان خانگی',
+        warrantyTitle: '۱۰ سال',
+        warrantyLabel: 'ضمانت کیفیت',
+        warrantyDetail: 'گارانتی تعویض مستقیم مکانیزم داخلی',
+        ratingTitle: '+۵۰K',
+        ratingLabel: 'بار کارکرد تست شده',
+        ratingDetail: 'عملکرد نرم، دقیق و بادوام',
+        craftTitle: '۸۶mm',
+        craftLabel: 'سایز استاندارد قوطی',
+        craftDetail: 'سازگار با انواع قوطی‌های برق استاندارد'
       }
     },
     faq: {
-      badge: 'پشتیبانی اختصاصی آتلیه',
-      titlePart1: 'پرسش‌های فنی و',
-      titlePart2: 'راهنمای معماری',
-      subtitle: 'هر آنچه درباره قوطی‌های استاندارد، استانداردهای بین‌المللی CE/IEC و مشاوره پروژه‌های ساختمانی باید بدانید.',
+      badge: 'سوالات متداول',
+      titlePart1: 'پرسش‌های متداول و',
+      titlePart2: 'راهنمای خرید',
+      subtitle: 'پاسخ به سوالات متداول درباره سایز قوطی توکار، نحوه نصب، سفارش عمده و ارسال مستقیم در افغانستان.',
       contactBadge: 'پشتیبانی مستقیم',
-      contactTitle: 'مشاوره اختصاصی معماری و پروژه‌ها',
-      contactDesc: 'نیاز به طراحی پنل‌های ترکیبی خاص یا فینیش‌های لوکس PVD دارید؟ مشاوران ما همراه شما هستند.',
+      contactTitle: 'مشاوره سفارش‌های عمده و پروژه‌ای',
+      contactDesc: 'نیاز به راهنمایی در مورد سایز قوطی‌ها، تعداد یا قیمت عمده برای پروژه‌تان دارید؟ در واتس‌اپ با ما در ارتباط باشید.',
       contactWhatsapp: 'گفتگو در واتس‌اپ',
       contactEmail: 'ارسال ایمیل',
       items: [
         {
-          question: 'معماری مهندسی ماژولار ۳ لایه روشنا چگونه کار می‌کند؟',
-          answer: 'روشنا فریم فولادی مستحکم را از رویه دکوراتیو جدا ساخته است. برق‌کاران ابتدا شاسی فولادی را به قوطی‌های استاندارد ۸۶ میلی‌متری یا اروپایی پیچ می‌کنند. پس از اتمام نقاشی و گچ‌کاری ساختمان، قاب پلی‌کربنات یا برنجی بدون نیاز به ابزار و بدون خطر لک رنگ روی آن چفت می‌شود.',
-          category: 'نصب و مکانیزم'
+          question: 'آیا این کلید و پریزها با قوطی‌های استاندارد موجود در بازار سازگار هستند؟',
+          answer: 'بله، تمامی سویچ‌ها و ساکت‌های روشنا بر اساس استاندارد جهانی سایز ۸۶ میلی‌متر ساخته شده‌اند و با انواع قوطی‌های توکار استاندارد بازار کاملاً سازگار هستند و به سادگی توسط هر برق‌کاری نصب می‌شوند.',
+          category: 'نصب و سازگاری'
         },
         {
-          question: 'آیا کلید و پریزهای روشنا با قوطی‌های توکار موجود سازگار هستند؟',
-          answer: 'بله، تمامی محصولات با قوطی‌های توکار استاندارد اروپایی CEE 7، بریتانیایی BS 4662 و قوطی‌های استاندارد ۸۶ میلی‌متری با حداقل عمق ۳۵ میلی‌متر کاملاً سازگار هستند.',
-          category: 'سازگاری فنی'
+          question: 'نحوه ثبت سفارش و پرداخت در افغانستان چگونه است؟',
+          answer: 'شما می‌توانید با کلیک روی دکمه "ثبت سفارش در واتس‌اپ"، لیست محصولات انتخابی‌تان را مستقیماً ارسال کنید. هماهنگی پرداخت به صورت نقدی هنگام تحویل یا حواله صرافی و ارسال با پیک در سراسر افغانستان انجام می‌شود.',
+          category: 'سفارش و پرداخت'
         },
         {
-          question: 'محصولات روشنا دارای چه استانداردها و مشخصات ایمنی هستند؟',
-          answer: 'کلیه تجهیزات دارای گواهینامه‌های معتبر CE، CB، RoHS و استاندارد بین‌المللی IEC-60884 هستند. پریزها با جریان ۱۶ آمپر و ولتاژ ۲۵۰ ولت مجهز به محافظ خودکار کودک می‌باشند و پلاتین‌های نقره-نیکل بیش از ۱۰۰,۰۰۰ بار تست عملکرد دارند.',
-          category: 'ایمنی و استانداردها'
+          question: 'آیا برای پروژه‌ها و سفارش‌های عمده تخفیف در نظر گرفته‌اید؟',
+          answer: 'بله، برای پیمانکاران، مهندسان و دفاتر تجاری، قیمت‌های ویژه همکاری و عمده در نظر گرفته شده است. جهت دریافت قیمت پروژه‌ای کافیست در واتس‌اپ به ما پیام دهید.',
+          category: 'سفارش عمده'
         },
         {
-          question: 'ضمانت ساختاری روشنا شامل چه مواردی می‌شود؟',
-          answer: 'فنرها و مکانیزم داخلی، ترمینال‌های نقره-نیکل و شاسی فولادی دارای گارانتی مادام‌العمر تعویض هستند. قاب‌های دکوراتیو نیز دارای ۱۰ سال ضمانت ثبات رنگ در برابر اشعه UV و فرسودگی می‌باشند.',
-          category: 'گارانتی و ضمانت'
+          question: 'خاصیت سطح مات ضدحساسیت و بهداشتی چیست؟',
+          answer: 'روکش این محصولات از پلیمری مرغوب ساخته شده که در تماس مکرر دست تحریک پوستی ایجاد نمی‌کند، اثر چربی و لک را جذب نمی‌کند و خاصیت ضدباکتریایی آن مانع تجمع آلودگی روی کلید می‌شود.',
+          category: 'متریال و بهداشت'
         },
         {
-          question: 'آیا امکان سفارش پلاک‌ها با حکاکی سفارشی و رنگ‌های اختصاصی برای پروژه‌ها وجود دارد؟',
-          answer: 'بله، از طریق آتلیه معماری روشنا، دفاتر طراحی می‌توانند حک لیزری اختصاصی، رنگ‌های خاص با کد RAL و فینیش‌های آبکاری PVD را برای پروژه‌های لوکس سفارش دهند.',
-          category: 'سفارشی‌سازی معماری'
+          question: 'ضمانت و خدمات پس از فروش محصولات چگونه است؟',
+          answer: 'تمامی محصولات روشنا دارای ۱۰ سال ضمانت کیفیت کارکرد مکانیزم داخلی و فریم فلزی هستند تا خریدی با آرامش خاطر کامل داشته باشید.',
+          category: 'گارانتی و خدمات'
         }
       ]
     },
     footer: {
-      tagline: 'روشنا ولت • کلید کیفیت (Switch To Quality)',
-      newsletterTitle: 'آشنایی با محصولات جدید و',
-      newsletterMonograph: 'نشریات تخصصی معماری',
-      newsletterDesc: 'دریافت دعوت‌نامه برای رونمایی‌های خصوصی، اسناد مشخصات فنی و کلکسیون‌های محدود سخت‌افزارهای لوکس معماری.',
-      newsletterPlaceholder: 'ایمیل کاری دفتر طراحی یا معماری خود را وارد کنید...',
-      newsletterButton: 'عضویت',
-      subscriptionConfirmed: 'عضویت شما تایید شد. به رجیستری اختصاصی معماران روشنا خوش آمدید.',
-      brandDesc: 'آتلیه بین‌المللی طراحی متمرکز بر سخت‌افزارهای مینیمال دیواری، کلیدهای تراز معماری، پریزهای یکپارچه و کنترلرهای حسی محیط زندگی. انتخاب کیفیت برتر.',
-      copyright: 'تمامی حقوق محفوظ است. طراحی شده برای فضاهای اصیل و متمایز سراسر جهان.',
-      standards: 'مطابق با استانداردهای بین‌المللی CE, CB, RoHS و IEC-60884',
+      tagline: 'روشنا ولت • سویچ و ساکت‌های مدرن و ایمن',
+      newsletterTitle: 'اطلاع از موجودی و',
+      newsletterMonograph: 'پشتیبانی اختصاصی مشتریان',
+      newsletterDesc: 'برای اطلاع از محصولات جدید، قیمت‌های همکاری و تخفیف‌های ویژه شماره یا ایمیل خود را ثبت کنید.',
+      newsletterPlaceholder: 'شماره واتس‌اپ یا ایمیل خود را وارد کنید...',
+      newsletterButton: 'ثبت',
+      subscriptionConfirmed: 'اطلاعات شما ثبت شد. به جمع مشتریان روشنا خوش آمدید.',
+      brandDesc: 'روشنا ولت عرضه کننده کلید و پریزهای مدرن با طراحی لوکس، ایمن، باکیفیت و سطوح مات ضدحساسیت برای پروژه‌های مسکونی و تجاری.',
+      copyright: 'تمامی حقوق محفوظ است. انتخاب کیفیت و ایمنی برای فضاهای مدرن.',
+      standards: 'سازگار با انواع قوطی‌های برق استاندارد ۸۶ میلی‌متر',
       links: {
-        collectionTitle: 'کلکسیون',
-        specificationTitle: 'مشخصات فنی',
-        atelierTitle: 'آتلیه روشنا',
+        collectionTitle: 'محصولات',
+        specificationTitle: 'خدمات',
+        atelierTitle: 'درباره روشنا',
         conciergeTitle: 'پشتیبانی',
         privacy: 'حریم خصوصی',
-        terms: 'شرایط خدمات آتلیه',
-        certs: 'گواهینامه‌ها'
+        terms: 'شرایط همکاری',
+        certs: 'شرایط ضمانت'
       }
     },
     cart: {
       title: 'سبد خرید شما',
       emptyTitle: 'سبد خرید شما در حال حاضر خالی است',
-      emptySubtitle: 'کلکسیون کلیدهای لوکس، پریزهای توکار و مجموعه‌های کامل روشنا ولت را کاوش کنید.',
+      emptySubtitle: 'سویچ‌ها و ساکت‌های مدرن و ایمن روشنا را مشاهده و انتخاب کنید.',
       exploreBtn: 'مشاهده محصولات',
       freeShippingNotice: 'ارسال رایگان برای این سفارش فعال شد',
       addMoreNoticePrefix: 'با افزودن ',

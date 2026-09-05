@@ -3,12 +3,16 @@ import { ChevronDown, HelpCircle, Mail, Clock, Sparkles, MessageSquare } from 'l
 import { useLanguage } from '../context/LanguageContext';
 
 export const FAQSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, isRtl } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  const whatsappFaqUrl = isRtl
+    ? 'https://wa.me/?text=سلام%20روشنا%20ولت،%20سوالی%20درباره%20کلید%20و%20پریزها%20دارم.'
+    : 'https://wa.me/?text=Hello%20Roshna%20Volt,%20I%20have%20an%20inquiry%20regarding%20switches%20and%20sockets.';
 
   return (
     <section id="faq" className="py-20 lg:py-28 bg-[#F7F5F0] dark:bg-[#0B132B] border-b border-[#E5E1D8] dark:border-[#1D2B52] transition-colors duration-300 select-none">
@@ -16,7 +20,7 @@ export const FAQSection: React.FC = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column: Title and Concierge Card (Deep Navy #0B132B with Warm Amber #C5A059) */}
+          {/* Left Column: Title and Support Card */}
           <div className="lg:col-span-5 space-y-8">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFFFFF] dark:bg-[#0F1B3D] border border-[#C5A059]/40 text-[#C5A059] text-[11px] uppercase tracking-[0.2em] font-semibold mb-3 shadow-xs">
@@ -32,7 +36,7 @@ export const FAQSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Concierge Box in Deep Navy #0B132B with Metallic Gold Accents */}
+            {/* Support Box in Deep Navy #0B132B with Metallic Gold Accents */}
             <div className="bg-[#0B132B] text-white p-8 rounded-[24px] border border-[#C5A059]/30 shadow-xl space-y-6">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-[#C5A059]" />
@@ -46,21 +50,21 @@ export const FAQSection: React.FC = () => {
 
               <div className="space-y-3 pt-2 text-xs">
                 <a
-                  href="mailto:concierge@roshna-volt.com"
+                  href="mailto:info@roshna-volt.com"
                   className="flex items-center gap-3 text-neutral-200 hover:text-[#C5A059] font-medium transition-colors"
                 >
                   <Mail className="w-4 h-4 text-[#C5A059] shrink-0" />
-                  <span>concierge@roshna-volt.com</span>
+                  <span>info@roshna-volt.com</span>
                 </a>
                 <div className="flex items-center gap-3 text-neutral-400">
                   <Clock className="w-4 h-4 text-[#C5A059] shrink-0" />
-                  <span>Mon–Sat: 9:00 AM – 7:00 PM CET</span>
+                  <span>{isRtl ? 'شنبه تا پنج‌شنبه: ۸:۳۰ صبح تا ۶:۳۰ عصر' : 'Sat–Thu: 8:30 AM – 6:30 PM'}</span>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <a
-                  href="https://wa.me/989123456789"
+                  href={whatsappFaqUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 text-center py-3 px-4 btn-gold-gradient rounded-full text-xs uppercase font-bold tracking-wider cursor-pointer flex items-center justify-center gap-2"
@@ -69,7 +73,9 @@ export const FAQSection: React.FC = () => {
                   <span>{t.faq.contactWhatsapp}</span>
                 </a>
                 <a
-                  href="mailto:concierge@roshna-volt.com?subject=Roshna%20Architectural%20Hardware%20Consultation"
+                  href={`mailto:info@roshna-volt.com?subject=${encodeURIComponent(
+                    isRtl ? 'مشاوره سفارش کلید و پریز روشنا ولت' : 'Roshna Volt Switches & Sockets Consultation'
+                  )}`}
                   className="flex-1 text-center py-3 px-4 bg-[#060B18] hover:bg-[#101B38] text-[#C5A059] border border-[#C5A059]/40 rounded-full text-xs uppercase font-bold tracking-wider cursor-pointer transition-colors"
                 >
                   {t.faq.contactEmail}

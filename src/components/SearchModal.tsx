@@ -16,7 +16,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   products,
   onSelectProduct
 }) => {
-  const { isRtl } = useLanguage();
+  const { isRtl, t } = useLanguage();
   const [query, setQuery] = useState('');
 
   if (!isOpen) return null;
@@ -76,42 +76,49 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               <p className="text-sm">{isRtl ? "هیچ محصولی با این عبارت یافت نشد." : "No architectural hardware matches your search."}</p>
             </div>
           ) : (
-            filtered.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => {
-                  onSelectProduct(item);
-                  onClose();
-                }}
-                className="group flex items-center justify-between p-3.5 rounded-2xl hover:bg-[#F7F5F0] dark:hover:bg-[#0B132B] transition-all cursor-pointer border border-transparent hover:border-[#C5A059]/40"
-              >
-                <div className="flex items-center gap-4">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-16 h-16 rounded-xl object-cover bg-[#F7F5F0] dark:bg-[#060B18] border border-[#E5E1D8] dark:border-[#1D2B52]"
-                  />
-                  <div>
-                    <span className="text-[10px] uppercase tracking-wider text-[#C5A059] font-bold">
-                      {item.collection}
-                    </span>
-                    <h4 className="font-serif-heading text-lg font-medium text-[#1F2421] dark:text-[#F7F5F0] group-hover:text-[#C5A059] transition-colors">
-                      {item.name}
-                    </h4>
-                    <p className="text-xs text-neutral-500 line-clamp-1">{item.material}</p>
-                  </div>
-                </div>
+            filtered.map((item) => {
+              const localizedItem = t.showcase.products?.find((p) => p.id === item.id);
+              const itemName = localizedItem?.name || item.name;
 
-                <div className="text-right rtl:text-left flex items-center gap-3">
-                  <span className="font-serif-heading text-base font-semibold text-[#1F2421] dark:text-[#F7F5F0]">
-                    {item.price.toLocaleString()} {isRtl ? 'افغانی' : 'AFN'}
-                  </span>
-                  <div className="w-8 h-8 rounded-full bg-[#F7F5F0] dark:bg-[#0B132B] group-hover:bg-[#0B132B] dark:group-hover:bg-[#C5A059] group-hover:text-[#C5A059] dark:group-hover:text-[#0B132B] text-[#1F2421] dark:text-[#F7F5F0] flex items-center justify-center transition-colors border border-[#E5E1D8] dark:border-[#1D2B52]">
-                    <ArrowRight className={`w-3.5 h-3.5 ${isRtl ? 'rotate-180' : ''}`} />
+              return (
+                <div
+                  key={item.id}
+                  onClick={() => {
+                    onSelectProduct(item);
+                    onClose();
+                  }}
+                  className="group flex items-center justify-between p-3.5 rounded-2xl hover:bg-[#F7F5F0] dark:hover:bg-[#0B132B] transition-all cursor-pointer border border-transparent hover:border-[#C5A059]/40"
+                >
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={item.image}
+                      alt={itemName}
+                      className="w-16 h-16 rounded-xl object-cover bg-[#F7F5F0] dark:bg-[#060B18] border border-[#E5E1D8] dark:border-[#1D2B52]"
+                    />
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-[#C5A059] font-bold">
+                        {item.category.toLowerCase().includes('switch')
+                          ? (isRtl ? 'سویچ' : 'Switch')
+                          : (isRtl ? 'ساکت برق' : 'Power Socket')}
+                      </span>
+                      <h4 className="font-serif-heading text-lg font-medium text-[#1F2421] dark:text-[#F7F5F0] group-hover:text-[#C5A059] transition-colors">
+                        {itemName}
+                      </h4>
+                      <p className="text-xs text-neutral-500 line-clamp-1">{item.material}</p>
+                    </div>
+                  </div>
+
+                  <div className="text-right rtl:text-left flex items-center gap-3">
+                    <span className="font-serif-heading text-base font-semibold text-[#1F2421] dark:text-[#F7F5F0]">
+                      {item.price.toLocaleString()} {isRtl ? 'افغانی' : 'AFN'}
+                    </span>
+                    <div className="w-8 h-8 rounded-full bg-[#F7F5F0] dark:bg-[#0B132B] group-hover:bg-[#0B132B] dark:group-hover:bg-[#C5A059] group-hover:text-[#C5A059] dark:group-hover:text-[#0B132B] text-[#1F2421] dark:text-[#F7F5F0] flex items-center justify-center transition-colors border border-[#E5E1D8] dark:border-[#1D2B52]">
+                      <ArrowRight className={`w-3.5 h-3.5 ${isRtl ? 'rotate-180' : ''}`} />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
+              );
+            })
           )}
         </div>
 
