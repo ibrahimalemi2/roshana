@@ -4,8 +4,8 @@
   "description": "Luxury architectural electrical switches, sockets, and precision engineering by Roshna Volt. Switch To Quality.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F7F5F0",
-  "theme_color": "#0B132B",
+  "background_color": "#F8FAFC",
+  "theme_color": "#0A1428",
   "icons": [
     {
       "src": "/favicon.svg",

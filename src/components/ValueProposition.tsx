@@ -30,15 +30,15 @@ export const ValueProposition: React.FC = () => {
         
         {/* Section Header */}
         <div className="max-w-2xl mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white dark:bg-[#0E1838] border border-[#D4AF37]/40 text-[#D4AF37] text-[11px] uppercase tracking-[0.2em] font-semibold mb-2.5 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+          <div className="flex items-center gap-2 text-[#D4AF37] text-xs uppercase tracking-[0.2em] font-bold mb-2">
             <span>{t.principles.badge}</span>
+            <span className="w-8 h-[2px] bg-[#D4AF37]" />
           </div>
-          <h2 className="font-serif-heading text-2xl sm:text-4xl md:text-5xl font-normal text-[#0A1128] dark:text-white tracking-tight">
-            {t.principles.titlePart1} <br />
-            <span className="italic font-serif-heading text-[#D4AF37]">{t.principles.titlePart2}</span>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase text-[#0A1428] dark:text-white tracking-tight">
+            <span>{t.principles.titlePart1} </span>
+            <span className="text-[#D4AF37]">{t.principles.titlePart2}</span>
           </h2>
-          <p className="mt-2.5 font-sans-body text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 font-light leading-relaxed">
+          <p className="mt-2.5 font-sans text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
             {t.principles.subtitle}
           </p>
         </div>
@@ -61,11 +61,7 @@ export const ValueProposition: React.FC = () => {
                 {/* Top Number & Vector Icon */}
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <span
-                      className={`font-serif-heading text-2xl font-light tracking-tight ${
-                        isSelected ? 'text-[#D4AF37]' : 'text-[#D4AF37]'
-                      }`}
-                    >
+                    <span className="font-black text-2xl tracking-tight text-[#D4AF37]">
                       {pillar.number}
                     </span>
 
@@ -81,12 +77,12 @@ export const ValueProposition: React.FC = () => {
                   </div>
 
                   {/* Title & Short Desc */}
-                  <h3 className="font-serif-heading text-lg sm:text-xl font-medium mb-2 leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-[#0A1428] dark:text-white group-hover:text-[#D4AF37] dark:group-hover:text-[#D4AF37] transition-colors mb-2 leading-snug uppercase tracking-wide">
                     {pillar.title}
                   </h3>
 
                   <p
-                    className={`font-sans-body text-xs sm:text-sm leading-relaxed mb-4 font-light ${
+                    className={`font-sans text-xs sm:text-sm leading-relaxed mb-4 font-normal ${
                       isSelected ? 'text-slate-300' : 'text-slate-600 dark:text-slate-300'
                     }`}
                   >
@@ -96,7 +92,7 @@ export const ValueProposition: React.FC = () => {
 
                 {/* Bottom Highlight Seal */}
                 <div
-                  className={`pt-3 border-t text-[11px] font-sans-body flex items-center justify-between ${
+                  className={`pt-3 border-t text-[11px] font-sans flex items-center justify-between ${
                     isSelected
                       ? 'border-[#D4AF37]/30 text-[#D4AF37]'
                       : 'border-[#E2E8F0] dark:border-[#1E293B] text-[#D4AF37]'
@@ -117,15 +113,15 @@ export const ValueProposition: React.FC = () => {
         {/* Deep Dive Spotlight for the active pillar */}
         <div className="mt-6 sm:mt-7 bg-white dark:bg-[#0E1838] rounded-[22px] p-5 sm:p-7 border border-[#E2E8F0] dark:border-[#1E293B] shadow-md flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 transition-colors">
           <div className="space-y-1.5 max-w-2xl">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold">
               <span>{t.principles.detailedCommitment}</span>
               <span>·</span>
               <span>{t.principles.pillarLabel} {activePillar.number}</span>
             </div>
-            <h3 className="font-serif-heading text-xl sm:text-2xl text-[#0A1128] dark:text-white">
+            <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#0A1428] dark:text-white">
               {activePillar.title}
             </h3>
-            <p className="text-xs sm:text-sm font-sans-body text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm font-sans text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
               {activePillar.fullDesc}
             </p>
           </div>

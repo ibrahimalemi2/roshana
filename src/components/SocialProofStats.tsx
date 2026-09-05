@@ -43,17 +43,16 @@ export const SocialProofStats: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white dark:bg-[#0E1838] border border-[#D4AF37]/40 text-[#D4AF37] text-[11px] uppercase tracking-[0.2em] font-semibold mb-2.5 shadow-xs">
-            <Star className="w-3.5 h-3.5 fill-current text-[#D4AF37]" />
-            <span>{t.reviews.badge}</span>
-          </div>
+          <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold block mb-2">
+            {t.reviews.badge}
+          </span>
 
-          <h2 className="font-serif-heading text-2xl sm:text-4xl md:text-5xl font-normal text-[#0A1128] dark:text-white tracking-tight">
-            {t.reviews.titlePart1} <br />
-            <span className="italic font-serif-heading text-[#D4AF37]">{t.reviews.titlePart2}</span>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase text-[#0A1428] dark:text-white tracking-tight">
+            <span>{t.reviews.titlePart1} </span>
+            <span className="text-[#D4AF37]">{t.reviews.titlePart2}</span>
           </h2>
 
-          <p className="mt-2.5 font-sans-body text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 font-light">
+          <p className="mt-2.5 font-sans text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 font-normal">
             {t.reviews.subtitle}
           </p>
         </div>
@@ -77,7 +76,7 @@ export const SocialProofStats: React.FC = () => {
                 </div>
 
                 {/* Quote text */}
-                <p className="font-serif-heading text-base sm:text-lg text-[#0A1128] dark:text-white font-normal leading-relaxed italic">
+                <p className="font-sans text-sm sm:text-base text-slate-700 dark:text-slate-200 font-normal leading-relaxed">
                   "{test.quote}"
                 </p>
               </div>
@@ -91,15 +90,15 @@ export const SocialProofStats: React.FC = () => {
                 />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <h3 className="text-xs font-semibold text-[#0A1128] dark:text-white truncate">
+                    <h3 className="text-xs font-bold text-[#0A1128] dark:text-white truncate">
                       {test.name}
                     </h3>
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
                   </div>
-                  <p className="text-[11px] text-[#D4AF37] font-sans-body font-medium truncate">
+                  <p className="text-[11px] text-[#D4AF37] font-sans font-semibold truncate">
                     {test.role}
                   </p>
-                  <p className="text-[10px] text-slate-400 font-sans-body mt-0.5 truncate">
+                  <p className="text-[10px] text-slate-400 font-sans mt-0.5 truncate">
                     {test.location} · {test.purchasedProduct}
                   </p>
                 </div>
@@ -122,17 +121,17 @@ export const SocialProofStats: React.FC = () => {
                 }`}
               >
                 {/* Metric Value in Warm Metallic Gold */}
-                <span className="font-serif-heading text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white mb-2">
-                  <span className="text-[#D4AF37]">{metric.value}</span>
+                <span className="font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#D4AF37] mb-2 font-sans">
+                  {metric.value}
                 </span>
 
                 {/* Metric Label */}
-                <h4 className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-neutral-200 mb-1">
+                <h4 className="text-xs sm:text-sm font-bold tracking-wider uppercase text-neutral-200 mb-1">
                   {metric.label}
                 </h4>
 
                 {/* Metric Sub-detail */}
-                <p className="text-[11px] text-slate-400 font-light font-sans-body">
+                <p className="text-[11px] text-slate-400 font-normal font-sans">
                   {metric.detail}
                 </p>
               </div>

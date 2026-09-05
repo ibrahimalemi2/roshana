@@ -64,17 +64,31 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full transition-all duration-300 select-none">
-      {/* Main Navigation Bar (Supports Light Mode & Signature Brand Dark Mode #0A1128) */}
+    <header className="sticky top-0 z-40 w-full transition-all duration-300 select-none shadow-xs">
+      {/* 0. Top Utility Bar (Matching Reference Flyer: Deep Navy #0A1428) */}
+      <div className="bg-[#0A1428] text-white text-[11px] py-1.5 px-4 sm:px-6 lg:px-10 border-b border-white/10 flex items-center justify-between">
+        <div className="flex items-center gap-2 uppercase tracking-wider text-[#D4AF37] font-semibold text-[10px] sm:text-[11px]">
+          <span>{isRtl ? 'به روشنا ولت خوش آمدید — کلید و پریز با کیفیت بالا' : 'WELCOME TO ROSHNA VOLT — SWITCH TO QUALITY'}</span>
+        </div>
+        <div className="hidden sm:flex items-center gap-3 text-slate-300 uppercase tracking-widest text-[10px]">
+          <span>{isRtl ? 'کیفیت' : 'Quality'}</span>
+          <span className="text-white/30">|</span>
+          <span>{isRtl ? 'ایمنی' : 'Safety'}</span>
+          <span className="text-white/30">|</span>
+          <span>{isRtl ? 'نوآوری' : 'Innovation'}</span>
+        </div>
+      </div>
+
+      {/* Main Navigation Bar (Clean Crisp White in Light Mode / Deep Navy in Dark Mode) */}
       <nav
         className={`w-full transition-all duration-300 ${
           isDark
             ? isScrolled
-              ? 'bg-[#0A1128]/95 backdrop-blur-md shadow-lg border-b border-[#1E293B]'
-              : 'bg-[#0A1128] border-b border-[#1E293B]/80 text-white'
+              ? 'bg-[#0A1428]/95 backdrop-blur-md shadow-lg border-b border-[#1E293B]'
+              : 'bg-[#0A1428] border-b border-[#1E293B]/80 text-white'
             : isScrolled
-              ? 'bg-white/95 backdrop-blur-md shadow-xs border-b border-[#E2E8F0]'
-              : 'bg-white border-b border-[#E2E8F0]/80 text-[#0A1128]'
+              ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E2E8F0]'
+              : 'bg-white border-b border-[#E2E8F0] text-[#0A1428]'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-20 flex items-center justify-between gap-4">
@@ -86,11 +100,8 @@ export const Header: React.FC<HeaderProps> = ({
               className="group flex items-center gap-2.5 focus:outline-none cursor-pointer"
               aria-label="Roshna Home"
             >
-              {/* Monogram Emblem Badge */}
-              <RoshnaEmblem className="w-8 h-8 sm:w-9 sm:h-9 group-hover:scale-105 transition-transform flex-shrink-0" />
-
               {/* Primary Wordmark Vector */}
-              <div className="w-32 sm:w-36 pt-0.5 flex-shrink-0">
+              <div className="w-36 sm:w-44 pt-0.5 flex-shrink-0">
                 <RoshnaLogo
                   className="w-full h-auto"
                   variant={isDark ? 'monochrome-white' : 'color'}
@@ -99,7 +110,7 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </div>
 
-          {/* 2. Centered Navigation Links */}
+          {/* 2. Centered Navigation Links (Bold Sans-Serif Uppercase Matching Reference) */}
           <div className="hidden md:flex items-center gap-5 lg:gap-7 xl:gap-8 flex-shrink-0">
             {navLinks.map((link) => {
               const isActive = activeSection === link.target;
@@ -107,17 +118,17 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={link.target}
                   onClick={() => handleLinkClick(link.target)}
-                  className={`text-xs xl:text-sm tracking-wide font-sans-body transition-all relative py-1.5 whitespace-nowrap flex-shrink-0 cursor-pointer group ${
+                  className={`text-xs xl:text-sm uppercase tracking-wider font-bold transition-all relative py-2 whitespace-nowrap flex-shrink-0 cursor-pointer group ${
                     isActive
-                      ? 'text-[#D4AF37] font-bold'
+                      ? 'text-[#0A1428] dark:text-[#D4AF37]'
                       : isDark
-                        ? 'text-slate-200 hover:text-[#D4AF37] font-medium'
-                        : 'text-slate-700 hover:text-[#D4AF37] font-medium'
+                        ? 'text-slate-300 hover:text-[#D4AF37]'
+                        : 'text-[#0A1428]/85 hover:text-[#0A1428]'
                   }`}
                 >
                   <span>{link.label}</span>
                   <span
-                    className={`absolute bottom-0 left-0 h-[2px] transition-all duration-300 ease-out ${
+                    className={`absolute bottom-0 left-0 h-[2.5px] transition-all duration-300 ease-out ${
                       isActive ? 'w-full bg-[#D4AF37]' : 'w-0 bg-[#D4AF37] group-hover:w-full'
                     }`}
                   />
@@ -126,7 +137,7 @@ export const Header: React.FC<HeaderProps> = ({
             })}
           </div>
 
-          {/* 3. Right Action Icons & Prestige Concierge CTA */}
+          {/* 3. Right Action Icons & WhatsApp Button */}
           <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
             
             {/* BRAND DARK MODE TOGGLE */}
@@ -202,19 +213,19 @@ export const Header: React.FC<HeaderProps> = ({
               )}
             </button>
 
-            {/* WhatsApp Direct Client Button */}
+            {/* WhatsApp Direct Client Button (Matching Reference Flyer: Solid Deep Navy Button) */}
             <a
               href={isRtl
                 ? "https://wa.me/93780880007?text=سلام%20روشنا%20ولت،%20مایل%20به%20دریافت%20مشاوره%20در%20مورد%20سویچ‌ها%20و%20ساکت‌ها%20هستم."
                 : "https://wa.me/93780880007?text=Hello%20Roshna%20Volt,%20I%20would%20like%20to%20inquire%20about%20your%20switches%20and%20sockets%20collection."}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold tracking-wider uppercase px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-[#25D366]/50 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366] hover:text-[#0A1128] hover:border-transparent transition-all shadow-xs hover:shadow-md hover:shadow-[#25D366]/25 whitespace-nowrap flex-shrink-0 cursor-pointer group"
+              className="inline-flex items-center gap-2 text-xs font-bold tracking-wider uppercase px-3.5 py-2.5 rounded-lg bg-[#0A1428] text-white hover:bg-[#14224D] transition-all shadow-xs hover:shadow-md whitespace-nowrap flex-shrink-0 cursor-pointer group"
               title="Chat with Roshna on WhatsApp"
               aria-label="Chat on WhatsApp"
             >
-              <WhatsAppIcon className="w-4 h-4 fill-current group-hover:scale-110 transition-transform" />
-              <span className="hidden sm:inline">WhatsApp</span>
+              <WhatsAppIcon className="w-4 h-4 fill-current text-[#25D366] group-hover:scale-110 transition-transform" />
+              <span className="font-bold tracking-widest">{isRtl ? 'واتس‌اپ' : 'WHATSAPP'}</span>
             </a>
 
             {/* Hamburger Menu Toggle (Mobile & Tablet) */}

@@ -14,7 +14,8 @@ import {
   Layers,
   Cog,
   Wrench,
-  HeartHandshake
+  HeartHandshake,
+  ArrowRight
 } from 'lucide-react';
 import { Product } from '../types';
 import { useLanguage } from '../context/LanguageContext';
@@ -90,178 +91,154 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   return (
     <section
       id="collection"
-      className="py-10 sm:py-14 lg:py-16 bg-[#F8FAFC] dark:bg-[#0A1128] border-b border-[#E2E8F0] dark:border-[#1E293B] transition-colors duration-300 select-none"
+      className="py-12 sm:py-16 bg-[#F8FAFC] dark:bg-[#0A1428] border-b border-[#E2E8F0] dark:border-[#1E293B] transition-colors duration-300 select-none"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 sm:gap-6">
+        {/* Section Header: Matching Reference Flyer */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white dark:bg-[#0E1838] border border-[#D4AF37]/40 text-[#D4AF37] text-[11px] uppercase tracking-[0.2em] font-semibold mb-2.5 shadow-xs">
-              <Sparkles className="w-3 h-3 text-[#D4AF37]" />
-              <span>{t.showcase.badge}</span>
+            <div className="flex items-center gap-2 text-[#D4AF37] text-xs uppercase tracking-[0.2em] font-bold mb-2">
+              <span>{isRtl ? 'محصولات ما' : 'OUR PRODUCTS'}</span>
+              <span className="w-8 h-[2px] bg-[#D4AF37]" />
             </div>
-            <h2 className="font-serif-heading text-2xl sm:text-4xl md:text-5xl font-normal text-[#0A1128] dark:text-white tracking-tight">
-              {t.showcase.titlePart1} <br />
-              <span className="italic font-serif-heading text-[#D4AF37]">
-                {t.showcase.titlePart2}
-              </span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase text-[#0A1428] dark:text-white tracking-tight">
+              {isRtl ? 'کلیدها و پریزهای ساختمانی ممتاز' : 'PREMIUM SWITCHES & SOCKETS'}
             </h2>
+            <p className="font-sans text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal mt-1.5">
+              {isRtl ? 'طراحی شده برای تکمیل سبک زندگی شما.' : 'Designed to complement your lifestyle.'}
+            </p>
           </div>
 
-          {/* Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2">
-            {categoryOptions.map((category) => (
-              <button
-                key={category.key}
-                onClick={() => setActiveCategoryKey(category.key)}
-                className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-sans-body transition-all duration-200 cursor-pointer ${
-                  activeCategoryKey === category.key
-                    ? 'bg-[#0A1128] text-[#D4AF37] font-bold shadow-xs border border-[#D4AF37]/40'
-                    : 'bg-white dark:bg-[#0E1838] text-slate-700 dark:text-slate-300 hover:text-[#D4AF37] dark:hover:text-[#D4AF37] hover:bg-[#F8FAFC] dark:hover:bg-[#14224D] border border-[#E2E8F0] dark:border-[#1E293B]'
-                }`}
-              >
-                {category.label}
-              </button>
-            ))}
+          {/* Right Action: VIEW ALL PRODUCTS Button */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setActiveCategoryKey('all')}
+              className="px-5 py-2.5 rounded-lg bg-[#0A1428] text-white hover:bg-[#14224D] text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all shadow-sm cursor-pointer"
+            >
+              <span>{isRtl ? 'مشاهده همه محصولات' : 'VIEW ALL PRODUCTS'}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
 
-        {/* 3 Core Products Grid (Matching Flyer Layout & Technical Specs) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
-          {filteredProducts.map((product) => {
+        {/* 3 Core Products Grid: Matching Reference Flyer Horizontal Card Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-7">
+          {filteredProducts.map((product, idx) => {
             const isAdded = addedProductId === product.id;
             const isFavorited = wishlist.includes(product.id);
-            const localizedProduct = t.showcase.products?.find((p) => p.id === product.id);
-            const productName = localizedProduct?.name || product.name;
-            const productSubtitle = localizedProduct?.subtitle || product.subtitle;
-            const isSocket = product.id === 'roshna-soc-01';
+            const isSocket = product.id.includes('soc') || product.name.toLowerCase().includes('socket');
+            const isDual = product.id.includes('02') || product.name.toLowerCase().includes('2g');
+            
+            // Reference flyer titles
+            const displayTitle = isSocket 
+              ? (isRtl ? 'پریز برق چندمنظوره' : 'SOCKET OUTLET')
+              : isDual
+                ? (isRtl ? 'سویچ دو قطبی (دو خانه)' : '2 POLE SWITCH')
+                : (isRtl ? 'سویچ یک قطبی (یک خانه)' : '1 POLE SWITCH');
+
+            const displaySubtitle = isSocket
+              ? (isRtl ? 'ساکت برق ارت‌دار' : 'Universal Socket')
+              : isDual
+                ? (isRtl ? 'سویچ دو پل ۱۰ آمپر' : 'Double Switch')
+                : (isRtl ? 'سویچ تک پل ۱۰ آمپر' : 'Single Switch');
 
             return (
               <div
                 key={product.id}
                 onClick={() => onQuickView(product)}
-                className="group cursor-pointer flex flex-col justify-between bg-white dark:bg-[#0E1838] rounded-2xl sm:rounded-[24px] p-5 sm:p-6 border border-[#E2E8F0] dark:border-[#1E293B] shadow-sm hover:shadow-xl hover:border-[#D4AF37] dark:hover:border-[#D4AF37] transition-all duration-300 relative overflow-hidden"
+                className="group cursor-pointer bg-white dark:bg-[#0E1838] rounded-2xl p-5 sm:p-6 border border-[#E2E8F0] dark:border-[#1E293B] shadow-sm hover:shadow-xl hover:border-[#D4AF37] dark:hover:border-[#D4AF37] transition-all duration-300 relative flex flex-col justify-between"
               >
-                <div>
-                  {/* Flyer Top Header: Technical Model & Dari Name */}
-                  <div className="text-center pb-3 border-b border-[#E2E8F0]/60 dark:border-[#1E293B]/60 mb-4">
-                    <span className="font-mono text-sm sm:text-base font-bold tracking-wider text-[#D4AF37] block uppercase">
-                      {product.modelCode || productName}
-                    </span>
-                    <span className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-sans-body block mt-0.5">
-                      {productSubtitle}
-                    </span>
-                  </div>
-
-                  {/* Product Image Window */}
-                  <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-[#F8FAFC] dark:bg-[#050814] mb-4 border border-[#E2E8F0]/70 dark:border-[#1E293B]">
+                {/* Horizontal Card Layout: Product Left, Spec Info Right */}
+                <div className="grid grid-cols-12 gap-4 sm:gap-5 items-center mb-4">
+                  
+                  {/* Left Column: Product Photo */}
+                  <div className="col-span-6 relative aspect-square rounded-xl overflow-hidden bg-[#F8FAFC] dark:bg-[#050814] border border-[#E2E8F0]/70 dark:border-[#1E293B] flex items-center justify-center p-2">
                     <img
                       src={product.image}
-                      alt={productName}
-                      className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+                      alt={displayTitle}
+                      className="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500 ease-out"
                       loading="lazy"
                     />
 
-                    {/* Wishlist Button */}
+                    {/* Quick Wishlist Button */}
                     <button
                       onClick={(e) => toggleWishlist(product.id, e)}
-                      className="absolute top-3 right-3 rtl:right-auto rtl:left-3 z-10 w-8 h-8 rounded-full bg-white/90 dark:bg-[#0A1128]/90 hover:bg-white dark:hover:bg-[#0A1128] text-[#0A1128] dark:text-white flex items-center justify-center backdrop-blur-xs transition-colors shadow-xs border border-[#E2E8F0] dark:border-[#1E293B]"
+                      className="absolute top-2 left-2 z-10 w-7 h-7 rounded-full bg-white/90 dark:bg-[#0A1428]/90 text-[#0A1428] dark:text-white flex items-center justify-center backdrop-blur-xs transition-colors shadow-xs"
                       aria-label="Wishlist"
                     >
                       <Heart
                         className={`w-3.5 h-3.5 ${
-                          isFavorited
-                            ? 'fill-[#D4AF37] text-[#D4AF37]'
-                            : 'text-[#0A1128] dark:text-white'
+                          isFavorited ? 'fill-[#D4AF37] text-[#D4AF37]' : 'text-[#0A1428] dark:text-white'
                         }`}
                       />
                     </button>
+                  </div>
 
-                    {/* Hover Quick Action Tray */}
-                    <div className="absolute inset-x-3 bottom-3 flex items-center gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 z-10">
-                      <button
-                        onClick={(e) => handleAdd(product, e)}
-                        className={`flex-1 py-2.5 px-3.5 rounded-xl text-xs font-sans-body font-semibold flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer ${
-                          isAdded
-                            ? 'bg-[#0A1128] text-[#D4AF37] border border-[#D4AF37]'
-                            : 'btn-gold-gradient'
-                        }`}
-                      >
-                        {isAdded ? (
-                          <>
-                            <Check className="w-3.5 h-3.5" />
-                            <span>{t.showcase.addedToBag}</span>
-                          </>
+                  {/* Right Column: Icon + Title + Subtitle + View Details Link */}
+                  <div className="col-span-6 flex flex-col justify-between h-full py-1">
+                    <div>
+                      {/* Blue Rounded Square Icon Box from Reference Design */}
+                      <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center mb-3 shadow-sm shadow-blue-600/30">
+                        {isSocket ? (
+                          <ShieldPlus className="w-5 h-5" />
+                        ) : isDual ? (
+                          <Layers className="w-5 h-5" />
                         ) : (
-                          <>
-                            <ShoppingBag className="w-3.5 h-3.5 text-[#0A1128]" />
-                            <span>{t.showcase.addToBag}</span>
-                          </>
+                          <Zap className="w-5 h-5" />
                         )}
-                      </button>
+                      </div>
 
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onQuickView(product);
-                        }}
-                        className="p-2.5 rounded-xl bg-white dark:bg-[#0A1128] text-[#0A1128] dark:text-white hover:text-[#D4AF37] dark:hover:text-[#D4AF37] shadow-lg transition-colors border border-[#E2E8F0] dark:border-[#1E293B] cursor-pointer"
-                        title={t.showcase.quickSpecs}
-                      >
-                        <Eye className="w-4 h-4" />
-                      </button>
+                      {/* Main Title (1 POLE SWITCH / 2 POLE SWITCH / SOCKET OUTLET) */}
+                      <h3 className="text-base sm:text-lg font-black uppercase text-[#0A1428] dark:text-white leading-tight">
+                        {displayTitle}
+                      </h3>
+
+                      {/* Sub-label */}
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">
+                        {displaySubtitle}
+                      </p>
+                    </div>
+
+                    {/* View Details Link in Blue / Gold */}
+                    <div className="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0A1428] dark:text-[#D4AF37] group-hover:text-[#D4AF37] transition-colors">
+                      <span>{isRtl ? 'مشاهده جزئیات' : 'VIEW DETAILS'}</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
 
-                  {/* 3 Micro-Specs Row From Flyer: Electrical Rating | Ultra Thin | Luxury Design */}
-                  <div className="grid grid-cols-3 gap-1 py-2.5 px-1.5 rounded-xl bg-[#F8FAFC] dark:bg-[#050814] border border-[#E2E8F0]/70 dark:border-[#1E293B]/70 text-center mb-4">
-                    {/* 1. Electrical Power */}
-                    <div className="px-1 border-r border-[#E2E8F0] dark:border-[#1E293B] rtl:border-r-0 rtl:border-l">
-                      <Zap className="w-4 h-4 text-[#D4AF37] mx-auto mb-1" />
-                      <p className="text-[11px] font-bold text-[#0A1128] dark:text-white font-mono leading-tight">
-                        {isSocket ? '16 A' : '10 A'}
-                      </p>
-                      <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">
-                        250 V~
-                      </p>
-                    </div>
-
-                    {/* 2. Profile */}
-                    <div className="px-1 border-r border-[#E2E8F0] dark:border-[#1E293B] rtl:border-r-0 rtl:border-l">
-                      <SlidersHorizontal className="w-4 h-4 text-[#D4AF37] mx-auto mb-1" />
-                      <p className="text-[11px] font-bold text-[#0A1128] dark:text-white leading-tight">
-                        Ultra Thin
-                      </p>
-                      <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">
-                        بسیار نازک
-                      </p>
-                    </div>
-
-                    {/* 3. Luxury Design */}
-                    <div className="px-1">
-                      <Gem className="w-4 h-4 text-[#D4AF37] mx-auto mb-1" />
-                      <p className="text-[11px] font-bold text-[#0A1128] dark:text-white leading-tight">
-                        Luxury Design
-                      </p>
-                      <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">
-                        طراحی لوکس
-                      </p>
-                    </div>
-                  </div>
                 </div>
 
-                {/* Flyer-Styled Navy Price Banner */}
-                <div className="rounded-xl overflow-hidden bg-[#0A1128] text-white flex items-stretch border border-[#D4AF37]/40 shadow-sm group-hover:border-[#D4AF37] transition-all">
-                  <div className="w-2.5 bg-[#D4AF37]" />
-                  <div className="flex-1 py-2.5 px-4 flex items-center justify-between">
-                    <span className="font-mono text-base sm:text-lg font-bold text-[#D4AF37] tracking-wider">
-                      AFN {product.price === 90.01 ? '90.01' : product.price}
+                {/* Bottom Bar: Price & Fast Add-To-Bag Action */}
+                <div className="pt-3 border-t border-[#E2E8F0] dark:border-[#1E293B] flex items-center justify-between gap-3">
+                  <div>
+                    <span className="text-[10px] text-slate-400 uppercase tracking-wider block">
+                      {isRtl ? 'قیمت واحد' : 'Official Price'}
                     </span>
-                    <span className="text-xs text-slate-300 font-sans-body">
-                      {product.price === 90.01 ? '۹۰.۰۱' : product.price}{' '}
-                      {isRtl ? 'افغانی' : 'AFN'}
+                    <span className="font-mono text-sm sm:text-base font-bold text-[#0A1428] dark:text-[#D4AF37]">
+                      {product.price} AFN
                     </span>
                   </div>
+
+                  <button
+                    onClick={(e) => handleAdd(product, e)}
+                    className={`py-2 px-3.5 rounded-lg text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer ${
+                      isAdded
+                        ? 'bg-[#0A1428] text-[#D4AF37] border border-[#D4AF37]'
+                        : 'btn-gold shadow-sm'
+                    }`}
+                  >
+                    {isAdded ? (
+                      <>
+                        <Check className="w-3.5 h-3.5" />
+                        <span>{isRtl ? 'افزوده شد' : 'Added'}</span>
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingBag className="w-3.5 h-3.5 text-[#0A1428]" />
+                        <span>{isRtl ? 'خرید' : 'Add to Bag'}</span>
+                      </>
+                    )}
+                  </button>
                 </div>
               </div>
             );

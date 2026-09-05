@@ -23,15 +23,15 @@ export const FAQSection: React.FC = () => {
           {/* Left Column: Title and Support Card */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white dark:bg-[#0E1838] border border-[#D4AF37]/40 text-[#D4AF37] text-[11px] uppercase tracking-[0.2em] font-semibold mb-3 shadow-xs">
-                <HelpCircle className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <div className="flex items-center gap-2 text-[#D4AF37] text-xs uppercase tracking-[0.2em] font-bold mb-2">
                 <span>{t.faq.badge}</span>
+                <span className="w-8 h-[2px] bg-[#D4AF37]" />
               </div>
-              <h2 className="font-serif-heading text-3xl sm:text-4xl md:text-5xl font-normal text-[#0A1128] dark:text-white tracking-tight">
-                {t.faq.titlePart1} <br />
-                <span className="italic font-serif-heading text-[#D4AF37]">{t.faq.titlePart2}</span>
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase text-[#0A1428] dark:text-white tracking-tight">
+                <span>{t.faq.titlePart1} </span>
+                <span className="text-[#D4AF37]">{t.faq.titlePart2}</span>
               </h2>
-              <p className="mt-4 font-sans-body text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed">
+              <p className="mt-4 font-sans text-sm text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
                 {t.faq.subtitle}
               </p>
             </div>
@@ -40,11 +40,11 @@ export const FAQSection: React.FC = () => {
             <div className="bg-[#0A1128] text-white p-8 rounded-[24px] border border-[#D4AF37]/30 shadow-xl space-y-6">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-[#D4AF37]" />
-                <h3 className="font-serif-heading text-2xl text-white">
+                <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white">
                   {t.faq.contactTitle}
                 </h3>
               </div>
-              <p className="text-xs text-slate-300 font-sans-body leading-relaxed">
+              <p className="text-xs text-slate-300 font-sans leading-relaxed font-normal">
                 {t.faq.contactDesc}
               </p>
 
@@ -102,7 +102,7 @@ export const FAQSection: React.FC = () => {
                     onClick={() => toggleFAQ(index)}
                     className="w-full text-left rtl:text-right p-6 sm:p-7 flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                   >
-                    <span className="font-serif-heading text-lg sm:text-xl font-medium text-[#0A1128] dark:text-white">
+                    <span className="text-base sm:text-lg font-bold text-[#0A1428] dark:text-white">
                       {faq.question}
                     </span>
                     <div

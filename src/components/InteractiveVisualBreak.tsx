@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Sparkles, Sliders, ShieldCheck, CheckCircle2, Compass } from 'lucide-react';
+import { Shield, Sparkles, Sliders, ShieldCheck, CheckCircle2, Compass, Thermometer, Gem } from 'lucide-react';
 import { QUADRANT_ITEMS } from '../data/furnitureData';
 import { QuadrantItem } from '../types';
 import { useLanguage } from '../context/LanguageContext';
@@ -9,7 +9,7 @@ interface InteractiveVisualBreakProps {
 }
 
 export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () => {
-  const { t } = useLanguage();
+  const { t, isRtl } = useLanguage();
 
   const getPillarIcon = (index: number) => {
     switch (index) {
@@ -26,33 +26,107 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
   };
 
   return (
-    <section
-      id="craft"
-      className="py-10 sm:py-14 lg:py-16 bg-[#F8FAFC] dark:bg-[#0A1128] relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#1E293B] transition-colors duration-300 select-none"
-    >
-      {/* Background Decorative Ambient Glow */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none" />
+    <>
+      {/* 1. ADVANCED TECHNOLOGY ROW: Exact match to Reference Flyer (#EBF3FA Ice Blue Background) */}
+      <section className="py-12 sm:py-16 bg-[#EBF3FA] dark:bg-[#0E1838] border-b border-[#D8E6F3] dark:border-[#1E293B] transition-colors duration-300 select-none">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Text Block */}
+            <div className="lg:col-span-4">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold block mb-2">
+                {isRtl ? 'فناوری پیشرفته' : 'ADVANCED TECHNOLOGY'}
+              </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase text-[#0A1428] dark:text-white leading-tight">
+                {isRtl ? 'کیفیت در تمام جزئیات' : 'QUALITY IN EVERY DETAIL'}
+              </h2>
+              <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                {isRtl 
+                  ? 'محصولات روشنا ولت با استفاده از مواد پلی‌کربنات مرغوب با مقاومت بالا در برابر حرارت و آتش‌سوزی تولید شده و از شیوع باکتری‌ها جلوگیری می‌کنند.'
+                  : 'Roshna Volt products are manufactured using high quality polycarbonate materials that are heat resistant, flame retardant and prevent the spread of bacteria.'}
+              </p>
+            </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#0E1838] border border-[#D4AF37]/40 text-[#D4AF37] text-xs font-semibold tracking-wider mb-3 shadow-xs">
-            <Compass className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span className="uppercase tracking-[0.2em] text-[11px]">{t.anatomy.badge}</span>
+            {/* Right 4 Circular Feature Icons (Directly on #EBF3FA with thin dividers, NO white boxes) */}
+            <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-2 text-center divide-y sm:divide-y-0 sm:divide-x divide-blue-200/80 dark:divide-slate-800 rtl:sm:divide-x-reverse">
+              
+              {/* 1. SAFE MATERIAL */}
+              <div className="px-3 py-2 flex flex-col items-center">
+                <div className="w-14 h-14 rounded-full border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-3 shadow-xs">
+                  <ShieldCheck className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <h4 className="text-xs font-black uppercase tracking-wider text-[#0A1428] dark:text-white">
+                  {isRtl ? 'مواد کاملاً ایمن' : 'SAFE MATERIAL'}
+                </h4>
+                <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 max-w-[140px] leading-tight font-normal">
+                  {isRtl ? 'غیر سمی و ایمن برای تمام سنین' : 'Non-toxic & safe for all ages'}
+                </p>
+              </div>
+
+              {/* 2. ANTI BACTERIAL */}
+              <div className="px-3 py-2 flex flex-col items-center">
+                <div className="w-14 h-14 rounded-full border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-3 shadow-xs">
+                  <Sparkles className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <h4 className="text-xs font-black uppercase tracking-wider text-[#0A1428] dark:text-white">
+                  {isRtl ? 'آنتی باکتریال' : 'ANTI BACTERIAL'}
+                </h4>
+                <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 max-w-[140px] leading-tight font-normal">
+                  {isRtl ? 'سطح بهداشتی با تمیزکاری آسان' : 'Hygienic surface & easy to clean'}
+                </p>
+              </div>
+
+              {/* 3. HEAT RESISTANT */}
+              <div className="px-3 py-2 flex flex-col items-center">
+                <div className="w-14 h-14 rounded-full border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-3 shadow-xs">
+                  <Thermometer className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <h4 className="text-xs font-black uppercase tracking-wider text-[#0A1428] dark:text-white">
+                  {isRtl ? 'مقاوم به حرارت' : 'HEAT RESISTANT'}
+                </h4>
+                <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 max-w-[140px] leading-tight font-normal">
+                  {isRtl ? 'تحمل دمای بسیار بالا' : 'Withstands high temperature'}
+                </p>
+              </div>
+
+              {/* 4. PREMIUM FINISH */}
+              <div className="px-3 py-2 flex flex-col items-center">
+                <div className="w-14 h-14 rounded-full border-2 border-blue-600 dark:border-blue-400 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-3 shadow-xs">
+                  <Gem className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <h4 className="text-xs font-black uppercase tracking-wider text-[#0A1428] dark:text-white">
+                  {isRtl ? 'پوشش لوکس' : 'PREMIUM FINISH'}
+                </h4>
+                <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 max-w-[140px] leading-tight font-normal">
+                  {isRtl ? 'طراحی شیک برای فضاهای مدرن' : 'Elegant design perfect for modern spaces'}
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 2. CORE DESIGN ELEMENTS: Clean White / Slate Background */}
+      <section
+        id="craft"
+        className="py-12 sm:py-16 bg-[#F8FAFC] dark:bg-[#0A1428] relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#1E293B] transition-colors duration-300 select-none"
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+          {/* Section Header */}
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+            <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold block mb-2">
+              {isRtl ? 'ستون‌های مهندسی' : 'CORE DESIGN ELEMENTS'}
+            </span>
+            <h3 className="text-2xl sm:text-4xl font-black uppercase text-[#0A1428] dark:text-white tracking-tight">
+              {isRtl ? 'طراحی متعادل و مهندسی ایمن' : 'BALANCED FORM & SAFE ENGINEERING'}
+            </h3>
+            <p className="mt-2.5 font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-normal max-w-xl mx-auto leading-relaxed">
+              {t.anatomy.subtitle}
+            </p>
           </div>
 
-          <h2 className="font-serif-heading text-2xl sm:text-4xl md:text-5xl text-[#0A1128] dark:text-white font-normal tracking-tight">
-            {t.anatomy.titlePart1}{' '}
-            <span className="italic font-serif-heading text-[#D4AF37]">{t.anatomy.titlePart2}</span>
-          </h2>
-
-          <p className="mt-3.5 font-sans-body text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 font-light max-w-2xl mx-auto leading-relaxed">
-            {t.anatomy.subtitle}
-          </p>
-        </div>
-
-        {/* Modern 4-Column Feature Grid (2x2 on Mobile/Tablet) */}
         <div className="grid grid-cols-1 min-[520px]:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {QUADRANT_ITEMS.map((item, index) => {
             const localized = t.anatomy.quadrants?.find((q) => q.id === item.id);
@@ -97,11 +171,11 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="font-serif-heading text-lg sm:text-xl font-medium text-[#0A1128] dark:text-white group-hover:text-[#D4AF37] transition-colors mb-2 leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-[#0A1128] dark:text-white group-hover:text-[#D4AF37] transition-colors mb-2 leading-snug uppercase tracking-wide">
                     {title}
                   </h3>
 
-                  <p className="font-sans-body text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed">
+                  <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
                     {description}
                   </p>
                 </div>
@@ -130,5 +204,6 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
         </div>
       </div>
     </section>
+    </>
   );
 };

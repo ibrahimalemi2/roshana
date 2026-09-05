@@ -21,16 +21,16 @@ export const MaterialShowcase: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 gap-4 sm:gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white dark:bg-[#0E1838] border border-[#D4AF37]/40 text-[#D4AF37] text-[11px] uppercase tracking-[0.2em] font-semibold mb-2.5 shadow-xs">
-              <Sparkles className="w-3 h-3 text-[#D4AF37]" />
+            <div className="flex items-center gap-2 text-[#D4AF37] text-xs uppercase tracking-[0.2em] font-bold mb-2">
               <span>{t.materials.badge}</span>
+              <span className="w-8 h-[2px] bg-[#D4AF37]" />
             </div>
-            <h2 className="font-serif-heading text-2xl sm:text-4xl md:text-5xl font-normal text-[#0A1128] dark:text-white tracking-tight">
-              {t.materials.titlePart1} <br />
-              <span className="italic font-serif-heading text-[#D4AF37]">{t.materials.titlePart2}</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase text-[#0A1428] dark:text-white tracking-tight">
+              <span>{t.materials.titlePart1} </span>
+              <span className="text-[#D4AF37]">{t.materials.titlePart2}</span>
             </h2>
           </div>
-          <p className="font-sans-body text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-md font-light leading-relaxed">
+          <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-md font-normal leading-relaxed">
             {t.materials.subtitle}
           </p>
         </div>
@@ -71,10 +71,10 @@ export const MaterialShowcase: React.FC = () => {
                     <p className="text-[10px] uppercase tracking-wider text-[#D4AF37] font-bold">
                       {mat.origin}
                     </p>
-                    <h3 className="font-serif-heading text-lg sm:text-xl font-medium text-[#0A1128] dark:text-white mt-1">
+                    <h3 className="text-base sm:text-lg font-bold uppercase tracking-wide text-[#0A1428] dark:text-white mt-1">
                       {mat.name}
                     </h3>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 font-sans-body mt-1.5 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-slate-600 dark:text-slate-300 font-sans mt-1.5 line-clamp-2 leading-relaxed font-normal">
                       {mat.description}
                     </p>
                   </div>
@@ -92,15 +92,15 @@ export const MaterialShowcase: React.FC = () => {
         {/* Deep Dive Material Spotlight */}
         <div className="mt-6 sm:mt-7 bg-white dark:bg-[#0E1838] rounded-[22px] p-5 sm:p-7 border border-[#E2E8F0] dark:border-[#1E293B] shadow-md flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 transition-colors">
           <div className="space-y-1.5 max-w-2xl">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold">
               <span>{t.materials.selectedStudy}</span>
               <span>·</span>
               <span>{activeMaterial.name}</span>
             </div>
-            <h3 className="font-serif-heading text-xl sm:text-2xl text-[#0A1128] dark:text-white">
+            <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#0A1428] dark:text-white">
               {activeMaterial.name}
             </h3>
-            <p className="text-xs sm:text-sm font-sans-body text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm font-sans text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
               {activeMaterial.description}
             </p>
           </div>

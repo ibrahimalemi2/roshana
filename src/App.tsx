@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
-import { InteractiveVisualBreak } from './components/InteractiveVisualBreak';
 import { ProductShowcase } from './components/ProductShowcase';
+import { InteractiveVisualBreak } from './components/InteractiveVisualBreak';
+import { ApplicationSpaces } from './components/ApplicationSpaces';
 import { ValueProposition } from './components/ValueProposition';
 import { MaterialShowcase } from './components/MaterialShowcase';
 import { SocialProofStats } from './components/SocialProofStats';
 import { FAQSection } from './components/FAQSection';
+import { BrandSignOffBanner } from './components/BrandSignOffBanner';
 import { NewsletterAndFooter } from './components/NewsletterAndFooter';
 import { CartDrawer } from './components/CartDrawer';
 import { ProductQuickViewModal } from './components/ProductQuickViewModal';
@@ -95,8 +97,8 @@ function MainAppContent() {
 
   return (
     <div
-      className={`min-h-screen font-sans-body relative selection:bg-[#0A1128] selection:text-[#D4AF37] dark:selection:bg-[#D4AF37] dark:selection:text-[#0A1128] transition-colors duration-300 ${
-        isDark ? 'bg-[#0A1128] text-white' : 'bg-[#F8FAFC] text-[#0A1128]'
+      className={`min-h-screen font-sans-body relative selection:bg-[#0A1428] selection:text-[#D4AF37] dark:selection:bg-[#D4AF37] dark:selection:text-[#0A1428] transition-colors duration-300 ${
+        isDark ? 'bg-[#0A1428] text-white' : 'bg-[#F8FAFC] text-[#0A1428]'
       }`}
     >
       {/* Brand Splash Screen on initial launch */}
@@ -108,15 +110,15 @@ function MainAppContent() {
 
       {/* Toast Notification with Roshna Brand Identity */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#0A1128] text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-[#D4AF37]/50 flex items-center gap-3 text-xs sm:text-sm animate-bounce">
-          <div className="w-6 h-6 rounded-full bg-[#D4AF37] text-[#0A1128] flex items-center justify-center shrink-0">
+        <div className="fixed bottom-6 right-6 z-50 bg-[#0A1428] text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-[#D4AF37]/50 flex items-center gap-3 text-xs sm:text-sm animate-bounce">
+          <div className="w-6 h-6 rounded-full bg-[#D4AF37] text-[#0A1428] flex items-center justify-center shrink-0">
             <Check className="w-3.5 h-3.5 stroke-[3]" />
           </div>
           <span>{toastMessage}</span>
         </div>
       )}
 
-      {/* Main Header / Navigation */}
+      {/* Main Header / Navigation with Top Utility Bar */}
       <Header
         cart={cart}
         onOpenCart={() => setIsCartOpen(true)}
@@ -125,39 +127,45 @@ function MainAppContent() {
         onNavigate={handleNavigate}
       />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections Structured Exactly Matching Reference Flyer */}
       <main>
-        {/* 1. Hero Section */}
+        {/* 1. Hero Section: Powering A Brighter Tomorrow */}
         <HeroSection
           products={PRODUCTS}
           onExploreClick={() => handleNavigate('collection')}
           onQuickView={(p) => setQuickViewProduct(p)}
         />
 
-        {/* 2. Interactive Visual Break: Semi-circular Quadrant-Split Grid */}
-        <InteractiveVisualBreak />
-
-        {/* 3. Product Showcase Grids */}
+        {/* 2. Product Showcase Grids: Our Products - Premium Switches & Sockets */}
         <ProductShowcase
           products={PRODUCTS}
           onAddToCart={handleAddToCart}
           onQuickView={(p) => setQuickViewProduct(p)}
         />
 
-        {/* 4. Value Proposition Grid */}
+        {/* 3. Advanced Technology & Core Design Elements: Quality in Every Detail */}
+        <InteractiveVisualBreak />
+
+        {/* 4. Perfect For Every Space: Made For Modern Living (Home, Office, Hotel, Commercial) */}
+        <ApplicationSpaces />
+
+        {/* 5. Value Proposition Grid: Architecture Principles */}
         <ValueProposition />
 
-        {/* 5. Material Showcase: Raw Minerals & Organic Textures */}
+        {/* 6. Material Showcase: Raw Minerals & Organic Textures */}
         <MaterialShowcase />
 
-        {/* 6. Social Proof & 4-Column Metric Stats */}
+        {/* 7. Social Proof & Reviews: Testimonials & 4-Column Metric Stats */}
         <SocialProofStats />
 
-        {/* 7. FAQ & Atelier Concierge Inquiries */}
+        {/* 8. FAQ & Atelier Concierge Inquiries */}
         <FAQSection />
+
+        {/* 9. Brand Quality Sign-Off Banner: Switch to Quality, Switch to Roshna Volt */}
+        <BrandSignOffBanner />
       </main>
 
-      {/* 8. Footer & Newsletter */}
+      {/* 10. Footer & Quick Links */}
       <NewsletterAndFooter />
 
 
