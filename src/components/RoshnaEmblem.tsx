@@ -14,7 +14,7 @@ export const RoshnaEmblem: React.FC<RoshnaEmblemProps> = ({
     <div className={`relative inline-flex items-center justify-center ${className}`}>
       {/* Ambient gold glow when animated */}
       {animate && (
-        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#0B132B]/30 via-[#C5A059]/30 to-[#D4AF37]/30 blur-md animate-pulse" />
+        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#0A1128]/30 via-[#D4AF37]/30 to-[#E5A93C]/30 blur-md animate-pulse" />
       )}
       
       <svg
@@ -26,30 +26,30 @@ export const RoshnaEmblem: React.FC<RoshnaEmblemProps> = ({
       >
         <defs>
           <linearGradient id="emblemRoshnaBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#1E3264" />
-            <stop offset="50%" stop-color="#132247" />
-            <stop offset="100%" stop-color="#0B132B" />
+            <stop offset="0%" stop-color="#1A2B5E" />
+            <stop offset="50%" stop-color="#101C42" />
+            <stop offset="100%" stop-color="#0A1128" />
           </linearGradient>
 
           <linearGradient id="emblemRoshnaDark" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0F1B3D" />
-            <stop offset="100%" stop-color="#060B18" />
+            <stop offset="0%" stop-color="#0E1838" />
+            <stop offset="100%" stop-color="#050814" />
           </linearGradient>
 
           <linearGradient id="emblemRoshnaHighlight" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#2D4685" />
-            <stop offset="100%" stop-color="#5577C2" />
+            <stop offset="0%" stop-color="#1E3A8A" />
+            <stop offset="100%" stop-color="#3B82F6" />
           </linearGradient>
 
           <linearGradient id="emblemRoshnaGold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#D4AF37" />
-            <stop offset="40%" stop-color="#C5A059" />
-            <stop offset="100%" stop-color="#9E7B36" />
+            <stop offset="0%" stop-color="#F3B23E" />
+            <stop offset="40%" stop-color="#E5A93C" />
+            <stop offset="100%" stop-color="#D4AF37" />
           </linearGradient>
 
           <linearGradient id="emblemRoshnaNeedle" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#C5A059" />
-            <stop offset="100%" stop-color="#F3E5AB" />
+            <stop offset="0%" stop-color="#D4AF37" />
+            <stop offset="100%" stop-color="#FFF8E7" />
           </linearGradient>
         </defs>
 

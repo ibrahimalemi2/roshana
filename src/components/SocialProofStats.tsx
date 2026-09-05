@@ -34,26 +34,26 @@ export const SocialProofStats: React.FC = () => {
   ];
 
   return (
-    <section id="reviews" className="py-6 sm:py-8 lg:py-10 bg-[#F7F5F0] dark:bg-[#0B132B] border-b border-[#E5E1D8] dark:border-[#1D2B52] relative overflow-hidden transition-colors duration-300 select-none">
+    <section id="reviews" className="py-6 sm:py-8 lg:py-10 bg-[#F8FAFC] dark:bg-[#0A1128] border-b border-[#E2E8F0] dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300 select-none">
       
       {/* Background ambient gold accents */}
-      <div className="absolute -top-40 right-0 w-96 h-96 rounded-full bg-[#C5A059]/10 blur-3xl pointer-events-none" />
+      <div className="absolute -top-40 right-0 w-96 h-96 rounded-full bg-[#D4AF37]/10 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFFFFF] dark:bg-[#0F1B3D] border border-[#C5A059]/40 text-[#C5A059] text-[11px] uppercase tracking-[0.2em] font-semibold mb-2.5 shadow-xs">
-            <Star className="w-3.5 h-3.5 fill-current text-[#C5A059]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white dark:bg-[#0E1838] border border-[#D4AF37]/40 text-[#D4AF37] text-[11px] uppercase tracking-[0.2em] font-semibold mb-2.5 shadow-xs">
+            <Star className="w-3.5 h-3.5 fill-current text-[#D4AF37]" />
             <span>{t.reviews.badge}</span>
           </div>
 
-          <h2 className="font-serif-heading text-2xl sm:text-4xl md:text-5xl font-normal text-[#1F2421] dark:text-[#F7F5F0] tracking-tight">
+          <h2 className="font-serif-heading text-2xl sm:text-4xl md:text-5xl font-normal text-[#0A1128] dark:text-white tracking-tight">
             {t.reviews.titlePart1} <br />
-            <span className="italic font-serif-heading text-[#C5A059]">{t.reviews.titlePart2}</span>
+            <span className="italic font-serif-heading text-[#D4AF37]">{t.reviews.titlePart2}</span>
           </h2>
 
-          <p className="mt-2.5 font-sans-body text-xs sm:text-sm md:text-base text-[#1F2421]/75 dark:text-[#F7F5F0]/75 font-light">
+          <p className="mt-2.5 font-sans-body text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 font-light">
             {t.reviews.subtitle}
           </p>
         </div>
@@ -63,43 +63,43 @@ export const SocialProofStats: React.FC = () => {
           {t.reviews.testimonials.map((test) => (
             <div
               key={test.id}
-              className="bg-[#FFFFFF] dark:bg-[#0F1B3D] rounded-[22px] p-5 sm:p-6 border border-[#E5E1D8] dark:border-[#1D2B52] shadow-xs hover:shadow-xl hover:border-[#C5A059] dark:hover:border-[#C5A059] transition-all duration-300 flex flex-col justify-between relative group"
+              className="bg-white dark:bg-[#0E1838] rounded-[22px] p-5 sm:p-6 border border-[#E2E8F0] dark:border-[#1E293B] shadow-xs hover:shadow-xl hover:border-[#D4AF37] dark:hover:border-[#D4AF37] transition-all duration-300 flex flex-col justify-between relative group"
             >
               <div className="space-y-3">
                 {/* Rating Stars & Quote Icon */}
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-1 rtl:space-x-reverse text-[#C5A059]">
+                  <div className="flex items-center space-x-1 rtl:space-x-reverse text-[#D4AF37]">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current text-[#C5A059]" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-current text-[#D4AF37]" />
                     ))}
                   </div>
-                  <Quote className="w-7 h-7 text-[#C5A059]/30 group-hover:text-[#C5A059] transition-colors" />
+                  <Quote className="w-7 h-7 text-[#D4AF37]/30 group-hover:text-[#D4AF37] transition-colors" />
                 </div>
 
                 {/* Quote text */}
-                <p className="font-serif-heading text-base sm:text-lg text-[#1F2421] dark:text-[#F7F5F0] font-normal leading-relaxed italic">
+                <p className="font-serif-heading text-base sm:text-lg text-[#0A1128] dark:text-white font-normal leading-relaxed italic">
                   "{test.quote}"
                 </p>
               </div>
 
               {/* Author Info */}
-              <div className="pt-4 mt-4 border-t border-[#E5E1D8] dark:border-[#1D2B52] flex items-center gap-3">
+              <div className="pt-4 mt-4 border-t border-[#E2E8F0] dark:border-[#1E293B] flex items-center gap-3">
                 <img
                   src={getAvatar(test.id)}
                   alt={test.name}
-                  className="w-10 h-10 rounded-full object-cover border-2 border-[#C5A059]/40 shrink-0"
+                  className="w-10 h-10 rounded-full object-cover border-2 border-[#D4AF37]/40 shrink-0"
                 />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <h3 className="text-xs font-semibold text-[#1F2421] dark:text-[#F7F5F0] truncate">
+                    <h3 className="text-xs font-semibold text-[#0A1128] dark:text-white truncate">
                       {test.name}
                     </h3>
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
                   </div>
-                  <p className="text-[11px] text-[#C5A059] font-sans-body font-medium truncate">
+                  <p className="text-[11px] text-[#D4AF37] font-sans-body font-medium truncate">
                     {test.role}
                   </p>
-                  <p className="text-[10px] text-neutral-400 font-sans-body mt-0.5 truncate">
+                  <p className="text-[10px] text-slate-400 font-sans-body mt-0.5 truncate">
                     {test.location} · {test.purchasedProduct}
                   </p>
                 </div>
@@ -108,12 +108,12 @@ export const SocialProofStats: React.FC = () => {
           ))}
         </div>
 
-        {/* 4-Column Metrics Counter Grid (Deep Navy #0B132B with Warm Metallic Gold #C5A059) */}
-        <div className="bg-[#0B132B] text-[#F7F5F0] rounded-[24px] p-6 sm:p-8 border border-[#C5A059]/30 shadow-2xl relative overflow-hidden">
+        {/* 4-Column Metrics Counter Grid (Deep Navy #0A1128 with Warm Metallic Gold #D4AF37) */}
+        <div className="bg-[#0A1128] text-white rounded-[24px] p-6 sm:p-8 border border-[#D4AF37]/30 shadow-2xl relative overflow-hidden">
           {/* Subtle metallic gold top border line */}
-          <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#C5A059] via-[#D4AF37] to-[#9E7B36]" />
+          <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#D4AF37] via-[#E5A93C] to-[#B8860B]" />
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 divide-y lg:divide-y-0 lg:divide-x rtl:lg:divide-x-reverse divide-[#C5A059]/20">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 divide-y lg:divide-y-0 lg:divide-x rtl:lg:divide-x-reverse divide-[#D4AF37]/20">
             {metricItems.map((metric, idx) => (
               <div
                 key={idx}
@@ -123,7 +123,7 @@ export const SocialProofStats: React.FC = () => {
               >
                 {/* Metric Value in Warm Metallic Gold */}
                 <span className="font-serif-heading text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white mb-2">
-                  <span className="text-[#C5A059]">{metric.value}</span>
+                  <span className="text-[#D4AF37]">{metric.value}</span>
                 </span>
 
                 {/* Metric Label */}
@@ -132,7 +132,7 @@ export const SocialProofStats: React.FC = () => {
                 </h4>
 
                 {/* Metric Sub-detail */}
-                <p className="text-[11px] text-neutral-400 font-light font-sans-body">
+                <p className="text-[11px] text-slate-400 font-light font-sans-body">
                   {metric.detail}
                 </p>
               </div>

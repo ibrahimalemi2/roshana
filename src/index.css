@@ -3,56 +3,56 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-roshna-navy: #0B132B;
-  --color-roshna-navy-dark: #060B18;
-  --color-roshna-navy-surface: #0F1B3D;
-  --color-roshna-navy-elevated: #13224A;
-  --color-roshna-navy-light: #16244B;
+  --color-roshna-navy: #0A1128;
+  --color-roshna-navy-dark: #050814;
+  --color-roshna-navy-surface: #0E1838;
+  --color-roshna-navy-elevated: #14224D;
+  --color-roshna-navy-light: #1A2B5E;
 
-  --color-roshna-gold: #C5A059;
-  --color-roshna-gold-bright: #D4AF37;
-  --color-roshna-gold-dark: #9E7B36;
-  --color-roshna-gold-subtle: #F7F1E5;
+  --color-roshna-gold: #D4AF37;
+  --color-roshna-gold-bright: #E5A93C;
+  --color-roshna-gold-dark: #B8860B;
+  --color-roshna-gold-subtle: #FFF8E7;
 
-  --color-roshna-cream: #F7F5F0;
+  --color-roshna-cream: #FFFFFF;
   --color-roshna-surface: #FFFFFF;
-  --color-roshna-charcoal: #1F2421;
-  --color-roshna-border: #E5E1D8;
-  --color-roshna-border-gold: rgba(197, 160, 89, 0.4);
+  --color-roshna-charcoal: #0A1128;
+  --color-roshna-border: #E2E8F0;
+  --color-roshna-border-gold: rgba(212, 175, 55, 0.4);
 }
 
 @layer base {
   :root {
-    /* Luxury Light Palette */
-    --brand-navy: #0B132B;
-    --brand-navy-dark: #060B18;
-    --brand-navy-light: #16244B;
+    /* Luxury Light Palette (Matching Official Letterhead & Business Cards) */
+    --brand-navy: #0A1128;
+    --brand-navy-dark: #050814;
+    --brand-navy-light: #1A2B5E;
 
-    --brand-gold: #C5A059;
-    --brand-gold-bright: #D4AF37;
-    --brand-gold-dark: #9E7B36;
-    --brand-gold-subtle: #F7F1E5;
+    --brand-gold: #D4AF37;
+    --brand-gold-bright: #E5A93C;
+    --brand-gold-dark: #B8860B;
+    --brand-gold-subtle: #FFF8E7;
 
-    --brand-canvas: #F7F5F0;
+    --brand-canvas: #F8FAFC;
     --brand-surface: #FFFFFF;
-    --brand-charcoal: #1F2421;
-    --brand-muted: #626A65;
-    --brand-border: #E5E1D8;
-    --brand-border-gold: rgba(197, 160, 89, 0.35);
+    --brand-charcoal: #0A1128;
+    --brand-muted: #475569;
+    --brand-border: #E2E8F0;
+    --brand-border-gold: rgba(212, 175, 55, 0.4);
 
     --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
     --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
-  /* Brand Dark Mode (NOT pitch black - signature Deep Navy #0B132B & Midnight Surface #0F1B3D) */
+  /* Brand Dark Mode (Deep Rich Navy #0A1128 & Midnight Surface #0E1838) */
   html.dark, :root.dark {
-    --brand-canvas: #0B132B;
-    --brand-surface: #0F1B3D;
-    --brand-surface-subtle: #13224A;
-    --brand-charcoal: #F7F5F0;
-    --brand-muted: #9BA4B5;
-    --brand-border: #1D2B52;
-    --brand-border-gold: rgba(197, 160, 89, 0.45);
+    --brand-canvas: #0A1128;
+    --brand-surface: #0E1838;
+    --brand-surface-subtle: #14224D;
+    --brand-charcoal: #FFFFFF;
+    --brand-muted: #94A3B8;
+    --brand-border: #1E293B;
+    --brand-border-gold: rgba(212, 175, 55, 0.45);
   }
 }
 
@@ -81,70 +81,70 @@ html[dir="rtl"] .font-serif {
   height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #F7F5F0;
+  background: #F8FAFC;
 }
 html.dark ::-webkit-scrollbar-track {
-  background: #0B132B;
+  background: #0A1128;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D8D2C4;
+  background: #CBD5E1;
   border-radius: 9999px;
-  border: 2px solid #F7F5F0;
+  border: 2px solid #F8FAFC;
 }
 html.dark ::-webkit-scrollbar-thumb {
-  background: #1D2B52;
-  border: 2px solid #0B132B;
+  background: #1A2B5E;
+  border: 2px solid #0A1128;
 }
 ::-webkit-scrollbar-thumb:hover,
 html.dark ::-webkit-scrollbar-thumb:hover {
-  background: #C5A059;
+  background: #D4AF37;
 }
 
-/* Signature Metallic Gold Gradient Buttons & Utilities */
+/* Signature Brand Gold / Amber Gradient Buttons (Exclusive for CTAs) */
 .btn-gold-gradient {
-  background: linear-gradient(135deg, #C5A059 0%, #D4AF37 40%, #9E7B36 100%);
-  color: #0B132B;
-  font-weight: 600;
-  box-shadow: 0 4px 18px rgba(197, 160, 89, 0.28);
+  background: linear-gradient(135deg, #E5A93C 0%, #D4AF37 50%, #B8860B 100%);
+  color: #0A1128;
+  font-weight: 700;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .btn-gold-gradient:hover {
-  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 60%, #8A6828 100%);
-  box-shadow: 0 6px 24px rgba(197, 160, 89, 0.42);
+  background: linear-gradient(135deg, #F3B23E 0%, #E5A93C 50%, #D4AF37 100%);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.5);
   transform: translateY(-1px);
 }
 
 .btn-navy {
-  background-color: #0B132B;
-  color: #F7F5F0;
+  background-color: #0A1128;
+  color: #FFFFFF;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .btn-navy:hover {
-  background-color: #16244B;
-  box-shadow: 0 4px 18px rgba(11, 19, 43, 0.3);
+  background-color: #14224D;
+  box-shadow: 0 4px 18px rgba(10, 17, 40, 0.3);
 }
 
 .gold-border {
-  border-color: rgba(197, 160, 89, 0.38);
+  border-color: rgba(212, 175, 55, 0.4);
 }
 .gold-border-solid {
-  border-color: #C5A059;
+  border-color: #D4AF37;
 }
 
 .gold-glow {
-  box-shadow: 0 0 25px rgba(197, 160, 89, 0.25);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
 }
 
 .ambient-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.08) 0%, rgba(247, 245, 240, 0) 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, rgba(248, 250, 252, 0) 70%);
 }
 html.dark .ambient-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.12) 0%, rgba(11, 19, 43, 0) 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12) 0%, rgba(10, 17, 40, 0) 70%);
 }
 
 .ambient-gold-dark {
-  background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.15) 0%, rgba(11, 19, 43, 0) 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.15) 0%, rgba(10, 17, 40, 0) 70%);
 }
 
 @keyframes float-subtle {

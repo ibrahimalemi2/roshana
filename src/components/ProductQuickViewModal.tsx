@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Check, ShoppingBag, CheckCircle2 } from 'lucide-react';
+import { X, Check, ShoppingBag, CheckCircle2, Zap, SlidersHorizontal, Gem } from 'lucide-react';
 import { Product } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -34,13 +34,14 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
   const productSubtitle = localizedProduct?.subtitle || product.subtitle;
   const productDescription = localizedProduct?.description || product.description;
   const productFeatures = localizedProduct?.features || product.features || [];
+  const isSocket = product.id === 'roshna-soc-01';
 
   const handleAdd = () => {
     onAddToCart(product, product.colorOptions[0]?.name || 'Pure Matte White');
     setIsAdded(true);
     setTimeout(() => {
       setIsAdded(false);
-    }, 2000);
+    }, 1800);
   };
 
   return (
@@ -54,20 +55,20 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
       {/* Modal Container */}
       <div 
         dir={isRtl ? 'rtl' : 'ltr'}
-        className="relative bg-[#FFFFFF] dark:bg-[#0F1B3D] rounded-[24px] max-w-2xl w-full shadow-2xl border border-[#E5E1D8] dark:border-[#1D2B52] z-10 grid grid-cols-1 md:grid-cols-2 overflow-hidden transition-colors max-h-[90vh] overflow-y-auto"
+        className="relative bg-white dark:bg-[#0E1838] rounded-[24px] max-w-2xl w-full shadow-2xl border border-[#E2E8F0] dark:border-[#1E293B] z-10 grid grid-cols-1 md:grid-cols-2 overflow-hidden transition-colors max-h-[90vh] overflow-y-auto"
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 rtl:right-auto rtl:left-4 z-20 w-9 h-9 rounded-full bg-[#FFFFFF]/90 dark:bg-[#0B132B]/90 border border-[#E5E1D8] dark:border-[#1D2B52] text-[#1F2421] dark:text-[#F7F5F0] hover:text-[#C5A059] flex items-center justify-center shadow-xs transition-colors cursor-pointer"
+          className="absolute top-4 right-4 rtl:right-auto rtl:left-4 z-20 w-9 h-9 rounded-full bg-white/90 dark:bg-[#0A1128]/90 border border-[#E2E8F0] dark:border-[#1E293B] text-[#0A1128] dark:text-white hover:text-[#D4AF37] flex items-center justify-center shadow-xs transition-colors cursor-pointer"
           aria-label="Close"
         >
           <X className="w-4 h-4" />
         </button>
 
         {/* Product Visual Column */}
-        <div className="bg-[#F7F5F0] dark:bg-[#060B18] p-6 flex flex-col justify-center items-center border-b md:border-b-0 md:border-r rtl:md:border-r-0 rtl:md:border-l border-[#E5E1D8] dark:border-[#1D2B52]">
-          <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-[#FFFFFF] dark:bg-[#0B132B] shadow-xs border border-[#E5E1D8] dark:border-[#1D2B52]">
+        <div className="bg-[#F8FAFC] dark:bg-[#050814] p-6 flex flex-col justify-center items-center border-b md:border-b-0 md:border-r rtl:md:border-r-0 rtl:md:border-l border-[#E2E8F0] dark:border-[#1E293B]">
+          <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-white dark:bg-[#0A1128] shadow-xs border border-[#E2E8F0] dark:border-[#1E293B]">
             <img
               src={selectedImage || product.image}
               alt={productName}
@@ -84,8 +85,8 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
                   onClick={() => setSelectedImage(img)}
                   className={`w-12 h-12 rounded-xl overflow-hidden border-2 transition-all shrink-0 cursor-pointer ${
                     (selectedImage || product.image) === img
-                      ? 'border-[#C5A059] ring-2 ring-[#C5A059]/30'
-                      : 'border-[#E5E1D8] dark:border-[#1D2B52] opacity-60 hover:opacity-100'
+                      ? 'border-[#D4AF37] ring-2 ring-[#D4AF37]/30'
+                      : 'border-[#E2E8F0] dark:border-[#1E293B] opacity-60 hover:opacity-100'
                   }`}
                 >
                   <img src={img} alt="Thumbnail" className="w-full h-full object-cover" />
@@ -99,35 +100,66 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
         <div className="p-6 sm:p-7 flex flex-col justify-between text-left rtl:text-right space-y-4">
           <div className="space-y-3">
             {/* Category / Subtitle */}
-            <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#C5A059] block">
+            <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#D4AF37] block">
               {productSubtitle}
             </span>
 
             {/* Product Title */}
-            <h2 className="font-serif-heading text-2xl sm:text-3xl font-medium text-[#1F2421] dark:text-[#F7F5F0] tracking-tight leading-snug">
+            <h2 className="font-serif-heading text-2xl sm:text-3xl font-medium text-[#0A1128] dark:text-white tracking-tight leading-snug">
               {productName}
             </h2>
 
-            {/* Price */}
-            <div className="font-serif-heading text-2xl sm:text-3xl font-semibold text-[#1F2421] dark:text-[#F7F5F0]">
-              {product.price.toLocaleString()} {isRtl ? 'افغانی' : 'AFN'}
+            {/* Flyer Micro-Specs Grid */}
+            <div className="grid grid-cols-3 gap-1 py-2 px-1 rounded-xl bg-[#F8FAFC] dark:bg-[#050814] border border-[#E2E8F0] dark:border-[#1E293B] text-center my-2">
+              <div className="px-1 border-r border-[#E2E8F0] dark:border-[#1E293B] rtl:border-r-0 rtl:border-l">
+                <Zap className="w-3.5 h-3.5 text-[#D4AF37] mx-auto mb-0.5" />
+                <p className="text-[10px] font-bold text-[#0A1128] dark:text-white font-mono leading-tight">
+                  {isSocket ? '16 A' : '10 A'}
+                </p>
+                <p className="text-[9px] text-slate-400 leading-tight">250 V~</p>
+              </div>
+
+              <div className="px-1 border-r border-[#E2E8F0] dark:border-[#1E293B] rtl:border-r-0 rtl:border-l">
+                <SlidersHorizontal className="w-3.5 h-3.5 text-[#D4AF37] mx-auto mb-0.5" />
+                <p className="text-[10px] font-bold text-[#0A1128] dark:text-white leading-tight">Ultra Thin</p>
+                <p className="text-[9px] text-slate-400 leading-tight">بسیار نازک</p>
+              </div>
+
+              <div className="px-1">
+                <Gem className="w-3.5 h-3.5 text-[#D4AF37] mx-auto mb-0.5" />
+                <p className="text-[10px] font-bold text-[#0A1128] dark:text-white leading-tight">Luxury Design</p>
+                <p className="text-[9px] text-slate-400 leading-tight">طراحی لوکس</p>
+              </div>
+            </div>
+
+            {/* Price Banner */}
+            <div className="rounded-xl overflow-hidden bg-[#0A1128] text-white flex items-stretch border border-[#D4AF37]/40 shadow-xs">
+              <div className="w-2 bg-[#D4AF37]" />
+              <div className="flex-1 py-2 px-3 flex items-center justify-between">
+                <span className="font-mono text-base font-bold text-[#D4AF37] tracking-wider">
+                  AFN {product.price === 90.01 ? '90.01' : product.price}
+                </span>
+                <span className="text-[11px] text-slate-300 font-sans-body">
+                  {product.price === 90.01 ? '۹۰.۰۱' : product.price} {isRtl ? 'افغانی' : 'AFN'}
+                </span>
+              </div>
             </div>
 
             {/* Description */}
-            <p className="text-xs font-sans-body text-[#1F2421]/75 dark:text-[#F7F5F0]/75 leading-relaxed">
+            <p className="text-xs font-sans-body text-slate-600 dark:text-slate-300 leading-relaxed">
               {productDescription}
             </p>
 
             {/* Features List */}
             {productFeatures.length > 0 && (
               <div className="pt-2 space-y-1.5">
-                <span className="text-[11px] uppercase tracking-wider font-semibold text-[#C5A059] block">
+                <span className="text-[11px] uppercase tracking-wider font-semibold text-[#D4AF37] block">
                   {isRtl ? 'ویژگی‌های کلیدی:' : 'Key Features:'}
                 </span>
-                <ul className="space-y-1 text-xs text-[#1F2421]/80 dark:text-[#F7F5F0]/80 font-sans-body">
+                <ul className="space-y-1 text-xs text-slate-700 dark:text-slate-300 font-sans-body">
                   {productFeatures.map((feat, i) => (
                     <li key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
                       <span>{feat}</span>
                     </li>
                   ))}
@@ -137,24 +169,24 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
           </div>
 
           {/* Add to Bag Button */}
-          <div className="pt-3 border-t border-[#E5E1D8] dark:border-[#1D2B52]">
+          <div className="pt-3 border-t border-[#E2E8F0] dark:border-[#1E293B]">
             <button
               onClick={handleAdd}
               className={`w-full py-3.5 px-6 rounded-full text-xs uppercase font-bold tracking-wider flex items-center justify-center gap-2 transition-all duration-300 shadow-md cursor-pointer ${
                 isAdded
-                  ? 'bg-[#0B132B] text-[#C5A059] border border-[#C5A059]'
-                  : 'btn-gold-gradient'
+                  ? 'bg-[#0A1128] text-[#D4AF37] border border-[#D4AF37]'
+                  : 'btn-gold-gradient text-[#0A1128]'
               }`}
             >
               {isAdded ? (
                 <>
-                  <Check className="w-4 h-4 text-[#C5A059]" />
+                  <Check className="w-4 h-4 text-[#D4AF37]" />
                   <span>{t.showcase.addedToBag}</span>
                 </>
               ) : (
                 <>
-                  <ShoppingBag className="w-4 h-4 text-[#0B132B]" />
-                  <span>{t.showcase.addToBag} — {product.price.toLocaleString()} {isRtl ? 'افغانی' : 'AFN'}</span>
+                  <ShoppingBag className="w-4 h-4 text-[#0A1128]" />
+                  <span>{t.showcase.addToBag} — {product.price === 90.01 ? '90.01' : product.price.toLocaleString()} {isRtl ? 'افغانی' : 'AFN'}</span>
                 </>
               )}
             </button>

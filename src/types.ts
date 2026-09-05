@@ -21,6 +21,17 @@ export interface Product {
   }[];
   features: string[];
   inStock: boolean;
+  modelCode?: string;
+  ratedPower?: string;
+  profile?: string;
+  designStyle?: string;
+}
+
+export interface RoshnaFeature {
+  id: string;
+  titleEn: string;
+  titleFa: string;
+  iconName: 'ShieldPlus' | 'Leaf' | 'Flame' | 'Layers' | 'Cog' | 'Wrench' | 'HeartHandshake';
 }
 
 export interface HeroSlide {

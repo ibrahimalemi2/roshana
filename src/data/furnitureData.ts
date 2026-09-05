@@ -1,14 +1,14 @@
-import { Product, HeroSlide, QuadrantItem, ValuePillar, Testimonial, MetricStat } from '../types';
+import { Product, HeroSlide, QuadrantItem, ValuePillar, Testimonial, MetricStat, RoshnaFeature } from '../types';
 import { IMAGES } from './imageAssets';
 
 export const HERO_SLIDES: HeroSlide[] = [
   {
     id: 'hero-1',
-    title: 'سویچ یکپل (Single Switch)',
-    headline: 'Comfort, Safety & Style',
+    title: '1G 1W 10A SWITCH (سویچ تک خانه تک مسیر)',
+    headline: 'Powering Quality. Inspiring Tomorrow.',
     category: 'Switches',
-    tagline: 'Modern 1-gang switch with velvet-matte tactile surface, skin-friendly anti-allergic materials, and whisper-quiet performance.',
-    price: 145,
+    tagline: '10A 250V~ | Ultra Thin (بسیار نازک) | Luxury Design (طراحی لوکس). Velvet-matte tactile touch.',
+    price: 90.01,
     image: IMAGES.SINGLE_SWITCH_WARM_CREAM,
     material: 'Flame-Retardant Polymer & Solid Brass Terminals',
     origin: 'Standard 86mm Fit',
@@ -16,11 +16,11 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: 'hero-2',
-    title: 'سویچ دوپل (Double Switch)',
-    headline: 'Modern Dual Control',
+    title: '2G 1W 10A SWITCH (سویچ دو خانه تک مسیر)',
+    headline: 'Modern Dual Gang Control',
     category: 'Switches',
-    tagline: 'Dual-gang wall switch crafted for balanced aesthetics, robust internal construction, and smooth daily switching.',
-    price: 185,
+    tagline: '10A 250V~ | Ultra Thin (بسیار نازک) | Luxury Design (طراحی لوکس). Dual rocker control.',
+    price: 110,
     image: IMAGES.DUAL_SWITCH_DARK_MARBLE,
     material: 'Reinforced PC with Anti-Allergic Surface',
     origin: 'Standard 86mm Fit',
@@ -28,11 +28,11 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: 'hero-3',
-    title: 'ساکت برق (Power Socket)',
+    title: '2P+E SOCKET (ساکت دو پین با ارت)',
     headline: 'Safe & Reliable Power',
     category: 'Sockets',
-    tagline: 'High-safety wall socket equipped with automatic child-safe shutters and firm brass contacts for long-lasting use.',
-    price: 160,
+    tagline: '16A 250V~ | Ultra Thin (بسیار نازک) | Luxury Design (طراحی لوکس). Grounded child protection.',
+    price: 125,
     image: IMAGES.WALL_SOCKET_CREAM_FLUTED,
     material: 'Flame-Retardant Body & High-Elasticity Brass',
     origin: 'Standard 86mm Fit',
@@ -43,12 +43,12 @@ export const HERO_SLIDES: HeroSlide[] = [
 export const PRODUCTS: Product[] = [
   {
     id: 'roshna-sw-01',
-    name: 'سویچ یکپل (Single Switch)',
-    subtitle: 'Modern 1-Gang Matte Wall Switch',
+    name: '1G 1W 10A SWITCH',
+    subtitle: 'سویچ تک خانه تک مسیر ۱۰ آمپر',
     category: 'Switches',
     collection: 'Roshna Modern Series',
-    price: 145,
-    originalPrice: 175,
+    price: 90.01,
+    originalPrice: 115,
     rating: 4.95,
     reviewCount: 184,
     image: IMAGES.SINGLE_SWITCH_WARM_CREAM,
@@ -60,28 +60,34 @@ export const PRODUCTS: Product[] = [
     ],
     dimensions: 'W 86mm × H 86mm × D 9.2mm (Mounting Depth: 25mm)',
     material: 'Flame-Retardant Polymer, Phosphor Bronze Clips, Heavy-Duty Steel Mounting Subframe',
-    description: 'سویچ یکپل با طراحی مدرن و سطح مات، ساخته‌شده از مواد باکیفیت و مناسب برای تماس مکرر با دست. مواد سطحی آن برای کاهش احتمال تحریک و حساسیت پوستی انتخاب شده و ویژگی‌های بهداشتی سطح نیز به کاهش ماندگاری و رشد میکروارگانیسم‌ها کمک می‌کند.',
-    badge: 'Bestseller',
+    description: 'سویچ تک خانه تک مسیر ۱۰ آمپر با طراحی لوکس و بسیار نازک (Ultra Thin). دارای سطح مات ضد باکتری و ضد حساسیت، مقاوم در برابر حرارت و ساخته شده از پلیمر با کیفیت ممتاز.',
+    badge: 'AFN 90.01',
     colorOptions: [
       { name: 'Pure Matte White', hex: '#F7F7F7' }
     ],
     features: [
-      'طراحی مدرن و لوکس',
-      'سطح مات و خوش‌لمس',
-      'مناسب برای تماس مکرر با پوست',
-      'کاهش رشد و ماندگاری میکروارگانیسم‌ها',
-      'عملکرد نرم و بادوام'
+      '10 A 250 V~',
+      'بسیار نازک (Ultra Thin)',
+      'طراحی لوکس (Luxury Design)',
+      'سطح ضد باکتری (Antibacterial Surface)',
+      'مواد غیر حساسیت زا (Non-Allergenic)',
+      'مقاوم در برابر حرارت (Heat Resistant)',
+      'عمر طولانی و دوام بالا'
     ],
-    inStock: true
+    inStock: true,
+    modelCode: '1G 1W 10A SWITCH',
+    ratedPower: '10 A 250 V~',
+    profile: 'Ultra Thin (بسیار نازک)',
+    designStyle: 'Luxury Design (طراحی لوکس)'
   },
   {
     id: 'roshna-sw-02',
-    name: 'سویچ دوپل (Double Switch)',
-    subtitle: 'Modern 2-Gang Tactile Wall Switch',
+    name: '2G 1W 10A SWITCH',
+    subtitle: 'سویچ دو خانه تک مسیر ۱۰ آمپر',
     category: 'Switches',
     collection: 'Roshna Modern Series',
-    price: 185,
-    originalPrice: 220,
+    price: 110,
+    originalPrice: 135,
     rating: 4.9,
     reviewCount: 128,
     image: IMAGES.DUAL_SWITCH_DARK_MARBLE,
@@ -93,28 +99,34 @@ export const PRODUCTS: Product[] = [
     ],
     dimensions: 'W 86mm × H 86mm × D 9.2mm',
     material: 'High-Impact Flame-Retardant PC, Solid Brass Terminals, Reinforced Steel Base',
-    description: 'سویچ دوپل برای فضاهایی طراحی شده است که زیبایی، کیفیت و عملکرد مطمئن باید در کنار یکدیگر قرار گیرند. طراحی مینیمال و سطح مات آن جلوه‌ای مدرن به دیوار می‌دهد، در حالی که ساختار داخلی مقاوم برای استفاده مکرر ساخته شده است.',
-    badge: 'Popular',
+    description: 'سویچ دو خانه تک مسیر ۱۰ آمپر با طراحی لوکس و بسیار نازک (Ultra Thin). دارای مکانیزم دوپل نرم و دقیق، پلیمر با کیفیت ممتاز و عمر طولانی و دوام بالا.',
+    badge: 'AFN 110',
     colorOptions: [
       { name: 'Pure Matte White', hex: '#F7F7F7' }
     ],
     features: [
-      'طراحی لوکس و مینیمال',
-      'سطح مات',
-      'ساختار مقاوم',
-      'عملکرد نرم و دقیق',
-      'مواد ضدحساسیت پوستی و بهداشتی'
+      '10 A 250 V~',
+      'بسیار نازک (Ultra Thin)',
+      'طراحی لوکس (Luxury Design)',
+      'کنترل دوگانه تک مسیر',
+      'پلیمر با کیفیت ممتاز (Premium Polymer)',
+      'مقاوم در برابر حرارت (Heat Resistant)',
+      'عمر طولانی و دوام بالا'
     ],
-    inStock: true
+    inStock: true,
+    modelCode: '2G 1W 10A SWITCH',
+    ratedPower: '10 A 250 V~',
+    profile: 'Ultra Thin (بسیار نازک)',
+    designStyle: 'Luxury Design (طراحی لوکس)'
   },
   {
     id: 'roshna-soc-01',
-    name: 'ساکت برق (Power Socket)',
-    subtitle: 'Modern Safe Wall Power Socket',
+    name: '2P+E SOCKET',
+    subtitle: 'ساکت دو پین با ارت',
     category: 'Sockets',
     collection: 'Roshna Modern Series',
-    price: 160,
-    originalPrice: 190,
+    price: 125,
+    originalPrice: 150,
     rating: 5.0,
     reviewCount: 96,
     image: IMAGES.WALL_SOCKET_CREAM_FLUTED,
@@ -127,18 +139,25 @@ export const PRODUCTS: Product[] = [
     ],
     dimensions: 'W 86mm × H 86mm × D 32mm (Recessed Depth: 24mm)',
     material: 'V-0 Fire-Resistant Polymer, Solid Brass Earth Clips, Cold-Rolled Steel Frame',
-    description: 'ساکت برق مدرن با تمرکز بر سه اصل ایمنی، دوام و زیبایی. طراحی مدرن و سطح مات آن با دکوراسیون‌های امروزی هماهنگ شده و ساختار داخلی مقاوم برای اتصال مطمئن و استفاده مداوم در محیط‌های مسکونی و تجاری در نظر گرفته شده است.',
-    badge: 'Safety Certified',
+    description: 'ساکت دو پین با ارت ۱۶ آمپر ۲۵۰ ولت با طراحی لوکس و بسیار نازک (Ultra Thin). امن و سازگار با محیط زیست، دارای محافظ داخلی کودک و نصب آسان بر روی قوطی‌های استاندارد.',
+    badge: 'AFN 125',
     colorOptions: [
       { name: 'Pure Matte White', hex: '#F7F7F7' }
     ],
     features: [
-      'طراحی لوکس و مدرن',
-      'سطح مات و باکیفیت',
-      'ساختار مقاوم برای استفاده طولانی‌مدت',
-      'مناسب برای تماس روزمره و بهداشتی'
+      '16 A 250 V~',
+      'بسیار نازک (Ultra Thin)',
+      'طراحی لوکس (Luxury Design)',
+      'اتصال دو پین با ارت (2P+E)',
+      'امن و سازگار با محیط زیست (Eco-Friendly)',
+      'نصب آسان (Easy Installation)',
+      'مقاوم در برابر حرارت (Heat Resistant)'
     ],
-    inStock: true
+    inStock: true,
+    modelCode: '2P+E SOCKET',
+    ratedPower: '16 A 250 V~',
+    profile: 'Ultra Thin (بسیار نازک)',
+    designStyle: 'Luxury Design (طراحی لوکس)'
   }
 ];
 
@@ -146,42 +165,42 @@ export const QUADRANT_ITEMS: QuadrantItem[] = [
   {
     id: 'quad-1',
     title: 'Solid Metal Subframe',
-    subtitle: 'Structural Strength',
+    subtitle: 'Durability',
     category: 'Subframe Engineering',
     image: IMAGES.EXPLODED_3PARTS,
     material: 'Cold-Rolled Steel Plate',
-    description: 'A rigid steel backframe ensures flush, zero-flex alignment on standard 86mm wall boxes.',
-    tag: 'Q1 · Durability'
+    description: 'Rigid steel backframe ensuring flush, zero-flex alignment on standard 86mm wall boxes.',
+    tag: 'Durability'
   },
   {
     id: 'quad-2',
     title: 'Anti-Allergic Matte Surface',
-    subtitle: 'Touch Comfort',
+    subtitle: 'Hygiene & Comfort',
     category: 'Surface Hygiene',
     image: IMAGES.SINGLE_SWITCH_WARM_CREAM,
     material: 'Skin-Friendly Polymer',
-    description: 'Smooth velvet-matte texture that resists skin irritation, fingerprints, and microbial retention.',
-    tag: 'Q2 · Hygiene'
+    description: 'Premium surface materials selected to reduce skin irritation and minimize microorganism buildup.',
+    tag: 'Hygiene & Comfort'
   },
   {
     id: 'quad-3',
     title: 'Tactile Rocker Mechanism',
-    subtitle: 'Smooth Actuation',
+    subtitle: 'Performance',
     category: 'Switching Control',
     image: IMAGES.DUAL_SWITCH_DARK_MARBLE,
     material: 'Calibrated Precision Springs',
-    description: 'Smooth, whisper-quiet tactile switching tested for over 50,000 smooth cycles.',
-    tag: 'Q3 · Performance'
+    description: 'Smooth, quiet action designed for comfortable daily operation and frequent touch.',
+    tag: 'Performance'
   },
   {
     id: 'quad-4',
-    title: 'Child-Safe Power Socket',
-    subtitle: 'Electrical Protection',
+    title: 'Child-Safe Protection',
+    subtitle: 'Safety',
     category: 'Safety Aperture',
     image: IMAGES.WALL_SOCKET_CREAM_FLUTED,
-    material: 'High-Elasticity Brass',
-    description: 'Automated internal safety shutters prevent accidental foreign object insertion for total peace of mind.',
-    tag: 'Q4 · Safety'
+    material: 'Flame-Retardant Polymer',
+    description: 'Built with flame-retardant polymers and secure internal mechanisms for total family safety.',
+    tag: 'Safety'
   }
 ];
 
@@ -321,3 +340,83 @@ export const METRIC_STATS: MetricStat[] = [
     detail: 'Compatible with standard electrical wall boxes'
   }
 ];
+
+export const ROSHNA_7_FEATURES: RoshnaFeature[] = [
+  {
+    id: 'feat-1',
+    titleEn: 'Antibacterial Surface',
+    titleFa: 'سطح ضد باکتری',
+    iconName: 'ShieldPlus'
+  },
+  {
+    id: 'feat-2',
+    titleEn: 'Non-Allergenic Material',
+    titleFa: 'مواد غیر حساسیت زا',
+    iconName: 'Leaf'
+  },
+  {
+    id: 'feat-3',
+    titleEn: 'Heat Resistant',
+    titleFa: 'مقاوم در برابر حرارت',
+    iconName: 'Flame'
+  },
+  {
+    id: 'feat-4',
+    titleEn: 'Premium Polymer Material',
+    titleFa: 'پلیمر با کیفیت ممتاز',
+    iconName: 'Layers'
+  },
+  {
+    id: 'feat-5',
+    titleEn: 'Long Life Durability',
+    titleFa: 'عمر طولانی و دوام بالا',
+    iconName: 'Cog'
+  },
+  {
+    id: 'feat-6',
+    titleEn: 'Easy Installation',
+    titleFa: 'نصب آسان',
+    iconName: 'Wrench'
+  },
+  {
+    id: 'feat-7',
+    titleEn: 'Safe & Eco-Friendly',
+    titleFa: 'امن و سازگار با محیط زیست',
+    iconName: 'HeartHandshake'
+  }
+];
+
+export const ROSHNA_CONTACT_INFO = {
+  city: 'Kabul, Afghanistan',
+  cityFa: 'کابل، افغانستان',
+  address: 'Lab-e-Jar., Kabul',
+  addressFa: 'چهارراهی لب‌جر، کابل',
+  primaryPhone: '+93 780 88000 7',
+  secondaryPhone: '+93 702 1416 16',
+  whatsappNumber: '93780880007',
+  whatsappUrl: 'https://wa.me/93780880007',
+  email: 'info@roshna.co',
+  website: 'www.roshna.co',
+  social: {
+    linkedin: 'https://www.linkedin.com/company/roshna',
+    instagram: 'https://www.instagram.com/roshna',
+    facebook: 'https://www.facebook.com/roshna',
+    youtube: 'https://www.youtube.com/@roshna'
+  },
+  slogans: {
+    en: {
+      powering: 'Powering Quality. Inspiring Tomorrow.',
+      motto: 'A SMALL SWITCH A BRIGHTER TOMORROW',
+      headline: 'Premium Switches & Sockets',
+      tagline: 'Modern Design | Safer Homes | Brighter Lives',
+      brandSub: 'SWITCH TO QUALITY'
+    },
+    fa: {
+      powering: 'کیفیت امروز روشنایی فردا',
+      headline: 'سویچ و ساکت های با کیفیت ممتاز',
+      tagline: 'طراحی مدرن | خانه های امن تر | روشنایی زندگی ها',
+      brandSub: 'کیفیت برتر، زندگی روشن‌تر'
+    }
+  }
+};
+

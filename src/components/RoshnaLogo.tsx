@@ -11,10 +11,10 @@ export const RoshnaLogo: React.FC<RoshnaLogoProps> = ({
   variant = 'color',
   showSubtext = false
 }) => {
-  const navyColor = variant === 'monochrome-white' ? '#FFFFFF' : '#0B132B';
-  const goldColor = variant === 'monochrome-white' ? '#D4AF37' : '#C5A059';
-  const goldRing = variant === 'monochrome-white' ? '#D4AF37' : '#C5A059';
-  const goldOuter = variant === 'monochrome-white' ? '#E6CA65' : '#9E7B36';
+  const navyColor = variant === 'monochrome-white' ? '#FFFFFF' : '#0A1128';
+  const goldColor = variant === 'monochrome-white' ? '#D4AF37' : '#E5A93C';
+  const goldRing = variant === 'monochrome-white' ? '#D4AF37' : '#E5A93C';
+  const goldOuter = variant === 'monochrome-white' ? '#F3B23E' : '#D4AF37';
 
   return (
     <div className="inline-flex flex-col items-start select-none">
@@ -27,20 +27,20 @@ export const RoshnaLogo: React.FC<RoshnaLogoProps> = ({
       >
         <defs>
           <linearGradient id={`roshnaNavy_${variant}`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color={variant === 'monochrome-white' ? '#FFFFFF' : '#1F2421'} />
-            <stop offset="100%" stop-color={variant === 'monochrome-white' ? '#F7F5F0' : '#0B132B'} />
+            <stop offset="0%" stop-color={variant === 'monochrome-white' ? '#FFFFFF' : '#14224D'} />
+            <stop offset="100%" stop-color={variant === 'monochrome-white' ? '#FFFFFF' : '#0A1128'} />
           </linearGradient>
 
           <linearGradient id={`roshnaGold_${variant}`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#D4AF37" />
-            <stop offset="50%" stop-color="#C5A059" />
-            <stop offset="100%" stop-color="#9E7B36" />
+            <stop offset="0%" stop-color="#F3B23E" />
+            <stop offset="50%" stop-color="#E5A93C" />
+            <stop offset="100%" stop-color="#D4AF37" />
           </linearGradient>
 
           <radialGradient id={`sunCoreGlow_${variant}`} cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#FBF7EE" stop-opacity="0.9" />
-            <stop offset="60%" stop-color="#D4AF37" stop-opacity="0.3" />
-            <stop offset="100%" stop-color="#C5A059" stop-opacity="0" />
+            <stop offset="0%" stop-color="#FFF8E7" stop-opacity="0.9" />
+            <stop offset="60%" stop-color="#E5A93C" stop-opacity="0.3" />
+            <stop offset="100%" stop-color="#D4AF37" stop-opacity="0" />
           </radialGradient>
         </defs>
 
@@ -154,10 +154,10 @@ export const RoshnaLogo: React.FC<RoshnaLogoProps> = ({
       </svg>
 
       {showSubtext && (
-        <div className="flex items-center gap-2 mt-0.5 tracking-[0.25em] text-[9px] uppercase font-semibold text-[#0B132B]/80">
+        <div className="flex items-center gap-2 mt-0.5 tracking-[0.25em] text-[9px] uppercase font-semibold text-[#0A1128]/80">
           <span>Architectural Hardware</span>
-          <span className="w-1 h-1 rounded-full bg-[#C5A059]" />
-          <span className="text-[#C5A059]">Volt</span>
+          <span className="w-1 h-1 rounded-full bg-[#D4AF37]" />
+          <span className="text-[#D4AF37]">Volt</span>
         </div>
       )}
     </div>

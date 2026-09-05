@@ -214,69 +214,69 @@ export const translations: { en: TranslationDictionary; fa: TranslationDictionar
       intro: 'Intro'
     },
     hero: {
-      eyebrow: 'PREMIUM ELECTRICAL HARDWARE',
-      title1: 'Modern Switches & Sockets —',
-      title2Prefix: 'Crafted for ',
-      title2Highlight: 'Comfort, Safety & Style',
-      subtitle: 'Experience luxury design, matte anti-allergic surfaces, and smooth, reliable performance for residential and commercial spaces.',
+      eyebrow: 'Powering Quality. Inspiring Tomorrow.',
+      title1: 'Premium Switches & Sockets —',
+      title2Prefix: 'A Small Switch, ',
+      title2Highlight: 'A Brighter Tomorrow',
+      subtitle: 'Modern Design | Safer Homes | Brighter Lives. Experience precision engineering, ultra-thin profiles, and trusted electrical hardware.',
       cta: 'Explore Products',
       quickViewHint: 'Quick View',
       stats: {
-        iecValue: 'Standard',
-        iecLabel: '86mm Box Fit',
-        ip65Value: 'Safety',
-        ip65Label: 'Flame Retardant',
+        iecValue: '10A / 16A',
+        iecLabel: '250V~ Rated Power',
+        ip65Value: 'Ultra Thin',
+        ip65Label: 'Luxury Profile',
         warrantyValue: '10-Year',
         warrantyLabel: 'Quality Guarantee',
-        toolValue: 'Smooth',
-        toolLabel: 'Anti-Allergic Touch'
+        toolValue: 'Anti-Allergic',
+        toolLabel: 'Antibacterial Surface'
       }
     },
     anatomy: {
-      badge: 'Core Design Elements',
-      titlePart1: 'Balanced Form &',
-      titlePart2: 'Safe Engineering',
-      subtitle: 'Explore the key pillars of our switch and socket design: tactile comfort, robust internal contacts, fire-retardant safety, and clean aesthetics.',
+      badge: 'Engineering Excellence',
+      titlePart1: 'Core Design',
+      titlePart2: 'Elements',
+      subtitle: 'Balanced Form & Safe Engineering — Explore the key pillars of our switch and socket design.',
       ratingText: 'Verified Quality',
       materialLabel: 'Material:',
-      perspectivesTitle: 'Inspect Key Features:',
+      perspectivesTitle: 'Key Design Pillars:',
       guaranteeText: 'Built with flame-retardant polymers and reinforced contacts for long-term safety.',
       quadrants: [
         {
           id: 'quad-1',
           title: 'Solid Metal Subframe',
-          subtitle: 'Structural Strength',
+          subtitle: 'Durability',
           category: 'Subframe Engineering',
           material: 'Cold-Rolled Steel Plate',
-          description: 'A rigid steel backframe ensures flush, zero-flex alignment on standard 86mm wall boxes.',
-          tag: 'Q1 · Durability'
+          description: 'Rigid steel backframe ensuring flush, zero-flex alignment on standard 86mm wall boxes.',
+          tag: 'Durability'
         },
         {
           id: 'quad-2',
           title: 'Anti-Allergic Matte Surface',
-          subtitle: 'Touch Comfort',
+          subtitle: 'Hygiene & Comfort',
           category: 'Surface Hygiene',
           material: 'Skin-Friendly Polymer',
-          description: 'Smooth velvet-matte texture that resists skin irritation, fingerprints, and microbial retention.',
-          tag: 'Q2 · Hygiene'
+          description: 'Premium surface materials selected to reduce skin irritation and minimize microorganism buildup.',
+          tag: 'Hygiene & Comfort'
         },
         {
           id: 'quad-3',
           title: 'Tactile Rocker Mechanism',
-          subtitle: 'Smooth Actuation',
+          subtitle: 'Performance',
           category: 'Switching Control',
           material: 'Calibrated Precision Springs',
-          description: 'Smooth, whisper-quiet tactile switching tested for over 50,000 smooth cycles.',
-          tag: 'Q3 · Performance'
+          description: 'Smooth, quiet action designed for comfortable daily operation and frequent touch.',
+          tag: 'Performance'
         },
         {
           id: 'quad-4',
-          title: 'Child-Safe Power Socket',
-          subtitle: 'Electrical Protection',
+          title: 'Child-Safe Protection',
+          subtitle: 'Safety',
           category: 'Safety Aperture',
-          material: 'High-Elasticity Brass',
-          description: 'Automated internal safety shutters prevent accidental foreign object insertion for total peace of mind.',
-          tag: 'Q4 · Safety'
+          material: 'Flame-Retardant Polymer',
+          description: 'Built with flame-retardant polymers and secure internal mechanisms for total family safety.',
+          tag: 'Safety'
         }
       ]
     },
@@ -299,40 +299,47 @@ export const translations: { en: TranslationDictionary; fa: TranslationDictionar
       products: [
         {
           id: 'roshna-sw-01',
-          name: 'Single Switch',
-          subtitle: 'Modern 1-Gang Matte Wall Switch',
-          description: 'Single switch with a modern design and matte surface, crafted from high-quality materials suited for frequent touch. Surface materials are specifically selected to reduce skin irritation, while hygienic surface properties help minimize the retention and growth of microorganisms.',
+          name: '1G 1W 10A SWITCH',
+          subtitle: 'سویچ تک خانه تک مسیر ۱۰ آمپر',
+          description: '1G 1W 10A Switch with ultra-thin luxury design. Features an antibacterial and non-allergenic matte surface, heat-resistant engineering, and durable premium polymer construction.',
           features: [
-            'Modern luxury design',
-            'Tactile velvet-matte finish',
-            'Suitable for frequent skin touch',
-            'Minimizes microbial retention',
-            'Smooth and durable performance'
+            '10 A 250 V~ Electrical Rating',
+            'Ultra Thin (بسیار نازک)',
+            'Luxury Design (طراحی لوکس)',
+            'Antibacterial Surface (سطح ضد باکتری)',
+            'Non-Allergenic Material (مواد غیر حساسیت زا)',
+            'Heat Resistant (مقاوم در برابر حرارت)',
+            'Long Life Durability (عمر طولانی و دوام بالا)'
           ]
         },
         {
           id: 'roshna-sw-02',
-          name: 'Double Switch',
-          subtitle: 'Modern 2-Gang Tactile Wall Switch',
-          description: 'Double switch designed for spaces where aesthetics, quality, and dependable performance unite. Its minimal profile and matte surface bring contemporary elegance to walls, paired with a reinforced internal structure built for intensive daily use.',
+          name: '2G 1W 10A SWITCH',
+          subtitle: 'سویچ دو خانه تک مسیر ۱۰ آمپر',
+          description: '2G 1W 10A Switch with independent dual-gang rocker control in an ultra-thin frame. Built for smooth daily touch, thermal resistance, and long-lasting durability.',
           features: [
-            'Luxury minimal design',
-            'Velvet-matte surface',
-            'Durable reinforced structure',
-            'Smooth and precise operation',
-            'Hygienic anti-allergic materials'
+            '10 A 250 V~ Electrical Rating',
+            'Ultra Thin (بسیار نازک)',
+            'Luxury Design (طراحی لوکس)',
+            'Dual Gang 1-Way Switching',
+            'Premium Polymer Material (پلیمر با کیفیت ممتاز)',
+            'Heat Resistant (مقاوم در برابر حرارت)',
+            'Long Life Durability (عمر طولانی و دوام بالا)'
           ]
         },
         {
           id: 'roshna-soc-01',
-          name: 'Power Socket',
-          subtitle: 'Modern Safe Wall Power Socket',
-          description: 'Modern power socket centered on safety, longevity, and aesthetics. Its contemporary matte profile matches modern decor, while the heavy-duty internal architecture ensures reliable connection and continuous use in residential and commercial environments.',
+          name: '2P+E SOCKET',
+          subtitle: 'ساکت دو پین با ارت',
+          description: '2P+E 16A Grounded Wall Socket with ultra-thin luxury styling. Equipped with internal child-safe protection shutters, heat resistance, and easy installation on standard 86mm boxes.',
           features: [
-            'Modern luxury design',
-            'High-grade matte finish',
-            'Heavy-duty durable structure',
-            'Hygienic and safe for daily touch'
+            '16 A 250 V~ High-Power Rating',
+            'Ultra Thin (بسیار نازک)',
+            'Luxury Design (طراحی لوکس)',
+            '2P+E Grounded Pin Configuration',
+            'Safe & Eco-Friendly (امن و سازگار با محیط زیست)',
+            'Easy Installation (نصب آسان)',
+            'Heat Resistant (مقاوم در برابر حرارت)'
           ]
         }
       ]
@@ -570,69 +577,69 @@ export const translations: { en: TranslationDictionary; fa: TranslationDictionar
       intro: 'معرفی'
     },
     hero: {
-      eyebrow: 'کلید و پریزهای ساختمانی باکیفیت',
-      title1: 'سویچ‌ها و ساکت‌های مدرن —',
-      title2Prefix: 'ساخته شده برای ',
-      title2Highlight: 'راحتی، ایمنی و زیبایی',
-      subtitle: 'تجربه طراحی لوکس، سطوح مات ضدحساسیت و عملکردی نرم و مطمئن برای فضاهای مسکونی و تجاری.',
+      eyebrow: 'کیفیت امروز روشنایی فردا',
+      title1: 'سویچ و ساکت‌های با کیفیت ممتاز —',
+      title2Prefix: 'طراحی مدرن، ',
+      title2Highlight: 'خانه‌های امن‌تر، روشنایی زندگی‌ها',
+      subtitle: 'طراحی مدرن | خانه‌های امن‌تر | روشنایی زندگی‌ها. تجربه کلید و پریزهای بسیار نازک با کیفیت لوکس، مقاوم در برابر حرارت و با سطح ضد باکتری.',
       cta: 'مشاهده محصولات',
       quickViewHint: 'مشخصات سریع',
       stats: {
-        iecValue: '۸۶ میلی‌متر',
-        iecLabel: 'قوطی استاندارد',
-        ip65Value: 'ایمنی بالا',
-        ip65Label: 'پلیمر نسوز',
+        iecValue: '۱۰A / ۱۶A',
+        iecLabel: 'ولتاژ ۲۵۰ ولت',
+        ip65Value: 'بسیار نازک',
+        ip65Label: 'طراحی لوکس',
         warrantyValue: '۱۰ سال',
         warrantyLabel: 'ضمانت کیفیت',
-        toolValue: 'ضدحساسیت',
-        toolLabel: 'سطح مات و بهداشتی'
+        toolValue: 'ضد باکتری',
+        toolLabel: 'مواد غیر حساسیت‌زا'
       }
     },
     anatomy: {
-      badge: 'اصول طراحی و ساختار',
-      titlePart1: 'تقارن مدرن و',
-      titlePart2: 'مهندسی ایمن و مقاوم',
-      subtitle: 'ویژگی‌های کلیدی محصولات روشنا: لمس نرم و راحت، اتصالات برنجی محکم، ایمنی در برابر حرارت و زیبایی هماهنگ با دکوراسیون.',
+      badge: 'ارکان مهندسی و کیفیت',
+      titlePart1: 'عناصر کلیدی',
+      titlePart2: 'طراحی مدرن',
+      subtitle: 'تقارن مدرن و مهندسی ایمن — بررسی ارکان و اصول کلیدی در ساخت کلید و پریزهای روشنا.',
       ratingText: 'کیفیت تضمین شده',
       materialLabel: 'متریال:',
-      perspectivesTitle: 'بررسی ویژگی‌های کلیدی:',
+      perspectivesTitle: 'ارکان اصلی طراحی:',
       guaranteeText: 'ساخته شده از مواد ضدحریق و اتصالات فلزی مستحکم برای ایمنی و ماندگاری طولانی‌مدت.',
       quadrants: [
         {
           id: 'quad-1',
           title: 'شاسی فولادی مستحکم',
-          subtitle: 'استحکام ساختاری',
-          category: 'مهندسی فریم',
+          subtitle: 'دوام و استحکام',
+          category: 'دوام و استحکام',
           material: 'ورق فولادی نورد سرد',
-          description: 'فریم فلزی مقاوم تراز شدن کامل و بدون لرزش را بر روی قوطی‌های استاندارد ۸۶ میلی‌متری تضمین می‌کند.',
-          tag: 'بخش ۱ · دوام بالا'
+          description: 'فریم فولادی مقاوم که تراز کامل، بدون انحراف و با ثبات را بر روی قوطی‌های استاندارد ۸۶ میلی‌متری تضمین می‌کند.',
+          tag: 'دوام و استحکام'
         },
         {
           id: 'quad-2',
           title: 'سطح مات ضدحساسیت',
-          subtitle: 'راحتی لمس',
-          category: 'بهداشت سطح',
+          subtitle: 'بهداشت و راحتی',
+          category: 'بهداشت و راحتی',
           material: 'پلیمر سازگار با پوست',
-          description: 'بافت مخملی مات که مانع تحریک پوست، لک انگشتان و تجمع باکتری و میکروارگانیسم‌ها می‌شود.',
-          tag: 'بخش ۲ · بهداشت'
+          description: 'متریال سطحی باکیفیت و سازگار با پوست، برای کاهش تحریک پوستی و به حداقل رساندن تجمع میکروارگانیسم‌ها.',
+          tag: 'بهداشت و راحتی'
         },
         {
           id: 'quad-3',
-          title: 'مکانیزم نرم و بی‌صدا',
-          subtitle: 'عملکرد دقیق',
-          category: 'کنترل کلیدزنی',
+          title: 'مکانیزم کلیدزنی نرم و ارگونومیک',
+          subtitle: 'عملکرد و دقت',
+          category: 'عملکرد و دقت',
           material: 'فنرهای دقیق کالیبره شده',
-          description: 'عملکرد نرم، آرام و مطمئن که برای بیش از ۵۰,۰۰۰ بار کلیدزنی مداوم تست شده است.',
-          tag: 'بخش ۳ · عملکرد'
+          description: 'عملکرد نرم، دقیق و آرام طراحی‌شده برای استفاده مکرر و لمس روزمره با بالاترین دوام.',
+          tag: 'عملکرد و دقت'
         },
         {
           id: 'quad-4',
-          title: 'ساکت برق با محافظ کودک',
-          subtitle: 'حفاظت الکتریکی',
-          category: 'ایمنی پریز',
-          material: 'برنج فنری مرغوب',
-          description: 'درپوش‌های خودکار داخلی مانع از ورود اجسام خارجی به پریز شده و ایمنی کامل خانواده را فراهم می‌کنند.',
-          tag: 'بخش ۴ · ایمنی'
+          title: 'حفاظت و ایمنی کودک',
+          subtitle: 'ایمنی کامل',
+          category: 'ایمنی کامل',
+          material: 'پلیمر نسوز و برنج فنری',
+          description: 'ساخته‌شده از پلیمرهای نسوز و مکانیزم داخلی ایمن برای محافظت و آرامش خاطر خانواده.',
+          tag: 'ایمنی کامل'
         }
       ]
     },
@@ -655,40 +662,47 @@ export const translations: { en: TranslationDictionary; fa: TranslationDictionar
       products: [
         {
           id: 'roshna-sw-01',
-          name: 'سویچ یکپل',
-          subtitle: 'کلید تک‌پل مدرن با سطح مات',
-          description: 'سویچ یکپل با طراحی مدرن و سطح مات، ساخته‌شده از مواد باکیفیت و مناسب برای تماس مکرر با دست. مواد سطحی آن برای کاهش احتمال تحریک و حساسیت پوستی انتخاب شده و ویژگی‌های بهداشتی سطح نیز به کاهش ماندگاری و رشد میکروارگانیسم‌ها کمک می‌کند.',
+          name: 'سویچ تک خانه تک مسیر ۱۰ آمپر (1G 1W)',
+          subtitle: '10A 250V~ · بسیار نازک · طراحی لوکس',
+          description: 'سویچ تک خانه تک مسیر ۱۰ آمپر با طراحی لوکس و بسیار نازک (Ultra Thin). دارای سطح مات ضد باکتری و ضد حساسیت، مقاوم در برابر حرارت و ساخته شده از پلیمر با کیفیت ممتاز.',
           features: [
-            'طراحی مدرن و لوکس',
-            'سطح مات و خوش‌لمس',
-            'مناسب برای تماس مکرر با پوست',
-            'کاهش رشد و ماندگاری میکروارگانیسم‌ها',
-            'عملکرد نرم و بادوام'
+            '۱۰ آمپر ۲۵۰ ولت (10A 250V~)',
+            'بسیار نازک (Ultra Thin)',
+            'طراحی لوکس (Luxury Design)',
+            'سطح ضد باکتری (Antibacterial Surface)',
+            'مواد غیر حساسیت‌زا (Non-Allergenic)',
+            'مقاوم در برابر حرارت (Heat Resistant)',
+            'عمر طولانی و دوام بالا'
           ]
         },
         {
           id: 'roshna-sw-02',
-          name: 'سویچ دوپل',
-          subtitle: 'کلید دوپل مدرن و بادوام',
-          description: 'سویچ دوپل برای فضاهایی طراحی شده است که زیبایی، کیفیت و عملکرد مطمئن باید در کنار یکدیگر قرار گیرند. طراحی مینیمال و سطح مات آن جلوه‌ای مدرن به دیوار می‌دهد، در حالی که ساختار داخلی مقاوم برای استفاده مکرر ساخته شده است.',
+          name: 'سویچ دو خانه تک مسیر ۱۰ آمپر (2G 1W)',
+          subtitle: '10A 250V~ · بسیار نازک · طراحی لوکس',
+          description: 'سویچ دو خانه تک مسیر ۱۰ آمپر با طراحی لوکس و بسیار نازک (Ultra Thin). دارای مکانیزم دوپل نرم و دقیق، پلیمر با کیفیت ممتاز و عمر طولانی و دوام بالا.',
           features: [
-            'طراحی لوکس و مینیمال',
-            'سطح مات',
-            'ساختار مقاوم',
-            'عملکرد نرم و دقیق',
-            'مواد ضدحساسیت پوستی و بهداشتی'
+            '۱۰ آمپر ۲۵۰ ولت (10A 250V~)',
+            'بسیار نازک (Ultra Thin)',
+            'طراحی لوکس (Luxury Design)',
+            'کنترل دوگانه تک مسیر',
+            'پلیمر با کیفیت ممتاز (Premium Polymer)',
+            'مقاوم در برابر حرارت (Heat Resistant)',
+            'عمر طولانی و دوام بالا'
           ]
         },
         {
           id: 'roshna-soc-01',
-          name: 'ساکت برق',
-          subtitle: 'پریز برق مدرن و ایمن',
-          description: 'ساکت برق مدرن با تمرکز بر سه اصل ایمنی، دوام و زیبایی. طراحی مدرن و سطح مات آن با دکوراسیون‌های امروزی هماهنگ شده و ساختار داخلی مقاوم برای اتصال مطمئن و استفاده مداوم در محیط‌های مسکونی و تجاری در نظر گرفته شده است.',
+          name: 'ساکت دو پین با ارت (2P+E SOCKET)',
+          subtitle: '16A 250V~ · بسیار نازک · طراحی لوکس',
+          description: 'ساکت دو پین با ارت ۱۶ آمپر ۲۵۰ ولت با طراحی لوکس و بسیار نازک (Ultra Thin). امن و سازگار با محیط زیست، دارای محافظ داخلی کودک و نصب آسان بر روی قوطی‌های استاندارد.',
           features: [
-            'طراحی لوکس و مدرن',
-            'سطح مات و باکیفیت',
-            'ساختار مقاوم برای استفاده طولانی‌مدت',
-            'مناسب برای تماس روزمره و بهداشتی'
+            '۱۶ آمپر ۲۵۰ ولت (16A 250V~)',
+            'بسیار نازک (Ultra Thin)',
+            'طراحی لوکس (Luxury Design)',
+            'اتصال دو پین با ارت (2P+E)',
+            'امن و سازگار با محیط زیست (Eco-Friendly)',
+            'نصب آسان (Easy Installation)',
+            'مقاوم در برابر حرارت (Heat Resistant)'
           ]
         }
       ]

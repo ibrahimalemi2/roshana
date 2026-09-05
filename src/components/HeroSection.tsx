@@ -21,10 +21,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section 
       id="hero" 
-      className="relative bg-[#070D1B] text-[#F7F5F0] overflow-hidden border-b border-[#1D2B52] transition-colors duration-300 select-none"
+      className="relative bg-[#0A1128] text-white overflow-hidden border-b border-[#1A2B5E] transition-colors duration-300 select-none"
     >
       {/* Background Volumetric Lighting & Atmospheric Glow */}
-      <div className="absolute -top-32 -left-32 w-[550px] h-[550px] rounded-full bg-[#C5A059]/10 blur-[130px] pointer-events-none" />
+      <div className="absolute -top-32 -left-32 w-[550px] h-[550px] rounded-full bg-[#D4AF37]/15 blur-[130px] pointer-events-none" />
       <div className="absolute top-1/4 right-0 lg:right-20 w-[600px] h-[600px] rounded-full bg-teal-500/[0.12] blur-[150px] pointer-events-none" />
       <div className="absolute -bottom-28 left-1/2 -translate-x-1/2 w-[750px] h-[300px] rounded-full bg-cyan-600/[0.08] blur-[110px] pointer-events-none" />
 
@@ -35,32 +35,32 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* LEFT COLUMN: Editorial Typography & Call to Action */}
           <div className="lg:col-span-6 flex flex-col justify-center relative z-10">
             {/* Top Eyebrow */}
-            <p className="font-serif text-[#C5A059] tracking-[0.25em] text-xs sm:text-sm uppercase font-semibold mb-2 sm:mb-3">
+            <p className="font-serif text-[#D4AF37] tracking-[0.25em] text-xs sm:text-sm uppercase font-semibold mb-2 sm:mb-3">
               {t.hero.eyebrow}
             </p>
 
             {/* Primary Editorial Headline */}
-            <h1 className="font-serif-heading text-4xl sm:text-6xl lg:text-[68px] xl:text-[76px] font-normal leading-[1.05] tracking-tight text-[#F7F5F0] mb-5 sm:mb-6">
+            <h1 className="font-serif-heading text-4xl sm:text-6xl lg:text-[68px] xl:text-[76px] font-normal leading-[1.05] tracking-tight text-white mb-5 sm:mb-6">
               <span className="block font-serif">{t.hero.title1}</span>
               <span className="block font-serif">
                 {t.hero.title2Prefix}
-                <span className="italic font-serif text-[#C5A059]">{t.hero.title2Highlight}</span>
+                <span className="italic font-serif text-[#D4AF37]">{t.hero.title2Highlight}</span>
               </span>
             </h1>
 
             {/* Subtitle / Product Philosophy */}
-            <p className="font-sans-body text-sm sm:text-base lg:text-[17px] text-[#94A3B8] font-light leading-relaxed max-w-lg mb-8 lg:mb-10">
+            <p className="font-sans-body text-sm sm:text-base lg:text-[17px] text-slate-300 font-light leading-relaxed max-w-lg mb-8 lg:mb-10">
               {t.hero.subtitle}
             </p>
 
-            {/* Pill CTA Button */}
+            {/* Primary Gold CTA Button */}
             <div>
               <button
                 onClick={onExploreClick}
-                className="group inline-flex items-center gap-3.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full border border-[#C5A059]/50 bg-[#0B132B]/80 hover:bg-[#C5A059]/15 hover:border-[#C5A059] text-sm font-sans-body text-[#F7F5F0] hover:text-[#C5A059] transition-all duration-300 shadow-xl cursor-pointer"
+                className="group inline-flex items-center gap-3.5 px-8 py-4 rounded-full btn-gold-gradient text-sm font-sans-body text-[#0A1128] font-bold shadow-lg shadow-[#D4AF37]/25 hover:shadow-xl hover:shadow-[#D4AF37]/40 transition-all duration-300 cursor-pointer"
               >
-                <span className="font-medium tracking-wide">{t.hero.cta}</span>
-                <ArrowRight className={`w-4 h-4 text-[#C5A059] transform transition-transform duration-300 ${
+                <span className="font-bold tracking-wide">{t.hero.cta}</span>
+                <ArrowRight className={`w-4 h-4 text-[#0A1128] transform transition-transform duration-300 ${
                   isRtl ? 'rotate-180 group-hover:-translate-x-1.5' : 'group-hover:translate-x-1.5'
                 }`} />
               </button>
@@ -88,7 +88,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 />
 
                 {/* Subtle Interactive Badge on Hover */}
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-3 py-1 rounded-full bg-[#0B132B]/85 border border-[#C5A059]/40 text-[10px] text-[#C5A059] tracking-wider uppercase font-semibold backdrop-blur-md">
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-3 py-1 rounded-full bg-[#0A1128]/90 border border-[#D4AF37]/50 text-[10px] text-[#D4AF37] tracking-wider uppercase font-semibold backdrop-blur-md shadow-md">
                   {t.hero.quickViewHint}
                 </div>
               </div>

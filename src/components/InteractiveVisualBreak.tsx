@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Star, Sparkles, ArrowUpRight, Compass, ShieldCheck } from 'lucide-react';
+import React from 'react';
+import { Shield, Sparkles, Sliders, ShieldCheck, CheckCircle2, Compass } from 'lucide-react';
 import { QUADRANT_ITEMS } from '../data/furnitureData';
 import { QuadrantItem } from '../types';
 import { useLanguage } from '../context/LanguageContext';
@@ -9,204 +9,125 @@ interface InteractiveVisualBreakProps {
 }
 
 export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () => {
-  const [activeQuadId, setActiveQuadId] = useState<string>(QUADRANT_ITEMS[0].id);
   const { t } = useLanguage();
 
-  const activeItem = QUADRANT_ITEMS.find((q) => q.id === activeQuadId) || QUADRANT_ITEMS[0];
-  const activeLocalized = t.anatomy.quadrants?.find((q) => q.id === activeItem.id);
-  const activeTitle = activeLocalized?.title || activeItem.title;
-  const activeSubtitle = activeLocalized?.subtitle || activeItem.subtitle;
-  const activeCategory = activeLocalized?.category || activeItem.category;
-  const activeTag = activeLocalized?.tag || activeItem.tag;
-  const activeMaterial = activeLocalized?.material || activeItem.material;
-  const activeDescription = activeLocalized?.description || activeItem.description;
+  const getPillarIcon = (index: number) => {
+    switch (index) {
+      case 0:
+        return <Shield className="w-3.5 h-3.5 text-[#D4AF37]" />;
+      case 1:
+        return <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />;
+      case 2:
+        return <Sliders className="w-3.5 h-3.5 text-[#D4AF37]" />;
+      case 3:
+      default:
+        return <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />;
+    }
+  };
 
   return (
-    <section id="craft" className="py-6 sm:py-8 lg:py-10 bg-[#F7F5F0] dark:bg-[#0B132B] relative overflow-hidden border-b border-[#E5E1D8] dark:border-[#1D2B52] transition-colors duration-300 select-none">
+    <section
+      id="craft"
+      className="py-10 sm:py-14 lg:py-16 bg-[#F8FAFC] dark:bg-[#0A1128] relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#1E293B] transition-colors duration-300 select-none"
+    >
+      {/* Background Decorative Ambient Glow */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] dark:bg-[#0F1B3D] border border-[#C5A059]/40 text-[#C5A059] text-xs font-semibold tracking-wider mb-3 shadow-xs">
-            <Compass className="w-3.5 h-3.5 text-[#C5A059]" />
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#0E1838] border border-[#D4AF37]/40 text-[#D4AF37] text-xs font-semibold tracking-wider mb-3 shadow-xs">
+            <Compass className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span className="uppercase tracking-[0.2em] text-[11px]">{t.anatomy.badge}</span>
           </div>
 
-          <h2 className="font-serif-heading text-2xl sm:text-4xl md:text-5xl text-[#1F2421] dark:text-[#F7F5F0] font-normal tracking-tight">
-            {t.anatomy.titlePart1} <br />
-            <span className="italic font-serif-heading text-[#C5A059]">{t.anatomy.titlePart2}</span>
+          <h2 className="font-serif-heading text-2xl sm:text-4xl md:text-5xl text-[#0A1128] dark:text-white font-normal tracking-tight">
+            {t.anatomy.titlePart1}{' '}
+            <span className="italic font-serif-heading text-[#D4AF37]">{t.anatomy.titlePart2}</span>
           </h2>
 
-          <p className="mt-3 font-sans-body text-xs sm:text-sm md:text-base text-[#1F2421]/75 dark:text-[#F7F5F0]/75 font-light max-w-xl mx-auto">
+          <p className="mt-3.5 font-sans-body text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 font-light max-w-2xl mx-auto leading-relaxed">
             {t.anatomy.subtitle}
           </p>
         </div>
 
-        {/* Central Semi-Circular Quadrant-Split Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          
-          {/* LEFT/MAIN: Circular / Quadrant Split Architectural Grid */}
-          <div className="lg:col-span-7 relative flex items-center justify-center">
-            {/* Concentric Architectural Rings Radiating from Wheel */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[125%] h-[125%] rounded-full border border-[#C5A059]/15 pointer-events-none opacity-60" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] rounded-full border border-[#C5A059]/10 pointer-events-none opacity-40 hidden sm:block" />
+        {/* Modern 4-Column Feature Grid (2x2 on Mobile/Tablet) */}
+        <div className="grid grid-cols-1 min-[520px]:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          {QUADRANT_ITEMS.map((item, index) => {
+            const localized = t.anatomy.quadrants?.find((q) => q.id === item.id);
+            const title = localized?.title || item.title;
+            const description = localized?.description || item.description;
+            const tag = localized?.tag || item.tag;
+            const material = localized?.material || item.material;
 
-            <div className="relative w-full max-w-[440px] sm:max-w-[490px] lg:max-w-[510px] aspect-square rounded-full p-2.5 sm:p-3.5 bg-[#FFFFFF] dark:bg-[#0F1B3D] border border-[#C5A059]/30 shadow-2xl shadow-[#0B132B]/10">
-              
-              {/* Four Quadrants Container */}
-              <div className="w-full h-full rounded-full overflow-hidden grid grid-cols-2 grid-rows-2 gap-2 p-1 bg-[#F7F5F0] dark:bg-[#060B18]">
-                {QUADRANT_ITEMS.map((item, index) => {
-                  const isActive = activeQuadId === item.id;
-                  const localized = t.anatomy.quadrants?.find((q) => q.id === item.id);
-                  const qTitle = localized?.title || item.title;
-                  const qSubtitle = localized?.subtitle || item.subtitle;
-                  const qTag = localized?.tag || item.tag;
+            return (
+              <div
+                key={item.id}
+                className="group relative flex flex-col justify-between bg-white dark:bg-[#0E1838] rounded-2xl sm:rounded-[22px] p-5 sm:p-6 border border-[#E2E8F0] dark:border-[#1E293B] hover:border-[#D4AF37] dark:hover:border-[#D4AF37] transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-[#0A1128]/5 dark:hover:shadow-black/30 hover:-translate-y-1 overflow-hidden"
+              >
+                {/* Ambient Gold Glow On Hover */}
+                <div className="absolute -top-16 -right-16 w-32 h-32 bg-[#D4AF37]/10 rounded-full blur-2xl group-hover:bg-[#D4AF37]/20 transition-all duration-500 pointer-events-none" />
 
-                  // Rounded corners based on quadrant position
-                  const cornerRadius = 
-                    index === 0 ? 'rounded-tl-full' :
-                    index === 1 ? 'rounded-tr-full' :
-                    index === 2 ? 'rounded-bl-full' : 'rounded-br-full';
+                <div>
+                  {/* Card Visual Media Window */}
+                  <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden mb-4 sm:mb-5 bg-[#F8FAFC] dark:bg-[#050814] border border-[#E2E8F0]/70 dark:border-[#1E293B]/70">
+                    <img
+                      src={item.image}
+                      alt={title}
+                      className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-75 group-hover:opacity-45 transition-opacity duration-300" />
 
-                  return (
-                    <div
-                      key={item.id}
-                      onClick={() => setActiveQuadId(item.id)}
-                      onMouseEnter={() => setActiveQuadId(item.id)}
-                      className={`relative overflow-hidden cursor-pointer group transition-all duration-500 ${cornerRadius} ${
-                        isActive ? 'ring-2 ring-[#C5A059] ring-offset-2 ring-offset-[#F7F5F0] dark:ring-offset-[#060B18]' : 'opacity-85 hover:opacity-100'
-                      }`}
-                    >
-                      <img
-                        src={item.image}
-                        alt={qTitle}
-                        className={`w-full h-full object-cover transition-transform duration-700 ease-out ${
-                          isActive ? 'scale-110' : 'group-hover:scale-105'
-                        }`}
-                      />
-
-                      {/* Quadrant gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-300" />
-
-                      {/* Quadrant Tag */}
-                      <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
-                        <span className={`px-2.5 py-1 rounded-full text-[10px] font-sans-body font-bold tracking-wider uppercase transition-all duration-300 ${
-                          isActive 
-                            ? 'bg-[#0B132B] text-[#C5A059] border border-[#C5A059]/40' 
-                            : 'bg-white/90 backdrop-blur-xs text-[#1F2421]'
-                        }`}>
-                          {qTag}
-                        </span>
-                      </div>
-
-                      {/* Quadrant Bottom Label */}
-                      <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 text-white z-10">
-                        <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-[#C5A059] font-bold">
-                          {qSubtitle}
-                        </p>
-                        <p className="font-serif-heading text-xs sm:text-sm lg:text-base font-medium truncate text-[#F7F5F0]">
-                          {qTitle}
-                        </p>
-                      </div>
-
-                      {/* Hover Arrow Indicator */}
-                      <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                        <ArrowUpRight className="w-3.5 h-3.5 text-[#C5A059]" />
-                      </div>
+                    {/* Pillar Tag Overlay */}
+                    <div className="absolute top-2.5 left-2.5 rtl:left-auto rtl:right-2.5 z-10">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-sans-body font-bold tracking-wider uppercase bg-[#0A1128]/90 backdrop-blur-md text-[#D4AF37] border border-[#D4AF37]/40 shadow-xs">
+                        {getPillarIcon(index)}
+                        <span>{tag}</span>
+                      </span>
                     </div>
-                  );
-                })}
-              </div>
 
-              {/* ANCHOR: Central Circular Rating Badge in Deep Navy #0B132B & Metallic Gold */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
-                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-[#0B132B] text-[#F7F5F0] p-2 shadow-2xl border-3 sm:border-4 border-[#C5A059] flex flex-col items-center justify-center text-center transform hover:scale-105 transition-transform duration-300">
-                  <div className="flex items-center space-x-0.5 text-[#C5A059] mb-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-current text-[#C5A059]" />
-                    ))}
+                    {/* Index Number Watermark */}
+                    <div className="absolute bottom-2.5 right-2.5 rtl:right-auto rtl:left-2.5 z-10">
+                      <span className="font-mono text-[11px] font-semibold text-white/90 bg-black/50 px-2 py-0.5 rounded backdrop-blur-xs">
+                        0{index + 1}
+                      </span>
+                    </div>
                   </div>
-                  <span className="font-serif-heading text-lg sm:text-xl font-bold tracking-tight text-[#C5A059] leading-none">
-                    4.9/5
+
+                  {/* Title & Description */}
+                  <h3 className="font-serif-heading text-lg sm:text-xl font-medium text-[#0A1128] dark:text-white group-hover:text-[#D4AF37] transition-colors mb-2 leading-snug">
+                    {title}
+                  </h3>
+
+                  <p className="font-sans-body text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed">
+                    {description}
+                  </p>
+                </div>
+
+                {/* Card Footer: Technical Spec / Material */}
+                <div className="mt-5 pt-3.5 border-t border-[#E2E8F0]/70 dark:border-[#1E293B]/70 flex items-center justify-between text-[11px] font-sans-body">
+                  <span className="font-semibold tracking-wide uppercase text-[10px] text-[#D4AF37] truncate max-w-[70%]">
+                    {material}
                   </span>
-                  <span className="text-[8px] sm:text-[9px] uppercase tracking-wider text-neutral-300 font-sans-body mt-0.5 sm:mt-1">
-                    {t.anatomy.ratingText}
+                  <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 shrink-0">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37]" />
+                    <span>{t.anatomy.ratingText}</span>
                   </span>
                 </div>
               </div>
-
-            </div>
-          </div>
-
-          {/* RIGHT: Focused Detail Inspector & Material Story */}
-          <div className="lg:col-span-5">
-            <div className="bg-[#FFFFFF] dark:bg-[#0F1B3D] p-5 sm:p-6 lg:p-7 rounded-[22px] border border-[#E5E1D8] dark:border-[#1D2B52] shadow-lg shadow-black/5 relative overflow-hidden transition-colors">
-              
-              {/* Subtle top accent */}
-              <div className="flex items-center justify-between pb-3.5 border-b border-[#E5E1D8] dark:border-[#1D2B52]">
-                <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#C5A059]">
-                  {activeTag}
-                </span>
-                <span className="px-2.5 py-0.5 rounded-full bg-[#F7F5F0] dark:bg-[#0B132B] border border-[#E5E1D8] dark:border-[#1D2B52] text-[#1F2421] dark:text-[#F7F5F0] text-xs font-semibold">
-                  {activeCategory}
-                </span>
-              </div>
-
-              {/* Title & Description */}
-              <div className="py-4 space-y-2.5">
-                <h3 className="font-serif-heading text-xl sm:text-2xl font-medium text-[#1F2421] dark:text-[#F7F5F0]">
-                  {activeTitle}
-                </h3>
-                <p className="text-xs text-[#C5A059] uppercase tracking-wider font-bold">
-                  {t.anatomy.materialLabel} {activeMaterial}
-                </p>
-                <p className="font-sans-body text-xs sm:text-sm text-[#1F2421]/75 dark:text-[#F7F5F0]/75 leading-relaxed">
-                  {activeDescription}
-                </p>
-              </div>
-
-              {/* Interactive Quadrant Selectors */}
-              <div className="space-y-2 pt-3.5 border-t border-[#E5E1D8] dark:border-[#1D2B52]">
-                <p className="text-[10px] uppercase tracking-wider text-neutral-500 font-medium mb-2">
-                  {t.anatomy.perspectivesTitle}
-                </p>
-                <div className="grid grid-cols-2 gap-2">
-                  {QUADRANT_ITEMS.map((q) => {
-                    const localized = t.anatomy.quadrants?.find((item) => item.id === q.id);
-                    const qTitle = localized?.title || q.title;
-                    const qTag = localized?.tag || q.tag;
-
-                    return (
-                      <button
-                        key={q.id}
-                        onClick={() => setActiveQuadId(q.id)}
-                        className={`px-3 py-2 text-left rtl:text-right rounded-xl text-xs font-sans-body transition-all flex items-center justify-between cursor-pointer ${
-                          activeQuadId === q.id
-                            ? 'bg-[#0B132B] text-[#C5A059] font-bold shadow-xs border border-[#C5A059]/40'
-                            : 'bg-[#F7F5F0] dark:bg-[#0B132B] hover:bg-[#E5E1D8] dark:hover:bg-[#13224A] text-[#1F2421] dark:text-[#F7F5F0]'
-                        }`}
-                      >
-                        <span className="truncate">{qTitle}</span>
-                        <span className="text-[10px] opacity-60 ml-1 rtl:mr-1">{qTag.split('·')[0]}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Atelier Quality Guarantee Note */}
-              <div className="mt-4 pt-3.5 flex items-center gap-2.5 text-xs text-[#1F2421]/90 dark:text-[#F7F5F0]/90 bg-[#F7F5F0] dark:bg-[#0B132B] p-2.5 sm:p-3 rounded-xl border border-[#E5E1D8] dark:border-[#1D2B52]">
-                <ShieldCheck className="w-4 h-4 text-[#C5A059] shrink-0" />
-                <span className="leading-snug text-[11px] sm:text-xs">
-                  {t.anatomy.guaranteeText}
-                </span>
-              </div>
-
-            </div>
-          </div>
-
+            );
+          })}
         </div>
 
+        {/* Bottom Assurance Banner */}
+        <div className="mt-8 sm:mt-10 max-w-2xl mx-auto flex items-center justify-center gap-2.5 text-xs text-[#0A1128]/80 dark:text-slate-200 bg-white dark:bg-[#0E1838] py-3 px-5 rounded-full border border-[#E2E8F0] dark:border-[#1E293B] shadow-xs text-center">
+          <ShieldCheck className="w-4 h-4 text-[#D4AF37] shrink-0" />
+          <span className="leading-snug text-xs sm:text-sm font-sans-body font-light">
+            {t.anatomy.guaranteeText}
+          </span>
+        </div>
       </div>
     </section>
   );

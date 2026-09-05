@@ -65,16 +65,16 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-40 w-full transition-all duration-300 select-none">
-      {/* Main Navigation Bar (Supports Light Mode & Signature Brand Dark Mode #0B132B) */}
+      {/* Main Navigation Bar (Supports Light Mode & Signature Brand Dark Mode #0A1128) */}
       <nav
         className={`w-full transition-all duration-300 ${
           isDark
             ? isScrolled
-              ? 'bg-[#0B132B]/95 backdrop-blur-md shadow-lg border-b border-[#1D2B52]'
-              : 'bg-[#0B132B] border-b border-[#1D2B52]/80 text-[#F7F5F0]'
+              ? 'bg-[#0A1128]/95 backdrop-blur-md shadow-lg border-b border-[#1E293B]'
+              : 'bg-[#0A1128] border-b border-[#1E293B]/80 text-white'
             : isScrolled
-              ? 'bg-[#FFFFFF]/95 backdrop-blur-md shadow-xs border-b border-[#E5E1D8]'
-              : 'bg-[#FFFFFF] border-b border-[#E5E1D8]/80 text-[#1F2421]'
+              ? 'bg-white/95 backdrop-blur-md shadow-xs border-b border-[#E2E8F0]'
+              : 'bg-white border-b border-[#E2E8F0]/80 text-[#0A1128]'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-20 flex items-center justify-between gap-4">
@@ -83,7 +83,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex items-center flex-shrink-0">
             <button
               onClick={() => handleLinkClick('hero')}
-              className="group flex items-center gap-2.5 focus:outline-none"
+              className="group flex items-center gap-2.5 focus:outline-none cursor-pointer"
               aria-label="Roshna Home"
             >
               {/* Monogram Emblem Badge */}
@@ -107,18 +107,18 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={link.target}
                   onClick={() => handleLinkClick(link.target)}
-                  className={`text-xs xl:text-sm tracking-wide font-sans-body transition-all relative py-1.5 whitespace-nowrap flex-shrink-0 group ${
+                  className={`text-xs xl:text-sm tracking-wide font-sans-body transition-all relative py-1.5 whitespace-nowrap flex-shrink-0 cursor-pointer group ${
                     isActive
-                      ? 'text-[#C5A059] font-bold'
+                      ? 'text-[#D4AF37] font-bold'
                       : isDark
-                        ? 'text-[#F7F5F0]/85 hover:text-[#C5A059] font-medium'
-                        : 'text-[#1F2421]/80 hover:text-[#C5A059] font-medium'
+                        ? 'text-slate-200 hover:text-[#D4AF37] font-medium'
+                        : 'text-slate-700 hover:text-[#D4AF37] font-medium'
                   }`}
                 >
                   <span>{link.label}</span>
                   <span
                     className={`absolute bottom-0 left-0 h-[2px] transition-all duration-300 ease-out ${
-                      isActive ? 'w-full bg-[#C5A059]' : 'w-0 bg-[#C5A059] group-hover:w-full'
+                      isActive ? 'w-full bg-[#D4AF37]' : 'w-0 bg-[#D4AF37] group-hover:w-full'
                     }`}
                   />
                 </button>
@@ -134,17 +134,17 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={toggleTheme}
               className={`relative inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full border transition-all duration-300 flex-shrink-0 cursor-pointer select-none group ${
                 isDark
-                  ? 'bg-[#0F1B3D] border-[#C5A059]/50 text-[#C5A059] hover:bg-[#13224A] shadow-sm shadow-[#C5A059]/15'
-                  : 'bg-[#FFFFFF] border-[#E5E1D8] text-[#1F2421] hover:border-[#C5A059] hover:text-[#C5A059] shadow-xs'
+                  ? 'bg-[#0E1838] border-[#D4AF37]/50 text-[#D4AF37] hover:bg-[#14224D] shadow-sm shadow-[#D4AF37]/15'
+                  : 'bg-white border-[#E2E8F0] text-[#0A1128] hover:border-[#D4AF37] hover:text-[#D4AF37] shadow-xs'
               }`}
               aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Brand Deep Navy Mode'}
-              title={isDark ? 'Theme: Brand Deep Navy (#0B132B) • Click for Light Mode' : 'Theme: Light Mode • Click for Brand Deep Navy Dark (#0B132B)'}
+              title={isDark ? 'Theme: Brand Deep Navy (#0A1128) • Click for Light Mode' : 'Theme: Light Mode • Click for Brand Deep Navy Dark (#0A1128)'}
             >
               <span className="relative w-4 h-4 flex items-center justify-center">
                 {isDark ? (
-                  <Sun className="w-3.5 h-3.5 text-[#C5A059] group-hover:rotate-45 transition-transform duration-300" />
+                  <Sun className="w-3.5 h-3.5 text-[#D4AF37] group-hover:rotate-45 transition-transform duration-300" />
                 ) : (
-                  <Moon className="w-3.5 h-3.5 text-[#0B132B] group-hover:-rotate-12 transition-transform duration-300" />
+                  <Moon className="w-3.5 h-3.5 text-[#0A1128] group-hover:-rotate-12 transition-transform duration-300" />
                 )}
               </span>
               <span className="text-[11px] font-semibold tracking-wider uppercase hidden sm:inline">
@@ -157,13 +157,13 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={toggleLanguage}
               className={`relative inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full border transition-all duration-300 flex-shrink-0 cursor-pointer select-none group ${
                 isDark
-                  ? 'bg-[#0F1B3D] border-[#C5A059]/40 text-[#C5A059] hover:bg-[#13224A] shadow-xs'
-                  : 'bg-[#FFFFFF] border-[#E5E1D8] text-[#1F2421] hover:border-[#C5A059] hover:text-[#C5A059] shadow-xs'
+                  ? 'bg-[#0E1838] border-[#D4AF37]/40 text-[#D4AF37] hover:bg-[#14224D] shadow-xs'
+                  : 'bg-white border-[#E2E8F0] text-[#0A1128] hover:border-[#D4AF37] hover:text-[#D4AF37] shadow-xs'
               }`}
               aria-label={language === 'en' ? 'تغییر به زبان فارسی' : 'Switch to English'}
               title={language === 'en' ? 'تغییر زبان به فارسی' : 'Switch to English'}
             >
-              <Globe className="w-3.5 h-3.5 text-[#C5A059] group-hover:rotate-45 transition-transform duration-300" />
+              <Globe className="w-3.5 h-3.5 text-[#D4AF37] group-hover:rotate-45 transition-transform duration-300" />
               <span className="text-[11px] font-bold tracking-wider uppercase">
                 {language === 'en' ? 'FA' : 'EN'}
               </span>
@@ -174,8 +174,8 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={onOpenSearch}
               className={`p-2 sm:p-2.5 rounded-full transition-colors flex-shrink-0 cursor-pointer ${
                 isDark
-                  ? 'text-[#F7F5F0] hover:bg-[#0F1B3D] hover:text-[#C5A059]'
-                  : 'text-[#1F2421] hover:bg-[#F7F5F0] hover:text-[#C5A059]'
+                  ? 'text-white hover:bg-[#0E1838] hover:text-[#D4AF37]'
+                  : 'text-[#0A1128] hover:bg-[#F8FAFC] hover:text-[#D4AF37]'
               }`}
               aria-label="Search collection"
               title="Search collection"
@@ -183,21 +183,20 @@ export const Header: React.FC<HeaderProps> = ({
               <Search className="w-4.5 h-4.5" />
             </button>
 
-
             {/* Shopping Bag Trigger */}
             <button
               onClick={onOpenCart}
               className={`relative p-2 sm:p-2.5 rounded-full transition-colors flex items-center flex-shrink-0 cursor-pointer ${
                 isDark
-                  ? 'text-[#F7F5F0] hover:bg-[#0F1B3D] hover:text-[#C5A059]'
-                  : 'text-[#1F2421] hover:bg-[#F7F5F0] hover:text-[#C5A059]'
+                  ? 'text-white hover:bg-[#0E1838] hover:text-[#D4AF37]'
+                  : 'text-[#0A1128] hover:bg-[#F8FAFC] hover:text-[#D4AF37]'
               }`}
               aria-label="Shopping bag"
               title="Shopping bag"
             >
               <ShoppingBag className="w-4.5 h-4.5" />
               {totalCartCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 bg-[#0B132B] text-[#C5A059] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#C5A059] shadow-xs">
+                <span className="absolute -top-0.5 -right-0.5 bg-[#0A1128] text-[#D4AF37] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#D4AF37] shadow-xs">
                   {totalCartCount}
                 </span>
               )}
@@ -206,11 +205,11 @@ export const Header: React.FC<HeaderProps> = ({
             {/* WhatsApp Direct Client Button */}
             <a
               href={isRtl
-                ? "https://wa.me/?text=سلام%20روشنا%20ولت،%20مایل%20به%20دریافت%20مشاوره%20در%20مورد%20سویچ‌ها%20و%20ساکت‌ها%20هستم."
-                : "https://wa.me/?text=Hello%20Roshna%20Volt,%20I%20would%20like%20to%20inquire%20about%20your%20switches%20and%20sockets%20collection."}
+                ? "https://wa.me/93780880007?text=سلام%20روشنا%20ولت،%20مایل%20به%20دریافت%20مشاوره%20در%20مورد%20سویچ‌ها%20و%20ساکت‌ها%20هستم."
+                : "https://wa.me/93780880007?text=Hello%20Roshna%20Volt,%20I%20would%20like%20to%20inquire%20about%20your%20switches%20and%20sockets%20collection."}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold tracking-wider uppercase px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-[#25D366]/50 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366] hover:text-[#0B132B] hover:border-transparent transition-all shadow-xs hover:shadow-md hover:shadow-[#25D366]/25 whitespace-nowrap flex-shrink-0 cursor-pointer group"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold tracking-wider uppercase px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-[#25D366]/50 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366] hover:text-[#0A1128] hover:border-transparent transition-all shadow-xs hover:shadow-md hover:shadow-[#25D366]/25 whitespace-nowrap flex-shrink-0 cursor-pointer group"
               title="Chat with Roshna on WhatsApp"
               aria-label="Chat on WhatsApp"
             >
@@ -221,10 +220,10 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Hamburger Menu Toggle (Mobile & Tablet) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 sm:p-2.5 rounded-full transition-colors md:hidden focus:outline-none flex-shrink-0 ${
+              className={`p-2 sm:p-2.5 rounded-full transition-colors md:hidden focus:outline-none flex-shrink-0 cursor-pointer ${
                 isDark
-                  ? 'text-[#F7F5F0] hover:bg-[#0F1B3D]'
-                  : 'text-[#1F2421] hover:bg-[#F7F5F0]'
+                  ? 'text-white hover:bg-[#0E1838]'
+                  : 'text-[#0A1128] hover:bg-[#F8FAFC]'
               }`}
               aria-label="Toggle menu"
             >
@@ -239,15 +238,15 @@ export const Header: React.FC<HeaderProps> = ({
         <div
           className={`fixed inset-0 top-[80px] z-50 border-t md:hidden flex flex-col justify-between p-6 sm:p-8 animate-fadeIn overflow-y-auto ${
             isDark
-              ? 'bg-[#0B132B] border-[#1D2B52] text-[#F7F5F0]'
-              : 'bg-[#F7F5F0] border-[#E5E1D8] text-[#1F2421]'
+              ? 'bg-[#0A1128] border-[#1E293B] text-white'
+              : 'bg-[#F8FAFC] border-[#E2E8F0] text-[#0A1128]'
           }`}
         >
           <div className="flex flex-col space-y-6 pt-2">
-            <div className="flex items-center justify-between pb-3 border-b border-[#E5E1D8]/40">
+            <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0]/50 dark:border-[#1E293B]">
               <div className="flex items-center gap-2">
                 <RoshnaEmblem className="w-6 h-6" />
-                <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-[#C5A059]">
+                <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-[#D4AF37]">
                   {isRtl ? 'روشنا ولت • سویچ و ساکت مدرن' : 'Roshna Volt Hardware'}
                 </span>
               </div>
@@ -257,8 +256,8 @@ export const Header: React.FC<HeaderProps> = ({
                   onClick={toggleTheme}
                   className={`p-1.5 rounded-full border text-xs flex items-center gap-1.5 px-2.5 ${
                     isDark
-                      ? 'bg-[#0F1B3D] border-[#C5A059]/40 text-[#C5A059]'
-                      : 'bg-[#FFFFFF] border-[#E5E1D8] text-[#1F2421]'
+                      ? 'bg-[#0E1838] border-[#D4AF37]/40 text-[#D4AF37]'
+                      : 'bg-white border-[#E2E8F0] text-[#0A1128]'
                   }`}
                 >
                   {isDark ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
@@ -270,12 +269,12 @@ export const Header: React.FC<HeaderProps> = ({
                   onClick={toggleLanguage}
                   className={`p-1.5 rounded-full border text-xs flex items-center gap-1.5 px-2.5 ${
                     isDark
-                      ? 'bg-[#0F1B3D] border-[#C5A059]/40 text-[#C5A059]'
-                      : 'bg-[#FFFFFF] border-[#E5E1D8] text-[#1F2421]'
+                      ? 'bg-[#0E1838] border-[#D4AF37]/40 text-[#D4AF37]'
+                      : 'bg-white border-[#E2E8F0] text-[#0A1128]'
                   }`}
                   title={language === 'en' ? 'تغییر به فارسی' : 'Switch to English'}
                 >
-                  <Globe className="w-3.5 h-3.5 text-[#C5A059]" />
+                  <Globe className="w-3.5 h-3.5 text-[#D4AF37]" />
                   <span className="text-[10px] font-bold uppercase">{language === 'en' ? 'FA' : 'EN'}</span>
                 </button>
 
@@ -285,7 +284,7 @@ export const Header: React.FC<HeaderProps> = ({
                       setMobileMenuOpen(false);
                       onReplaySplash();
                     }}
-                    className="text-[11px] text-[#C5A059] font-semibold flex items-center gap-1"
+                    className="text-[11px] text-[#D4AF37] font-semibold flex items-center gap-1 cursor-pointer"
                   >
                     <Play className="w-3 h-3 fill-current" />
                     <span>Intro</span>
@@ -298,30 +297,28 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 key={link.target}
                 onClick={() => handleLinkClick(link.target)}
-                className={`text-left font-serif-heading text-2xl hover:text-[#C5A059] transition-colors flex items-center justify-between group ${
-                  isDark ? 'text-[#F7F5F0]' : 'text-[#1F2421]'
+                className={`text-left font-serif-heading text-2xl hover:text-[#D4AF37] transition-colors flex items-center justify-between group cursor-pointer ${
+                  isDark ? 'text-white' : 'text-[#0A1128]'
                 }`}
               >
                 <span>{link.label}</span>
-                <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all text-[#C5A059]" />
+                <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all text-[#D4AF37]" />
               </button>
             ))}
-
-
           </div>
 
-          <div className="border-t border-[#E5E1D8]/40 pt-6 space-y-3">
-            <div className="text-xs text-[#94A3B8] font-sans-body">
-              <p className="font-semibold text-[#C5A059]">{isRtl ? 'روشنا ولت • کلید و پریزهای ساختمانی' : 'Roshna Volt Hardware'}</p>
+          <div className="border-t border-[#E2E8F0]/50 dark:border-[#1E293B] pt-6 space-y-3">
+            <div className="text-xs text-slate-400 font-sans-body">
+              <p className="font-semibold text-[#D4AF37]">{isRtl ? 'روشنا ولت • کلید و پریزهای ساختمانی' : 'Roshna Volt Hardware'}</p>
               <p>{isRtl ? 'سازگار با قوطی‌های استاندارد ۸۶ میلی‌متری • کیفیت و ایمنی مطمئن' : 'Compatible with standard 86mm wall boxes • Safe and durable'}</p>
             </div>
             <a
               href={isRtl
-                ? "https://wa.me/?text=سلام%20روشنا%20ولت،%20مایل%20به%20دریافت%20مشاوره%20در%20مورد%20سویچ‌ها%20و%20ساکت‌ها%20هستم."
-                : "https://wa.me/?text=Hello%20Roshna%20Volt,%20I%20would%20like%20to%20inquire%20about%20your%20switches%20and%20sockets%20collection."}
+                ? "https://wa.me/93780880007?text=سلام%20روشنا%20ولت،%20مایل%20به%20دریافت%20مشاوره%20در%20مورد%20سویچ‌ها%20و%20ساکت‌ها%20هستم."
+                : "https://wa.me/93780880007?text=Hello%20Roshna%20Volt,%20I%20would%20like%20to%20inquire%20about%20your%20switches%20and%20sockets%20collection."}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3.5 px-4 rounded-full border border-[#25D366]/50 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366] hover:text-[#0B132B] font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors shadow-xs"
+              className="w-full py-3.5 px-4 rounded-full border border-[#25D366]/50 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366] hover:text-[#0A1128] font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors shadow-xs cursor-pointer"
             >
               <WhatsAppIcon className="w-4 h-4 fill-current" />
               <span>Chat on WhatsApp</span>
@@ -331,7 +328,7 @@ export const Header: React.FC<HeaderProps> = ({
                 setMobileMenuOpen(false);
                 onOpenSearch();
               }}
-              className="w-full py-3.5 px-4 bg-[#C5A059] text-[#0B132B] font-bold rounded-full text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#D4AF37] transition-colors"
+              className="w-full py-3.5 px-4 btn-gold-gradient text-[#0A1128] font-bold rounded-full text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
             >
               <Search className="w-4 h-4" />
               <span>Search Electrical Catalog</span>

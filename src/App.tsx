@@ -95,8 +95,8 @@ function MainAppContent() {
 
   return (
     <div
-      className={`min-h-screen font-sans-body relative selection:bg-[#0B132B] selection:text-[#C5A059] dark:selection:bg-[#C5A059] dark:selection:text-[#0B132B] transition-colors duration-300 ${
-        isDark ? 'bg-[#0B132B] text-[#F7F5F0]' : 'bg-[#F7F5F0] text-[#1F2421]'
+      className={`min-h-screen font-sans-body relative selection:bg-[#0A1128] selection:text-[#D4AF37] dark:selection:bg-[#D4AF37] dark:selection:text-[#0A1128] transition-colors duration-300 ${
+        isDark ? 'bg-[#0A1128] text-white' : 'bg-[#F8FAFC] text-[#0A1128]'
       }`}
     >
       {/* Brand Splash Screen on initial launch */}
@@ -108,8 +108,8 @@ function MainAppContent() {
 
       {/* Toast Notification with Roshna Brand Identity */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#0B132B] text-[#F7F5F0] px-5 py-3.5 rounded-2xl shadow-2xl border border-[#C5A059]/50 flex items-center gap-3 text-xs sm:text-sm animate-bounce">
-          <div className="w-6 h-6 rounded-full bg-[#C5A059] text-[#0B132B] flex items-center justify-center shrink-0">
+        <div className="fixed bottom-6 right-6 z-50 bg-[#0A1128] text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-[#D4AF37]/50 flex items-center gap-3 text-xs sm:text-sm animate-bounce">
+          <div className="w-6 h-6 rounded-full bg-[#D4AF37] text-[#0A1128] flex items-center justify-center shrink-0">
             <Check className="w-3.5 h-3.5 stroke-[3]" />
           </div>
           <span>{toastMessage}</span>

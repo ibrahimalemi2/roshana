@@ -25,20 +25,20 @@ export const ValueProposition: React.FC = () => {
   };
 
   return (
-    <section id="craft" className="py-6 sm:py-8 lg:py-10 bg-[#F7F5F0] dark:bg-[#0B132B] border-b border-[#E5E1D8] dark:border-[#1D2B52] relative transition-colors duration-300 select-none">
+    <section id="craft" className="py-6 sm:py-8 lg:py-10 bg-[#F8FAFC] dark:bg-[#0A1128] border-b border-[#E2E8F0] dark:border-[#1E293B] relative transition-colors duration-300 select-none">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
         {/* Section Header */}
         <div className="max-w-2xl mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFFFFF] dark:bg-[#0F1B3D] border border-[#C5A059]/40 text-[#C5A059] text-[11px] uppercase tracking-[0.2em] font-semibold mb-2.5 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white dark:bg-[#0E1838] border border-[#D4AF37]/40 text-[#D4AF37] text-[11px] uppercase tracking-[0.2em] font-semibold mb-2.5 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>{t.principles.badge}</span>
           </div>
-          <h2 className="font-serif-heading text-2xl sm:text-4xl md:text-5xl font-normal text-[#1F2421] dark:text-[#F7F5F0] tracking-tight">
+          <h2 className="font-serif-heading text-2xl sm:text-4xl md:text-5xl font-normal text-[#0A1128] dark:text-white tracking-tight">
             {t.principles.titlePart1} <br />
-            <span className="italic font-serif-heading text-[#C5A059]">{t.principles.titlePart2}</span>
+            <span className="italic font-serif-heading text-[#D4AF37]">{t.principles.titlePart2}</span>
           </h2>
-          <p className="mt-2.5 font-sans-body text-xs sm:text-sm md:text-base text-[#1F2421]/75 dark:text-[#F7F5F0]/75 font-light leading-relaxed">
+          <p className="mt-2.5 font-sans-body text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 font-light leading-relaxed">
             {t.principles.subtitle}
           </p>
         </div>
@@ -54,8 +54,8 @@ export const ValueProposition: React.FC = () => {
                 onClick={() => setActivePillarId(pillar.id)}
                 className={`group cursor-pointer rounded-[22px] p-5 sm:p-6 transition-all duration-300 flex flex-col justify-between border relative overflow-hidden ${
                   isSelected
-                    ? 'bg-[#0B132B] text-[#F7F5F0] border-[#C5A059] shadow-xl shadow-[#0B132B]/20'
-                    : 'bg-[#FFFFFF] dark:bg-[#0F1B3D] text-[#1F2421] dark:text-[#F7F5F0] border-[#E5E1D8] dark:border-[#1D2B52] hover:border-[#C5A059] dark:hover:border-[#C5A059] shadow-xs'
+                    ? 'bg-[#0A1128] text-white border-[#D4AF37] shadow-xl shadow-[#0A1128]/25'
+                    : 'bg-white dark:bg-[#0E1838] text-[#0A1128] dark:text-white border-[#E2E8F0] dark:border-[#1E293B] hover:border-[#D4AF37] dark:hover:border-[#D4AF37] shadow-xs'
                 }`}
               >
                 {/* Top Number & Vector Icon */}
@@ -63,7 +63,7 @@ export const ValueProposition: React.FC = () => {
                   <div className="flex items-center justify-between mb-5">
                     <span
                       className={`font-serif-heading text-2xl font-light tracking-tight ${
-                        isSelected ? 'text-[#C5A059]' : 'text-[#C5A059]'
+                        isSelected ? 'text-[#D4AF37]' : 'text-[#D4AF37]'
                       }`}
                     >
                       {pillar.number}
@@ -72,8 +72,8 @@ export const ValueProposition: React.FC = () => {
                     <div
                       className={`w-11 h-11 rounded-2xl flex items-center justify-center transition-colors ${
                         isSelected
-                          ? 'bg-[#060B18] text-[#C5A059] border border-[#C5A059]/40'
-                          : 'bg-[#F7F5F0] dark:bg-[#0B132B] text-[#1F2421] dark:text-[#F7F5F0] group-hover:text-[#C5A059]'
+                          ? 'bg-[#050814] text-[#D4AF37] border border-[#D4AF37]/40'
+                          : 'bg-[#F8FAFC] dark:bg-[#0A1128] text-[#0A1128] dark:text-white group-hover:text-[#D4AF37]'
                       }`}
                     >
                       {renderIcon(pillar.iconName)}
@@ -87,7 +87,7 @@ export const ValueProposition: React.FC = () => {
 
                   <p
                     className={`font-sans-body text-xs sm:text-sm leading-relaxed mb-4 font-light ${
-                      isSelected ? 'text-neutral-300' : 'text-[#1F2421]/70 dark:text-[#F7F5F0]/70'
+                      isSelected ? 'text-slate-300' : 'text-slate-600 dark:text-slate-300'
                     }`}
                   >
                     {pillar.shortDesc}
@@ -98,8 +98,8 @@ export const ValueProposition: React.FC = () => {
                 <div
                   className={`pt-3 border-t text-[11px] font-sans-body flex items-center justify-between ${
                     isSelected
-                      ? 'border-[#C5A059]/30 text-[#C5A059]'
-                      : 'border-[#E5E1D8] dark:border-[#1D2B52] text-[#C5A059]'
+                      ? 'border-[#D4AF37]/30 text-[#D4AF37]'
+                      : 'border-[#E2E8F0] dark:border-[#1E293B] text-[#D4AF37]'
                   }`}
                 >
                   <span className="font-semibold">{pillar.highlight}</span>
@@ -115,28 +115,28 @@ export const ValueProposition: React.FC = () => {
         </div>
 
         {/* Deep Dive Spotlight for the active pillar */}
-        <div className="mt-6 sm:mt-7 bg-[#FFFFFF] dark:bg-[#0F1B3D] rounded-[22px] p-5 sm:p-7 border border-[#E5E1D8] dark:border-[#1D2B52] shadow-md flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 transition-colors">
+        <div className="mt-6 sm:mt-7 bg-white dark:bg-[#0E1838] rounded-[22px] p-5 sm:p-7 border border-[#E2E8F0] dark:border-[#1E293B] shadow-md flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 transition-colors">
           <div className="space-y-1.5 max-w-2xl">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#C5A059] font-semibold">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
               <span>{t.principles.detailedCommitment}</span>
               <span>·</span>
               <span>{t.principles.pillarLabel} {activePillar.number}</span>
             </div>
-            <h3 className="font-serif-heading text-xl sm:text-2xl text-[#1F2421] dark:text-[#F7F5F0]">
+            <h3 className="font-serif-heading text-xl sm:text-2xl text-[#0A1128] dark:text-white">
               {activePillar.title}
             </h3>
-            <p className="text-xs sm:text-sm font-sans-body text-[#1F2421]/75 dark:text-[#F7F5F0]/75 leading-relaxed">
+            <p className="text-xs sm:text-sm font-sans-body text-slate-600 dark:text-slate-300 leading-relaxed">
               {activePillar.fullDesc}
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-2.5 w-full lg:w-auto shrink-0">
-            <div className="px-3.5 py-2.5 rounded-xl bg-[#F7F5F0] dark:bg-[#0B132B] border border-[#E5E1D8] dark:border-[#1D2B52] flex items-center gap-2 text-xs text-[#1F2421] dark:text-[#F7F5F0] font-semibold">
-              <CheckCircle2 className="w-4 h-4 text-[#C5A059] shrink-0" />
+            <div className="px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] dark:bg-[#0A1128] border border-[#E2E8F0] dark:border-[#1E293B] flex items-center gap-2 text-xs text-[#0A1128] dark:text-white font-semibold">
+              <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0" />
               <span>{t.principles.labCertified}</span>
             </div>
-            <div className="px-3.5 py-2.5 rounded-xl bg-[#F7F5F0] dark:bg-[#0B132B] border border-[#E5E1D8] dark:border-[#1D2B52] flex items-center gap-2 text-xs text-[#1F2421] dark:text-[#F7F5F0] font-semibold">
-              <CheckCircle2 className="w-4 h-4 text-[#C5A059] shrink-0" />
+            <div className="px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] dark:bg-[#0A1128] border border-[#E2E8F0] dark:border-[#1E293B] flex items-center gap-2 text-xs text-[#0A1128] dark:text-white font-semibold">
+              <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0" />
               <span>{t.principles.directProvenance}</span>
             </div>
           </div>
