@@ -1,14 +1,9 @@
 import React from 'react';
-import { Star, Quote, CheckCircle2 } from 'lucide-react';
+import { Star, Quote, CheckCircle2, User } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { TESTIMONIALS } from '../data/furnitureData';
 
 export const SocialProofStats: React.FC = () => {
   const { t } = useLanguage();
-
-  const getAvatar = (id: string) => {
-    return TESTIMONIALS.find((item) => item.id === id)?.avatar || '';
-  };
 
   const metricItems = [
     {
@@ -83,11 +78,9 @@ export const SocialProofStats: React.FC = () => {
 
               {/* Author Info */}
               <div className="pt-4 mt-4 border-t border-[#E2E8F0] dark:border-[#1E293B] flex items-center gap-3">
-                <img
-                  src={getAvatar(test.id)}
-                  alt={test.name}
-                  className="w-10 h-10 rounded-full object-cover border-2 border-[#D4AF37]/40 shrink-0"
-                />
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4AF37]/15 to-[#D4AF37]/5 dark:from-[#D4AF37]/20 dark:to-[#D4AF37]/5 border-2 border-[#D4AF37]/40 flex items-center justify-center text-[#D4AF37] shrink-0 group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37]/20 transition-all duration-300 shadow-xs">
+                  <User className="w-5 h-5 text-[#D4AF37]" strokeWidth={1.8} />
+                </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5">
                     <h3 className="text-xs font-bold text-[#0A1128] dark:text-white truncate">
