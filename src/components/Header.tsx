@@ -100,11 +100,14 @@ export const Header: React.FC<HeaderProps> = ({
               className="group flex items-center gap-2.5 focus:outline-none cursor-pointer"
               aria-label="Roshna Home"
             >
-              {/* Primary Wordmark Vector */}
-              <div className="w-36 sm:w-44 pt-0.5 flex-shrink-0">
-                <RoshnaLogo
-                  className="w-full h-auto"
-                  variant={isDark ? 'monochrome-white' : 'color'}
+              {/* Primary Wordmark */}
+              <div className="h-8 sm:h-9 flex items-center flex-shrink-0">
+                <img
+                  src={isDark ? '/assets/roshna-logo-1024-white.png' : '/assets/roshna-logo-1024.png'}
+                  alt="ROSHNA"
+                  className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  loading="eager"
+                  decoding="async"
                 />
               </div>
             </button>
