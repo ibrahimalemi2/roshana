@@ -103,10 +103,10 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               <span className="w-8 h-[2px] bg-[#D4AF37]" />
             </div>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase text-[#0A1428] dark:text-white tracking-tight">
-              {isRtl ? 'کلیدها و پریزهای ساختمانی ممتاز' : 'PREMIUM SWITCHES & SOCKETS'}
+              {isRtl ? 'سویچ‌ها و ساکت‌های ساختمانی ممتاز' : 'PREMIUM SWITCHES & SOCKETS'}
             </h2>
             <p className="font-sans text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal mt-1.5">
-              {isRtl ? 'طراحی شده برای تکمیل سبک زندگی شما.' : 'Designed to complement your lifestyle.'}
+              {isRtl ? 'دیزاین شده برای تکمیل سبک زندگی عصری شما.' : 'Designed to complement your lifestyle.'}
             </p>
           </div>
 
@@ -116,7 +116,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               onClick={() => setActiveCategoryKey('all')}
               className="px-5 py-2.5 rounded-lg bg-[#0A1428] text-white hover:bg-[#14224D] text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all shadow-sm cursor-pointer"
             >
-              <span>{isRtl ? 'مشاهده همه محصولات' : 'VIEW ALL PRODUCTS'}</span>
+              <span>{isRtl ? 'دیدن تمام محصولات' : 'VIEW ALL PRODUCTS'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -134,22 +134,22 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
             const badgeText = idx === 0 
               ? (isRtl ? 'پرفروش‌ترین' : 'BESTSELLER')
               : idx === 1 
-                ? (isRtl ? 'ویرایش معماری' : 'ARCHITECTURAL EDIT')
-                : (isRtl ? 'طراحی پرچمدار' : 'FLAGSHIP DESIGN');
+                ? (isRtl ? 'دیزاین انجنیری' : 'ARCHITECTURAL EDIT')
+                : (isRtl ? 'مدل برتر' : 'FLAGSHIP DESIGN');
 
             // Titles matching reference screenshot: 1 POLE SWITCH / 2 POLE SWITCH / SOCKET OUTLET
             const displayTitle = isSocket
-              ? (isRtl ? 'پریز برق چندمنظوره' : 'SOCKET OUTLET')
+              ? (isRtl ? 'ساکت برق چندمنظوره' : 'SOCKET OUTLET')
               : isDual
-                ? (isRtl ? 'سویچ دو قطبی (دو خانه)' : '2 POLE SWITCH')
-                : (isRtl ? 'سویچ یک قطبی (یک خانه)' : '1 POLE SWITCH');
+                ? (isRtl ? 'سویچ دوگنگ (دو خانه)' : '2 POLE SWITCH')
+                : (isRtl ? 'سویچ یک‌گنگ (یک خانه)' : '1 POLE SWITCH');
 
             // Subtitles: Single Switch / Double Switch / Universal Socket
             const displaySubtitle = isSocket
               ? (isRtl ? 'ساکت برق ارت‌دار' : 'Universal Socket')
               : isDual
-                ? (isRtl ? 'سویچ دو پل ۱۰ آمپر' : 'Double Switch')
-                : (isRtl ? 'سویچ تک پل ۱۰ آمپر' : 'Single Switch');
+                ? (isRtl ? 'سویچ دو تکمه ۱۰ آمپر' : 'Double Switch')
+                : (isRtl ? 'سویچ تک تکمه ۱۰ آمپر' : 'Single Switch');
 
             const priceText = `${product.price === 90.01 ? '90.01' : product.price} ${isRtl ? 'افغانی' : 'AFN'}`;
 
@@ -204,7 +204,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 
                     {/* View Details Link with Arrow */}
                     <div className="pt-3 mt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0A1428] dark:text-[#D4AF37] group-hover:text-[#D4AF37] transition-colors">
-                      <span>{isRtl ? 'مشاهده جزئیات' : 'VIEW DETAILS'}</span>
+                      <span>{isRtl ? 'مشخصات تخنیکی' : 'VIEW DETAILS'}</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -253,11 +253,11 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
         <div className="mt-10 sm:mt-12 p-6 sm:p-8 rounded-2xl sm:rounded-[24px] bg-white dark:bg-[#0E1838] border border-[#E2E8F0] dark:border-[#1E293B] shadow-sm">
           <div className="text-center max-w-xl mx-auto mb-6">
             <span className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-bold block mb-1">
-              {isRtl ? 'استانداردهای مهندسی روشنا' : 'Roshna Engineering Standards'}
+              {isRtl ? 'معیارهای انجنیری روشنا' : 'Roshna Engineering Standards'}
             </span>
             <h3 className="font-serif-heading text-xl sm:text-2xl text-[#0A1128] dark:text-white">
               {isRtl
-                ? '۷ ویژگی ممتاز کلید و پریزهای ساختمانی روشنا'
+                ? '۷ ویژگی ممتاز سویچ و ساکت‌های ساختمانی روشنا'
                 : '7 Core Engineering & Safety Features'}
             </h3>
           </div>

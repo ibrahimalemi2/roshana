@@ -74,14 +74,14 @@ export const BrandVideoSection: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0A1428] text-white border border-[#D4AF37]/40 shadow-xs mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37]">
-              {isRtl ? 'سری معماری D8 روشنا' : 'ROSHNA D8 ARCHITECTURAL SERIES'}
+              {isRtl ? 'سلسله انجنیری D8 روشنا' : 'ROSHNA D8 ARCHITECTURAL SERIES'}
             </span>
           </div>
 
           {/* Main Title - Perfectly Balanced */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black uppercase text-[#0A1428] dark:text-white tracking-tight leading-tight">
             {isRtl ? (
-              'درون بی‌نقص. فرمی خالص و ساده.'
+              'درون بی‌نقص. ساختار ساده و ناب.'
             ) : (
               <>
                 <span className="block sm:inline">EXQUISITE IN CORE. </span>
@@ -93,7 +93,7 @@ export const BrandVideoSection: React.FC = () => {
           {/* Subtitle */}
           <p className="mt-2.5 text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-xl mx-auto">
             {isRtl
-              ? 'ویدیوی رسمی معرفی و راهنمای نصب سری D8 روشنا ولت با ضخامت فوق باریک ۲.۵ میلی‌متری و مکانیزم فشاری نوآورانه بر روی قوطی‌های استاندارد ۸۶ میلی‌متری.'
+              ? 'ویدیوی رسمی معرفی و رهنمود نصب سلسله D8 روشنا ولت با ضخامت بسیار باریک ۲.۵ میلی‌متری و ساختار فشاری نوآورانه روی قوطی‌های معیاری ۸۶ میلی‌متری.'
               : 'Watch the official product presentation and installation guide for the Roshna Volt D8 Series with an ultra-thin 2.5mm profile and snap-on architectural assembly.'}
           </p>
         </div>
@@ -121,7 +121,7 @@ export const BrandVideoSection: React.FC = () => {
               <div className="absolute top-3 left-3 rtl:left-auto rtl:right-3 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0A1428]/90 backdrop-blur-md border border-[#D4AF37]/30 text-white shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-slate-200">
-                  {isRtl ? 'معرفی سری D8 · کیفیت 1080p' : 'D8 Series · 1080p Ultra HD'}
+                  {isRtl ? 'معرفی سلسله D8 · کیفیت 1080p' : 'D8 Series · 1080p Ultra HD'}
                 </span>
               </div>
 
@@ -176,10 +176,10 @@ export const BrandVideoSection: React.FC = () => {
                   {/* Play Prompt Text */}
                   <div className="text-center px-4">
                     <span className="inline-block text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-white drop-shadow-md">
-                      {isRtl ? 'مشاهده ویدیوی معرفی و نصب' : 'PLAY PRODUCT & INSTALLATION VIDEO'}
+                      {isRtl ? 'دیدن ویدیوی معرفی و نصب' : 'PLAY PRODUCT & INSTALLATION VIDEO'}
                     </span>
                     <span className="block text-[11px] text-[#D4AF37] font-medium tracking-wider mt-1">
-                      {isRtl ? 'مدت زمان: ۰۱:۲۰ دقیقه · کلیک جهت پخش' : 'Duration: 1:20 min · Click to Play'}
+                      {isRtl ? 'مدت زمان: ۰۱:۲۰ دقیقه · کلیک جهت دیدن' : 'Duration: 1:20 min · Click to Play'}
                     </span>
                   </div>
                 </div>
@@ -201,11 +201,11 @@ export const BrandVideoSection: React.FC = () => {
               </span>
             </div>
             <h3 className="text-base sm:text-lg font-black uppercase text-[#0A1428] dark:text-white tracking-tight">
-              {isRtl ? 'ضخامت فوق‌باریک ۲.۵ میلی‌متر' : '2.5mm Ultra Thin Profile'}
+              {isRtl ? 'ضخامت بسیار باریک ۲.۵ میلی‌متر' : '2.5mm Ultra Thin Profile'}
             </h3>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
               {isRtl
-                ? 'فریم باریک و لبه‌های مهندسی‌شده که تقریباً هم‌سطح دیوار قرار گرفته و نمایی مینی‌مال و فوق‌العاده مدرن در فضاهای معماری خلق می‌کند.'
+                ? 'فریم باریک و کناره‌های انجنیری‌شده که هم‌سطح دیوار قرار گرفته و نمایی عصری و مینی‌مال در فضای تعمیرات خلق می‌نماید.'
                 : 'Ultra-low bezel profile engineered to sit virtually flush against interior walls for an uninterrupted, clean architectural line.'}
             </p>
           </div>
@@ -217,15 +217,15 @@ export const BrandVideoSection: React.FC = () => {
                 <Wrench className="w-6 h-6 stroke-[1.8]" />
               </div>
               <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-slate-100 dark:bg-[#050814] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
-                {isRtl ? 'نصب فشاری' : 'Snap-On'}
+                {isRtl ? 'نصب تکمه‌ای' : 'Snap-On'}
               </span>
             </div>
             <h3 className="text-base sm:text-lg font-black uppercase text-[#0A1428] dark:text-white tracking-tight">
-              {isRtl ? 'نصب دکمه‌ای فشاری (Snap-On)' : 'Snap-On Button Installation'}
+              {isRtl ? 'نصب تکمه‌ای فشاری (Snap-On)' : 'Snap-On Button Installation'}
             </h3>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
               {isRtl
-                ? 'قاب جلویی بدون پیچ و ابزار با یک فشار ساده قفل می‌شود. باز و بستن سریع جهت سیم‌کشی، نقاشی ساختمان و تعویض رنگ بدون آسیب به مکانیزم.'
+                ? 'روپوش پیش‌رو بدون ضرورت به پیچ و سامان با یک فشار ساده قفل می‌گردد. باز و بسته شدن سریع برای لین‌دوانی، رنگ‌مالی تعمیر و تبدیل رنگ بدون آسیب به مکانیزم.'
                 : 'Tool-free faceplate snap locks firmly into place in seconds. Enables fast inspection, painter masking protection, and effortless cover replacement.'}
             </p>
           </div>
@@ -241,11 +241,11 @@ export const BrandVideoSection: React.FC = () => {
               </span>
             </div>
             <h3 className="text-base sm:text-lg font-black uppercase text-[#0A1428] dark:text-white tracking-tight">
-              {isRtl ? 'سازگاری کامل با قوطی ۸۶ میلی‌متر' : 'Standard 86mm Box Fit'}
+              {isRtl ? 'سازگاری کامل با قوطی معیاری ۸۶ میلی‌متر' : 'Standard 86mm Box Fit'}
             </h3>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
               {isRtl
-                ? 'طراحی جهانی سازگار با تمامی قوطی‌های استاندارد ۸۶×۸۶ میلی‌متری بازار به همراه سوراخ‌های تنظیم تراز و شاسی فولادی تقویت‌شده.'
+                ? 'دیزاین جهانی و سازگار با تمامی قوطی‌های معیاری ۸۶×۸۶ میلی‌متری در بازار همراه با سوراخ‌های عیارکاری و شاسی فولادی محکم.'
                 : 'Universal fit engineered for all standard 86×86mm electrical wall boxes. Equipped with multi-point leveling slots for permanent flat alignment.'}
             </p>
           </div>

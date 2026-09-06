@@ -11,7 +11,7 @@ export const FAQSection: React.FC = () => {
   };
 
   const whatsappFaqUrl = isRtl
-    ? 'https://wa.me/93780880007?text=سلام%20روشنا%20ولت،%20سوالی%20درباره%20کلید%20و%20پریزها%20دارم.'
+    ? 'https://wa.me/93780880007?text=سلام%20روشنا%20ولت،%20سوالی%20درباره%20سویچ‌ها%20و%20ساکت‌ها%20دارم.'
     : 'https://wa.me/93780880007?text=Hello%20Roshna%20Volt,%20I%20have%20an%20inquiry%20regarding%20switches%20and%20sockets.';
 
   return (
@@ -58,7 +58,7 @@ export const FAQSection: React.FC = () => {
                 </a>
                 <div className="flex items-center gap-3 text-slate-400">
                   <Clock className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>{isRtl ? 'شنبه تا پنج‌شنبه: ۸:۳۰ صبح تا ۶:۳۰ عصر' : 'Sat–Thu: 8:30 AM – 6:30 PM'}</span>
+                  <span>{isRtl ? 'شنبه الی پنج‌شنبه: ۸:۳۰ صبح الی ۶:۳۰ شام' : 'Sat–Thu: 8:30 AM – 6:30 PM'}</span>
                 </div>
               </div>
 
@@ -74,7 +74,7 @@ export const FAQSection: React.FC = () => {
                 </a>
                 <a
                   href={`mailto:info@roshna.co?subject=${encodeURIComponent(
-                    isRtl ? 'مشاوره سفارش کلید و پریز روشنا ولت' : 'Roshna Volt Switches & Sockets Consultation'
+                    isRtl ? 'مشوره و فرمایش سویچ و ساکت روشنا ولت' : 'Roshna Volt Switches & Sockets Consultation'
                   )}`}
                   className="flex-1 text-center py-3 px-4 bg-[#050814] hover:bg-[#14224D] text-[#D4AF37] border border-[#D4AF37]/40 rounded-full text-xs uppercase font-bold tracking-wider cursor-pointer transition-colors"
                 >

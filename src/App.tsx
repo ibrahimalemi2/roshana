@@ -60,7 +60,7 @@ function MainAppContent() {
         return [...prevCart, { product, quantity: 1, selectedColor }];
       }
     });
-    showToast(isRtl ? `${localizedName} به سبد خرید افزوده شد.` : `Added ${localizedName} to shopping bag.`);
+    showToast(isRtl ? `${localizedName} به سبد فرمایشات افزوده شد.` : `Added ${localizedName} to shopping bag.`);
   };
 
   const handleUpdateQuantity = (productId: string, selectedColor: string, newQty: number) => {
@@ -86,7 +86,7 @@ function MainAppContent() {
   };
 
   const handleCheckout = () => {
-    showToast(isRtl ? 'جزئیات سفارش شما آماده شد و در واتس‌اپ باز گردید.' : 'Your order details have been prepared and opened in WhatsApp.');
+    showToast(isRtl ? 'جزئیات فرمایش شما آماده گردید و در واتس‌اپ باز شد.' : 'Your order details have been prepared and opened in WhatsApp.');
     setCart([]);
   };
 

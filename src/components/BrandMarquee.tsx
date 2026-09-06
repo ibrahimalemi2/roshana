@@ -23,13 +23,13 @@ const MARQUEE_ITEMS: MarqueeItem[] = [
   {
     id: 'm1',
     textEn: 'SWITCH TO QUALITY',
-    textFa: 'انتخاب کیفیت برتر',
+    textFa: 'سویچ به کیفیت برتر',
     iconName: 'zap'
   },
   {
     id: 'm2',
     textEn: '2.5MM ULTRA THIN',
-    textFa: 'ضخامت ۲.۵ میلی‌متر فوق باریک',
+    textFa: 'ضخامت ۲.۵ میلی‌متر بسیار باریک',
     highlight: true,
     iconName: 'layers'
   },
@@ -45,13 +45,13 @@ const MARQUEE_ITEMS: MarqueeItem[] = [
   {
     id: 'm3',
     textEn: 'FLAME RETARDANT V-0',
-    textFa: 'پلیمر نسوز استاندارد V-0',
+    textFa: 'پلیمر نسوز معیاری V-0',
     iconName: 'flame'
   },
   {
     id: 'm4',
     textEn: 'STANDARD 86MM FIT',
-    textFa: 'سازگاری کامل با قوطی ۸۶ میلی‌متر',
+    textFa: 'سازگاری کامل با قوطی معیاری ۸۶ میلی‌متر',
     highlight: true,
     iconName: 'box'
   },
@@ -67,13 +67,13 @@ const MARQUEE_ITEMS: MarqueeItem[] = [
   {
     id: 'm5',
     textEn: '50,000+ TESTED ACTUATIONS',
-    textFa: '+۵۰,۰۰۰ عملکرد تضمین‌شده',
+    textFa: '+۵۰,۰۰۰ مرتبه کارکرد تضمین‌شده',
     iconName: 'check'
   },
   {
     id: 'm6',
     textEn: 'ANTI-ALLERGIC VELVET MATTE',
-    textFa: 'سطح مات ضدحساسیت و بهداشتی',
+    textFa: 'سطح مات ضد حساسیت جلدی و پاکیزه',
     iconName: 'gem'
   },
 
@@ -88,13 +88,13 @@ const MARQUEE_ITEMS: MarqueeItem[] = [
   {
     id: 'm7',
     textEn: 'SOLID BRASS TERMINALS',
-    textFa: 'پایه‌های برنجی با رسانایی ممتاز',
+    textFa: 'ترمینال‌های برنجی با هدایت برقی عالی',
     iconName: 'shield'
   },
   {
     id: 'm8',
     textEn: 'CHILD-SAFE PROTECTION',
-    textFa: 'شاتر ایمنی محافظت از کودک',
+    textFa: 'شاتر مصئون برای حفاظت اطفال',
     highlight: true,
     iconName: 'shield'
   }
@@ -148,16 +148,20 @@ export const BrandMarquee: React.FC = () => {
               className="inline-flex items-center gap-3 sm:gap-4 px-4 sm:px-6 shrink-0"
             >
               {item.isLogo ? (
-                /* Official ROSHNA Logo Badge */
-                <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-white/[0.04] border border-[#D4AF37]/40 shadow-xs hover:border-[#D4AF37] transition-all">
+                /* Official ROSHNA Brand Emblem & Logo Badge */
+                <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 rounded-full bg-white border border-[#D4AF37]/60 shadow-sm hover:border-[#D4AF37] hover:shadow-[0_0_12px_rgba(212,175,55,0.35)] transition-all">
                   <img
-                    src="/assets/roshna-brand-vector-white.svg"
+                    src="/assets/roshna-volt-emblem.png"
                     alt="ROSHNA"
-                    className="h-4 sm:h-5 w-auto object-contain shrink-0"
+                    className="h-5 sm:h-6 w-auto object-contain shrink-0 select-none"
+                    loading="eager"
                     onError={(e) => {
-                      e.currentTarget.src = '/assets/roshna-logo-1024-white.png';
+                      e.currentTarget.src = '/assets/roshna-logo-official-no-volt.png';
                     }}
                   />
+                  <span className="text-xs sm:text-sm font-black tracking-wider text-[#0A1428] uppercase whitespace-nowrap">
+                    {isRtl ? 'روشنا' : 'ROSHNA'}
+                  </span>
                 </div>
               ) : (
                 <>

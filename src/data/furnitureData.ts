@@ -4,10 +4,10 @@ import { IMAGES } from './imageAssets';
 export const HERO_SLIDES: HeroSlide[] = [
   {
     id: 'hero-1',
-    title: '1G 1W 10A SWITCH (سویچ تک خانه تک مسیر)',
+    title: '1G 1W 10A SWITCH (سویچ تک تکمه یک‌مسیره)',
     headline: 'Powering Quality. Inspiring Tomorrow.',
     category: 'Switches',
-    tagline: '10A 250V~ | Ultra Thin (بسیار نازک) | Luxury Design (طراحی لوکس). Velvet-matte tactile touch.',
+    tagline: '10A 250V~ | Ultra Thin (بسیار باریک) | Luxury Design (دیزاین لوکس). Velvet-matte tactile touch.',
     price: 90.01,
     image: IMAGES.SINGLE_SWITCH_WARM_CREAM,
     material: 'Flame-Retardant Polymer & Solid Brass Terminals',
@@ -16,10 +16,10 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: 'hero-2',
-    title: '2G 1W 10A SWITCH (سویچ دو خانه تک مسیر)',
+    title: '2G 1W 10A SWITCH (سویچ دو تکمه یک‌مسیره)',
     headline: 'Modern Dual Gang Control',
     category: 'Switches',
-    tagline: '10A 250V~ | Ultra Thin (بسیار نازک) | Luxury Design (طراحی لوکس). Dual rocker control.',
+    tagline: '10A 250V~ | Ultra Thin (بسیار باریک) | Luxury Design (دیزاین لوکس). Dual rocker control.',
     price: 110,
     image: IMAGES.DUAL_SWITCH_DARK_MARBLE,
     material: 'Reinforced PC with Anti-Allergic Surface',
@@ -28,10 +28,10 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: 'hero-3',
-    title: '2P+E SOCKET (ساکت دو پین با ارت)',
+    title: '2P+E SOCKET (ساکت دو پین ارت‌دار)',
     headline: 'Safe & Reliable Power',
     category: 'Sockets',
-    tagline: '16A 250V~ | Ultra Thin (بسیار نازک) | Luxury Design (طراحی لوکس). Grounded child protection.',
+    tagline: '16A 250V~ | Ultra Thin (بسیار باریک) | Luxury Design (دیزاین لوکس). Grounded child protection.',
     price: 125,
     image: IMAGES.WALL_SOCKET_CREAM_FLUTED,
     material: 'Flame-Retardant Body & High-Elasticity Brass',
@@ -44,7 +44,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'roshna-sw-01',
     name: '1G 1W 10A SWITCH',
-    subtitle: 'سویچ تک خانه تک مسیر ۱۰ آمپر',
+    subtitle: 'سویچ تک تکمه یک‌مسیره ۱۰ آمپر',
     category: 'Switches',
     collection: 'Roshna Modern Series',
     price: 90.01,
@@ -60,30 +60,30 @@ export const PRODUCTS: Product[] = [
     ],
     dimensions: 'W 86mm × H 86mm × D 9.2mm (Mounting Depth: 25mm)',
     material: 'Flame-Retardant Polymer, Phosphor Bronze Clips, Heavy-Duty Steel Mounting Subframe',
-    description: 'سویچ تک خانه تک مسیر ۱۰ آمپر با طراحی لوکس و بسیار نازک (Ultra Thin). دارای سطح مات ضد باکتری و ضد حساسیت، مقاوم در برابر حرارت و ساخته شده از پلیمر با کیفیت ممتاز.',
+    description: 'سویچ تک تکمه یک‌مسیره ۱۰ آمپر با دیزاین لوکس و بسیار باریک (Ultra Thin). دارای رویه مات ضد باکتری و ضد حساسیت جلدی، مقاوم در برابر حرارت و ساخته شده از پلیمر با کیفیت ممتاز.',
     badge: 'AFN 90.01',
     colorOptions: [
       { name: 'Pure Matte White', hex: '#F7F7F7' }
     ],
     features: [
       '10 A 250 V~',
-      'بسیار نازک (Ultra Thin)',
-      'طراحی لوکس (Luxury Design)',
+      'بسیار باریک (Ultra Thin)',
+      'دیزاین لوکس (Luxury Design)',
       'سطح ضد باکتری (Antibacterial Surface)',
-      'مواد غیر حساسیت زا (Non-Allergenic)',
+      'مواد ضد حساسیت جلدی (Non-Allergenic)',
       'مقاوم در برابر حرارت (Heat Resistant)',
       'عمر طولانی و دوام بالا'
     ],
     inStock: true,
     modelCode: '1G 1W 10A SWITCH',
     ratedPower: '10 A 250 V~',
-    profile: 'Ultra Thin (بسیار نازک)',
-    designStyle: 'Luxury Design (طراحی لوکس)'
+    profile: 'Ultra Thin (بسیار باریک)',
+    designStyle: 'Luxury Design (دیزاین لوکس)'
   },
   {
     id: 'roshna-sw-02',
     name: '2G 1W 10A SWITCH',
-    subtitle: 'سویچ دو خانه تک مسیر ۱۰ آمپر',
+    subtitle: 'سویچ دو تکمه یک‌مسیره ۱۰ آمپر',
     category: 'Switches',
     collection: 'Roshna Modern Series',
     price: 110,
@@ -99,16 +99,16 @@ export const PRODUCTS: Product[] = [
     ],
     dimensions: 'W 86mm × H 86mm × D 9.2mm',
     material: 'High-Impact Flame-Retardant PC, Solid Brass Terminals, Reinforced Steel Base',
-    description: 'سویچ دو خانه تک مسیر ۱۰ آمپر با طراحی لوکس و بسیار نازک (Ultra Thin). دارای مکانیزم دوپل نرم و دقیق، پلیمر با کیفیت ممتاز و عمر طولانی و دوام بالا.',
+    description: 'سویچ دو تکمه یک‌مسیره ۱۰ آمپر با دیزاین لوکس و بسیار باریک (Ultra Thin). دارای مکانیزم دوپله نرم و دقیق، پلیمر با کیفیت ممتاز و عمر طولانی و دوام بالا.',
     badge: 'AFN 110',
     colorOptions: [
       { name: 'Pure Matte White', hex: '#F7F7F7' }
     ],
     features: [
       '10 A 250 V~',
-      'بسیار نازک (Ultra Thin)',
-      'طراحی لوکس (Luxury Design)',
-      'کنترل دوگانه تک مسیر',
+      'بسیار باریک (Ultra Thin)',
+      'دیزاین لوکس (Luxury Design)',
+      'کنترل دوگانه تک‌مسیره',
       'پلیمر با کیفیت ممتاز (Premium Polymer)',
       'مقاوم در برابر حرارت (Heat Resistant)',
       'عمر طولانی و دوام بالا'
@@ -116,13 +116,13 @@ export const PRODUCTS: Product[] = [
     inStock: true,
     modelCode: '2G 1W 10A SWITCH',
     ratedPower: '10 A 250 V~',
-    profile: 'Ultra Thin (بسیار نازک)',
-    designStyle: 'Luxury Design (طراحی لوکس)'
+    profile: 'Ultra Thin (بسیار باریک)',
+    designStyle: 'Luxury Design (دیزاین لوکس)'
   },
   {
     id: 'roshna-soc-01',
     name: '2P+E SOCKET',
-    subtitle: 'ساکت دو پین با ارت',
+    subtitle: 'ساکت دو پین ارت‌دار',
     category: 'Sockets',
     collection: 'Roshna Modern Series',
     price: 125,
@@ -139,25 +139,25 @@ export const PRODUCTS: Product[] = [
     ],
     dimensions: 'W 86mm × H 86mm × D 32mm (Recessed Depth: 24mm)',
     material: 'V-0 Fire-Resistant Polymer, Solid Brass Earth Clips, Cold-Rolled Steel Frame',
-    description: 'ساکت دو پین با ارت ۱۶ آمپر ۲۵۰ ولت با طراحی لوکس و بسیار نازک (Ultra Thin). امن و سازگار با محیط زیست، دارای محافظ داخلی کودک و نصب آسان بر روی قوطی‌های استاندارد.',
+    description: 'ساکت دو پین ارت‌دار ۱۶ آمپر ۲۵۰ ولت با دیزاین لوکس و بسیار باریک (Ultra Thin). مصئون و سازگار با محیط زیست، دارای محافظ داخلی اطفال و نصب آسان بر روی قوطی‌های معیاری.',
     badge: 'AFN 125',
     colorOptions: [
       { name: 'Pure Matte White', hex: '#F7F7F7' }
     ],
     features: [
       '16 A 250 V~',
-      'بسیار نازک (Ultra Thin)',
-      'طراحی لوکس (Luxury Design)',
-      'اتصال دو پین با ارت (2P+E)',
-      'امن و سازگار با محیط زیست (Eco-Friendly)',
+      'بسیار باریک (Ultra Thin)',
+      'دیزاین لوکس (Luxury Design)',
+      'اتصال دو پین ارت‌دار (2P+E)',
+      'مصئون و سازگار با محیط زیست (Eco-Friendly)',
       'نصب آسان (Easy Installation)',
       'مقاوم در برابر حرارت (Heat Resistant)'
     ],
     inStock: true,
     modelCode: '2P+E SOCKET',
     ratedPower: '16 A 250 V~',
-    profile: 'Ultra Thin (بسیار نازک)',
-    designStyle: 'Luxury Design (طراحی لوکس)'
+    profile: 'Ultra Thin (بسیار باریک)',
+    designStyle: 'Luxury Design (دیزاین لوکس)'
   }
 ];
 
@@ -351,7 +351,7 @@ export const ROSHNA_7_FEATURES: RoshnaFeature[] = [
   {
     id: 'feat-2',
     titleEn: 'Non-Allergenic Material',
-    titleFa: 'مواد غیر حساسیت زا',
+    titleFa: 'مواد ضد حساسیت جلدی',
     iconName: 'Leaf'
   },
   {
@@ -381,7 +381,7 @@ export const ROSHNA_7_FEATURES: RoshnaFeature[] = [
   {
     id: 'feat-7',
     titleEn: 'Safe & Eco-Friendly',
-    titleFa: 'امن و سازگار با محیط زیست',
+    titleFa: 'مصئون و سازگار با محیط زیست',
     iconName: 'HeartHandshake'
   }
 ];
@@ -413,9 +413,9 @@ export const ROSHNA_CONTACT_INFO = {
     },
     fa: {
       powering: 'کیفیت امروز روشنایی فردا',
-      headline: 'سویچ و ساکت های با کیفیت ممتاز',
-      tagline: 'طراحی مدرن | خانه های امن تر | روشنایی زندگی ها',
-      brandSub: 'کیفیت برتر، زندگی روشن‌تر'
+      headline: 'سویچ و ساکت‌های با کیفیت ممتاز',
+      tagline: 'دیزاین عصری | خانه‌های مصئون‌تر | زندگی‌های روشن‌تر',
+      brandSub: 'کیفیت عالی، زندگی روشن‌تر'
     }
   }
 };

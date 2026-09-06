@@ -21,29 +21,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const heroAsset = {
     single: {
       image: IMAGES.SINGLE_SWITCH_WARM_CREAM,
-      title: isRtl ? 'کلید تک پل مدرن — ۱ خانه ۱۰ آمپر' : 'Single-Gang Architectural Switch (1G 1W)',
-      subtitle: isRtl ? 'سطح مات مخملی ضد حساسیت و ضد لک' : 'Velvet Matte Anti-Allergic Surface',
-      tag: isRtl ? 'پروفیل باریک ۶.۵ میلی‌متر' : 'Ultra-Thin 6.5mm Profile',
+      title: isRtl ? 'سویچ تک تکمه عصری — ۱ خانه ۱۰ آمپر' : 'Single-Gang Architectural Switch (1G 1W)',
+      subtitle: isRtl ? 'سطح مات مخملی ضد حساسیت جلدی و ضد لکه' : 'Velvet Matte Anti-Allergic Surface',
+      tag: isRtl ? 'پروفیل بسیار باریک ۶.۵ میلی‌متر' : 'Ultra-Thin 6.5mm Profile',
       badgeType: 'led' as const,
-      badgeText: isRtl ? 'نشانگر LED فعال' : 'LED Active',
+      badgeText: isRtl ? 'چراغ LED فعال' : 'LED Active',
       productId: 'roshna-sw-01'
     },
     dual: {
       image: IMAGES.DUAL_SWITCH_DARK_MARBLE,
-      title: isRtl ? 'کلید دو پل مدرن — ۲ خانه ۱۰ آمپر' : 'Dual-Gang Minimalist Switch (2G 1W)',
-      subtitle: isRtl ? 'روکش پلی‌کربنات مات با رگه‌های طلایی مرمر' : 'Dark Marble Texture with Warm Gold Accents',
-      tag: isRtl ? 'پروفیل باریک ۶.۵ میلی‌متر' : 'Ultra-Thin 6.5mm Profile',
+      title: isRtl ? 'سویچ دو تکمه عصری — ۲ خانه ۱۰ آمپر' : 'Dual-Gang Minimalist Switch (2G 1W)',
+      subtitle: isRtl ? 'پوشش پلی‌کربنات مات با رگه‌های طلایی مرمر' : 'Dark Marble Texture with Warm Gold Accents',
+      tag: isRtl ? 'پروفیل بسیار باریک ۶.۵ میلی‌متر' : 'Ultra-Thin 6.5mm Profile',
       badgeType: 'led' as const,
-      badgeText: isRtl ? 'نشانگر LED فعال' : 'LED Active',
+      badgeText: isRtl ? 'چراغ LED فعال' : 'LED Active',
       productId: 'roshna-sw-02'
     },
     socket: {
       image: IMAGES.WALL_SOCKET_DARK_TIMBER,
-      title: isRtl ? 'پریز برق ارت‌دار مدرن — ۱۶ آمپر' : 'Grounded Architectural Power Socket (2P+E)',
-      subtitle: isRtl ? 'شاتر محافظ کودک دوطرفه و پلاتین‌های برنجی' : 'Child-Safe Dual Shutters & Solid Brass Terminals',
+      title: isRtl ? 'ساکت برق ارت‌دار عصری — ۱۶ آمپر' : 'Grounded Architectural Power Socket (2P+E)',
+      subtitle: isRtl ? 'شاتر محافظتی اطفال و ترمینال‌های برنجی مستحکم' : 'Child-Safe Dual Shutters & Solid Brass Terminals',
       tag: isRtl ? 'ظرفیت پیوسته ۱۶ آمپر' : 'High-Capacity 16A 250V~',
       badgeType: 'shield' as const,
-      badgeText: isRtl ? 'محافظ کودک ۱۶A' : 'Child-Safe 16A',
+      badgeText: isRtl ? 'محافظ اطفال ۱۶A' : 'Child-Safe 16A',
       productId: 'roshna-sk-01'
     }
   }[selectedAsset];
@@ -56,8 +56,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     products[0];
 
   return (
-    <section 
-      id="hero" 
+    <section
+      id="hero"
       className="relative bg-[#0A1428] text-white overflow-hidden border-b border-[#1A2B5E] transition-colors duration-300 select-none"
     >
       {/* Background Volumetric Lighting & Atmospheric Glow */}
@@ -68,25 +68,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Main Grid Content */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-12 sm:pt-14 sm:pb-16 lg:pt-16 lg:pb-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          
+
           {/* LEFT COLUMN: Editorial High-Contrast Typography Matching Reference Image */}
           <div className="lg:col-span-6 flex flex-col justify-center relative z-10">
             {/* Eyebrow in Signature Warm Gold */}
             <p className="text-[#D4AF37] tracking-[0.25em] text-xs sm:text-sm uppercase font-bold mb-3">
-              {isRtl ? 'راهکارهای برقی روشنا ولت' : 'ROSHNA VOLT ELECTRICAL SOLUTIONS'}
+              {isRtl ? 'خدمات و تجهیزات برقی روشنا ولت' : 'ROSHNA VOLT ELECTRICAL SOLUTIONS'}
             </p>
 
-            {/* Primary Bold Uppercase Headline (POWERING / A BRIGHTER / TOMORROW) */}
-            <h1 className="text-4xl sm:text-6xl lg:text-[68px] xl:text-[76px] font-black uppercase tracking-tight leading-[1.05] text-white mb-5 sm:mb-6">
-              <span className="block">{isRtl ? 'روشنایی' : 'POWERING'}</span>
-              <span className="block text-[#D4AF37]">{isRtl ? 'فردایی' : 'A BRIGHTER'}</span>
-              <span className="block">{isRtl ? 'درخشان‌تر' : 'TOMORROW'}</span>
+            {/* Primary Bold Uppercase Headline (Powering Quality / Inspiring Tomorrow) */}
+            <h1 className="text-3xl sm:text-5xl lg:text-[54px] xl:text-[64px] font-black uppercase tracking-tight leading-[1.08] text-white mb-5 sm:mb-6">
+              <span className="block">{isRtl ? 'کیفیت امروز' : 'POWERING QUALITY'}</span>
+              <span className="block text-[#D4AF37]">{isRtl ? 'روشنایی فردا' : 'INSPIRING TOMORROW'}</span>
             </h1>
 
             {/* Subtitle / Product Philosophy */}
             <p className="font-sans text-sm sm:text-base lg:text-[17px] text-slate-200 font-normal leading-relaxed max-w-lg mb-8 lg:mb-10">
-              {isRtl 
-                ? 'کلیدها و پریزهای با کیفیت برتر طراحی شده برای ایمنی، اطمینان و زندگی مدرن. ساخته شده با فناوری پیشرفته برای هر فضا.'
+              {isRtl
+                ? 'سویچ‌ها و ساکت‌های با کیفیت عالی، دیزاین شده برای مصئونیت، اطمینان و زندگی عصری. تولید شده با تکنالوژی پیشرفته برای هر محیط.'
                 : 'Premium quality switches & sockets designed for safety, reliability and modern living. Built with advanced technology for every space.'}
             </p>
 
@@ -96,10 +95,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 onClick={onExploreClick}
                 className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-lg btn-gold text-xs sm:text-sm uppercase tracking-wider font-bold shadow-lg shadow-[#D4AF37]/30 hover:shadow-xl hover:shadow-[#D4AF37]/40 transition-all duration-300 cursor-pointer"
               >
-                <span>{isRtl ? 'مشاهده محصولات' : 'EXPLORE PRODUCTS'}</span>
-                <ArrowRight className={`w-4 h-4 text-[#0A1428] transform transition-transform duration-300 ${
-                  isRtl ? 'rotate-180 group-hover:-translate-x-1.5' : 'group-hover:translate-x-1.5'
-                }`} />
+                <span>{isRtl ? 'دیدن محصولات' : 'EXPLORE PRODUCTS'}</span>
+                <ArrowRight className={`w-4 h-4 text-[#0A1428] transform transition-transform duration-300 ${isRtl ? 'rotate-180 group-hover:-translate-x-1.5' : 'group-hover:translate-x-1.5'
+                  }`} />
               </button>
 
               <button
@@ -109,15 +107,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 }}
                 className="inline-flex items-center px-7 py-3.5 rounded-lg border border-white/40 hover:border-[#D4AF37] hover:text-[#D4AF37] text-white text-xs sm:text-sm uppercase tracking-wider font-bold transition-all duration-300 bg-white/5 backdrop-blur-sm cursor-pointer"
               >
-                <span>{isRtl ? 'درباره روشنا ولت' : 'ABOUT ROSHNA VOLT'}</span>
+                <span>{isRtl ? 'در باره روشنا ولت' : 'ABOUT ROSHNA VOLT'}</span>
               </button>
             </div>
           </div>
 
           {/* RIGHT COLUMN: Architectural Switch Showcase with Ambient Gold Glow */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-end justify-center relative">
-            
-            <div 
+
+            <div
               className="relative w-full max-w-[440px] sm:max-w-[490px] lg:max-w-[530px] cursor-pointer group"
               onClick={() => onQuickView(matchingProduct)}
               title="Click for Technical Specifications"
@@ -183,13 +181,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   e.stopPropagation();
                   setSelectedAsset('single');
                 }}
-                className={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer whitespace-nowrap ${
-                  selectedAsset === 'single'
+                className={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer whitespace-nowrap ${selectedAsset === 'single'
                     ? 'bg-[#D4AF37] text-[#0A1428] font-bold shadow-xs'
                     : 'text-slate-400 hover:text-white'
-                }`}
+                  }`}
               >
-                {isRtl ? '۱. کلید تک پل' : '1. Single Switch'}
+                {isRtl ? '۱. سویچ تک تکمه' : '1. Single Switch'}
               </button>
 
               <button
@@ -198,13 +195,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   e.stopPropagation();
                   setSelectedAsset('dual');
                 }}
-                className={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer whitespace-nowrap ${
-                  selectedAsset === 'dual'
+                className={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer whitespace-nowrap ${selectedAsset === 'dual'
                     ? 'bg-[#D4AF37] text-[#0A1428] font-bold shadow-xs'
                     : 'text-slate-400 hover:text-white'
-                }`}
+                  }`}
               >
-                {isRtl ? '۲. کلید دو پل' : '2. Dual Switch'}
+                {isRtl ? '۲. سویچ دو تکمه' : '2. Dual Switch'}
               </button>
 
               <button
@@ -213,13 +209,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   e.stopPropagation();
                   setSelectedAsset('socket');
                 }}
-                className={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer whitespace-nowrap ${
-                  selectedAsset === 'socket'
+                className={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer whitespace-nowrap ${selectedAsset === 'socket'
                     ? 'bg-[#D4AF37] text-[#0A1428] font-bold shadow-xs'
                     : 'text-slate-400 hover:text-white'
-                }`}
+                  }`}
               >
-                {isRtl ? '۳. پریز برق ارت‌دار' : '3. Power Socket'}
+                {isRtl ? '۳. ساکت برق ارت‌دار' : '3. Power Socket'}
               </button>
             </div>
 
@@ -229,7 +224,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* BOTTOM FEATURE ROW: 4 Pillars Matching Reference Flyer (100% Safe, Fire Retardant, Durable, Easy Installation) */}
         <div className="pt-10 sm:pt-12 mt-10 sm:mt-12 border-t border-white/15 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
-          
+
           {/* 1. 100% SAFE */}
           <div className="flex items-center gap-3.5 bg-white/[0.04] p-3.5 rounded-xl border border-white/10 hover:border-blue-400/50 transition-all">
             <div className="w-11 h-11 rounded-full border-2 border-blue-400/80 bg-blue-500/15 flex items-center justify-center shrink-0 text-blue-400 shadow-sm shadow-blue-500/20">
@@ -237,10 +232,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-                {isRtl ? '۱۰۰٪ ایمن' : '100% SAFE'}
+                {isRtl ? '۱۰۰٪ مصئون' : '100% SAFE'}
               </h4>
               <p className="text-[11px] text-slate-300 font-light leading-tight mt-0.5">
-                {isRtl ? 'محافظت کامل برای شما و خانواده' : 'Complete protection for you & your family'}
+                {isRtl ? 'مصئونیت کامل برای شما و خانواده تان' : 'Complete protection for you & your family'}
               </p>
             </div>
           </div>
@@ -252,10 +247,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-                {isRtl ? 'مقاوم در برابر آتش' : 'FIRE RETARDANT'}
+                {isRtl ? 'ضد حریق و نسوز' : 'FIRE RETARDANT'}
               </h4>
               <p className="text-[11px] text-slate-300 font-light leading-tight mt-0.5">
-                {isRtl ? 'مواد مقاوم در برابر حرارت بالا' : 'Heat resistant materials'}
+                {isRtl ? 'مواد مقاوم در برابر گرمای بلند' : 'Heat resistant materials'}
               </p>
             </div>
           </div>
@@ -267,10 +262,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-                {isRtl ? 'با دوام و مستحکم' : 'DURABLE'}
+                {isRtl ? 'بادوام و مستحکم' : 'DURABLE'}
               </h4>
               <p className="text-[11px] text-slate-300 font-light leading-tight mt-0.5">
-                {isRtl ? 'ساختار مقاوم برای طول عمر بالا' : 'Strong structure for long life'}
+                {isRtl ? 'ساختمان مقاوم برای طول عمر بلند' : 'Strong structure for long life'}
               </p>
             </div>
           </div>
@@ -285,7 +280,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 {isRtl ? 'نصب آسان و سریع' : 'EASY INSTALLATION'}
               </h4>
               <p className="text-[11px] text-slate-300 font-light leading-tight mt-0.5">
-                {isRtl ? 'نصب ساده، ایمن و بدون دردسر' : 'Simple, secure and quick setup'}
+                {isRtl ? 'نصب ساده، مصئون و آسان' : 'Simple, secure and quick setup'}
               </p>
             </div>
           </div>

@@ -20,26 +20,26 @@ export const NewsletterAndFooter: React.FC = () => {
   const [currency, setCurrency] = useState('AFN (؋)');
 
   const productLinks = [
-    { label: isRtl ? 'سویچ تک پل (1 Pole Switch)' : '1 Pole Switch', href: '#collection' },
-    { label: isRtl ? 'سویچ دو پل (2 Pole Switch)' : '2 Pole Switch', href: '#collection' },
-    { label: isRtl ? 'پریز برق چند منظوره' : 'Socket Outlet', href: '#collection' },
-    { label: isRtl ? 'تجهیزات جانبی و فریم' : 'Accessories', href: '#collection' }
+    { label: isRtl ? 'سویچ تک تکمه (1 Pole Switch)' : '1 Pole Switch', href: '#collection' },
+    { label: isRtl ? 'سویچ دو تکمه (2 Pole Switch)' : '2 Pole Switch', href: '#collection' },
+    { label: isRtl ? 'ساکت برق چندمنظوره' : 'Socket Outlet', href: '#collection' },
+    { label: isRtl ? 'پرزه‌جات و ملحقات' : 'Accessories', href: '#collection' }
   ];
 
   const quickLinks = [
     { label: isRtl ? 'صفحه نخست' : 'Home', href: '#hero' },
     { label: isRtl ? 'محصولات' : 'Products', href: '#collection' },
-    { label: isRtl ? 'فناوری و استاندارها' : 'Technology', href: '#craft' },
-    { label: isRtl ? 'درباره روشنا ولت' : 'About Us', href: '#hero' },
+    { label: isRtl ? 'تکنالوژی و معیارها' : 'Technology', href: '#craft' },
+    { label: isRtl ? 'در باره روشنا ولت' : 'About Us', href: '#hero' },
     { label: isRtl ? 'گالری فضاها' : 'Gallery', href: '#gallery' },
     { label: isRtl ? 'تماس با ما' : 'Contact', href: '#faq' }
   ];
 
   const supportLinks = [
-    { label: isRtl ? 'راهنمای نصب و سیم‌کشی' : 'Installation Guide', href: '#craft' },
-    { label: isRtl ? 'شرایط گارانتی ۱۰ ساله' : 'Warranty', href: '#faq' },
+    { label: isRtl ? 'رهنمای نصب و لین‌دوانی' : 'Installation Guide', href: '#craft' },
+    { label: isRtl ? 'شرایط تضمین ۱۰ ساله' : 'Warranty', href: '#faq' },
     { label: isRtl ? 'سوالات متداول (FAQs)' : 'FAQs', href: '#faq' },
-    { label: isRtl ? 'استعلام واتس‌اپ' : 'Download Catalog', href: ROSHNA_CONTACT_INFO.whatsappUrl, isExternal: true }
+    { label: isRtl ? 'معلومات در واتس‌اپ' : 'Download Catalog', href: ROSHNA_CONTACT_INFO.whatsappUrl, isExternal: true }
   ];
 
   return (
@@ -59,7 +59,7 @@ export const NewsletterAndFooter: React.FC = () => {
 
             <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed max-w-sm">
               {isRtl
-                ? 'روشنا ولت نامی معتبر در ارائه راهکارهای برقی با کیفیت بالا، طراحی شده برای ایمنی، قابلیت اطمینان و فردایی بهتر.'
+                ? 'روشنا ولت نامی بااعتماد در ارائه خدمات و تجهیزات برقی باکیفیت عالی، دیزاین شده برای مصئونیت، قابلیت اطمینان و فردای بهتر.'
                 : 'Roshna is a trusted name delivering high quality electrical solutions designed for safety, reliability and a better tomorrow.'}
             </p>
 
@@ -155,7 +155,7 @@ export const NewsletterAndFooter: React.FC = () => {
           {/* Column 4: CONTACT US (Matching Reference Flyer) */}
           <div className="md:col-span-2 space-y-4">
             <h4 className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold">
-              {isRtl ? 'ارتباط با ما' : 'CONTACT US'}
+              {isRtl ? 'تماس با ما' : 'CONTACT US'}
             </h4>
             <div className="space-y-3 text-xs text-slate-300">
               <div className="flex items-start gap-2.5">

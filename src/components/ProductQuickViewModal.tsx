@@ -16,13 +16,11 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
 }) => {
   const { t, isRtl } = useLanguage();
 
-  const [selectedImage, setSelectedImage] = useState<string>('');
   const [isAdded, setIsAdded] = useState(false);
 
   // Sync state whenever the active product opens
   useEffect(() => {
     if (product) {
-      setSelectedImage(product.image);
       setIsAdded(false);
     }
   }, [product]);
@@ -37,7 +35,7 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
   const isSocket = product.id === 'roshna-soc-01';
 
   const handleAdd = () => {
-    onAddToCart(product, product.colorOptions[0]?.name || 'Pure Matte White');
+    onAddToCart(product, product.colorOptions[0]?.name || 'Standard');
     setIsAdded(true);
     setTimeout(() => {
       setIsAdded(false);
@@ -70,30 +68,11 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
         <div className="bg-[#F8FAFC] dark:bg-[#050814] p-6 flex flex-col justify-center items-center border-b md:border-b-0 md:border-r rtl:md:border-r-0 rtl:md:border-l border-[#E2E8F0] dark:border-[#1E293B]">
           <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-white dark:bg-[#0A1128] shadow-xs border border-[#E2E8F0] dark:border-[#1E293B]">
             <img
-              src={selectedImage || product.image}
+              src={product.image}
               alt={productName}
               className="w-full h-full object-cover object-center"
             />
           </div>
-
-          {/* Minimal Thumbnails */}
-          {product.gallery && product.gallery.length > 0 && (
-            <div className="flex items-center gap-2 mt-3 overflow-x-auto max-w-full pb-1">
-              {[product.image, ...product.gallery.slice(0, 3)].map((img, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedImage(img)}
-                  className={`w-12 h-12 rounded-xl overflow-hidden border-2 transition-all shrink-0 cursor-pointer ${
-                    (selectedImage || product.image) === img
-                      ? 'border-[#D4AF37] ring-2 ring-[#D4AF37]/30'
-                      : 'border-[#E2E8F0] dark:border-[#1E293B] opacity-60 hover:opacity-100'
-                  }`}
-                >
-                  <img src={img} alt="Thumbnail" className="w-full h-full object-cover" />
-                </button>
-              ))}
-            </div>
-          )}
         </div>
 
         {/* Product Details Column */}
@@ -122,13 +101,13 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
               <div className="px-1 border-r border-[#E2E8F0] dark:border-[#1E293B] rtl:border-r-0 rtl:border-l">
                 <SlidersHorizontal className="w-3.5 h-3.5 text-[#D4AF37] mx-auto mb-0.5" />
                 <p className="text-[10px] font-bold text-[#0A1128] dark:text-white leading-tight">Ultra Thin</p>
-                <p className="text-[9px] text-slate-400 leading-tight">بسیار نازک</p>
+                <p className="text-[9px] text-slate-400 leading-tight">{isRtl ? 'بسیار باریک' : 'Ultra Thin'}</p>
               </div>
 
               <div className="px-1">
                 <Gem className="w-3.5 h-3.5 text-[#D4AF37] mx-auto mb-0.5" />
                 <p className="text-[10px] font-bold text-[#0A1128] dark:text-white leading-tight">Luxury Design</p>
-                <p className="text-[9px] text-slate-400 leading-tight">طراحی لوکس</p>
+                <p className="text-[9px] text-slate-400 leading-tight">{isRtl ? 'دیزاین لوکس' : 'Luxury Design'}</p>
               </div>
             </div>
 
@@ -154,7 +133,7 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
             {productFeatures.length > 0 && (
               <div className="pt-2 space-y-1.5">
                 <span className="text-[11px] uppercase tracking-wider font-semibold text-[#D4AF37] block">
-                  {isRtl ? 'ویژگی‌های کلیدی:' : 'Key Features:'}
+                  {isRtl ? 'مشخصات عمده:' : 'Key Features:'}
                 </span>
                 <ul className="space-y-1 text-xs text-slate-700 dark:text-slate-300 font-sans-body">
                   {productFeatures.map((feat, i) => (

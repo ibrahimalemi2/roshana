@@ -35,14 +35,14 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
             {/* Left Text Block */}
             <div className="lg:col-span-4">
               <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold block mb-2">
-                {isRtl ? 'فناوری پیشرفته' : 'ADVANCED TECHNOLOGY'}
+                {isRtl ? 'تکنالوژی پیشرفته' : 'ADVANCED TECHNOLOGY'}
               </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase text-[#0A1428] dark:text-white leading-tight">
                 {isRtl ? 'کیفیت در تمام جزئیات' : 'QUALITY IN EVERY DETAIL'}
               </h2>
               <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                 {isRtl 
-                  ? 'محصولات روشنا ولت با استفاده از مواد پلی‌کربنات مرغوب با مقاومت بالا در برابر حرارت و آتش‌سوزی تولید شده و از شیوع باکتری‌ها جلوگیری می‌کنند.'
+                  ? 'محصولات روشنا ولت با استفاده از مواد پلی‌کربنات مرغوب با مقاومت بلند در برابر حرارت و آتش‌سوزی تولید شده و از شیوع باکتری‌ها و مکروب‌ها جلوگیری می‌کنند.'
                   : 'Roshna Volt products are manufactured using high quality polycarbonate materials that are heat resistant, flame retardant and prevent the spread of bacteria.'}
               </p>
             </div>
@@ -56,10 +56,10 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
                   <ShieldCheck className="w-6 h-6 stroke-[1.8]" />
                 </div>
                 <h4 className="text-xs font-black uppercase tracking-wider text-[#0A1428] dark:text-white">
-                  {isRtl ? 'مواد کاملاً ایمن' : 'SAFE MATERIAL'}
+                  {isRtl ? 'مواد کاملاً مصئون' : 'SAFE MATERIAL'}
                 </h4>
                 <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 max-w-[140px] leading-tight font-normal">
-                  {isRtl ? 'غیر سمی و ایمن برای تمام سنین' : 'Non-toxic & safe for all ages'}
+                  {isRtl ? 'غیر سمی و مصئون برای تمام سنین' : 'Non-toxic & safe for all ages'}
                 </p>
               </div>
 
@@ -72,7 +72,7 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
                   {isRtl ? 'آنتی باکتریال' : 'ANTI BACTERIAL'}
                 </h4>
                 <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 max-w-[140px] leading-tight font-normal">
-                  {isRtl ? 'سطح بهداشتی با تمیزکاری آسان' : 'Hygienic surface & easy to clean'}
+                  {isRtl ? 'سطح بهداشتی با قابلیت پاک‌کاری آسان' : 'Hygienic surface & easy to clean'}
                 </p>
               </div>
 
@@ -85,7 +85,7 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
                   {isRtl ? 'مقاوم به حرارت' : 'HEAT RESISTANT'}
                 </h4>
                 <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 max-w-[140px] leading-tight font-normal">
-                  {isRtl ? 'تحمل دمای بسیار بالا' : 'Withstands high temperature'}
+                  {isRtl ? 'تحمل حرارت و گرمای بلند' : 'Withstands high temperature'}
                 </p>
               </div>
 
@@ -98,7 +98,7 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
                   {isRtl ? 'پوشش لوکس' : 'PREMIUM FINISH'}
                 </h4>
                 <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 max-w-[140px] leading-tight font-normal">
-                  {isRtl ? 'طراحی شیک برای فضاهای مدرن' : 'Elegant design perfect for modern spaces'}
+                  {isRtl ? 'دیزاین شیک برای محیط‌های عصری' : 'Elegant design perfect for modern spaces'}
                 </p>
               </div>
 
@@ -117,10 +117,10 @@ export const InteractiveVisualBreak: React.FC<InteractiveVisualBreakProps> = () 
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
             <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold block mb-2">
-              {isRtl ? 'ستون‌های مهندسی' : 'CORE DESIGN ELEMENTS'}
+              {isRtl ? 'ستون‌های انجنیری' : 'CORE DESIGN ELEMENTS'}
             </span>
             <h3 className="text-2xl sm:text-4xl font-black uppercase text-[#0A1428] dark:text-white tracking-tight">
-              {isRtl ? 'طراحی متعادل و مهندسی ایمن' : 'BALANCED FORM & SAFE ENGINEERING'}
+              {isRtl ? 'دیزاین متوازن و مهندسی مصئون' : 'BALANCED FORM & SAFE ENGINEERING'}
             </h3>
             <p className="mt-2.5 font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-normal max-w-xl mx-auto leading-relaxed">
               {t.anatomy.subtitle}

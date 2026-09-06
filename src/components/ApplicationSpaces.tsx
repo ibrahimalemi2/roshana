@@ -9,26 +9,26 @@ export const ApplicationSpaces: React.FC = () => {
   const spaces = [
     {
       id: 'space-home',
-      title: isRtl ? 'منزل مسکونی' : 'HOME',
-      subtitle: isRtl ? 'پذیرایی و اتاق‌های خواب' : 'Living & Bedrooms',
+      title: isRtl ? 'منازل رهایشی' : 'HOME',
+      subtitle: isRtl ? 'صالون‌ها و اتاق‌های خواب' : 'Living & Bedrooms',
       image: IMAGES.WALL_PLATE_LIVING_PERSPECTIVE
     },
     {
       id: 'space-office',
       title: isRtl ? 'دفاتر کاری' : 'OFFICE',
-      subtitle: isRtl ? 'اتاق جلسات و شرکت‌ها' : 'Corporate Workspaces',
+      subtitle: isRtl ? 'شعبات، اتاق جلسات و شرکت‌ها' : 'Corporate Workspaces',
       image: IMAGES.TRIO_COUNTER_SHOWCASE
     },
     {
       id: 'space-hotel',
-      title: isRtl ? 'هتل‌ها' : 'HOTEL',
-      subtitle: isRtl ? 'اتاق‌های لوکس و لابی' : 'Luxury Hospitality',
+      title: isRtl ? 'هوتل‌ها' : 'HOTEL',
+      subtitle: isRtl ? 'اتاق‌های مجلل و لابی' : 'Luxury Hospitality',
       image: IMAGES.WALL_PLATE_AMBIENT_CORNER
     },
     {
       id: 'space-commercial',
-      title: isRtl ? 'مراکز تجاری' : 'COMMERCIAL',
-      subtitle: isRtl ? 'فروشگاه‌ها و سالن‌ها' : 'Retail & Showrooms',
+      title: isRtl ? 'مراکز تجارتی' : 'COMMERCIAL',
+      subtitle: isRtl ? 'دکان‌ها، مارکیت‌ها و سالون‌ها' : 'Retail & Showrooms',
       image: IMAGES.WALL_PLATE_ARCHITECTURAL_ISO
     }
   ];
@@ -44,15 +44,15 @@ export const ApplicationSpaces: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 sm:gap-6">
           <div>
             <div className="flex items-center gap-2 text-[#D4AF37] text-xs uppercase tracking-[0.2em] font-bold mb-2">
-              <span>{isRtl ? 'مناسب برای هر فضا' : 'PERFECT FOR EVERY SPACE'}</span>
+              <span>{isRtl ? 'مناسب برای هر محیط و فضا' : 'PERFECT FOR EVERY SPACE'}</span>
               <span className="w-8 h-[2px] bg-[#D4AF37]" />
             </div>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase text-[#0A1428] dark:text-white tracking-tight">
-              {isRtl ? 'طراحی شده برای زندگی مدرن' : 'MADE FOR MODERN LIVING'}
+              {isRtl ? 'دیزاین شده برای زندگی عصری' : 'MADE FOR MODERN LIVING'}
             </h2>
             <p className="font-sans text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal mt-1.5 max-w-xl">
               {isRtl 
-                ? 'از خانه‌ها تا دفاتر کاری و فضاهای تجاری، روشنا ولت زیبایی، ایمنی و کارایی را در همه جا به ارمغان می‌آورد.'
+                ? 'از منازل رهایشی الی دفاتر کاری و مراکز تجارتی، روشنا ولت زیبایی، مصئونیت و کارکرد عالی را به ارمغان می‌آورد.'
                 : 'From homes to offices and commercial spaces, Roshna Volt brings elegance, safety and performance everywhere.'}
             </p>
           </div>
@@ -65,7 +65,7 @@ export const ApplicationSpaces: React.FC = () => {
               }}
               className="px-5 py-2.5 rounded-lg bg-[#0A1428] text-white hover:bg-[#14224D] text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all shadow-sm cursor-pointer"
             >
-              <span>{isRtl ? 'مشاهده گالری' : 'VIEW GALLERY'}</span>
+              <span>{isRtl ? 'دیدن گالری' : 'VIEW GALLERY'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

@@ -32,10 +32,10 @@ export const BrandSignOffBanner: React.FC = () => {
                 <Zap className="w-4 h-4" />
               </div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-[#0A1428] dark:text-white">
-                {isRtl ? 'عملکرد بهینه' : 'OPTIMAL PERFORMANCE'}
+                {isRtl ? 'کارکرد عالی' : 'OPTIMAL PERFORMANCE'}
               </h4>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 font-normal mt-0.5 max-w-[170px] leading-tight">
-                {isRtl ? 'مهندسی برای بازدهی کامل' : 'Engineered for perfect performance'}
+                {isRtl ? 'مهندسی شده برای بازدهی کامل' : 'Engineered for perfect performance'}
               </p>
             </div>
 
@@ -45,10 +45,10 @@ export const BrandSignOffBanner: React.FC = () => {
                 <ShieldCheck className="w-4 h-4" />
               </div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-[#0A1428] dark:text-white">
-                {isRtl ? 'اتصال مطمئن' : 'RELIABLE CONNECTION'}
+                {isRtl ? 'وصلت مطمئن' : 'RELIABLE CONNECTION'}
               </h4>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 font-normal mt-0.5 max-w-[170px] leading-tight">
-                {isRtl ? 'اتصال برقی پایدار و ایمن' : 'Stable & secure electrical connection'}
+                {isRtl ? 'وصلت برقی پایدار و مصئون' : 'Stable & secure electrical connection'}
               </p>
             </div>
 
@@ -58,10 +58,10 @@ export const BrandSignOffBanner: React.FC = () => {
                 <Clock className="w-4 h-4" />
               </div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-[#0A1428] dark:text-white">
-                {isRtl ? 'طول عمر بالا' : 'LONG LIFESPAN'}
+                {isRtl ? 'طول عمر بلند' : 'LONG LIFESPAN'}
               </h4>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 font-normal mt-0.5 max-w-[170px] leading-tight">
-                {isRtl ? 'ساخته شده برای سال‌ها کارکرد' : 'Built to last, reliable for years'}
+                {isRtl ? 'ساخته شده برای سال‌ها کارکرد دوامدار' : 'Built to last, reliable for years'}
               </p>
             </div>
 
@@ -73,8 +73,8 @@ export const BrandSignOffBanner: React.FC = () => {
           {/* 3. Right: Signature Brand Slogan */}
           <div className="shrink-0 text-center lg:text-left rtl:lg:text-right border-t lg:border-t-0 pt-4 lg:pt-0">
             <h3 className="text-sm sm:text-base font-black uppercase text-[#0A1428] dark:text-white tracking-tight leading-snug">
-              <span>{isRtl ? 'به سوی کیفیت بروید،' : 'SWITCH TO QUALITY,'}</span><br />
-              <span className="text-[#0A1428] dark:text-[#D4AF37]">{isRtl ? 'به روشنا ولت بپیوندید.' : 'SWITCH TO ROSHNA VOLT.'}</span>
+              <span>{isRtl ? 'سویچ به کیفیت،' : 'SWITCH TO QUALITY,'}</span><br />
+              <span className="text-[#0A1428] dark:text-[#D4AF37]">{isRtl ? 'به روشنا ولت وصل شوید.' : 'SWITCH TO ROSHNA VOLT.'}</span>
             </h3>
           </div>
 

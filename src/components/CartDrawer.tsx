@@ -47,20 +47,20 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
   // Generate clean, formatted WhatsApp order message
   const generateWhatsAppMessage = () => {
     if (isRtl) {
-      let msg = `سلام و احترام، من می‌خواهم این سفارش را از وب‌سایت روشنا ولت ثبت کنم:\n\n`;
-      msg += `📦 اقلام سفارش:\n`;
+      let msg = `سلام و احترام، من می‌خواهم این فرمایش را از ویب‌سایت روشنا ولت ثبت نمایم:\n\n`;
+      msg += `📦 اقلام فرمایش:\n`;
       cart.forEach((item, index) => {
         const localizedName = t.showcase.products?.find((p) => p.id === item.product.id)?.name || item.product.name;
         msg += `${index + 1}. ${localizedName}\n`;
         msg += `   • تعداد: ${item.quantity} عدد\n`;
-        msg += `   • قیمت واحد: ${item.product.price.toLocaleString()} افغانی\n`;
+        msg += `   • قیمت فی دانه: ${item.product.price.toLocaleString()} افغانی\n`;
         msg += `   • مجموع: ${(item.product.price * item.quantity).toLocaleString()} افغانی\n\n`;
       });
       msg += `-------------------------\n`;
-      msg += `جمع اقلام: ${subtotal.toLocaleString()} افغانی\n`;
-      msg += `هزینه ارسال با پیک: ${deliveryCost === 0 ? 'رایگان' : `${deliveryCost.toLocaleString()} افغانی`}\n`;
+      msg += `مجموع اقلام: ${subtotal.toLocaleString()} افغانی\n`;
+      msg += `کرایه انتقال و ارسال: ${deliveryCost === 0 ? 'رایگان' : `${deliveryCost.toLocaleString()} افغانی`}\n`;
       msg += `مبلغ قابل پرداخت: ${total.toLocaleString()} افغانی\n\n`;
-      msg += `لطفاً جهت هماهنگی پرداخت (نقدی / حواله صرافی) و ارسال در افغانستان راهنمایی بفرمایید. با تشکر!`;
+      msg += `لطفاً جهت هماهنگی پرداخت (نقدی هنگام تحویل / حواله صرافی) و انتقال در کابل یا ولایات رهنمایی فرمایید. با تشکر!`;
       return encodeURIComponent(msg);
     } else {
       let msg = `Hello Roshna Volt, I would like to place an order from your website:\n\n`;

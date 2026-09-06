@@ -48,7 +48,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder={isRtl ? "جستجوی کلید، پریز یا متریال..." : "Search switches, sockets, materials..."}
+              placeholder={isRtl ? "جستجوی سویچ، ساکت یا مواد ساخت..." : "Search switches, sockets, materials..."}
               autoFocus
               className="w-full bg-transparent text-sm sm:text-base text-[#0A1128] dark:text-white placeholder-slate-400 focus:outline-none"
             />
@@ -73,7 +73,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         <div className="space-y-3 max-h-[60vh] overflow-y-auto pr-1 rtl:pr-0 rtl:pl-1">
           {filtered.length === 0 ? (
             <div className="text-center py-12 text-slate-400 font-sans-body">
-              <p className="text-sm">{isRtl ? "هیچ محصولی با این عبارت یافت نشد." : "No architectural hardware matches your search."}</p>
+              <p className="text-sm">{isRtl ? "هیچ محصولی با این کلمه یافت نشد." : "No architectural hardware matches your search."}</p>
             </div>
           ) : (
             filtered.map((item) => {
