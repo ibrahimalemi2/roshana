@@ -16,22 +16,44 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onQuickView
 }) => {
   const { isRtl, t } = useLanguage();
-  const [selectedAsset, setSelectedAsset] = useState<'dual' | 'single'>('dual');
-  const matchingProduct = products.find(p => p.name.toLowerCase().includes('switch')) || products[0];
+  const [selectedAsset, setSelectedAsset] = useState<'single' | 'dual' | 'socket'>('dual');
 
-  const heroAsset = selectedAsset === 'dual' 
-    ? {
-        image: IMAGES.DUAL_SWITCH_DARK_MARBLE,
-        title: isRtl ? 'کلید دو پل مدرن — سنگ مرمر تیره' : 'Dual-Gang Minimalist Switch',
-        subtitle: isRtl ? 'روکش پلی‌کربنات مات مخملی با رگه‌های طلایی' : 'Dark Marble Texture with Warm Gold Accents',
-        tag: isRtl ? 'پروفیل باریک ۶.۵ میلی‌متر' : 'Ultra-Thin 6.5mm Profile'
-      }
-    : {
-        image: IMAGES.SINGLE_SWITCH_WARM_CREAM,
-        title: isRtl ? 'کلید تک پل مدرن — سفید کرم' : 'Single-Gang Architectural Switch',
-        subtitle: isRtl ? 'سطح مات ضد حساسیت و ضد لک' : 'Velvet Matte Anti-Allergic Surface',
-        tag: isRtl ? 'پروفیل باریک ۶.۵ میلی‌متر' : 'Ultra-Thin 6.5mm Profile'
-      };
+  const heroAsset = {
+    single: {
+      image: IMAGES.SINGLE_SWITCH_WARM_CREAM,
+      title: isRtl ? 'کلید تک پل مدرن — ۱ خانه ۱۰ آمپر' : 'Single-Gang Architectural Switch (1G 1W)',
+      subtitle: isRtl ? 'سطح مات مخملی ضد حساسیت و ضد لک' : 'Velvet Matte Anti-Allergic Surface',
+      tag: isRtl ? 'پروفیل باریک ۶.۵ میلی‌متر' : 'Ultra-Thin 6.5mm Profile',
+      badgeType: 'led' as const,
+      badgeText: isRtl ? 'نشانگر LED فعال' : 'LED Active',
+      productId: 'roshna-sw-01'
+    },
+    dual: {
+      image: IMAGES.DUAL_SWITCH_DARK_MARBLE,
+      title: isRtl ? 'کلید دو پل مدرن — ۲ خانه ۱۰ آمپر' : 'Dual-Gang Minimalist Switch (2G 1W)',
+      subtitle: isRtl ? 'روکش پلی‌کربنات مات با رگه‌های طلایی مرمر' : 'Dark Marble Texture with Warm Gold Accents',
+      tag: isRtl ? 'پروفیل باریک ۶.۵ میلی‌متر' : 'Ultra-Thin 6.5mm Profile',
+      badgeType: 'led' as const,
+      badgeText: isRtl ? 'نشانگر LED فعال' : 'LED Active',
+      productId: 'roshna-sw-02'
+    },
+    socket: {
+      image: IMAGES.WALL_SOCKET_DARK_TIMBER,
+      title: isRtl ? 'پریز برق ارت‌دار مدرن — ۱۶ آمپر' : 'Grounded Architectural Power Socket (2P+E)',
+      subtitle: isRtl ? 'شاتر محافظ کودک دوطرفه و پلاتین‌های برنجی' : 'Child-Safe Dual Shutters & Solid Brass Terminals',
+      tag: isRtl ? 'ظرفیت پیوسته ۱۶ آمپر' : 'High-Capacity 16A 250V~',
+      badgeType: 'shield' as const,
+      badgeText: isRtl ? 'محافظ کودک ۱۶A' : 'Child-Safe 16A',
+      productId: 'roshna-sk-01'
+    }
+  }[selectedAsset];
+
+  const matchingProduct =
+    products.find(p => p.id === heroAsset.productId) ||
+    (selectedAsset === 'socket'
+      ? products.find(p => p.category.toLowerCase().includes('socket'))
+      : products.find(p => p.name.toLowerCase().includes('switch'))) ||
+    products[0];
 
   return (
     <section 
@@ -135,10 +157,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       {heroAsset.title}
                     </p>
                   </div>
-                  <div className="flex items-center gap-1 text-[11px] font-mono text-emerald-400 bg-emerald-950/70 border border-emerald-500/40 px-2.5 py-1 rounded-full backdrop-blur-sm shadow-xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>LED Active</span>
-                  </div>
+                  {heroAsset.badgeType === 'shield' ? (
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-amber-300 bg-amber-950/70 border border-amber-500/40 px-2.5 py-1 rounded-full backdrop-blur-sm shadow-xs">
+                      <Shield className="w-3.5 h-3.5 text-amber-400" />
+                      <span>{heroAsset.badgeText}</span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 bg-emerald-950/70 border border-emerald-500/40 px-2.5 py-1 rounded-full backdrop-blur-sm shadow-xs">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>{heroAsset.badgeText}</span>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -146,35 +175,51 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="w-3/4 h-5 bg-black/80 blur-xl mx-auto rounded-full mt-2 pointer-events-none" />
             </div>
 
-            {/* Quick Architectural Asset Switcher Pill */}
-            <div className="mt-3.5 inline-flex items-center bg-[#0D1832] p-1 rounded-full border border-[#D4AF37]/30 shadow-md">
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedAsset('dual');
-                }}
-                className={`px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer ${
-                  selectedAsset === 'dual'
-                    ? 'bg-[#D4AF37] text-[#0A1428] font-bold shadow-xs'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                Dual Gang · Dark Marble
-              </button>
+            {/* Quick Architectural 3-Product Switcher Pill */}
+            <div className="mt-4 inline-flex items-center bg-[#0D1832] p-1 sm:p-1.5 rounded-full border border-[#D4AF37]/35 shadow-lg max-w-full overflow-x-auto">
               <button
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedAsset('single');
                 }}
-                className={`px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer ${
+                className={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer whitespace-nowrap ${
                   selectedAsset === 'single'
                     ? 'bg-[#D4AF37] text-[#0A1428] font-bold shadow-xs'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                Single Gang · Warm Cream
+                {isRtl ? '۱. کلید تک پل' : '1. Single Switch'}
+              </button>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedAsset('dual');
+                }}
+                className={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer whitespace-nowrap ${
+                  selectedAsset === 'dual'
+                    ? 'bg-[#D4AF37] text-[#0A1428] font-bold shadow-xs'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {isRtl ? '۲. کلید دو پل' : '2. Dual Switch'}
+              </button>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedAsset('socket');
+                }}
+                className={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold transition-all cursor-pointer whitespace-nowrap ${
+                  selectedAsset === 'socket'
+                    ? 'bg-[#D4AF37] text-[#0A1428] font-bold shadow-xs'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {isRtl ? '۳. پریز برق ارت‌دار' : '3. Power Socket'}
               </button>
             </div>
 

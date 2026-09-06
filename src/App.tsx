@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { ProductShowcase } from './components/ProductShowcase';
+import { BrandVideoSection } from './components/BrandVideoSection';
 import { InteractiveVisualBreak } from './components/InteractiveVisualBreak';
 import { ApplicationSpaces } from './components/ApplicationSpaces';
 import { ValueProposition } from './components/ValueProposition';
@@ -143,7 +144,10 @@ function MainAppContent() {
           onQuickView={(p) => setQuickViewProduct(p)}
         />
 
-        {/* 3. Advanced Technology & Core Design Elements: Quality in Every Detail */}
+        {/* 3. D8 Series Video Presentation & Technical Installation Guide */}
+        <BrandVideoSection />
+
+        {/* 4. Advanced Technology & Core Design Elements: Quality in Every Detail */}
         <InteractiveVisualBreak />
 
         {/* 4. Perfect For Every Space: Made For Modern Living (Home, Office, Hotel, Commercial) */}

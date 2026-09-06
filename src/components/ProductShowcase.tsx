@@ -15,7 +15,8 @@ import {
   Cog,
   Wrench,
   HeartHandshake,
-  ArrowRight
+  ArrowRight,
+  Star
 } from 'lucide-react';
 import { Product } from '../types';
 import { useLanguage } from '../context/LanguageContext';
@@ -121,121 +122,124 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
           </div>
         </div>
 
-        {/* 3 Core Products Grid: Matching Reference Flyer Horizontal Card Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-7">
+        {/* 3 Core Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
           {filteredProducts.map((product, idx) => {
             const isAdded = addedProductId === product.id;
             const isFavorited = wishlist.includes(product.id);
-            const isSocket = product.id.includes('soc') || product.name.toLowerCase().includes('socket');
-            const isDual = product.id.includes('02') || product.name.toLowerCase().includes('2g');
+            const isSocket = product.id.includes('soc') || product.name.toLowerCase().includes('socket') || product.category.toLowerCase().includes('socket');
+            const isDual = product.id.includes('02') || product.name.toLowerCase().includes('2g') || product.name.toLowerCase().includes('dual');
             
-            // Reference flyer titles
-            const displayTitle = isSocket 
+            // Badges
+            const badgeText = idx === 0 
+              ? (isRtl ? 'پرفروش‌ترین' : 'BESTSELLER')
+              : idx === 1 
+                ? (isRtl ? 'ویرایش معماری' : 'ARCHITECTURAL EDIT')
+                : (isRtl ? 'طراحی پرچمدار' : 'FLAGSHIP DESIGN');
+
+            // Titles matching reference screenshot: 1 POLE SWITCH / 2 POLE SWITCH / SOCKET OUTLET
+            const displayTitle = isSocket
               ? (isRtl ? 'پریز برق چندمنظوره' : 'SOCKET OUTLET')
               : isDual
                 ? (isRtl ? 'سویچ دو قطبی (دو خانه)' : '2 POLE SWITCH')
                 : (isRtl ? 'سویچ یک قطبی (یک خانه)' : '1 POLE SWITCH');
 
+            // Subtitles: Single Switch / Double Switch / Universal Socket
             const displaySubtitle = isSocket
               ? (isRtl ? 'ساکت برق ارت‌دار' : 'Universal Socket')
               : isDual
                 ? (isRtl ? 'سویچ دو پل ۱۰ آمپر' : 'Double Switch')
                 : (isRtl ? 'سویچ تک پل ۱۰ آمپر' : 'Single Switch');
 
+            const priceText = `${product.price === 90.01 ? '90.01' : product.price} ${isRtl ? 'افغانی' : 'AFN'}`;
+
             return (
               <div
                 key={product.id}
                 onClick={() => onQuickView(product)}
-                className="group cursor-pointer bg-white dark:bg-[#0E1838] rounded-2xl p-5 sm:p-6 border border-[#E2E8F0] dark:border-[#1E293B] shadow-sm hover:shadow-xl hover:border-[#D4AF37] dark:hover:border-[#D4AF37] transition-all duration-300 relative flex flex-col justify-between"
+                className="group cursor-pointer flex flex-col justify-between bg-white dark:bg-[#0E1838] rounded-[24px] p-4 sm:p-5 border border-[#E2E8F0] dark:border-[#1E293B] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.35)] hover:shadow-xl hover:border-[#D4AF37]/60 dark:hover:border-[#D4AF37]/60 transition-all duration-300 relative select-none"
               >
-                {/* Horizontal Card Layout: Product Left, Spec Info Right */}
-                <div className="grid grid-cols-12 gap-4 sm:gap-5 items-center mb-4">
-                  
-                  {/* Left Column: Product Photo */}
-                  <div className="col-span-6 relative aspect-square rounded-xl overflow-hidden bg-[#F8FAFC] dark:bg-[#050814] border border-[#E2E8F0]/70 dark:border-[#1E293B] flex items-center justify-center p-2">
+                <div>
+                  {/* Top Image Container: Large Clear Architectural Wall Shot */}
+                  <div className="relative aspect-[4/3] w-full rounded-[18px] overflow-hidden bg-[#F8FAFC] dark:bg-[#050814] mb-4 border border-slate-200/60 dark:border-slate-800/60">
                     <img
                       src={product.image}
                       alt={displayTitle}
-                      className="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500 ease-out"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       loading="lazy"
                     />
 
-                    {/* Quick Wishlist Button */}
+                    {/* Top-Left Dark Pill Badge */}
+                    <div className="absolute top-3.5 left-3.5 rtl:left-auto rtl:right-3.5 z-10">
+                      <span className="px-3 py-1 rounded-full bg-[#0A1428]/90 text-white text-[10px] font-bold tracking-wider uppercase shadow-xs backdrop-blur-xs">
+                        {badgeText}
+                      </span>
+                    </div>
+
+                    {/* Top-Right Wishlist Heart Button */}
                     <button
                       onClick={(e) => toggleWishlist(product.id, e)}
-                      className="absolute top-2 left-2 z-10 w-7 h-7 rounded-full bg-white/90 dark:bg-[#0A1428]/90 text-[#0A1428] dark:text-white flex items-center justify-center backdrop-blur-xs transition-colors shadow-xs"
+                      className="absolute top-3.5 right-3.5 rtl:right-auto rtl:left-3.5 z-10 w-8.5 h-8.5 rounded-full bg-white/95 dark:bg-[#0A1428]/90 text-[#0A1428] dark:text-white flex items-center justify-center backdrop-blur-xs shadow-sm hover:scale-110 transition-transform cursor-pointer border border-slate-100 dark:border-slate-700"
                       aria-label="Wishlist"
                     >
                       <Heart
-                        className={`w-3.5 h-3.5 ${
-                          isFavorited ? 'fill-[#D4AF37] text-[#D4AF37]' : 'text-[#0A1428] dark:text-white'
+                        className={`w-4 h-4 ${
+                          isFavorited ? 'fill-[#D4AF37] text-[#D4AF37]' : 'text-slate-700 dark:text-slate-200 stroke-[1.75]'
                         }`}
                       />
                     </button>
                   </div>
 
-                  {/* Right Column: Icon + Title + Subtitle + View Details Link */}
-                  <div className="col-span-6 flex flex-col justify-between h-full py-1">
-                    <div>
-                      {/* Blue Rounded Square Icon Box from Reference Design */}
-                      <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center mb-3 shadow-sm shadow-blue-600/30">
-                        {isSocket ? (
-                          <ShieldPlus className="w-5 h-5" />
-                        ) : isDual ? (
-                          <Layers className="w-5 h-5" />
-                        ) : (
-                          <Zap className="w-5 h-5" />
-                        )}
-                      </div>
+                  {/* Middle Area: Title + Subtitle + View Details (Rating removed as requested) */}
+                  <div className="text-left rtl:text-right px-0.5">
+                    {/* Main Title */}
+                    <h3 className="font-black text-xl sm:text-2xl uppercase tracking-tight text-[#0A1428] dark:text-white leading-tight">
+                      {displayTitle}
+                    </h3>
 
-                      {/* Main Title (1 POLE SWITCH / 2 POLE SWITCH / SOCKET OUTLET) */}
-                      <h3 className="text-base sm:text-lg font-black uppercase text-[#0A1428] dark:text-white leading-tight">
-                        {displayTitle}
-                      </h3>
+                    {/* Sub-label */}
+                    <p className="text-sm text-slate-500 dark:text-slate-400 font-normal mt-1">
+                      {displaySubtitle}
+                    </p>
 
-                      {/* Sub-label */}
-                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">
-                        {displaySubtitle}
-                      </p>
-                    </div>
-
-                    {/* View Details Link in Blue / Gold */}
-                    <div className="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0A1428] dark:text-[#D4AF37] group-hover:text-[#D4AF37] transition-colors">
+                    {/* View Details Link with Arrow */}
+                    <div className="pt-3 mt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0A1428] dark:text-[#D4AF37] group-hover:text-[#D4AF37] transition-colors">
                       <span>{isRtl ? 'مشاهده جزئیات' : 'VIEW DETAILS'}</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
                     </div>
                   </div>
-
                 </div>
 
-                {/* Bottom Bar: Price & Fast Add-To-Bag Action */}
-                <div className="pt-3 border-t border-[#E2E8F0] dark:border-[#1E293B] flex items-center justify-between gap-3">
+                {/* Bottom Row: Official Price + Gold Add to Bag Pill Button */}
+                <div className="pt-3.5 mt-4 border-t border-[#E2E8F0] dark:border-[#1E293B] flex items-center justify-between gap-3 px-0.5">
+                  {/* Left: Official Price */}
                   <div>
-                    <span className="text-[10px] text-slate-400 uppercase tracking-wider block">
-                      {isRtl ? 'قیمت واحد' : 'Official Price'}
+                    <span className="text-[10px] text-slate-400 uppercase tracking-wider font-bold block">
+                      {isRtl ? 'قیمت واحد' : 'OFFICIAL PRICE'}
                     </span>
-                    <span className="font-mono text-sm sm:text-base font-bold text-[#0A1428] dark:text-[#D4AF37]">
-                      {product.price} AFN
+                    <span className="font-mono text-base sm:text-lg font-bold text-[#0A1428] dark:text-white mt-0.5 block">
+                      {priceText}
                     </span>
                   </div>
 
+                  {/* Right: Gold Add To Bag Pill Button */}
                   <button
                     onClick={(e) => handleAdd(product, e)}
-                    className={`py-2 px-3.5 rounded-lg text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer ${
+                    className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all cursor-pointer ${
                       isAdded
                         ? 'bg-[#0A1428] text-[#D4AF37] border border-[#D4AF37]'
-                        : 'btn-gold shadow-sm'
+                        : 'bg-[#D4AF37] hover:bg-[#C5A059] text-[#0A1428]'
                     }`}
                   >
                     {isAdded ? (
                       <>
-                        <Check className="w-3.5 h-3.5" />
-                        <span>{isRtl ? 'افزوده شد' : 'Added'}</span>
+                        <Check className="w-4 h-4 text-[#D4AF37]" />
+                        <span>{isRtl ? 'افزوده شد' : 'ADDED'}</span>
                       </>
                     ) : (
                       <>
-                        <ShoppingBag className="w-3.5 h-3.5 text-[#0A1428]" />
-                        <span>{isRtl ? 'خرید' : 'Add to Bag'}</span>
+                        <ShoppingBag className="w-4 h-4 text-[#0A1428]" />
+                        <span>{isRtl ? 'خرید' : 'ADD TO BAG'}</span>
                       </>
                     )}
                   </button>
