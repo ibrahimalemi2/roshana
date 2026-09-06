@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
+import { BrandMarquee } from './components/BrandMarquee';
 import { ProductShowcase } from './components/ProductShowcase';
 import { BrandVideoSection } from './components/BrandVideoSection';
 import { InteractiveVisualBreak } from './components/InteractiveVisualBreak';
@@ -136,6 +137,9 @@ function MainAppContent() {
           onExploreClick={() => handleNavigate('collection')}
           onQuickView={(p) => setQuickViewProduct(p)}
         />
+
+        {/* Brand Infinite Ticker Marquee */}
+        <BrandMarquee />
 
         {/* 2. Product Showcase Grids: Our Products - Premium Switches & Sockets */}
         <ProductShowcase

@@ -197,3 +197,42 @@ html.dark .ambient-glow {
 .cyan-glow-pulse {
   animation: cyan-pulse 4s ease-in-out infinite;
 }
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-scroll-rtl {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-rtl {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-rtl 32s linear infinite;
+  will-change: transform;
+}
+
+.group:hover .animate-marquee,
+.group:hover .animate-marquee-rtl,
+.animate-marquee:hover,
+.animate-marquee-rtl:hover {
+  animation-play-state: paused;
+}
