@@ -56,6 +56,8 @@ export const PRODUCTS: Product[] = [
       IMAGES.SINGLE_SWITCH_WARM_CREAM,
       IMAGES.SINGLE_SWITCH_STUDIO_ANGLED,
       IMAGES.SINGLE_SWITCH_MINIMAL_FLAT,
+      IMAGES.WALL_PLATE_AMBIENT_CORNER,
+      IMAGES.WALL_PLATE_ARCHITECTURAL_ISO,
       IMAGES.EXPLODED_SWITCH_COMPONENTS
     ],
     dimensions: 'W 86mm × H 86mm × D 9.2mm (Mounting Depth: 25mm)',
@@ -95,7 +97,9 @@ export const PRODUCTS: Product[] = [
       IMAGES.DUAL_SWITCH_DARK_MARBLE,
       IMAGES.DUAL_SWITCH_PERSPECTIVE,
       IMAGES.DUAL_SWITCH_MINIMAL_WALL,
-      IMAGES.DUAL_SWITCH_ELEVATION
+      IMAGES.DUAL_SWITCH_ELEVATION,
+      '/images/WhatsApp Image 2026-09-02 at 3.37.36 AM (2).jpeg',
+      IMAGES.STUDIO_PRODUCT_TRIO
     ],
     dimensions: 'W 86mm × H 86mm × D 9.2mm',
     material: 'High-Impact Flame-Retardant PC, Solid Brass Terminals, Reinforced Steel Base',
@@ -132,10 +136,13 @@ export const PRODUCTS: Product[] = [
     image: IMAGES.WALL_SOCKET_CREAM_FLUTED,
     gallery: [
       IMAGES.WALL_SOCKET_CREAM_FLUTED,
-      IMAGES.WALL_SOCKET_DARK_TIMBER,
       IMAGES.WALL_SOCKET_PROFILE_STUDIO,
+      IMAGES.WALL_SOCKET_DARK_TIMBER,
       IMAGES.WALL_SOCKET_FRONTAL_STUDIO,
-      IMAGES.WALL_SOCKET_MACRO_DETAIL
+      IMAGES.WALL_SOCKET_DARK_STONE,
+      IMAGES.WALL_SOCKET_STUDIO_PARTS,
+      IMAGES.WALL_SOCKET_EXPLODED_3PARTS,
+      IMAGES.WALL_SOCKET_COUNTER_TRIO
     ],
     dimensions: 'W 86mm × H 86mm × D 32mm (Recessed Depth: 24mm)',
     material: 'V-0 Fire-Resistant Polymer, Solid Brass Earth Clips, Cold-Rolled Steel Frame',

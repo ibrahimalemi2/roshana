@@ -16,7 +16,10 @@ import {
   Wrench,
   HeartHandshake,
   ArrowRight,
-  Star
+  Star,
+  ChevronLeft,
+  ChevronRight,
+  Camera
 } from 'lucide-react';
 import { Product } from '../types';
 import { useLanguage } from '../context/LanguageContext';
@@ -37,6 +40,31 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   const [activeCategoryKey, setActiveCategoryKey] = useState<string>('all');
   const [addedProductId, setAddedProductId] = useState<string | null>(null);
   const [wishlist, setWishlist] = useState<string[]>([]);
+  const [cardImageIndex, setCardImageIndex] = useState<Record<string, number>>({});
+
+  const handlePrevImage = (e: React.MouseEvent, pId: string, len: number) => {
+    e.stopPropagation();
+    setCardImageIndex((prev) => ({
+      ...prev,
+      [pId]: ((prev[pId] || 0) - 1 + len) % len
+    }));
+  };
+
+  const handleNextImage = (e: React.MouseEvent, pId: string, len: number) => {
+    e.stopPropagation();
+    setCardImageIndex((prev) => ({
+      ...prev,
+      [pId]: ((prev[pId] || 0) + 1) % len
+    }));
+  };
+
+  const handleSelectCardImage = (e: React.MouseEvent, pId: string, idx: number) => {
+    e.stopPropagation();
+    setCardImageIndex((prev) => ({
+      ...prev,
+      [pId]: idx
+    }));
+  };
 
   const categoryOptions = [
     { key: 'all', label: t.showcase.categories.all },
@@ -153,6 +181,10 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 
             const priceText = `${product.price === 90.01 ? '90.01' : product.price} ${isRtl ? 'افغانی' : 'AFN'}`;
 
+            const cardGallery = product.gallery && product.gallery.length > 0 ? product.gallery : [product.image];
+            const currentImgIdx = cardImageIndex[product.id] || 0;
+            const currentImg = cardGallery[currentImgIdx % cardGallery.length];
+
             return (
               <div
                 key={product.id}
@@ -160,21 +192,29 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                 className="group cursor-pointer flex flex-col justify-between bg-white dark:bg-[#0E1838] rounded-[24px] p-4 sm:p-5 border border-[#E2E8F0] dark:border-[#1E293B] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.35)] hover:shadow-xl hover:border-[#D4AF37]/60 dark:hover:border-[#D4AF37]/60 transition-all duration-300 relative select-none"
               >
                 <div>
-                  {/* Top Image Container: Large Clear Architectural Wall Shot */}
-                  <div className="relative aspect-[4/3] w-full rounded-[18px] overflow-hidden bg-[#F8FAFC] dark:bg-[#050814] mb-4 border border-slate-200/60 dark:border-slate-800/60">
+                  {/* Top Image Container: Multi-angle browsing */}
+                  <div className="relative aspect-[4/3] w-full rounded-[18px] overflow-hidden bg-[#F8FAFC] dark:bg-[#050814] mb-3 border border-slate-200/60 dark:border-slate-800/60 group/cardimg">
                     <img
-                      src={product.image}
+                      src={currentImg}
                       alt={displayTitle}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       loading="lazy"
                     />
 
                     {/* Top-Left Dark Pill Badge */}
-                    <div className="absolute top-3.5 left-3.5 rtl:left-auto rtl:right-3.5 z-10">
+                    <div className="absolute top-3.5 left-3.5 rtl:left-auto rtl:right-3.5 z-10 flex items-center gap-1.5">
                       <span className="px-3 py-1 rounded-full bg-[#0A1428]/90 text-white text-[10px] font-bold tracking-wider uppercase shadow-xs backdrop-blur-xs">
                         {badgeText}
                       </span>
                     </div>
+
+                    {/* Photo Counter Pill (Center Top on hover/touch) */}
+                    {cardGallery.length > 1 && (
+                      <div className="absolute top-3.5 left-1/2 -translate-x-1/2 z-10 px-2.5 py-0.5 rounded-full bg-[#0A1428]/85 backdrop-blur-xs text-white text-[10px] font-mono flex items-center gap-1 border border-white/10 shadow-xs">
+                        <Camera className="w-3 h-3 text-[#D4AF37]" />
+                        <span>{(currentImgIdx % cardGallery.length) + 1}/{cardGallery.length}</span>
+                      </div>
+                    )}
 
                     {/* Top-Right Wishlist Heart Button */}
                     <button
@@ -188,7 +228,73 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                         }`}
                       />
                     </button>
+
+                    {/* Prev/Next Flip Buttons on Card (Visible on card hover) */}
+                    {cardGallery.length > 1 && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={(e) => isRtl ? handleNextImage(e, product.id, cardGallery.length) : handlePrevImage(e, product.id, cardGallery.length)}
+                          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-xs shadow-md border border-white/20 opacity-0 group-hover:opacity-100 transition-all cursor-pointer hover:scale-105"
+                          aria-label="Previous photo"
+                        >
+                          <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={(e) => isRtl ? handlePrevImage(e, product.id, cardGallery.length) : handleNextImage(e, product.id, cardGallery.length)}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-xs shadow-md border border-white/20 opacity-0 group-hover:opacity-100 transition-all cursor-pointer hover:scale-105"
+                          aria-label="Next photo"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+
+                        {/* Interactive Pagination Dots at bottom of card image */}
+                        <div className="absolute bottom-2 inset-x-0 flex items-center justify-center gap-1.5 z-20 pointer-events-auto">
+                          {cardGallery.map((_, dotIdx) => {
+                            const isDotActive = (currentImgIdx % cardGallery.length) === dotIdx;
+                            return (
+                              <button
+                                key={dotIdx}
+                                type="button"
+                                onClick={(e) => handleSelectCardImage(e, product.id, dotIdx)}
+                                className={`transition-all duration-300 cursor-pointer ${
+                                  isDotActive
+                                    ? 'w-4 h-1.5 bg-[#D4AF37] rounded-full shadow-xs'
+                                    : 'w-1.5 h-1.5 bg-white/70 hover:bg-white rounded-full'
+                                }`}
+                                aria-label={`View angle ${dotIdx + 1}`}
+                              />
+                            );
+                          })}
+                        </div>
+                      </>
+                    )}
                   </div>
+
+                  {/* Thumbnail Row On Card */}
+                  {cardGallery.length > 1 && (
+                    <div className="flex items-center gap-1.5 mb-3.5 px-0.5 overflow-x-auto no-scrollbar py-0.5">
+                      {cardGallery.map((thumbUrl, tIdx) => {
+                        const isThumbActive = (currentImgIdx % cardGallery.length) === tIdx;
+                        return (
+                          <button
+                            key={tIdx}
+                            type="button"
+                            onClick={(e) => handleSelectCardImage(e, product.id, tIdx)}
+                            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg overflow-hidden shrink-0 transition-all cursor-pointer ${
+                              isThumbActive
+                                ? 'ring-2 ring-[#D4AF37] border-2 border-[#D4AF37] scale-105 opacity-100 shadow-xs'
+                                : 'border border-slate-200 dark:border-slate-800 opacity-60 hover:opacity-100 hover:border-[#D4AF37]/50'
+                            }`}
+                            title={`${displayTitle} - Angle ${tIdx + 1}`}
+                          >
+                            <img src={thumbUrl} alt="" className="w-full h-full object-cover object-center" />
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
 
                   {/* Middle Area: Title + Subtitle + View Details (Rating removed as requested) */}
                   <div className="text-left rtl:text-right px-0.5">

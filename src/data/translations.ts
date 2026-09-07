@@ -562,7 +562,7 @@ export const translations: { en: TranslationDictionary; fa: TranslationDictionar
   },
   fa: {
     nav: {
-      home: 'خانه',
+      home: 'صفحه اصلی',
       collection: 'محصولات',
       craft: 'کیفیت و ساختار',
       materials: 'مواد ساخت',

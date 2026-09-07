@@ -8,7 +8,8 @@ import {
   Facebook,
   Instagram,
   Youtube,
-  ArrowUpRight
+  ArrowUpRight,
+  FileDown
 } from 'lucide-react';
 import { RoshnaLogo } from './RoshnaLogo';
 import { RoshnaEmblem } from './RoshnaEmblem';
@@ -39,7 +40,12 @@ export const NewsletterAndFooter: React.FC = () => {
     { label: isRtl ? 'رهنمای نصب و لین‌دوانی' : 'Installation Guide', href: '#craft' },
     { label: isRtl ? 'شرایط تضمین ۱۰ ساله' : 'Warranty', href: '#faq' },
     { label: isRtl ? 'سوالات متداول (FAQs)' : 'FAQs', href: '#faq' },
-    { label: isRtl ? 'معلومات در واتس‌اپ' : 'Download Catalog', href: ROSHNA_CONTACT_INFO.whatsappUrl, isExternal: true }
+    { 
+      label: isRtl ? 'دانلود کاتالوگ (PDF)' : 'Download Catalog', 
+      href: '/catalog.pdf', 
+      isExternal: true,
+      download: 'roshna-catalog.pdf'
+    }
   ];
 
   return (
@@ -144,8 +150,17 @@ export const NewsletterAndFooter: React.FC = () => {
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300">
               {supportLinks.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="hover:text-[#D4AF37] transition-colors inline-block font-sans">
-                    {item.label}
+                  <a
+                    href={item.href}
+                    target={item.isExternal ? '_blank' : undefined}
+                    rel={item.isExternal ? 'noopener noreferrer' : undefined}
+                    download={item.download || undefined}
+                    className="hover:text-[#D4AF37] transition-colors inline-flex items-center gap-1.5 font-sans group"
+                  >
+                    <span>{item.label}</span>
+                    {item.download && (
+                      <FileDown className="w-3.5 h-3.5 text-[#D4AF37] opacity-80 group-hover:opacity-100 group-hover:translate-y-0.5 transition-transform" />
+                    )}
                   </a>
                 </li>
               ))}

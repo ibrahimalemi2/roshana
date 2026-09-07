@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Check, ShoppingBag, CheckCircle2, Zap, SlidersHorizontal, Gem } from 'lucide-react';
+import { X, Check, ShoppingBag, CheckCircle2, Zap, SlidersHorizontal, Gem, ChevronLeft, ChevronRight, Camera } from 'lucide-react';
 import { Product } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -17,11 +17,15 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
   const { t, isRtl } = useLanguage();
 
   const [isAdded, setIsAdded] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  const gallery = product?.gallery && product.gallery.length > 0 ? product.gallery : (product ? [product.image] : []);
 
   // Sync state whenever the active product opens
   useEffect(() => {
     if (product) {
       setIsAdded(false);
+      setActiveImageIndex(0);
     }
   }, [product]);
 
@@ -33,6 +37,16 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
   const productDescription = localizedProduct?.description || product.description;
   const productFeatures = localizedProduct?.features || product.features || [];
   const isSocket = product.id === 'roshna-soc-01';
+
+  const handlePrev = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setActiveImageIndex((prev) => (prev - 1 + gallery.length) % gallery.length);
+  };
+
+  const handleNext = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setActiveImageIndex((prev) => (prev + 1) % gallery.length);
+  };
 
   const handleAdd = () => {
     onAddToCart(product, product.colorOptions[0]?.name || 'Standard');
@@ -64,15 +78,89 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
           <X className="w-4 h-4" />
         </button>
 
-        {/* Product Visual Column */}
-        <div className="bg-[#F8FAFC] dark:bg-[#050814] p-6 flex flex-col justify-center items-center border-b md:border-b-0 md:border-r rtl:md:border-r-0 rtl:md:border-l border-[#E2E8F0] dark:border-[#1E293B]">
-          <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-white dark:bg-[#0A1128] shadow-xs border border-[#E2E8F0] dark:border-[#1E293B]">
+        {/* Product Visual Column with Thumbnail Gallery Strip */}
+        <div className="bg-[#F8FAFC] dark:bg-[#050814] p-5 sm:p-6 flex flex-col justify-start items-center border-b md:border-b-0 md:border-r rtl:md:border-r-0 rtl:md:border-l border-[#E2E8F0] dark:border-[#1E293B]">
+          {/* Main Visual Stage */}
+          <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-white dark:bg-[#0A1128] shadow-sm border border-[#E2E8F0] dark:border-[#1E293B] group">
             <img
-              src={product.image}
-              alt={productName}
-              className="w-full h-full object-cover object-center"
+              src={gallery[activeImageIndex] || product.image}
+              alt={`${productName} - View ${activeImageIndex + 1}`}
+              className="w-full h-full object-cover object-center transition-all duration-300"
             />
+
+            {/* Photo Counter Pill */}
+            {gallery.length > 1 && (
+              <div className="absolute top-3 left-3 rtl:left-auto rtl:right-3 z-10 px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-md text-white text-[11px] font-mono font-medium flex items-center gap-1.5 shadow-sm border border-white/15">
+                <Camera className="w-3.5 h-3.5 text-[#D4AF37]" />
+                <span>{activeImageIndex + 1} / {gallery.length}</span>
+              </div>
+            )}
+
+            {/* Next / Prev Navigation Chevrons on Main Image */}
+            {gallery.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={isRtl ? handleNext : handlePrev}
+                  className="absolute left-2.5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 dark:bg-[#0A1128]/90 text-[#0A1128] dark:text-white hover:bg-white dark:hover:bg-[#0A1128] hover:text-[#D4AF37] flex items-center justify-center backdrop-blur-xs shadow-md border border-slate-200/80 dark:border-slate-700/80 transition-all cursor-pointer opacity-85 hover:opacity-100 hover:scale-105"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={isRtl ? handlePrev : handleNext}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/90 dark:bg-[#0A1128]/90 text-[#0A1128] dark:text-white hover:bg-white dark:hover:bg-[#0A1128] hover:text-[#D4AF37] flex items-center justify-center backdrop-blur-xs shadow-md border border-slate-200/80 dark:border-slate-700/80 transition-all cursor-pointer opacity-85 hover:opacity-100 hover:scale-105"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </>
+            )}
           </div>
+
+          {/* Thumbnail Strip Gallery - Directly in the space circled in red */}
+          {gallery.length > 1 && (
+            <div className="w-full mt-3.5 space-y-1.5">
+              <div className="flex items-center justify-between text-[11px] font-semibold text-slate-500 dark:text-slate-400 px-0.5">
+                <span className="text-slate-600 dark:text-slate-300">
+                  {isRtl ? 'تمام زوایا و دیزاین‌ها' : 'All Angles & Perspectives'}
+                </span>
+                <span className="font-mono text-[#D4AF37] text-[10px] bg-[#D4AF37]/10 dark:bg-[#D4AF37]/20 px-2 py-0.5 rounded-md border border-[#D4AF37]/30">
+                  {gallery.length} {isRtl ? 'تصویر' : 'Photos'}
+                </span>
+              </div>
+
+              {/* Horizontal Scrollable Thumbnails Strip */}
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-0.5 px-0.5 scroll-smooth no-scrollbar">
+                {gallery.map((imgUrl, idx) => {
+                  const isActive = activeImageIndex === idx;
+                  return (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setActiveImageIndex(idx)}
+                      className={`relative shrink-0 w-13 h-13 sm:w-14 sm:h-14 rounded-xl overflow-hidden cursor-pointer transition-all duration-200 ${
+                        isActive
+                          ? 'ring-2 ring-[#D4AF37] border-2 border-[#D4AF37] shadow-md scale-105 opacity-100'
+                          : 'border border-slate-200 dark:border-slate-800 opacity-60 hover:opacity-100 hover:border-[#D4AF37]/60'
+                      }`}
+                      title={`${productName} view ${idx + 1}`}
+                    >
+                      <img
+                        src={imgUrl}
+                        alt=""
+                        className="w-full h-full object-cover object-center"
+                      />
+                      {isActive && (
+                        <div className="absolute inset-0 bg-[#D4AF37]/10 pointer-events-none" />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Product Details Column */}
