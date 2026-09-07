@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Search, Menu, X, ArrowRight, Sparkles, Play, Sun, Moon, Globe } from 'lucide-react';
+import { ShoppingBag, Search, Menu, X, ArrowRight, Sparkles, Play, Sun, Moon, Globe, FileDown } from 'lucide-react';
 import { CartItem } from '../types';
 import { RoshnaLogo } from './RoshnaLogo';
 import { RoshnaEmblem } from './RoshnaEmblem';
@@ -48,6 +48,18 @@ export const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock background body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { label: t.nav.home, target: 'hero' },
     { label: t.nav.collection, target: 'collection' },
@@ -65,12 +77,12 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-40 w-full transition-all duration-300 select-none shadow-xs">
-      {/* 0. Top Utility Bar (Matching Reference Flyer: Deep Navy #0A1428) */}
-      <div className="bg-[#0A1428] text-white text-[11px] py-1.5 px-4 sm:px-6 lg:px-10 border-b border-white/10 flex items-center justify-between">
-        <div className="flex items-center gap-2 uppercase tracking-wider text-[#D4AF37] font-semibold text-[10px] sm:text-[11px]">
+      {/* 0. Top Utility Bar (Deep Navy #0A1428) */}
+      <div className="bg-[#0A1428] text-white text-[11px] py-1.5 px-3 sm:px-6 lg:px-10 border-b border-white/10 flex items-center justify-between overflow-hidden">
+        <div className="flex items-center gap-2 uppercase tracking-wider text-[#D4AF37] font-semibold text-[10px] sm:text-[11px] truncate">
           <span>{isRtl ? 'به روشنا ولت خوش آمدید — سویچ و ساکت با کیفیت عالی' : 'WELCOME TO ROSHNA VOLT — SWITCH TO QUALITY'}</span>
         </div>
-        <div className="hidden sm:flex items-center gap-3 text-slate-300 uppercase tracking-widest text-[10px]">
+        <div className="hidden sm:flex items-center gap-3 text-slate-300 uppercase tracking-widest text-[10px] flex-shrink-0">
           <span>{isRtl ? 'کیفیت' : 'Quality'}</span>
           <span className="text-white/30">|</span>
           <span>{isRtl ? 'مصئونیت' : 'Safety'}</span>
@@ -90,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({
               : 'bg-white border-b border-[#E2E8F0] text-[#0A1428]'
           }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-20 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-10 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
 
           {/* 1. Left Logo Brand Cluster */}
           <div className="flex items-center flex-shrink-0">
@@ -100,11 +112,11 @@ export const Header: React.FC<HeaderProps> = ({
               aria-label="Roshna Home"
             >
               {/* Primary Wordmark */}
-              <div className="h-8 sm:h-9 flex items-center flex-shrink-0">
+              <div className="h-7 sm:h-9 flex items-center flex-shrink-0">
                 <img
                   src={isDark ? '/assets/roshna-logo-1024-white.png' : '/assets/roshna-logo-1024.png'}
                   alt="ROSHNA"
-                  className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="h-7 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                   loading="eager"
                   decoding="async"
                 />
@@ -112,7 +124,7 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </div>
 
-          {/* 2. Centered Navigation Links (Bold Sans-Serif Uppercase Matching Reference) */}
+          {/* 2. Centered Navigation Links (Desktop) */}
           <div className="hidden md:flex items-center gap-5 lg:gap-7 xl:gap-8 flex-shrink-0">
             {navLinks.map((link) => {
               const isActive = activeSection === link.target;
@@ -124,7 +136,7 @@ export const Header: React.FC<HeaderProps> = ({
                       ? 'text-[#0A1428] dark:text-[#D4AF37]'
                       : isDark
                         ? 'text-slate-300 hover:text-[#D4AF37]'
-                        : 'text-[#0A1428]/85 hover:text-[#0A1428]'
+                        : 'text-[#0A1128]/85 hover:text-[#0A1128]'
                     }`}
                 >
                   <span>{link.label}</span>
@@ -137,13 +149,13 @@ export const Header: React.FC<HeaderProps> = ({
             })}
           </div>
 
-          {/* 3. Right Action Icons & WhatsApp Button */}
-          <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
+          {/* 3. Right Action Icons & Mobile Controls */}
+          <div className="flex items-center gap-1 sm:gap-2 lg:gap-2.5 flex-shrink-0">
 
             {/* BRAND DARK MODE TOGGLE */}
             <button
               onClick={toggleTheme}
-              className={`relative inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full border transition-all duration-300 flex-shrink-0 cursor-pointer select-none group ${isDark
+              className={`relative inline-flex items-center gap-1.5 p-2 sm:px-3 sm:py-1.5 rounded-full border transition-all duration-300 flex-shrink-0 cursor-pointer select-none group ${isDark
                   ? 'bg-[#0E1838] border-[#D4AF37]/50 text-[#D4AF37] hover:bg-[#14224D] shadow-sm shadow-[#D4AF37]/15'
                   : 'bg-white border-[#E2E8F0] text-[#0A1128] hover:border-[#D4AF37] hover:text-[#D4AF37] shadow-xs'
                 }`}
@@ -165,7 +177,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* DUAL LANGUAGE TOGGLE (EN / FA) */}
             <button
               onClick={toggleLanguage}
-              className={`relative inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full border transition-all duration-300 flex-shrink-0 cursor-pointer select-none group ${isDark
+              className={`relative inline-flex items-center gap-1 px-2 py-1.5 sm:px-3 sm:py-1.5 rounded-full border transition-all duration-300 flex-shrink-0 cursor-pointer select-none group ${isDark
                   ? 'bg-[#0E1838] border-[#D4AF37]/40 text-[#D4AF37] hover:bg-[#14224D] shadow-xs'
                   : 'bg-white border-[#E2E8F0] text-[#0A1128] hover:border-[#D4AF37] hover:text-[#D4AF37] shadow-xs'
                 }`}
@@ -173,50 +185,50 @@ export const Header: React.FC<HeaderProps> = ({
               title={language === 'en' ? 'تغییر زبان به دری' : 'Switch to English'}
             >
               <Globe className="w-3.5 h-3.5 text-[#D4AF37] group-hover:rotate-45 transition-transform duration-300" />
-              <span className="text-[11px] font-bold tracking-wider uppercase">
+              <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase">
                 {language === 'en' ? 'دری' : 'EN'}
               </span>
             </button>
 
-            {/* Search Trigger */}
+            {/* Search Trigger (Hidden on tiny screens, accessible in drawer) */}
             <button
               onClick={onOpenSearch}
-              className={`p-2 sm:p-2.5 rounded-full transition-colors flex-shrink-0 cursor-pointer ${isDark
+              className={`p-2 sm:p-2.5 rounded-full transition-colors hidden xs:flex items-center justify-center flex-shrink-0 cursor-pointer ${isDark
                   ? 'text-white hover:bg-[#0E1838] hover:text-[#D4AF37]'
                   : 'text-[#0A1128] hover:bg-[#F8FAFC] hover:text-[#D4AF37]'
                 }`}
               aria-label="Search collection"
               title="Search collection"
             >
-              <Search className="w-4.5 h-4.5" />
+              <Search className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
             </button>
 
             {/* Shopping Bag Trigger */}
             <button
               onClick={onOpenCart}
-              className={`relative p-2 sm:p-2.5 rounded-full transition-colors flex items-center flex-shrink-0 cursor-pointer ${isDark
+              className={`relative p-2 sm:p-2.5 rounded-full transition-colors flex items-center justify-center flex-shrink-0 cursor-pointer ${isDark
                   ? 'text-white hover:bg-[#0E1838] hover:text-[#D4AF37]'
                   : 'text-[#0A1128] hover:bg-[#F8FAFC] hover:text-[#D4AF37]'
                 }`}
               aria-label="Shopping bag"
               title="Shopping bag"
             >
-              <ShoppingBag className="w-4.5 h-4.5" />
+              <ShoppingBag className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
               {totalCartCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 bg-[#0A1128] text-[#D4AF37] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#D4AF37] shadow-xs">
+                <span className="absolute -top-0.5 -right-0.5 rtl:-left-0.5 rtl:right-auto bg-[#0A1128] text-[#D4AF37] text-[10px] font-bold w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full flex items-center justify-center border-2 border-[#D4AF37] shadow-xs">
                   {totalCartCount}
                 </span>
               )}
             </button>
 
-            {/* WhatsApp Direct Client Button (Matching Reference Flyer: Solid Deep Navy Button) */}
+            {/* WhatsApp Direct Client Button (Desktop / Tablet) */}
             <a
               href={isRtl
                 ? "https://wa.me/93780880007?text=سلام%20روشنا%20ولت،%20مایل%20به%20دریافت%20معلومات%20در%20مورد%20سویچ‌ها%20و%20ساکت‌ها%20هستم."
                 : "https://wa.me/93780880007?text=Hello%20Roshna%20Volt,%20I%20would%20like%20to%20inquire%20about%20your%20switches%20and%20sockets%20collection."}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-bold tracking-wider uppercase px-3.5 py-2.5 rounded-lg bg-[#0A1428] text-white hover:bg-[#14224D] transition-all shadow-xs hover:shadow-md whitespace-nowrap flex-shrink-0 cursor-pointer group"
+              className="hidden md:inline-flex items-center gap-2 text-xs font-bold tracking-wider uppercase px-3.5 py-2 rounded-lg bg-[#0A1428] text-white hover:bg-[#14224D] transition-all shadow-xs hover:shadow-md whitespace-nowrap flex-shrink-0 cursor-pointer group"
               title="Chat with Roshna on WhatsApp"
               aria-label="Chat on WhatsApp"
             >
@@ -227,114 +239,178 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Hamburger Menu Toggle (Mobile & Tablet) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 sm:p-2.5 rounded-full transition-colors md:hidden focus:outline-none flex-shrink-0 cursor-pointer ${isDark
-                  ? 'text-white hover:bg-[#0E1838]'
-                  : 'text-[#0A1128] hover:bg-[#F8FAFC]'
+              className={`p-2 sm:p-2.5 rounded-full transition-colors md:hidden focus:outline-none flex-shrink-0 cursor-pointer border ${isDark
+                  ? 'bg-[#0E1838] border-[#1E293B] text-white hover:border-[#D4AF37]/50'
+                  : 'bg-white border-[#E2E8F0] text-[#0A1128] hover:border-[#D4AF37]'
                 }`}
-              aria-label="Toggle menu"
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-[#D4AF37]" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu - Full Screen Luxury Overlay */}
       {mobileMenuOpen && (
         <div
-          className={`fixed inset-0 top-[80px] z-50 border-t md:hidden flex flex-col justify-between p-6 sm:p-8 animate-fadeIn overflow-y-auto ${isDark
-              ? 'bg-[#0A1128] border-[#1E293B] text-white'
-              : 'bg-[#F8FAFC] border-[#E2E8F0] text-[#0A1128]'
-            }`}
+          dir={isRtl ? 'rtl' : 'ltr'}
+          className={`fixed inset-0 z-50 md:hidden flex flex-col justify-between animate-fadeIn select-none ${
+            isDark ? 'bg-[#0A1128] text-white' : 'bg-white text-[#0A1128]'
+          }`}
         >
-          <div className="flex flex-col space-y-6 pt-2">
-            <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0]/50 dark:border-[#1E293B]">
+          {/* Top Bar inside Mobile Drawer */}
+          <div className={`px-4 sm:px-6 h-16 border-b flex items-center justify-between ${
+            isDark ? 'border-[#1E293B] bg-[#070D1E]' : 'border-[#E2E8F0] bg-[#F8FAFC]'
+          }`}>
+            <button
+              onClick={() => handleLinkClick('hero')}
+              className="flex items-center gap-2 focus:outline-none cursor-pointer"
+            >
+              <img
+                src={isDark ? '/assets/roshna-logo-1024-white.png' : '/assets/roshna-logo-1024.png'}
+                alt="ROSHNA"
+                className="h-7 w-auto object-contain"
+              />
+            </button>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className={`w-9 h-9 rounded-full flex items-center justify-center border transition-colors cursor-pointer ${
+                isDark
+                  ? 'bg-[#0E1838] border-[#1E293B] text-white hover:text-[#D4AF37]'
+                  : 'bg-white border-[#E2E8F0] text-[#0A1128] hover:text-[#D4AF37]'
+              }`}
+              aria-label="Close menu"
+            >
+              <X className="w-5 h-5 text-[#D4AF37]" />
+            </button>
+          </div>
+
+          {/* Scrollable Nav Links & Actions */}
+          <div className="flex-1 overflow-y-auto p-5 sm:p-6 space-y-6">
+            {/* Quick Preferences Bar inside Drawer */}
+            <div className={`p-3 rounded-2xl border flex items-center justify-between ${
+              isDark ? 'bg-[#0E1838]/80 border-[#1E293B]' : 'bg-[#F1F5F9] border-[#E2E8F0]'
+            }`}>
               <div className="flex items-center gap-2">
-                <RoshnaEmblem className="w-6 h-6" />
-                <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-[#D4AF37]">
-                  {isRtl ? 'روشنا ولت • سویچ و ساکت عصری' : 'Roshna Volt Hardware'}
+                <RoshnaEmblem className="w-5 h-5" />
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF37]">
+                  {isRtl ? 'روشنا ولت' : 'Roshna Volt'}
                 </span>
               </div>
-              <div className="flex items-center gap-3">
-                {/* Mobile Dark Mode Toggle */}
+              <div className="flex items-center gap-2">
+                {/* Theme Toggle */}
                 <button
                   onClick={toggleTheme}
-                  className={`p-1.5 rounded-full border text-xs flex items-center gap-1.5 px-2.5 ${isDark
-                      ? 'bg-[#0E1838] border-[#D4AF37]/40 text-[#D4AF37]'
+                  className={`p-1.5 rounded-full border text-xs flex items-center gap-1 px-2.5 cursor-pointer ${
+                    isDark
+                      ? 'bg-[#0A1128] border-[#D4AF37]/40 text-[#D4AF37]'
                       : 'bg-white border-[#E2E8F0] text-[#0A1128]'
-                    }`}
+                  }`}
                 >
                   {isDark ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
                   <span className="text-[10px] font-semibold">{isDark ? t.nav.lightMode : t.nav.darkMode}</span>
                 </button>
 
-                {/* Mobile Language Toggle */}
+                {/* Language Toggle */}
                 <button
                   onClick={toggleLanguage}
-                  className={`p-1.5 rounded-full border text-xs flex items-center gap-1.5 px-2.5 ${isDark
-                      ? 'bg-[#0E1838] border-[#D4AF37]/40 text-[#D4AF37]'
+                  className={`p-1.5 rounded-full border text-xs flex items-center gap-1 px-2.5 cursor-pointer ${
+                    isDark
+                      ? 'bg-[#0A1128] border-[#D4AF37]/40 text-[#D4AF37]'
                       : 'bg-white border-[#E2E8F0] text-[#0A1128]'
-                    }`}
-                  title={language === 'en' ? 'تغییر به دری' : 'Switch to English'}
+                  }`}
                 >
                   <Globe className="w-3.5 h-3.5 text-[#D4AF37]" />
                   <span className="text-[10px] font-bold uppercase">{language === 'en' ? 'دری' : 'EN'}</span>
                 </button>
-
-                {onReplaySplash && (
-                  <button
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      onReplaySplash();
-                    }}
-                    className="text-[11px] text-[#D4AF37] font-semibold flex items-center gap-1 cursor-pointer"
-                  >
-                    <Play className="w-3 h-3 fill-current" />
-                    <span>Intro</span>
-                  </button>
-                )}
               </div>
             </div>
 
-            {navLinks.map((link) => (
+            {/* Navigation Links with RTL / LTR alignment */}
+            <div className="space-y-1.5">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.target;
+                return (
+                  <button
+                    key={link.target}
+                    onClick={() => handleLinkClick(link.target)}
+                    className={`w-full py-3 px-4 rounded-xl text-left rtl:text-right font-serif-heading text-xl sm:text-2xl flex items-center justify-between transition-all cursor-pointer ${
+                      isActive
+                        ? 'bg-[#D4AF37]/15 text-[#D4AF37] font-bold'
+                        : isDark
+                          ? 'text-slate-200 hover:bg-white/5 hover:text-[#D4AF37]'
+                          : 'text-[#0A1128] hover:bg-slate-100 hover:text-[#D4AF37]'
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    <ArrowRight className={`w-4 h-4 text-[#D4AF37] transition-transform ${
+                      isRtl ? 'rotate-180' : ''
+                    } ${isActive ? 'opacity-100' : 'opacity-40'}`} />
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Action Buttons in Drawer */}
+            <div className="space-y-2.5 pt-2">
+              {/* Search Button */}
               <button
-                key={link.target}
-                onClick={() => handleLinkClick(link.target)}
-                className={`text-left font-serif-heading text-2xl hover:text-[#D4AF37] transition-colors flex items-center justify-between group cursor-pointer ${isDark ? 'text-white' : 'text-[#0A1128]'
-                  }`}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenSearch();
+                }}
+                className={`w-full py-3 px-4 rounded-xl border flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  isDark
+                    ? 'border-[#1E293B] bg-[#0E1838] text-white hover:border-[#D4AF37]/60'
+                    : 'border-[#E2E8F0] bg-white text-[#0A1128] hover:border-[#D4AF37]'
+                }`}
               >
-                <span>{link.label}</span>
-                <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all text-[#D4AF37]" />
+                <Search className="w-4 h-4 text-[#D4AF37]" />
+                <span>{isRtl ? 'جستجوی محصولات و مدل‌ها' : 'Search Electrical Catalog'}</span>
               </button>
-            ))}
+
+              {/* Download Catalog PDF Button */}
+              <a
+                href="/catalog.pdf"
+                download="roshna-catalog.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full py-3 px-4 rounded-xl border flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  isDark
+                    ? 'border-[#D4AF37]/40 bg-[#D4AF37]/10 text-[#D4AF37] hover:bg-[#D4AF37]/20'
+                    : 'border-[#D4AF37]/50 bg-[#D4AF37]/10 text-[#0A1128] hover:bg-[#D4AF37]/20'
+                }`}
+              >
+                <FileDown className="w-4 h-4 text-[#D4AF37]" />
+                <span>{isRtl ? 'دانلود کاتالوگ رسمی (PDF)' : 'Download Catalog (PDF)'}</span>
+              </a>
+
+              {/* WhatsApp Button */}
+              <a
+                href={isRtl
+                  ? "https://wa.me/93780880007?text=سلام%20روشنا%20ولت،%20مایل%20به%20دریافت%20معلومات%20در%20مورد%20سویچ‌ها%20و%20ساکت‌ها%20هستم."
+                  : "https://wa.me/93780880007?text=Hello%20Roshna%20Volt,%20I%20would%20like%20to%20inquire%20about%20your%20switches%20and%20sockets%20collection."}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 px-4 rounded-xl bg-[#25D366] text-white font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-[#20bd5a] transition-colors shadow-sm cursor-pointer"
+              >
+                <WhatsAppIcon className="w-4 h-4 fill-current" />
+                <span>{isRtl ? 'گفتگو در واتس‌اپ' : 'Chat on WhatsApp'}</span>
+              </a>
+            </div>
           </div>
 
-          <div className="border-t border-[#E2E8F0]/50 dark:border-[#1E293B] pt-6 space-y-3">
-            <div className="text-xs text-slate-400 font-sans-body">
-              <p className="font-semibold text-[#D4AF37]">{isRtl ? 'روشنا ولت • سویچ و ساکت‌های ساختمانی' : 'Roshna Volt Hardware'}</p>
-              <p>{isRtl ? 'سازگار با قوطی‌های معیاری ۸۶ میلی‌متری • کیفیت عالی و مصئونیت مطمئن' : 'Compatible with standard 86mm wall boxes • Safe and durable'}</p>
-            </div>
-            <a
-              href={isRtl
-                ? "https://wa.me/93780880007?text=سلام%20روشنا%20ولت،%20مایل%20به%20دریافت%20معلومات%20در%20مورد%20سویچ‌ها%20و%20ساکت‌ها%20هستم."
-                : "https://wa.me/93780880007?text=Hello%20Roshna%20Volt,%20I%20would%20like%20to%20inquire%20about%20your%20switches%20and%20sockets%20collection."}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3.5 px-4 rounded-full border border-[#25D366]/50 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366] hover:text-[#0A1128] font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors shadow-xs cursor-pointer"
-            >
-              <WhatsAppIcon className="w-4 h-4 fill-current" />
-              <span>Chat on WhatsApp</span>
-            </a>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenSearch();
-              }}
-              className="w-full py-3.5 px-4 btn-gold-gradient text-[#0A1128] font-bold rounded-full text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
-            >
-              <Search className="w-4 h-4" />
-              <span>Search Electrical Catalog</span>
-            </button>
+          {/* Drawer Footer Contact Bar */}
+          <div className={`p-4 border-t text-center text-xs space-y-1 ${
+            isDark ? 'border-[#1E293B] bg-[#070D1E] text-slate-400' : 'border-[#E2E8F0] bg-[#F8FAFC] text-slate-500'
+          }`}>
+            <p className="font-semibold text-[#D4AF37]">
+              {isRtl ? 'روشنا ولت — سویچ و ساکت ساختمانی' : 'Roshna Volt Hardware'}
+            </p>
+            <p className="text-[11px]">
+              {isRtl ? 'تماس: ۰۰۷ ۸۸۰۰۰ ۰۷۸ | کابل، چهارراهی لب‌جر' : 'Phone: +93 780 88000 7 | Kabul, Afghanistan'}
+            </p>
           </div>
         </div>
       )}
